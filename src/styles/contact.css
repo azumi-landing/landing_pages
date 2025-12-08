@@ -1,0 +1,188 @@
+/* --- ESTILOS DEL FONDO DE LA SECCIÓN --- */
+.contact-page-two {
+    background-color: #1E3A8A; /* Azul muy claro */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- TARJETA PRINCIPAL --- */
+.contact-card-two {
+    display: flex;
+    max-width: 900px;
+    width: 90%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    position: relative;
+}
+
+/* --- BARRA LATERAL AZUL (INFO-SIDEBAR) --- */
+.info-sidebar {
+    width: 320px;
+    min-height: 500px;
+    /* Mantener la sombra y sobresalir */
+    transform: translateX(-30px);
+    border-radius: 10px;
+    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+    background-color: #0d47a1;
+    color: white;
+
+    /* Ajuste de padding interno para que el contenido no se salga */
+    padding: 10rem 50px 50px 75px;
+    box-sizing: border-box;
+}
+
+/* Título */
+.info-sidebar h2 {
+    font-size: 2.6em;
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Items de contacto */
+.contact-detail-item {
+    margin-bottom: 25px;
+}
+
+.contact-text .label {
+    font-size: 0.85em;
+    color: #b3cde0; 
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.contact-text .value {
+    font-size: 1em;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.contact-text .value a {
+    color: #ffffff;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.contact-text .value a:hover {
+    color: #4fc3f7;
+}
+
+/* --- FORMULARIO --- */
+.form-area-two {
+    flex-grow: 1;
+    padding: 60px 50px 60px 30px;
+    background-color: #ffffff;
+    z-index: 1;
+}
+
+.form-area-two h3 {
+    font-size: 2em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.form-instruction {
+    color: #777;
+    margin-bottom: 30px;
+    font-size: 0.95em;
+}
+
+.clean-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group-two {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group-two label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+.form-group-two input,
+.form-group-two textarea {
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    font-size: 1em;
+    color: #333;
+    transition: border-bottom-color 0.3s;
+}
+
+.form-group-two input:focus,
+.form-group-two textarea:focus {
+    border-bottom-color: #007bff;
+    outline: none;
+}
+
+.form-group-two input::placeholder,
+.form-group-two textarea::placeholder {
+    color: #bbb;
+    font-size: 0.9em;
+}
+
+.form-group-two textarea {
+    resize: none;
+    line-height: 1.5;
+}
+
+/* --- BOTÓN DE ENVÍO --- */
+.send-button-two {
+    align-self: flex-start;
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #007bff, #4fc3f7);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 8px 15px rgba(0, 123, 255, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.send-button-two:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.6);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 800px) {
+    .contact-card-two {
+        flex-direction: column;
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .info-sidebar {
+        width: 100%;
+        min-height: auto;
+        transform: none;
+        border-radius: 10px 10px 0 0;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        padding: 30px 20px;
+    }
+
+    .form-area-two {
+        padding: 40px 20px;
+    }
+}

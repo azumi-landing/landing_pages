@@ -1,0 +1,38 @@
+---
+// Importas tus componentes aquí
+import '../styles/navbas.css';
+---
+
+<nav class="navbar">
+  <div class="container">
+    <a href="/" class="logo"><img src="/logins.png" alt=""></a>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#casos-exitos">Casos de Éxito</a></li>
+      <li><a href="#portafolio">Portafolio</a></li>
+      <li><a href="#sobre-mi">Sobre mi</a></li>
+      <li><a href="#investigacion">Investigación</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  
+</nav>
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+
+

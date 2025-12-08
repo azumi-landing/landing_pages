@@ -1,0 +1,127 @@
+/* --- Estilos de la Sección General --- */
+.research-carousel-section {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #F1F5F9;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.research-carousel-section h2 {
+    font-size: 2.7rem;
+    font-weight: 800;
+    color: #1E3A8A;  /* Azul fuerte profesional */
+    margin-bottom: 20px;
+}
+
+/* --- Contenedor del Carrusel (Viewport) --- */
+.slider-wrapper {
+    max-width: 90%;
+    margin: 0 auto;
+    overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
+}
+
+/* --- Contenedor de las Tarjetas (Lista Deslizable) --- */
+.slider-container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory; /* Fuerza a detenerse en las tarjetas */
+    -webkit-overflow-scrolling: touch; /* Mejor desplazamiento en iOS */
+    scroll-behavior: smooth; /* Permite el desplazamiento suave de JavaScript */
+    gap: 20px;
+    padding-bottom: 20px; /* Espacio para la sombra */
+}
+
+/* Ocultar barra de desplazamiento en Chrome/Safari/Edge */
+.slider-container::-webkit-scrollbar {
+    display: none;
+}
+.slider-container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* --- Estilos de la Tarjeta Individual --- */
+.card {
+    min-width: 300px; /* Tamaño base de cada tarjeta */
+    flex: 0 0 auto; /* No crecer ni encoger, tamaño fijo */
+    scroll-snap-align: start; /* El punto de parada es el inicio de la tarjeta */
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card-icon {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #1E3A8A;
+}
+
+.card h3 {
+    font-size: 1.4em;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.card p {
+    color: #555;
+    font-size: 0.9em;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.keyword {
+    display: inline-block;
+    background-color: #e6f0ff;
+    color: #007bff;
+    padding: 10px 8px;
+    border-radius: 5px;
+    font-size: 0.75em;
+    font-weight: 600;
+    margin-right: 5px;
+    display: flex;
+    position: relative;
+}
+
+.botones{
+    display: flex;
+}
+
+
+
+/* --- Puntos de Navegación (Dots) --- */
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: #007bff;
+}
+
+/* Responsive: Mostrar menos tarjetas en pantallas pequeñas */
+@media (max-width: 768px) {
+    .card {
+        min-width: 80%; /* Ocupa más espacio para ver una sola a la vez */
+        margin: 0 10%;
+    }
+}

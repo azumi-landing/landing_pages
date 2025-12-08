@@ -1,0 +1,230 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* HERO */
+.hero{
+    position: relative;
+    width: 100%;
+    padding: 150px 20px;
+    color: #FFFFFF;
+    overflow: hidden;
+    background: #1E3A8A; /* Azul principal */
+    overflow-x: hidden;
+}
+
+.container_hero{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero_display{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Texto */
+.hero-title{
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    color: #FFFFFF;
+}
+
+
+.hero-subtitle, .hero-promise, .hero-proof{
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #E2E8F0; /* Gris claro */
+}
+
+/* Botones */
+.hero-buttons a{
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 8px;
+    margin-right: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.hero-buttons{
+    margin-bottom: 20px;
+}
+
+.btn-primary{
+    background: #3B82F6; /* Azul claro */
+    color: #FFFFFF;
+}
+
+.btn-primary:hover{
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(59,130,246,0.3);
+}
+
+.btn-secondary{
+    background: #FFFFFF;
+    color: #1E3A8A; /* Azul oscuro */
+}
+
+.btn-secondary:hover{
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255,255,255,0.3);
+}
+
+/* Imagen flotante */
+.hero-image img{
+    width: 450px;
+    border-radius: 15px;
+    /* animation: floatRotate 6s ease-in-out infinite;
+    transition: transform 0.3s ease; */
+    object-fit: cover;
+}
+
+.hero-image img:hover{
+    transform: scale(1.05);
+}
+
+/* ANIMACIONES TEXTO */
+@keyframes fadeIn {
+    0% {opacity:0; transform: translateY(20px);}
+    100% {opacity:1; transform: translateY(0);}
+}
+
+@keyframes slideIn {
+    0% {opacity:0; transform: translateX(-50px);}
+    100% {opacity:1; transform: translateX(0);}
+}
+/* 
+@keyframes floatRotate {
+    0% { transform: translateY(0) rotate(0deg);}
+    25% { transform: translateY(-10px) rotate(-2deg);}
+    50% { transform: translateY(0) rotate(0deg);}
+    75% { transform: translateY(10px) rotate(2deg);}
+    100% { transform: translateY(0) rotate(0deg);}
+} */
+
+.animate-fade{ animation: fadeIn 1s ease forwards;}
+.animate-slide{ animation: slideIn 1s ease forwards;}
+.animate-fade-delay{ animation: fadeIn 1s ease forwards; animation-delay:0.5s;}
+.animate-slide-delay{ animation: slideIn 1s ease forwards; animation-delay:0.7s;}
+.animate-fade-delay-2{ animation: fadeIn 1s ease forwards; animation-delay:1s;}
+/* .animate-float{ animation: floatRotate 6s ease-in-out infinite;} */
+
+/* FONDO TECNOLÓGICO */
+.background-decor{
+    position: absolute;
+    top:0; left:0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.circle{
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
+    background: radial-gradient(circle, #3B82F6, #1E3A8A);
+    animation: floatCircle 12s linear infinite;
+}
+
+.c1{width:200px; height:200px; top: 50px; left: 100px;}
+.c2{width:150px; height:150px; top: 200px; left: 300px;}
+.c3{width:250px; height:250px; top: 100px; right: 100px;}
+.c4{width:100px; height:100px; bottom: 150px; left: 50px;}
+.c5{width:180px; height:180px; bottom: 100px; right: 200px;}
+
+@keyframes floatCircle{
+    0% {transform: translateY(0) translateX(0);}
+    50% {transform: translateY(-50px) translateX(20px);}
+    100% {transform: translateY(0) translateX(0);}
+}
+
+
+/* Tablets y pantallas medianas */
+@media (max-width: 992px) {
+  .hero_display {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image img {
+    width: 350px;
+    margin-top: 20px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle,
+  .hero-promise,
+  .hero-proof {
+    font-size: 1rem;
+  }
+
+  .hero-buttons a {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+/* Teléfonos grandes */
+@media (max-width: 768px) {
+  .hero {
+    padding: 120px 20px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-image img {
+    width: 300px;
+  }
+}
+
+/* Teléfonos pequeños */
+@media (max-width: 480px) {
+  .hero {
+    padding: 100px 15px;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .hero-subtitle,
+  .hero-promise,
+  .hero-proof {
+    font-size: 0.95rem;
+  }
+
+  .hero-buttons a {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  .hero-image img {
+    width: 260px;
+  }
+
+  /* Reduce burbujas del fondo */
+  .circle {
+    opacity: 0.1;
+    transform: scale(0.8);
+  }
+}
+

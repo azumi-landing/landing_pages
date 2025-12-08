@@ -1,0 +1,190 @@
+.about-section {
+  background: #ffffff;
+  padding: 90px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-container {
+  max-width: 900px;
+  width: 100%;
+  background: #ffffff;
+  border-left: 6px solid #1E3A8A;
+  padding: 50px 55px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.09);
+}
+
+.about-title {
+  font-size: 2.6rem;
+  color: #1E3A8A;
+  margin-bottom: 25px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.about-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 22px;
+}
+
+.about-highlights h3 {
+  margin-top: 35px;
+  margin-bottom: 12px;
+  color: #1E3A8A;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.about-highlights ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.about-highlights li {
+  margin-bottom: 12px;
+  color: #444;
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+
+.about-highlights li::marker {
+  color: #1E3A8A;
+  font-weight: bold;
+}
+
+
+.about-section {
+  position: relative;
+  padding: 80px 20px;
+  background: #f5f8ff;
+  overflow: hidden;
+}
+
+/* BURBUJAS ANIMADAS */
+.about-section::before,
+.about-section::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(30,58,138,0.28), transparent 70%);
+  border-radius: 50%;
+  animation: floatBubbles 9s infinite ease-in-out alternate;
+  filter: blur(2px);
+}
+
+/* Burbuja superior izquierda */
+.about-section::before {
+  top: -120px;
+  left: -80px;
+}
+
+/* Burbuja inferior derecha */
+.about-section::after {
+  bottom: -140px;
+  right: -80px;
+  animation-delay: 2.5s;
+}
+
+/* Animación más suave y elegante */
+@keyframes floatBubbles {
+  0% {
+    transform: translate(0,0) scale(1);
+  }
+  50% {
+    transform: translate(35px, -25px) scale(1.08);
+  }
+  100% {
+    transform: translate(-25px, 35px) scale(1);
+  }
+}
+
+/* CONTENEDOR DEL TEXTO */
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  padding: 50px;
+  border-radius: 18px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+
+/* --- Responsive --- */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .about-container {
+    padding: 40px 35px;
+  }
+
+  .about-title {
+    font-size: 2.2rem;
+  }
+
+  .about-text {
+    font-size: 1.1rem;
+  }
+
+  .about-highlights h3 {
+    font-size: 1.25rem;
+  }
+
+  .about-highlights li {
+    font-size: 1rem;
+  }
+}
+
+/* Móviles grandes */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 35px 28px;
+    border-left-width: 5px;
+  }
+
+  .about-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .about-text {
+    font-size: 1.05rem;
+    text-align: justify;
+  }
+
+  .about-highlights h3 {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .about-highlights ul {
+    padding-left: 14px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .about-container {
+    padding: 28px 22px;
+    border-left-width: 4px;
+    border-radius: 10px;
+  }
+
+  .about-title {
+    font-size: 1.7rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+  }
+
+  .about-highlights li {
+    font-size: 0.98rem;
+    margin-bottom: 10px;
+  }
+}
