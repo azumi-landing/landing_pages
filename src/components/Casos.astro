@@ -7,115 +7,55 @@ import  '../styles/casoU.css';
 
         <!-- Introducción -->
         <div class="cases-intro">
-            <h2>Nuestros Casos de Uso</h2>
-            <p>
-                Cada caso de uso está diseñado para que cualquier empresa pueda visualizar su problema y la solución directamente, 
-                reforzando beneficios concretos y orientados a resultados.
-            </p>
+            <h2>Casos de uso con impacto</h2>
+            <p>Problema → qué hice → resultado medible. Historias breves y listas para replicar.</p>
         </div>
 
         <!-- Grid de tarjetas -->
         <div class="cases-grid">
 
-            <!-- Card 3.1 -->
             <div class="card">
                 <i class="fas fa-search-location card-icon"></i>
                 <h3 class="card-title">Inspección y verificación de activos en campo</h3>
-                <p class="card-problem"><strong>Problema:</strong> Equipos o infraestructura dispersa inspeccionada manualmente genera <strong>datos incompletos, errores y pérdidas operativas</strong>.</p>
+                <p class="card-problem"><strong>Problema:</strong> datos incompletos y errores en inspecciones manuales.</p>
                 <div class="card-solution">
-                    <p><strong>Solución:</strong> Desarrollo de apps móviles de inspección con <strong>fotos, GPS, reglas técnicas y sincronización con la nube</strong>.</p>
-                    <ul class="card-benefits">
-                        <li><i class="fas fa-check-circle"></i> Reducción significativa de errores de captura.</li>
-                        <li><i class="fas fa-check-circle"></i> Mayor trazabilidad y control sobre activos.</li>
-                        <li><i class="fas fa-check-circle"></i> Estandarización de procesos de inspección.</li>
-                    </ul>
-                    <p class="card-sectors"><strong>Sectores:</strong> Energía, Construcción, Mantenimiento, Gobierno, etc.</p>
+                    <p><strong>Qué hice:</strong> app móvil con fotos, GPS y reglas técnicas obligatorias; sincronización serverless.</p>
+                    <p><strong>Resultado:</strong> errores de captura -60% en 3 semanas; trazabilidad completa.</p>
                 </div>
+                <a class="card-cta" href="#contacto">Agenda 15 min</a>
             </div>
 
-            <!-- Card 3.2 -->
             <div class="card">
                 <i class="fas fa-bolt card-icon"></i>
                 <h3 class="card-title">Automatización operativa con arquitecturas serverless</h3>
-                <p class="card-problem"><strong>Problema:</strong> Procesos lentos, manuales, con múltiples pasos y <strong>riesgo de error humano</strong>.</p>
+                <p class="card-problem"><strong>Problema:</strong> procesos manuales y lentos con riesgo de error humano.</p>
                 <div class="card-solution">
-                    <p><strong>Solución:</strong> Implemento <strong>pipelines serverless</strong> (Cloud Run, Eventarc, Pub/Sub) para ejecución automática reaccionando a eventos.</p>
-                    <ul class="card-benefits">
-                        <li><i class="fas fa-check-circle"></i> Menos intervención manual.</li>
-                        <li><i class="fas fa-check-circle"></i> Mayor velocidad y consistencia.</li>
-                        <li><i class="fas fa-check-circle"></i> Mejor seguimiento y auditoría.</li>
-                    </ul>
+                    <p><strong>Qué hice:</strong> pipelines event-driven (Cloud Run, Eventarc, Pub/Sub) con validaciones y alertas.</p>
+                    <p><strong>Resultado:</strong> cierres y aprobaciones 10× más rápidos; auditoría desde el día uno.</p>
                 </div>
+                <a class="card-cta" href="#contacto">Agenda 15 min</a>
             </div>
 
-            <!-- Card 3.3 -->
             <div class="card">
                 <i class="fas fa-chart-line card-icon"></i>
                 <h3 class="card-title">ETL compleja y reporting crítico</h3>
-                <p class="card-problem"><strong>Problema:</strong> <strong>Datos dispersos en múltiples fuentes</strong> y necesidad de reportes recurrentes para operaciones, auditorías o reguladores.</p>
+                <p class="card-problem"><strong>Problema:</strong> datos dispersos y reportes manuales para operaciones y auditorías.</p>
                 <div class="card-solution">
-                    <p><strong>Solución:</strong> Pipelines <strong>ETL en Airflow</strong> con transformaciones controladas, dependencias claras y cargas programadas a sistemas de BI.</p>
-                    <ul class="card-benefits">
-                        <li><i class="fas fa-check-circle"></i> Datos centralizados y confiables.</li>
-                        <li><i class="fas fa-check-circle"></i> Flujo de datos robusto y programado.</li>
-                    </ul>
+                    <p><strong>Qué hice:</strong> ETL en Airflow con dependencias, calidad de datos y cargas a BI.</p>
+                    <p><strong>Resultado:</strong> reportes listos en horas (no días) y sin reprocesos manuales.</p>
                 </div>
+                <a class="card-cta" href="#contacto">Agenda 15 min</a>
             </div>
 
-            <!-- Card 3.4 -->
             <div class="card">
                 <i class="fas fa-database card-icon"></i>
-                <h3 class="card-title">Big Data distribuido</h3>
-                <p class="card-problem"><strong>Problema:</strong> Grandes volúmenes de datos históricos o de sensores que <strong>no se pueden procesar con herramientas tradicionales</strong>.</p>
+                <h3 class="card-title">Integración y control end-to-end</h3>
+                <p class="card-problem"><strong>Problema:</strong> sistemas desconectados y procesos fragmentados.</p>
                 <div class="card-solution">
-                    <p><strong>Solución:</strong> Uso <strong>Dataproc (Spark/Hadoop)</strong> para procesar y analizar grandes volúmenes de información, permitiendo análisis avanzados.</p>
-                    <ul class="card-benefits">
-                        <li><i class="fas fa-check-circle"></i> Análisis avanzados de patrones y tendencias.</li>
-                        <li><i class="fas fa-check-circle"></i> Procesamiento escalable.</li>
-                    </ul>
+                    <p><strong>Qué hice:</strong> integraciones robustas entre móvil, web, SQL y serverless con monitoreo.</p>
+                    <p><strong>Resultado:</strong> procesos unificados y trazables; menos reprocesos y escalamiento más simple.</p>
                 </div>
-            </div>
-
-            <!-- Card 3.5 -->
-            <div class="card">
-                <i class="fas fa-tachometer-alt card-icon"></i>
-                <h3 class="card-title">Dashboards ejecutivos automatizados</h3>
-                <p class="card-problem"><strong>Problema:</strong> <strong>Reportes manuales</strong>, desactualizados y difíciles de mantener que retrasan la toma de decisiones.</p>
-                <div class="card-solution">
-                    <p><strong>Solución:</strong> <strong>Dashboards en Power BI</strong> conectados a pipelines de datos automatizados, con <strong>KPIs actualizados en tiempo casi real</strong>.</p>
-                    <ul class="card-benefits">
-                        <li><i class="fas fa-check-circle"></i> Visión gerencial instantánea.</li>
-                        <li><i class="fas fa-check-circle"></i> Fin al reporte manual.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Card 3.6 -->
-            <div class="card">
-                <i class="fas fa-robot card-icon"></i>
-                <h3 class="card-title">Bots inteligentes para atención y clasificación</h3>
-                <p class="card-problem"><strong>Problema:</strong> Altos volúmenes de consultas o leads que requieren <strong>clasificación manual y seguimiento</strong>.</p>
-                <div class="card-solution">
-                    <p><strong>Solución:</strong> <strong>Bots de WhatsApp con IA</strong> que realizan preguntas clave, clasifican, filtran y entregan información estructurada.</p>
-                    <ul class="card-benefits">
-                        <li><i class="fas fa-check-circle"></i> Clasificación automática de leads/consultas.</li>
-                        <li><i class="fas fa-check-circle"></i> Reducción de carga al equipo humano.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Card 3.7 - full width -->
-            <div class="card full-span">
-                <i class="fas fa-link card-icon"></i>
-                <h3 class="card-title">Integración de sistemas (móvil, web, SQL, serverless, Big Data)</h3>
-                <p class="card-problem"><strong>Problema:</strong> <strong>Sistemas desconectados</strong>, silos de datos y <strong>procesos fragmentados</strong> a lo largo de la organización.</p>
-                <div class="card-solution">
-                    <p><strong>Solución:</strong> Diseño de <strong>integraciones robustas</strong> donde todas las plataformas trabajan como un solo <strong>ecosistema coherente</strong>.</p>
-                    <ul class="card-benefits">
-                        <li><i class="fas fa-check-circle"></i> Fin a los silos de datos.</li>
-                        <li><i class="fas fa-check-circle"></i> Procesos unificados.</li>
-                    </ul>
-                </div>
+                <a class="card-cta" href="#contacto">Agenda 15 min</a>
             </div>
 
         </div>

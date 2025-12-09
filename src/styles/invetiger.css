@@ -15,21 +15,55 @@
 
 /* --- Contenedor del Carrusel (Viewport) --- */
 .slider-wrapper {
-    max-width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
-    overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
+    overflow: visible;
+    padding: 0 20px;
+    position: relative;
 }
 
 /* --- Contenedor de las Tarjetas (Lista Deslizable) --- */
 .slider-container {
     display: flex;
-    overflow-x: scroll;
+    overflow-x: auto;
     scroll-snap-type: x mandatory; /* Fuerza a detenerse en las tarjetas */
     -webkit-overflow-scrolling: touch; /* Mejor desplazamiento en iOS */
     scroll-behavior: smooth; /* Permite el desplazamiento suave de JavaScript */
-    gap: 20px;
-    padding-bottom: 20px; /* Espacio para la sombra */
+    gap: 16px;
+    padding: 10px 20px 20px;
+    scroll-padding: 20px;
 }
+
+/* Controles lean UI */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    color: #1E3A8A;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    z-index: 3;
+}
+
+.slider-nav:hover {
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+    border-color: #1E3A8A;
+}
+
+.slider-nav.prev { left: 0; }
+.slider-nav.next { right: 0; }
 
 /* Ocultar barra de desplazamiento en Chrome/Safari/Edge */
 .slider-container::-webkit-scrollbar {
@@ -42,8 +76,9 @@
 
 /* --- Estilos de la Tarjeta Individual --- */
 .card {
-    min-width: 300px; /* Tamaño base de cada tarjeta */
-    flex: 0 0 auto; /* No crecer ni encoger, tamaño fijo */
+    min-width: 280px;
+    max-width: 380px;
+    flex: 0 0 calc(50% - 12px); /* 2 tarjetas visibles; avanza de una en una */
     scroll-snap-align: start; /* El punto de parada es el inicio de la tarjeta */
     background-color: #ffffff;
     border-radius: 12px;
@@ -98,7 +133,7 @@
 
 
 /* --- Puntos de Navegación (Dots) --- */
-.slider-dots {
+.dots {
     display: flex;
     justify-content: center;
     margin-top: 20px;
@@ -108,14 +143,17 @@
     width: 10px;
     height: 10px;
     margin: 0 5px;
-    background-color: #ccc;
+    background-color: #cbd5e1;
     border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.3s;
+    border: none;
+    padding: 0;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .dot.active {
-    background-color: #007bff;
+    background-color: #1E3A8A;
+    transform: scale(1.05);
 }
 
 /* Responsive: Mostrar menos tarjetas en pantallas pequeñas */
@@ -123,5 +161,15 @@
     .card {
         min-width: 80%; /* Ocupa más espacio para ver una sola a la vez */
         margin: 0 10%;
+    }
+
+    .slider-nav {
+        width: 34px;
+        height: 34px;
+        font-size: 1rem;
+    }
+
+    .dots {
+        margin-top: 12px;
     }
 }
