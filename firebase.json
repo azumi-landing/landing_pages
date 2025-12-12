@@ -1,7 +1,7 @@
 {
   "apphosting": {
     "backendId": "landing-pages",
-    "rootDir": "dist",
+    "rootDir": ".",
     "ignore": [
       "node_modules",
       ".git",
