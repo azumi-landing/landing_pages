@@ -5,9 +5,9 @@ scripts:
 runConfig:
   minInstances: 0
   maxInstances: 2
-  cpu: 0.5
+  cpu: 1
   memoryMiB: 512
-  concurrency: 1
+  concurrency: 10
 
 outputFiles:
   serverApp:
