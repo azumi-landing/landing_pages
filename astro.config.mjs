@@ -3,9 +3,9 @@ import node from '@astrojs/node';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  output: 'server', // ✅ clave para SSR en Node
+  output: 'server', 
   adapter: node({ mode: 'standalone' }),
-  server: { host: true }, // ✅ recomendado en runtimes tipo Cloud Run/App Hosting
+  server: { host: true, port: 8080, }, // 
   vite: {
     plugins: [tailwindcss()],
   },
