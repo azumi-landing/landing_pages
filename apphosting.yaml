@@ -9,6 +9,3 @@ runConfig:
   memoryMiB: 512
   concurrency: 10
 
-outputFiles:
-  serverApp:
-    include: [dist]
