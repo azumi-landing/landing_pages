@@ -1,3 +1,10 @@
 runtime: nodejs22
 entrypoint: node ./server/entry.mjs
 rootDir: .
+
+runConfig:
+  minInstances: 0
+  maxInstances: 2
+  cpu: 0.5
+  memoryMiB: 512
+  concurrency: 1
