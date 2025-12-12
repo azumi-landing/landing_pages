@@ -7,4 +7,4 @@ runConfig:
   maxInstances: 2
   cpu: 0.5
   memoryMiB: 512
-  concurrency: 1
+  concurrency: 1 # ok: si cpu < 1, concurrency debe ser 1 :contentReference[oaicite:1]{index=1}

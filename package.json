@@ -2,7 +2,9 @@
   "name": "empresa",
   "type": "module",
   "version": "0.0.1",
-  "engines": { "node": "22.x" },
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -10,12 +12,12 @@
     "start": "node ./dist/server/entry.mjs"
   },
   "dependencies": {
-    "@astrojs/node": "^9.5.1",
     "@tailwindcss/vite": "^4.1.17",
     "astro": "^5.16.3",
     "flowbite": "^4.0.1"
   },
   "devDependencies": {
+    "@astrojs/node": "^9.5.1",
     "@tailwindcss/postcss": "^4.1.17",
     "autoprefixer": "^10.4.22",
     "postcss": "^8.5.6",
