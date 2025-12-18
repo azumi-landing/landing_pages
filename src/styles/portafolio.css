@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 6rem 20px;
+  padding: 4.5rem 16px;
   overflow: hidden;
 }
 
@@ -46,10 +46,11 @@
 }
 
 .timeline {
-  width: 90%;
+  width: 100%;
   max-width: 1000px;
   position: relative;
-  margin-top: 40px;
+  margin-top: 32px;
+  padding: 0 12px;
 }
 
 .timeline-line {
@@ -65,9 +66,9 @@
 
 .timeline-item {
   width: 50%;
-  padding: 15px 30px;
+  padding: 12px 24px;
   position: relative;
-  margin-bottom: 60px;
+  margin-bottom: 48px;
 }
 
 .timeline-item.left { left: 0; }
@@ -144,5 +145,14 @@ ul li {
     width: 100%;
     left: 0;
   }
-  .timeline-item::before { left: 15px; }
+  .timeline {
+    padding: 0 6px;
+  }
+  .timeline-line {
+    left: 20px;
+  }
+  .timeline-item::before { left: 8px; }
+  .timeline-item {
+    padding-left: 32px;
+  }
 }

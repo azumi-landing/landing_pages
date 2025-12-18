@@ -1,19 +1,19 @@
 /* --- ESTILOS DEL FONDO DE LA SECCIÓN --- */
 .contact-page-two {
     background-color: #1E3A8A; /* Azul muy claro */
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px 20px;
+    padding: 40px 16px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* --- TARJETA PRINCIPAL --- */
 .contact-card-two {
     display: flex;
-    max-width: 900px;
-    width: 90%;
+    max-width: 960px;
+    width: 100%;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
@@ -24,9 +24,8 @@
 /* --- BARRA LATERAL AZUL (INFO-SIDEBAR) --- */
 .info-sidebar {
     width: 320px;
-    min-height: 500px;
-    /* Mantener la sombra y sobresalir */
-    transform: translateX(-30px);
+    min-height: 480px;
+    transform: translateX(-24px);
     border-radius: 10px;
     box-shadow: 10px 0 20px rgba(0, 0, 0, 0.2);
     position: relative;
@@ -35,7 +34,7 @@
     color: white;
 
     /* Ajuste de padding interno para que el contenido no se salga */
-    padding: 10rem 50px 50px 75px;
+    padding: 6rem 36px 40px 52px;
     box-sizing: border-box;
 }
 
@@ -78,7 +77,7 @@
 /* --- FORMULARIO --- */
 .form-area-two {
     flex-grow: 1;
-    padding: 60px 50px 60px 30px;
+    padding: 36px 28px 40px 20px;
     background-color: #ffffff;
     z-index: 1;
     display: flex;
@@ -107,7 +106,7 @@
 
 .quick-btn {
     display: inline-block;
-    padding: 12px 18px;
+    padding: 12px 16px;
     border-radius: 10px;
     font-weight: 700;
     font-size: 0.95em;
@@ -228,7 +227,7 @@
     .contact-card-two {
         flex-direction: column;
         width: 100%;
-        max-width: 450px;
+        max-width: 500px;
     }
 
     .info-sidebar {
@@ -237,14 +236,25 @@
         transform: none;
         border-radius: 10px 10px 0 0;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        padding: 30px 20px;
+        padding: 28px 20px;
     }
 
     .form-area-two {
-        padding: 40px 20px;
+        padding: 26px 20px 32px;
     }
 
     .quick-actions {
         flex-direction: column;
+        width: 100%;
+    }
+
+    .quick-btn {
+        text-align: center;
+        width: 100%;
+    }
+
+    .send-button-two {
+        width: 100%;
+        text-align: center;
     }
 }
