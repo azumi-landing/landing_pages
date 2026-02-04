@@ -1,5 +1,11 @@
 ---
 import '../styles/contact.css'
+
+// Variables de contacto - Configurar con datos reales
+const CONTACT_EMAIL = "variable_email@dominio.com";
+const WHATSAPP_NUMBER = "XXXXXXXXXXX";
+const WHATSAPP_DISPLAY = "+XX XXX-XXX-XXXX";
+const CALENDLY_URL = "https://calendly.com/tu-agenda/15min";
 ---
 
 <section class="contact-page-two" id="contacto">
@@ -12,21 +18,21 @@ import '../styles/contact.css'
             <div class="contact-detail-item">
                 <div class="contact-text">
                     <p class="label">Correo directo</p>
-                    <p class="value"><a href="mailto:hola@tudominio.com">hola@tudominio.com</a></p>
+                    <p class="value"><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
                 </div>
             </div>
 
             <div class="contact-detail-item">
                 <div class="contact-text">
                     <p class="label">WhatsApp</p>
-                    <p class="value"><a href="https://wa.me/XXXXXXXXXXX">+XX XXX-XXX-XXXX</a></p>
+                    <p class="value"><a href={`https://wa.me/${WHATSAPP_NUMBER}`}>{WHATSAPP_DISPLAY}</a></p>
                 </div>
             </div>
 
             <div class="contact-detail-item">
                 <div class="contact-text">
                     <p class="label">Agenda rápida</p>
-                    <p class="value"><a href="https://calendly.com/tu-agenda/15min" target="_blank">Agendar 15 min</a></p>
+                    <p class="value"><a href={CALENDLY_URL} target="_blank">Agendar 15 min</a></p>
                 </div>
             </div>
         </div>
@@ -35,11 +41,11 @@ import '../styles/contact.css'
         <!-- Lado de formulario -->
         <div class="form-area-two">
             <h3>Hablemos</h3>
-            <p class="form-instruction">Elige el canal más rápido o envía el formulario. Respondo en &lt;1 hora hábil.</p>
+            <p class="form-instruction">Agenda una llamada, escríbeme por WhatsApp o usa el formulario. Respondo en &lt;1 hora hábil.</p>
 
             <div class="quick-actions">
-                <a class="quick-btn primary" href="https://calendly.com/tu-agenda/15min" target="_blank">Agendar 15 min</a>
-                <a class="quick-btn ghost" href="https://wa.me/XXXXXXXXXXX">WhatsApp inmediato</a>
+                <a class="quick-btn primary" href={CALENDLY_URL} target="_blank">Agendar 15 min</a>
+                <a class="quick-btn ghost" href={`https://wa.me/${WHATSAPP_NUMBER}`}>WhatsApp inmediato</a>
             </div>
 
             <form class="clean-form">
@@ -63,10 +69,10 @@ import '../styles/contact.css'
                     <label for="your-topic-two">¿Qué necesitas?</label>
                     <select id="your-topic-two" name="topic" required>
                         <option value="" selected disabled>Selecciona una opción</option>
-                        <option value="automatizacion">Automatización / serverless</option>
-                        <option value="datos">Datos / ETL / BI</option>
-                        <option value="apps-bots">Apps de campo / bots</option>
-                        <option value="integracion">Integración end-to-end</option>
+                        <option value="automatizar-procesos">Automatizar procesos repetitivos</option>
+                        <option value="reportes-datos">Reportes y visibilidad de datos</option>
+                        <option value="apps-moviles">Apps móviles y bots de atención</option>
+                        <option value="integrar-sistemas">Integrar sistemas completos</option>
                         <option value="otro">Otro</option>
                     </select>
                 </div>

@@ -43,10 +43,61 @@ body{
 }
 
 
-.hero-subtitle, .hero-promise, .hero-proof{
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    color: #E2E8F0; /* Gris claro */
+.hero-promise{
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+    color: #E2E8F0;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.hero-metrics {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.metric {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.metric-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #3B82F6;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.metric-label {
+    font-size: 0.875rem;
+    color: #cbd5e1;
+    text-transform: lowercase;
+}
+
+.hero-trust {
+    margin-bottom: 25px;
+}
+
+.hero-trust p {
+    font-size: 1rem;
+    color: #E2E8F0;
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.hero-trust strong {
+    color: #3B82F6;
+    font-weight: 700;
+}
+
+.hero-response {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    font-style: italic;
 }
 
 /* Botones */
@@ -189,6 +240,10 @@ body{
     font-size: 1.8rem;
   }
 
+  .hero-metrics {
+    gap: 1.5rem;
+  }
+
   .hero-image img {
     max-width: 300px;
   }
@@ -204,10 +259,29 @@ body{
     font-size: 1.5rem;
   }
 
-  .hero-subtitle,
-  .hero-promise,
-  .hero-proof {
-    font-size: 0.95rem;
+  .hero-metrics {
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .metric-value {
+    font-size: 1.75rem;
+  }
+
+  .hero-promise {
+    font-size: 1rem;
+  }
+
+  .metric-value {
+    font-size: 2rem;
+  }
+
+  .metric-label {
+    font-size: 0.8rem;
+  }
+
+  .hero-trust p {
+    font-size: 0.9rem;
   }
 
   .hero-buttons a {
@@ -235,6 +309,9 @@ body{
     align-items: center;
     text-align: left;
     gap: 24px;
+  }
+  .hero-metrics {
+    justify-content: flex-start;
   }
   .hero-buttons {
     flex-direction: row;

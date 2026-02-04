@@ -1,22 +1,26 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import Sectores from '../components/Sectores.astro';
 import Servicios from '../components/Servicios.astro';
-import Casos from '../components/Casos.astro';
-import Portafolio from '../components/portafolio.astro';
+import DiagramaProductos from '../components/DiagramaProductos.astro';
+import CasosDeExito from '../components/CasosDeExito.astro';
 import About from '../components/About.astro';
-import Contact from '../components/Contact.astro';
 import Investiger from '../components/investiger.astro';
+import StackTecnico from '../components/StackTecnico.astro';
+import Contact from '../components/Contact.astro';
 ---
 
 <BaseLayout>
   <main>
     <Hero />
+    <Sectores />
     <Servicios />
-    <Casos />
-    <Portafolio />
+    <DiagramaProductos />
+    <CasosDeExito />
     <About/> 
     <Investiger/>
+    <StackTecnico/>
     <Contact/>
   </main>
 </BaseLayout>

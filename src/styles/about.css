@@ -1,190 +1,297 @@
-.about-section {
-  background: #ffffff;
-  padding: 90px 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.about-container {
-  max-width: 900px;
-  width: 100%;
-  background: #ffffff;
-  border-left: 6px solid #1E3A8A;
-  padding: 50px 55px;
-  border-radius: 12px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.09);
-}
-
-.about-title {
-  font-size: 2.6rem;
-  color: #1E3A8A;
-  margin-bottom: 25px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-}
-
-.about-text {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: #333;
-  margin-bottom: 22px;
-}
-
-.about-highlights h3 {
-  margin-top: 35px;
-  margin-bottom: 12px;
-  color: #1E3A8A;
-  font-size: 1.35rem;
-  font-weight: 600;
-}
-
-.about-highlights ul {
-  padding-left: 18px;
-  margin: 0;
-}
-
-.about-highlights li {
-  margin-bottom: 12px;
-  color: #444;
-  font-size: 1.08rem;
-  line-height: 1.65;
-}
-
-.about-highlights li::marker {
-  color: #1E3A8A;
-  font-weight: bold;
-}
-
-
+/* ===============================
+   SECCIÓN ABOUT - FONDO OSCURO
+================================== */
 .about-section {
   position: relative;
   padding: 80px 20px;
-  background: #f5f8ff;
+  background: #1E3A8A;
+  color: #FFFFFF;
   overflow: hidden;
 }
 
-/* BURBUJAS ANIMADAS */
-.about-section::before,
-.about-section::after {
-  content: "";
+/* Fondo con círculos animados */
+.about-section .background-decor {
   position: absolute;
-  width: 420px;
-  height: 420px;
-  background: radial-gradient(circle, rgba(30,58,138,0.28), transparent 70%);
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.about-section .circle {
+  position: absolute;
   border-radius: 50%;
-  animation: floatBubbles 9s infinite ease-in-out alternate;
-  filter: blur(2px);
+  opacity: 0.15;
+  background: radial-gradient(circle, #3B82F6, #1E3A8A);
+  animation: floatCircle 12s ease-in-out infinite;
 }
 
-/* Burbuja superior izquierda */
-.about-section::before {
-  top: -120px;
-  left: -80px;
+.about-section .c1 { width: 200px; height: 200px; top: 50px; left: 100px; }
+.about-section .c2 { width: 150px; height: 150px; top: 200px; right: 150px; }
+.about-section .c3 { width: 250px; height: 250px; bottom: 100px; left: 50px; }
+.about-section .c4 { width: 180px; height: 180px; bottom: 150px; right: 100px; }
+
+@keyframes floatCircle {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-50px) translateX(20px); }
+  100% { transform: translateY(0) translateX(0); }
 }
 
-/* Burbuja inferior derecha */
-.about-section::after {
-  bottom: -140px;
-  right: -80px;
-  animation-delay: 2.5s;
-}
-
-/* Animación más suave y elegante */
-@keyframes floatBubbles {
-  0% {
-    transform: translate(0,0) scale(1);
-  }
-  50% {
-    transform: translate(35px, -25px) scale(1.08);
-  }
-  100% {
-    transform: translate(-25px, 35px) scale(1);
-  }
-}
-
-/* CONTENEDOR DEL TEXTO */
+/* ===============================
+   CONTENEDOR
+================================== */
 .about-container {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
-  background: white;
-  padding: 50px;
-  border-radius: 18px;
   position: relative;
-  z-index: 2;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
 }
 
+/* ===============================
+   TÍTULO PRINCIPAL
+================================== */
+.about-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #FFFFFF;
+  text-align: center;
+  grid-column: 1 / -1;
+}
 
-/* --- Responsive --- */
+/* ===============================
+   TARJETAS DE CONTENIDO
+================================== */
+.about-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
 
-/* Tablets */
+.about-card:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Iconos */
+.about-icon {
+  font-size: 2.5rem;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+}
+
+.about-icon.warning {
+  color: #f59e0b;
+}
+
+/* Subtítulos dentro de cards */
+.about-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+
+/* Listas dentro de cards */
+.about-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-card ul li {
+  font-size: 1rem;
+  color: #E2E8F0;
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.about-card ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.about-card ul li strong {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+/* ===============================
+   FILTRO "PARA QUIÉN NO ES"
+================================== */
+.about-filter {
+  grid-column: 1 / -1;
+  background: rgba(245, 158, 11, 0.15);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(245, 158, 11, 0.4);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-top: 1rem;
+}
+
+.filter-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filter-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.filter-intro {
+  font-size: 1rem;
+  color: #E2E8F0;
+  margin-bottom: 1rem;
+}
+
+.filter-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.75rem;
+}
+
+.filter-list li {
+  font-size: 0.95rem;
+  color: #E2E8F0;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.filter-list li i {
+  color: #ef4444;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* ===============================
+   BOTONES CTA
+================================== */
+.about-cta {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary-about,
+.btn-secondary-about {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-primary-about {
+  background: #3B82F6;
+  color: #FFFFFF;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary-about:hover {
+  background: #2563eb;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btn-secondary-about {
+  background: #FFFFFF;
+  color: #1E3A8A;
+  border: 2px solid #FFFFFF;
+}
+
+.btn-secondary-about:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* ===============================
+   RESPONSIVE
+================================== */
 @media (max-width: 992px) {
-  .about-container {
-    padding: 40px 35px;
+  .about-section {
+    padding: 60px 20px;
   }
 
   .about-title {
     font-size: 2.2rem;
   }
 
-  .about-text {
-    font-size: 1.1rem;
-  }
-
-  .about-highlights h3 {
-    font-size: 1.25rem;
-  }
-
-  .about-highlights li {
-    font-size: 1rem;
+  .about-container {
+    grid-template-columns: 1fr;
   }
 }
 
-/* Móviles grandes */
 @media (max-width: 768px) {
-  .about-container {
-    padding: 35px 28px;
-    border-left-width: 5px;
+  .about-section {
+    padding: 50px 18px;
   }
 
   .about-title {
     font-size: 2rem;
-    text-align: center;
   }
 
-  .about-text {
-    font-size: 1.05rem;
-    text-align: justify;
+  .about-section .about-section {
+    padding: 1.5rem;
   }
 
-  .about-highlights h3 {
-    text-align: center;
-    font-size: 1.2rem;
-  }
-
-  .about-highlights ul {
-    padding-left: 14px;
+  .filter-list {
+    grid-template-columns: 1fr;
   }
 }
 
-/* Móviles pequeños */
 @media (max-width: 480px) {
-  .about-container {
-    padding: 28px 22px;
-    border-left-width: 4px;
-    border-radius: 10px;
+  .about-section {
+    padding: 40px 15px;
   }
 
   .about-title {
     font-size: 1.7rem;
   }
 
-  .about-text {
-    font-size: 1rem;
+  .about-icon {
+    font-size: 2rem;
   }
 
-  .about-highlights li {
-    font-size: 0.98rem;
-    margin-bottom: 10px;
+  .about-section .about-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .about-section .about-section ul li {
+    font-size: 0.95rem;
+  }
+
+  .btn-primary-about,
+  .btn-secondary-about {
+    width: 100%;
+    text-align: center;
   }
 }
