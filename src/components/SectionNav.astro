@@ -1,0 +1,99 @@
+---
+// Navegación lateral entre secciones - flechas derecha centro
+---
+
+<div id="section-nav" class="fixed right-4 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-3">
+  <button 
+    id="nav-prev" 
+    class="w-10 h-10 rounded-full bg-slate-800/80 backdrop-blur-sm border border-slate-600/50 text-slate-400 hover:text-white hover:bg-blue-500/80 hover:border-blue-500/50 transition-all duration-300 flex items-center justify-center shadow-lg opacity-50 hover:opacity-100"
+    aria-label="Sección anterior"
+    title="Sección anterior"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m18 15-6-6-6 6"/>
+    </svg>
+  </button>
+  
+  <button 
+    id="nav-next" 
+    class="w-10 h-10 rounded-full bg-slate-800/80 backdrop-blur-sm border border-slate-600/50 text-slate-400 hover:text-white hover:bg-blue-500/80 hover:border-blue-500/50 transition-all duration-300 flex items-center justify-center shadow-lg opacity-50 hover:opacity-100"
+    aria-label="Sección siguiente"
+    title="Sección siguiente"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </button>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sections = [
+      '#inicio',
+      '#el-problema',
+      '#sectores',
+      '#servicios',
+      '#como-funciona',
+      '#resultados',
+      '#casos',
+      '#seguridad',
+      '#diferenciacion',
+      '#about',
+      '#investigacion',
+      '#faq',
+      '#contacto'
+    ];
+    
+    const prevBtn = document.getElementById('nav-prev');
+    const nextBtn = document.getElementById('nav-next');
+    
+    function getCurrentSectionIndex() {
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.querySelector(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          return i;
+        }
+      }
+      return 0;
+    }
+    
+    function goToSection(index) {
+      if (index >= 0 && index < sections.length) {
+        const section = document.querySelector(sections[index]);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+    
+    prevBtn?.addEventListener('click', () => {
+      const currentIndex = getCurrentSectionIndex();
+      goToSection(currentIndex - 1);
+    });
+    
+    nextBtn?.addEventListener('click', () => {
+      const currentIndex = getCurrentSectionIndex();
+      goToSection(currentIndex + 1);
+    });
+    
+    // Update button visibility based on scroll position
+    function updateButtons() {
+      const currentIndex = getCurrentSectionIndex();
+      
+      if (prevBtn) {
+        prevBtn.style.opacity = currentIndex === 0 ? '0.2' : '0.7';
+        prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+      }
+      
+      if (nextBtn) {
+        nextBtn.style.opacity = currentIndex === sections.length - 1 ? '0.2' : '0.7';
+        nextBtn.style.pointerEvents = currentIndex === sections.length - 1 ? 'none' : 'auto';
+      }
+    }
+    
+    window.addEventListener('scroll', updateButtons, { passive: true });
+    updateButtons(); // Initial state
+  });
+</script>
