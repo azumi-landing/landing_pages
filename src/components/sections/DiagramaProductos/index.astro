@@ -1,0 +1,41 @@
+---
+import { flowLevels, resultados } from '../../../data/diagrama';
+import FlowLevel from '../../molecules/FlowLevel.astro';
+import Icon from '../../atoms/Icon.astro';
+---
+
+<section class="py-24 px-6 bg-gradient-to-br from-slate-900 to-slate-800">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        Cómo funciona
+      </h2>
+      <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+        Desde la asignación hasta la auditoría: flujo de datos entre campo y oficina
+      </p>
+    </div>
+    
+    <!-- Flow Levels -->
+    <div class="space-y-6">
+      {flowLevels.map((level) => (
+        <FlowLevel level={level} />
+      ))}
+    </div>
+    
+    <!-- Results -->
+    <div class="card border rounded-xl p-6 mt-8 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border-blue-500/30">
+      <h3 class="text-xl font-bold text-white mb-6 text-center">Resultado: operaciones conectadas</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {resultados.map((resultado) => (
+          <div class="flex items-start gap-3 bg-black/20 p-4 rounded-lg">
+            <Icon name={resultado.icon} size="lg" class="text-white/80 shrink-0" />
+            <div>
+              <span class="text-sm text-white/90" set:html={resultado.text.replace(resultado.highlight!, `<strong class="text-blue-400">${resultado.highlight}</strong>`)}></span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

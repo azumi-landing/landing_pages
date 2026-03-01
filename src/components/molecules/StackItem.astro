@@ -1,0 +1,30 @@
+---
+import type { StackItem } from '../../types';
+import Icon from '../atoms/Icon.astro';
+
+interface Props {
+  item: StackItem;
+}
+
+const { item } = Astro.props;
+---
+
+<details class="accordion-item group border border-slate-700 rounded-xl overflow-hidden bg-slate-800/50">
+  <summary class="accordion-summary flex items-center justify-between p-5 cursor-pointer list-none hover:bg-slate-700/50 transition-colors">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
+        <Icon name={item.icon} size="lg" class="text-blue-400" />
+      </div>
+      <span class="font-semibold text-white">{item.title}</span>
+    </div>
+    <i class="accordion-chevron fas fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+  </summary>
+  
+  <div class="p-5 pt-0 border-t border-slate-700">
+    <ul class="space-y-2 mt-4">
+      {item.details.map((detail) => (
+        <li class="text-sm text-slate-300" set:html={detail.replace(/<strong>(.+?)<\/strong>/g, '<strong class="text-white">$1</strong>')}></li>
+      ))}
+    </ul>
+  </div>
+</details>

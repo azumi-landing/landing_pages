@@ -1,0 +1,25 @@
+---
+import { servicios } from '../../../data/servicios';
+import ServiceCard from '../../molecules/ServiceCard.astro';
+---
+
+<section id="servicios" class="py-24 px-6 bg-gradient-to-br from-slate-900 to-slate-800">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        Servicios que incluye la plataforma
+      </h2>
+      <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+        Todo lo que necesitas para gestionar operaciones de campo con visibilidad total
+      </p>
+    </div>
+    
+    <!-- Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {servicios.map((servicio) => (
+        <ServiceCard servicio={servicio} />
+      ))}
+    </div>
+  </div>
+</section>

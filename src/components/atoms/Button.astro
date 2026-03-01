@@ -1,0 +1,49 @@
+---
+import type { ButtonVariant } from '../../types';
+
+interface Props {
+  variant?: ButtonVariant;
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  onclick?: string;
+  class?: string;
+  type?: 'button' | 'submit';
+}
+
+const { 
+  variant = 'primary', 
+  size = 'md', 
+  href, 
+  onclick,
+  class: className = '',
+  type = 'button'
+} = Astro.props;
+
+const baseClasses = 'btn font-semibold transition-all duration-200';
+
+const variantClasses: Record<ButtonVariant, string> = {
+  primary: 'btn-primary bg-[#1E3A8A] hover:bg-[#1E40AF] border-none text-white',
+  secondary: 'btn-secondary bg-[#F1F5F9] hover:bg-[#E2E8F0] text-[#475569] border-[#CBD5E1]',
+  ghost: 'btn-ghost hover:bg-[#F1F5F9] text-[#64748B]',
+  outline: 'btn-outline border-[#CBD5E1] text-[#64748B] hover:bg-[#F1F5F9]',
+  danger: 'btn-error bg-red-600 hover:bg-red-700 text-white border-none'
+};
+
+const sizeClasses = {
+  sm: 'btn-sm px-3 py-1.5 text-sm',
+  md: 'px-4 py-2 text-base',
+  lg: 'btn-lg px-6 py-3 text-lg'
+};
+
+const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+---
+
+{href ? (
+  <a href={href} class={classes} onclick={onclick}>
+    <slot />
+  </a>
+) : (
+  <button type={type} class={classes} onclick={onclick}>
+    <slot />
+  </button>
+)}

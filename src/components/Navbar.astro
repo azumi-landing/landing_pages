@@ -1,41 +1,86 @@
 ---
-// Importas tus componentes aquí
-import '../styles/navbas.css';
+// Navbar usando Tailwind - refactorizado de CSS legacy
 ---
 
-<nav class="navbar">
-  <div class="container" aria-label="Navegación principal">
-    <a href="/" class="logo"><img src="/logins.png" alt=""></a>
+<nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-700/50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between" aria-label="Navegación principal">
+    <a href="/" class="flex items-center">
+      <img src="/logins.png" alt="Logo" class="h-10 w-auto" />
+    </a>
 
-    <button class="hamburger" type="button" aria-expanded="false" aria-controls="main-menu" aria-label="Abrir menú">
-      <span></span>
-      <span></span>
-      <span></span>
+    <button 
+      id="nav-toggle" 
+      class="lg:hidden flex flex-col gap-1.5 p-2"
+      type="button" 
+      aria-expanded="false" 
+      aria-controls="main-menu" 
+      aria-label="Abrir menú"
+    >
+      <span class="w-6 h-0.5 bg-white transition-transform origin-center"></span>
+      <span class="w-6 h-0.5 bg-white transition-opacity"></span>
+      <span class="w-6 h-0.5 bg-white transition-transform origin-center"></span>
     </button>
 
-    <ul class="nav-links" id="main-menu">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#sectores">Sectores</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#casos-exitos">Casos de Éxito</a></li>
-      <li><a href="#sobre-mi">Sobre mí</a></li>
-      <li><a href="#investigacion">Especialización</a></li>
-      <li><a href="#stack-tecnico">Stack Técnico</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+    <ul 
+      id="main-menu" 
+      class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300"
+    >
+      <li><a href="#inicio" class="hover:text-blue-400 transition-colors">Home</a></li>
+      <li><a href="#sectores" class="hover:text-blue-400 transition-colors">Sectores</a></li>
+      <li><a href="#servicios" class="hover:text-blue-400 transition-colors">Servicios</a></li>
+      <li><a href="#contacto" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors">Contacto</a></li>
+    </ul>
+  </div>
+  
+  <!-- Mobile menu -->
+  <div 
+    id="mobile-menu" 
+    class="hidden lg:hidden bg-slate-900 border-t border-slate-700/50"
+  >
+    <ul class="px-6 py-4 space-y-3 text-slate-300">
+      <li><a href="#inicio" class="block py-2 hover:text-blue-400 transition-colors">Home</a></li>
+      <li><a href="#sectores" class="block py-2 hover:text-blue-400 transition-colors">Sectores</a></li>
+      <li><a href="#servicios" class="block py-2 hover:text-blue-400 transition-colors">Servicios</a></li>
+      <li><a href="#contacto" class="block py-2 text-blue-400 font-medium">Contacto</a></li>
     </ul>
   </div>
 </nav>
 
 <script>
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
-
-  if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('active');
-      hamburger.setAttribute('aria-expanded', String(isOpen));
+  const toggle = document.getElementById('nav-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const spans = toggle?.querySelectorAll('span');
+  
+  toggle?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    
+    // Animate hamburger
+    if (spans && spans.length === 3) {
+      if (!isOpen) {
+        spans[0].classList.add('rotate-45', 'translate-y-2');
+        spans[1].classList.add('opacity-0');
+        spans[2].classList.add('-rotate-45', '-translate-y-2');
+      } else {
+        spans[0].classList.remove('rotate-45', 'translate-y-2');
+        spans[1].classList.remove('opacity-0');
+        spans[2].classList.remove('-rotate-45', '-translate-y-2');
+      }
+    }
+  });
+  
+  // Close menu on link click
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      toggle?.setAttribute('aria-expanded', 'false');
+      if (spans && spans.length === 3) {
+        spans[0].classList.remove('rotate-45', 'translate-y-2');
+        spans[1].classList.remove('opacity-0');
+        spans[2].classList.remove('-rotate-45', '-translate-y-2');
+      }
     });
-  }
+  });
 </script>
 
 

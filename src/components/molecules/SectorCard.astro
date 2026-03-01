@@ -1,0 +1,29 @@
+---
+import type { Sector } from '../../types';
+import Icon from '../atoms/Icon.astro';
+import CardWrapper from '../atoms/CardWrapper.astro';
+
+interface Props {
+  sector: Sector;
+  hasModal?: boolean;
+}
+
+const { sector, hasModal = true } = Astro.props;
+
+const cardClasses = hasModal 
+  ? 'group relative after:content-["Ver_ejemplo"] after:absolute after:bottom-4 after:left-1/2 after:-translate-x-1/2 after:bg-[#1E3A8A] after:text-white after:px-4 after:py-2 after:rounded-full after:text-sm after:font-medium after:opacity-0 after:transition-opacity after:duration-300 after:pointer-events-none hover:after:opacity-100'
+  : 'border-2 border-dashed border-[#CBD5E1] bg-[#FAFBFC] hover:bg-[#F8FAFC]';
+---
+
+<CardWrapper 
+  class={`sector-card ${cardClasses}`}
+  data-sector={sector.id}
+  onclick={hasModal ? `openModal('modal-${sector.id}')` : undefined}
+  dashed={!hasModal}
+>
+  <Icon name={sector.icon} size="3xl" class="text-[#1E3A8A] mb-6" />
+  <h3 class="text-xl font-bold mb-3 text-[#1E293B]">{sector.title}</h3>
+  <p class="text-[#475569] text-sm leading-relaxed">
+    <strong>Caso:</strong> {sector.shortDescription}
+  </p>
+</CardWrapper>

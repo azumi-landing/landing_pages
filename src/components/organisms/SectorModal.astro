@@ -1,0 +1,81 @@
+---
+import type { Sector } from '../../types';
+import Icon from '../atoms/Icon.astro';
+import PhoneMockup from '../molecules/PhoneMockup.astro';
+import WebMockup from '../molecules/WebMockup.astro';
+import WorkflowTimeline from '../molecules/WorkflowTimeline.astro';
+import Button from '../atoms/Button.astro';
+
+interface Props {
+  sector: Sector;
+}
+
+const { sector } = Astro.props;
+---
+
+<div id={`modal-${sector.id}`} class="sector-modal fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300" data-modal>
+  <div class="modal-content bg-white rounded-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto shadow-2xl">
+    <!-- Header -->
+    <div class="flex items-center justify-between p-6 border-b border-slate-200 sticky top-0 bg-white z-10">
+      <div class="flex items-center gap-4">
+        <Icon name={sector.icon} size="2xl" class="text-[#1E3A8A]" />
+        <h2 class="text-2xl font-bold text-[#1E293B]">{sector.title}</h2>
+      </div>
+      <button class="w-10 h-10 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-500 transition-colors" data-close aria-label="Cerrar">
+        <i class="fas fa-times text-xl"></i>
+      </button>
+    </div>
+    
+    <!-- Content -->
+    <div class="p-6 md:p-8 space-y-10">
+      <!-- Description -->
+      <p class="text-[#475569] text-lg leading-relaxed">{sector.fullDescription}</p>
+      
+      <!-- Workflow Timeline - NUEVO -->
+      <WorkflowTimeline steps={sector.workflow} sectorName={sector.title} />
+      
+      <!-- Mockups -->
+      <div class="grid md:grid-cols-2 gap-8 pt-4 border-t border-slate-200">
+        <div class="text-center">
+          <h4 class="text-sm font-bold text-[#64748B] uppercase tracking-wide mb-4">App móvil del operario</h4>
+          <PhoneMockup app={sector.mobileApp} />
+        </div>
+        <div class="text-center">
+          <h4 class="text-sm font-bold text-[#64748B] uppercase tracking-wide mb-4">Dashboard del supervisor</h4>
+          <WebMockup dashboard={sector.dashboard} />
+        </div>
+      </div>
+      
+      <!-- Features -->
+      <div class="pt-4 border-t border-slate-200">
+        <h3 class="text-lg font-semibold text-[#1E293B] mb-4">Funcionalidades específicas para este sector:</h3>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {sector.features.map((feature) => (
+            <div class="flex items-start gap-3 p-4 bg-[#F8FAFC] rounded-lg border border-[#E2E8F0]">
+              <Icon name={feature.icon} size="md" class="text-[#1E3A8A] mt-0.5" />
+              <span class="text-sm text-[#475569] font-medium">{feature.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <!-- CTA -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4 border-t border-slate-200">
+        <Button href="#contacto" variant="primary" size="lg">
+          Solicitar demo para tu sector
+        </Button>
+        <Button href="https://calendly.com/tu-agenda/15min" variant="secondary" size="lg">
+          <i class="fas fa-calendar-alt mr-2"></i>
+          Agendar llamada
+        </Button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .sector-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>

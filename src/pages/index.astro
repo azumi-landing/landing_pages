@@ -1,14 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import Sectores from '../components/Sectores.astro';
-import Servicios from '../components/Servicios.astro';
-import DiagramaProductos from '../components/DiagramaProductos.astro';
-import CasosDeExito from '../components/CasosDeExito.astro';
-import About from '../components/About.astro';
-import Investiger from '../components/investiger.astro';
-import StackTecnico from '../components/StackTecnico.astro';
-import Contact from '../components/Contact.astro';
+import Hero from '../components/sections/Hero/index.astro';
+import Sectores from '../components/sections/Sectores/index.astro';
+import Servicios from '../components/sections/Servicios/index.astro';
+import DiagramaProductos from '../components/sections/DiagramaProductos/index.astro';
+import CasosDeExito from '../components/sections/CasosDeExito/index.astro';
+import About from '../components/sections/About/index.astro';
+import Investiger from '../components/sections/Investiger/index.astro';
+import StackTecnico from '../components/sections/StackTecnico/index.astro';
+import Contact from '../components/sections/Contact/index.astro';
 ---
 
 <BaseLayout>
@@ -18,9 +18,20 @@ import Contact from '../components/Contact.astro';
     <Servicios />
     <DiagramaProductos />
     <CasosDeExito />
-    <About/> 
-    <Investiger/>
-    <StackTecnico/>
-    <Contact/>
+    <About /> 
+    <Investiger />
+    <StackTecnico />
+    <Contact />
   </main>
 </BaseLayout>
+
+<script>
+  // Initialize modal utilities globally
+  import { initModal } from '../utils/modals';
+  
+  if (typeof window !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initModal();
+    });
+  }
+</script>

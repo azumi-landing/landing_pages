@@ -1,0 +1,53 @@
+---
+import { sectores, otrosSectores } from '../../../data/sectores';
+import SectorCard from '../../molecules/SectorCard.astro';
+import SectorModal from '../../organisms/SectorModal.astro';
+import CardWrapper from '../../atoms/CardWrapper.astro';
+import Icon from '../../atoms/Icon.astro';
+---
+
+<section id="sectores" class="sectores bg-[#F8FAFC] py-24 px-6">
+  <div class="max-w-6xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-[#1E293B] mb-4">
+        ¿En qué sectores aplica?
+      </h2>
+      <p class="text-xl text-[#475569] max-w-3xl mx-auto">
+        La plataforma se adapta a las operaciones de campo de múltiples industrias. 
+        <strong>Click en cada sector para ver el ejemplo detallado.</strong>
+      </p>
+    </div>
+    
+    <!-- Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+      {sectores.map((sector) => (
+        <SectorCard sector={sector} hasModal={true} />
+      ))}
+      
+      <!-- Other sectors card -->
+      <CardWrapper class="sector-card group relative" dashed={true}>
+        <Icon name={otrosSectores.icon} size="3xl" class="text-[#94A3B8] mb-6" />
+        <h3 class="text-xl font-bold mb-3 text-[#1E293B]">{otrosSectores.title}</h3>
+        <p class="text-[#475569] text-sm leading-relaxed">
+          <strong>Caso:</strong> {otrosSectores.description}
+        </p>
+      </CardWrapper>
+    </div>
+    
+    <!-- CTA -->
+    <div class="text-center mt-12">
+      <a 
+        href="#contacto" 
+        class="inline-block px-6 py-3 bg-[#1E3A8A] text-white font-semibold rounded-lg text-center transition-all duration-300 hover:bg-[#1E40AF] hover:-translate-y-0.5 hover:shadow-lg"
+      >
+        Ver si mi sector aplica
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Modals -->
+{sectores.map((sector) => (
+  <SectorModal sector={sector} />
+))}
