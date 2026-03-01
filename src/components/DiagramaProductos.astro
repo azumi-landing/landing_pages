@@ -4,208 +4,29 @@ import '../styles/diagramaProductos.css'
 
 <section class="diagrama-section" id="flujo-productos">
   <div class="diagrama-container">
-    <h2 class="diagrama-title">Cómo convierto procesos manuales en operación automatizada y auditable</h2>
-    <p class="diagrama-subtitle">De Excel y WhatsApp a sistemas end-to-end con trazabilidad, evidencia y decisión rápida</p>
+    <h2 class="diagrama-title">De la planilla de papel al dashboard en tiempo real</h2>
+    <p class="diagrama-subtitle">Flujo completo: tu equipo de campo usa app móvil, tú controlas y decides desde la plataforma web</p>
 
     <div class="flujo-completo">
 
-      <!-- NIVEL 1: FUENTES DE DATOS -->
-      <div class="flujo-nivel">
-        <div class="nivel-header">
-          <i class="fas fa-database"></i>
-          <span>FUENTES DE DATOS</span>
-        </div>
-        <div class="nivel-content">
-          <div class="item-box">
-            <i class="fas fa-file-excel"></i>
-            <span>Formularios / Excel</span>
-          </div>
-          <div class="item-box">
-            <i class="fas fa-server"></i>
-            <span>Sistemas internos (ERP)</span>
-          </div>
-          <div class="item-box">
-            <i class="fas fa-clipboard-list"></i>
-            <span>Lecturas / registros operativos</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="flujo-arrow">
-        <i class="fas fa-arrow-down"></i>
-      </div>
-
-      <!-- NIVEL 2: CAPTURA -->
+      <!-- NIVEL 1: ASIGNACIÓN DESDE WEB -->
       <div class="flujo-nivel highlight-blue">
         <div class="nivel-header">
-          <i class="fas fa-mobile-alt"></i>
-          <span>CAPTURA / CANALES</span>
+          <i class="fas fa-tasks"></i>
+          <span>1. ASIGNACIÓN DESDE LA WEB</span>
         </div>
         <div class="nivel-content">
           <div class="item-box">
-            <i class="fas fa-mobile-screen"></i>
-            <span>App móvil (campo)</span>
-            <small>fotos / GPS / reglas obligatorias</small>
+            <i class="fas fa-calendar-alt"></i>
+            <span>Programas tareas y rutas</span>
           </div>
           <div class="item-box">
-            <i class="fas fa-laptop"></i>
-            <span>Web operativa</span>
+            <i class="fas fa-user-plus"></i>
+            <span>Asignas a operarios</span>
           </div>
-          <div class="item-box">
-            <i class="fas fa-robot"></i>
-            <span>WhatsApp bot</span>
-            <small>clientes / leads</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="flujo-arrow">
-        <i class="fas fa-arrow-down"></i>
-      </div>
-
-      <!-- NIVEL 3: VALIDACIÓN Y ESTANDARIZACIÓN -->
-      <div class="flujo-nivel highlight-yellow">
-        <div class="nivel-header">
-          <i class="fas fa-check-double"></i>
-          <span>VALIDACIÓN / ESTANDARIZACIÓN</span>
-        </div>
-        <div class="nivel-content single-col">
-          <div class="feature-list">
-            <div class="feature-item"><i class="fas fa-check-circle"></i> Validaciones obligatorias en origen</div>
-            <div class="feature-item"><i class="fas fa-check-circle"></i> Normalización de formatos</div>
-            <div class="feature-item"><i class="fas fa-check-circle"></i> Reglas de negocio aplicadas</div>
-            <div class="feature-item"><i class="fas fa-check-circle"></i> Datos listos para procesar</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flujo-arrow">
-        <i class="fas fa-arrow-down"></i>
-      </div>
-
-      <!-- NIVEL 4: AUTOMATIZACIÓN -->
-      <div class="flujo-nivel highlight-green">
-        <div class="nivel-header">
-          <i class="fas fa-cogs"></i>
-          <span>AUTOMATIZACIÓN END-TO-END</span>
-        </div>
-        <div class="nivel-content single-col">
-          <div class="feature-list">
-            <div class="feature-item"><i class="fas fa-check-circle"></i> Validaciones automáticas</div>
-            <div class="feature-item"><i class="fas fa-check-circle"></i> Flujos de aprobación</div>
-            <div class="feature-item"><i class="fas fa-check-circle"></i> Reintentos / alertas</div>
-            <div class="feature-item"><i class="fas fa-check-circle"></i> Trazabilidad por evento</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flujo-arrow">
-        <i class="fas fa-arrow-down"></i>
-      </div>
-
-      <!-- NIVEL 5: EVIDENCIA -->
-      <div class="flujo-nivel highlight-purple">
-        <div class="nivel-header">
-          <i class="fas fa-shield-alt"></i>
-          <span>EVIDENCIA + TRAZABILIDAD</span>
-        </div>
-        <div class="nivel-content single-col">
-          <div class="feature-list">
-            <div class="feature-item"><i class="fas fa-history"></i> Bitácora (quién/cuándo/dónde)</div>
-            <div class="feature-item"><i class="fas fa-camera"></i> Evidencias (fotos/docs)</div>
-            <div class="feature-item"><i class="fas fa-clipboard-check"></i> Auditoría desde el día uno</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flujo-arrow">
-        <i class="fas fa-arrow-down"></i>
-      </div>
-
-      <!-- NIVEL 6: DATOS -->
-      <div class="flujo-nivel highlight-orange">
-        <div class="nivel-header">
-          <i class="fas fa-chart-bar"></i>
-          <span>DATOS CONFIABLES</span>
-        </div>
-        <div class="nivel-content single-col">
-          <div class="feature-list">
-            <div class="feature-item"><i class="fas fa-sync"></i> Integración de fuentes</div>
-            <div class="feature-item"><i class="fas fa-filter"></i> Reglas de calidad</div>
-            <div class="feature-item"><i class="fas fa-tachometer-alt"></i> KPIs operativos listos</div>
-            <div class="feature-item"><i class="fas fa-user-shield"></i> Roles y permisos controlados</div>
-            <div class="feature-item"><i class="fas fa-history"></i> Historial de cambios auditable</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flujo-arrow">
-        <i class="fas fa-arrow-down"></i>
-      </div>
-
-      <!-- NIVEL 7: INTELIGENCIA (BIFURCACIÓN) -->
-      <div class="flujo-bifurcacion">
-        <div class="bifurcacion-header">
-          <i class="fas fa-brain"></i>
-          <span>INTELIGENCIA (opcional, según madurez)</span>
-        </div>
-        <div class="bifurcacion-content">
-          <div class="flujo-nivel highlight-ai">
-            <div class="nivel-header">
-              <i class="fas fa-brain"></i>
-              <span>ML: DETECCIÓN DE ANOMALÍAS</span>
-            </div>
-            <div class="nivel-content single-col">
-              <div class="feature-list compact">
-                <div class="feature-item"><i class="fas fa-exclamation-triangle"></i> Patrones inusuales</div>
-                <div class="feature-item"><i class="fas fa-bell"></i> Detección temprana</div>
-                <div class="feature-item"><i class="fas fa-filter"></i> Reducción de falsos positivos</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flujo-nivel highlight-ai">
-            <div class="nivel-header">
-              <i class="fas fa-robot"></i>
-              <span>AGENTES DE IA: ASISTENCIA</span>
-            </div>
-            <div class="nivel-content single-col">
-              <div class="feature-list compact">
-                <div class="feature-item"><i class="fas fa-tag"></i> Clasificación de leads/solicitudes</div>
-                <div class="feature-item"><i class="fas fa-reply"></i> Respuestas y derivación</div>
-                <div class="feature-item"><i class="fas fa-hands-helping"></i> Soporte a equipos (contexto)</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flujo-arrow">
-        <i class="fas fa-arrow-down"></i>
-      </div>
-
-      <!-- NIVEL 8: ACCIONES AUTOMÁTICAS -->
-      <div class="flujo-nivel highlight-action">
-        <div class="nivel-header">
-          <i class="fas fa-bolt"></i>
-          <span>ACCIONES AUTOMÁTICAS</span>
-        </div>
-        <div class="nivel-content">
           <div class="item-box">
             <i class="fas fa-bell"></i>
-            <span>Alertar</span>
-          </div>
-          <div class="item-box">
-            <i class="fas fa-tasks"></i>
-            <span>Crear tarea/caso</span>
-          </div>
-          <div class="item-box">
-            <i class="fas fa-level-up-alt"></i>
-            <span>Escalar a humano</span>
-          </div>
-          <div class="item-box">
-            <i class="fas fa-check-square"></i>
-            <span>Bloquear/aprobar según reglas</span>
+            <span>Notificación push al móvil</span>
           </div>
         </div>
       </div>
@@ -214,33 +35,124 @@ import '../styles/diagramaProductos.css'
         <i class="fas fa-arrow-down"></i>
       </div>
 
-      <!-- NIVEL 9: RESULTADOS -->
+      <!-- NIVEL 2: APP MÓVIL EN CAMPO -->
+      <div class="flujo-nivel highlight-green">
+        <div class="nivel-header">
+          <i class="fas fa-mobile-alt"></i>
+          <span>2. APP MÓVIL EN CAMPO</span>
+        </div>
+        <div class="nivel-content">
+          <div class="item-box">
+            <i class="fas fa-eye"></i>
+            <span>Ve asignaciones pendientes</span>
+          </div>
+          <div class="item-box">
+            <i class="fas fa-edit"></i>
+            <span>Captura datos estructurados</span>
+            <small>formularios con validación</small>
+          </div>
+          <div class="item-box">
+            <i class="fas fa-camera"></i>
+            <span>Fotos + GPS obligatorios</span>
+          </div>
+          <div class="item-box">
+            <i class="fas fa-signature"></i>
+            <span>Firma digital</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flujo-arrow">
+        <i class="fas fa-arrow-down"></i>
+      </div>
+
+      <!-- NIVEL 3: SINCRONIZACIÓN -->
+      <div class="flujo-nivel highlight-yellow">
+        <div class="nivel-header">
+          <i class="fas fa-sync"></i>
+          <span>3. SINCRONIZACIÓN AUTOMÁTICA</span>
+        </div>
+        <div class="nivel-content single-col">
+          <div class="feature-list">
+            <div class="feature-item"><i class="fas fa-wifi"></i> Enviado en tiempo real (con internet)</div>
+            <div class="feature-item"><i class="fas fa-download"></i> Almacenado localmente (modo offline)</div>
+            <div class="feature-item"><i class="fas fa-upload"></i> Sincroniza automático al recuperar señal</div>
+            <div class="feature-item"><i class="fas fa-check-circle"></i> Confirmación de recepción en web</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flujo-arrow">
+        <i class="fas fa-arrow-down"></i>
+      </div>
+
+      <!-- NIVEL 4: PLATAFORMA WEB -->
+      <div class="flujo-nivel highlight-purple">
+        <div class="nivel-header">
+          <i class="fas fa-laptop"></i>
+          <span>4. PLATAFORMA WEB ADMINISTRATIVA</span>
+        </div>
+        <div class="nivel-content single-col">
+          <div class="feature-list">
+            <div class="feature-item"><i class="fas fa-chart-line"></i> Dashboard con métricas en tiempo real</div>
+            <div class="feature-item"><i class="fas fa-map-marked-alt"></i> Mapa de ubicaciones y cobertura</div>
+            <div class="feature-item"><i class="fas fa-clipboard-check"></i> Auditoría completa: quién, cuándo, dónde</div>
+            <div class="feature-item"><i class="fas fa-bell"></i> Alertas por desviaciones o atrasos</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flujo-arrow">
+        <i class="fas fa-arrow-down"></i>
+      </div>
+
+      <!-- NIVEL 5: INTEGRACIÓN -->
+      <div class="flujo-nivel highlight-orange">
+        <div class="nivel-header">
+          <i class="fas fa-plug"></i>
+          <span>5. INTEGRACIÓN CON TUS SISTEMAS</span>
+        </div>
+        <div class="nivel-content single-col">
+          <div class="feature-list">
+            <div class="feature-item"><i class="fas fa-sync"></i> Sincronización bidireccional</div>
+            <div class="feature-item"><i class="fas fa-database"></i> ERP / SAP / CRM</div>
+            <div class="feature-item"><i class="fas fa-file-export"></i> Exportación automática de reportes</div>
+            <div class="feature-item"><i class="fas fa-key"></i> Single Sign-On (SSO)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flujo-arrow">
+        <i class="fas fa-arrow-down"></i>
+      </div>
+
+      <!-- NIVEL 6: RESULTADOS DE CAMPO -->
       <div class="flujo-nivel resultados">
         <div class="nivel-header">
           <i class="fas fa-trophy"></i>
-          <span>SALIDAS / RESULTADOS DE NEGOCIO</span>
+          <span>RESULTADOS PARA TU OPERACIÓN DE CAMPO</span>
         </div>
         <div class="nivel-content single-col">
           <div class="resultados-grid">
             <div class="resultado-item">
-              <i class="fas fa-bolt"></i>
-              <span>Operación <strong>10× más rápida</strong> (cierres/aprobaciones)</span>
+              <i class="fas fa-eye"></i>
+              <span><strong>100% visibilidad</strong> de operaciones en campo en tiempo real</span>
             </div>
             <div class="resultado-item">
               <i class="fas fa-check-double"></i>
-              <span><strong>Hasta -60% errores</strong> y cero reprocesos</span>
+              <span><strong>Hasta -60% errores</strong> de captura con validación en origen</span>
             </div>
             <div class="resultado-item">
               <i class="fas fa-clipboard-check"></i>
-              <span>Evidencia y auditoría automática (<strong>+5M documentos</strong>)</span>
+              <span>Auditoría completa con <strong>evidencia inmutable</strong> (fotos, GPS, timestamp)</span>
             </div>
             <div class="resultado-item">
               <i class="fas fa-chart-line"></i>
-              <span>Reportes/KPIs en <strong>horas, no días</strong></span>
+              <span>Decisiones basadas en datos <strong>actualizados al minuto</strong>, no al día siguiente</span>
             </div>
             <div class="resultado-item">
-              <i class="fas fa-robot"></i>
-              <span>Clasificación y respuesta automática con IA</span>
+              <i class="fas fa-users"></i>
+              <span><strong>90% menos llamadas</strong> de seguimiento al equipo de campo</span>
             </div>
           </div>
         </div>
@@ -249,7 +161,7 @@ import '../styles/diagramaProductos.css'
     </div>
 
     <div class="diagrama-footer">
-      <p><i class="fas fa-clock"></i> <strong>Implementación por fases</strong> sin detener tu operación</p>
+      <p><i class="fas fa-rocket"></i> <strong>Implementación en semanas</strong> • App móvil + Plataforma web listas para usar</p>
     </div>
   </div>
 </section>

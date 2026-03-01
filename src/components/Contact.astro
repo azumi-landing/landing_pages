@@ -11,9 +11,9 @@ const CALENDLY_URL = "https://calendly.com/tu-agenda/15min";
 <section class="contact-page-two" id="contacto">
     <div class="contact-card-two">
 
-        <!-- Lado de información corporativa -->
+        <!-- Lado de información de contacto -->
         <div class="info-sidebar">
-            <h2>Contacto</h2>
+            <h2>Hablemos</h2>
 
             <div class="contact-detail-item">
                 <div class="contact-text">
@@ -24,14 +24,14 @@ const CALENDLY_URL = "https://calendly.com/tu-agenda/15min";
 
             <div class="contact-detail-item">
                 <div class="contact-text">
-                    <p class="label">WhatsApp</p>
+                    <p class="label">WhatsApp personal</p>
                     <p class="value"><a href={`https://wa.me/${WHATSAPP_NUMBER}`}>{WHATSAPP_DISPLAY}</a></p>
                 </div>
             </div>
 
             <div class="contact-detail-item">
                 <div class="contact-text">
-                    <p class="label">Agenda rápida</p>
+                    <p class="label">Agenda una llamada</p>
                     <p class="value"><a href={CALENDLY_URL} target="_blank">Agendar 15 min</a></p>
                 </div>
             </div>
@@ -40,12 +40,12 @@ const CALENDLY_URL = "https://calendly.com/tu-agenda/15min";
 
         <!-- Lado de formulario -->
         <div class="form-area-two">
-            <h3>Hablemos</h3>
-            <p class="form-instruction">Agenda una llamada, escríbeme por WhatsApp o usa el formulario. Respondo en &lt;1 hora hábil.</p>
+            <h3>Agenda tu consulta gratuita</h3>
+            <p class="form-instruction">Cuéntame sobre tu operación y te propongo una solución personalizada. Respondo directamente en menos de 1 hora.</p>
 
             <div class="quick-actions">
-                <a class="quick-btn primary" href={CALENDLY_URL} target="_blank">Agendar 15 min</a>
-                <a class="quick-btn ghost" href={`https://wa.me/${WHATSAPP_NUMBER}`}>WhatsApp inmediato</a>
+                <a class="quick-btn primary" href={CALENDLY_URL} target="_blank">Agendar llamada 15 min</a>
+                <a class="quick-btn ghost" href={`https://wa.me/${WHATSAPP_NUMBER}`}>Escríbeme por WhatsApp</a>
             </div>
 
             <form class="clean-form">
@@ -66,27 +66,30 @@ const CALENDLY_URL = "https://calendly.com/tu-agenda/15min";
                 </div>
 
                 <div class="form-group-two">
-                    <label for="your-topic-two">¿Qué necesitas?</label>
+                    <label for="your-topic-two">¿Qué necesitas gestionar en campo?</label>
                     <select id="your-topic-two" name="topic" required>
-                        <option value="" selected disabled>Selecciona una opción</option>
-                        <option value="automatizar-procesos">Automatizar procesos repetitivos</option>
-                        <option value="reportes-datos">Reportes y visibilidad de datos</option>
-                        <option value="apps-moviles">Apps móviles y bots de atención</option>
-                        <option value="integrar-sistemas">Integrar sistemas completos</option>
-                        <option value="otro">Otro</option>
+                        <option value="" selected disabled>Selecciona tu sector o necesidad</option>
+                        <option value="seguridad-trazabilidad">Seguridad de datos y trazabilidad completa</option>
+                        <option value="inspecciones-tecnicas">Inspecciones técnicas con evidencia</option>
+                        <option value="asignaciones-campo">Asignaciones y seguimiento de equipos de campo</option>
+                        <option value="captura-datos">Captura de datos con validación (fotos, GPS, formularios)</option>
+                        <option value="auditoria-cumplimiento">Auditoría y cumplimiento normativo</option>
+                        <option value="metricas-kpis">Dashboards con métricas y KPIs en tiempo real</option>
+                        <option value="integracion-erp">Integración con ERP o sistemas actuales</option>
+                        <option value="otro">Otro / No estoy seguro</option>
                     </select>
                 </div>
 
                 <div class="form-group-two">
-                    <label for="your-message-two">Mensaje / detalle</label>
+                    <label for="your-message-two">Cuéntame sobre tu operación</label>
                     <textarea id="your-message-two" name="message" rows="4"
-                        placeholder="Ej: necesitamos automatizar la ingestión de archivos y alertas a operaciones" required></textarea>
+                        placeholder="Ej: Tenemos 30 técnicos de campo que hacen instalaciones. Usan papel y WhatsApp. Necesitamos asignarles tareas y ver el avance en tiempo real." required></textarea>
                 </div>
 
-                <p class="privacy-note">Usaré tus datos solo para responder a esta consulta. Respondo en &lt;1 hora hábil.</p>
+                <p class="privacy-note">Usaré tus datos solo para responder a tu consulta. Respuesta directa garantizada.</p>
 
                 <button type="submit" class="send-button-two">
-                    Enviar
+                    Enviar mensaje
                 </button>
             </form>
         </div>

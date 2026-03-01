@@ -4,47 +4,724 @@ import '../styles/sectores.css'
 
 <section class="sectores-section" id="sectores">
   <div class="sectores-container">
-    <h2 class="sectores-title">Sectores donde trabajo</h2>
-    <p class="sectores-intro">Operaciones con procesos críticos que no pueden fallar.</p>
+    <h2 class="sectores-title">Solución adaptada a tu sector</h2>
+    <p class="sectores-intro">Gestión de operaciones de campo con asignaciones, captura móvil y métricas en tiempo real.</p>
     
     <div class="sectores-grid">
       
-      <div class="sector-card">
+      <div class="sector-card" data-sector="agricultura" onclick="openModal('modal-agricultura')">
         <div class="sector-icon"><i class="fas fa-seedling"></i></div>
         <h3>Agricultura y agroindustria</h3>
-        <p>Captura en campo sin datos incompletos y trazabilidad lista para auditoría y exportación.</p>
+        <p><strong>Caso:</strong> Inspectores de campo registran estado de cultivos, plagas y cosechas con fotos y GPS. Supervisores ven avance en tiempo real y asignan nuevas parcelas desde la web.</p>
       </div>
 
-      <div class="sector-card">
+      <div class="sector-card" data-sector="manufactura" onclick="openModal('modal-manufactura')">
         <div class="sector-icon"><i class="fas fa-industry"></i></div>
         <h3>Maquila y manufactura</h3>
-        <p>Aprobaciones, calidad y cierres operativos 10× más rápidos, sin Excel ni reprocesos.</p>
+        <p><strong>Caso:</strong> Auditores de planta completan checklists de calidad en móvil. Jefes de línea monitorean cumplimiento, tiempos y asignan inspecciones desde el dashboard.</p>
       </div>
 
-      <div class="sector-card">
+      <div class="sector-card" data-sector="mineria" onclick="openModal('modal-mineria')">
         <div class="sector-icon"><i class="fas fa-gem"></i></div>
         <h3>Minería</h3>
-        <p>Evidencia e inspecciones auditables (fotos/GPS) con reportes confiables para cumplimiento y operación.</p>
+        <p><strong>Caso:</strong> Supervisores de faena documentan condiciones de seguridad y equipos con evidencia fotográfica. Gerencia opera tiene visibilidad de todas las frentes de trabajo en tiempo real.</p>
       </div>
 
-      <div class="sector-card">
+      <div class="sector-card" data-sector="energia" onclick="openModal('modal-energia')">
         <div class="sector-icon"><i class="fas fa-bolt"></i></div>
         <h3>Energía</h3>
-        <p>Balance y control técnico con validaciones obligatorias; detección temprana de pérdidas y anomalías.</p>
+        <p><strong>Caso:</strong> Alarmas de series de tiempo generan órdenes de servicio automáticas. Técnicos reciben asignaciones en app móvil, atienden averías, capturan evidencia. Coordinación ve métricas de MTTR, cobertura y cumplimiento en vivo.</p>
       </div>
 
-      <div class="sector-card">
+      <div class="sector-card" data-sector="forestal" onclick="openModal('modal-forestal')">
         <div class="sector-icon"><i class="fas fa-tree"></i></div>
         <h3>Forestal</h3>
-        <p>Operación en campo con trazabilidad y evidencia en zonas remotas, sin depender de papel ni WhatsApp.</p>
+        <p><strong>Caso:</strong> Brigadistas inventarían parcelas y controlan extracción en zonas remotas (funciona offline). Oficina central audita trazabilidad completa del recurso forestal.</p>
       </div>
 
       <div class="sector-card sector-otros">
         <div class="sector-icon"><i class="fas fa-ellipsis-h"></i></div>
         <h3>Otros sectores</h3>
-        <p>Si tu operación se frena por procesos manuales y falta de trazabilidad, lo automatizamos sin detener el negocio.</p>
+        <p>¿Tienes operarios en campo que usan papel, WhatsApp o no tienes visibilidad de su trabajo? Adaptamos la plataforma a tu flujo específico.</p>
       </div>
 
     </div>
   </div>
+
+  <!-- Modal Agricultura -->
+  <div class="modal-overlay" id="modal-agricultura">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-seedling"></i> Ejemplo: Gestión de campo en Agricultura</h3>
+        <button class="modal-close" onclick="closeModal('modal-agricultura')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-description">
+          Así se ve la solución para el sector agro: inspectores de campo registran estado de cultivos, plagas y cosechas desde su celular, mientras supervisores asignan nuevas parcelas y ven el avance en tiempo real desde la web.
+        </p>
+        <div class="modal-screens">
+          <div class="screen-container">
+            <p class="screen-label">📱 App Móvil del Inspector</p>
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="app-header">
+                  <h4>🌱 Inspección de Campo</h4>
+                  <p>Inspector: María González</p>
+                </div>
+                <div class="app-content">
+                  <div class="app-card">
+                    <div class="app-card-header">
+                      <span class="app-card-title">Parcela P-156</span>
+                      <span class="app-card-status status-progress">En revisión</span>
+                    </div>
+                    <p class="app-card-details">Cultivo: Maíz<br>Estado: Etapa de floración</p>
+                    <div class="app-card-meta">
+                      <span>📍 Lat: -33.4567</span>
+                      <span>📸 3 fotos</span>
+                    </div>
+                  </div>
+                  <div class="app-card">
+                    <div class="app-card-header">
+                      <span class="app-card-title">Detección de Plaga</span>
+                      <span class="app-card-status status-urgent">Alerta</span>
+                    </div>
+                    <p class="app-card-details">Tipo: Gusano cogollero<br>Severidad: Media</p>
+                    <div class="app-card-meta">
+                      <span>📍 Parcela P-160</span>
+                      <span>📸 Evidencia</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="app-actions">
+                  <button class="app-btn app-btn-primary">📷 Foto</button>
+                  <button class="app-btn app-btn-secondary">✓ Guardar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="screen-container">
+            <p class="screen-label">💻 Dashboard Web del Supervisor</p>
+            <div class="web-mockup">
+              <div class="web-browser-bar">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+                <span class="browser-url">agro.controlcampo.app</span>
+              </div>
+              <div class="web-screen">
+                <div class="web-sidebar">
+                  <div class="sidebar-icon active"><i class="fas fa-home"></i></div>
+                  <div class="sidebar-icon"><i class="fas fa-seedling"></i></div>
+                  <div class="sidebar-icon"><i class="fas fa-map"></i></div>
+                  <div class="sidebar-icon"><i class="fas fa-chart-bar"></i></div>
+                </div>
+                <div class="web-content">
+                  <div class="web-header">
+                    <h5>Panel de Agricultura</h5>
+                    <div class="web-user">MG</div>
+                  </div>
+                  <div class="web-stats">
+                    <div class="stat-card">
+                      <p class="stat-value">48</p>
+                      <p class="stat-label">Parcelas activas</p>
+                    </div>
+                    <div class="stat-card">
+                      <p class="stat-value">6</p>
+                      <p class="stat-label">Alertas plagas</p>
+                    </div>
+                    <div class="stat-card">
+                      <p class="stat-value">85%</p>
+                      <p class="stat-label">Cobertura hoy</p>
+                    </div>
+                  </div>
+                  <div class="web-table">
+                    <div class="table-header">
+                      <span>Inspector</span>
+                      <span>Parcelas</span>
+                      <span>Estado</span>
+                    </div>
+                    <div class="table-row">
+                      <span>María G.</span>
+                      <span>12/15</span>
+                      <span>En campo</span>
+                    </div>
+                    <div class="table-row">
+                      <span>Juan P.</span>
+                      <span>8/10</span>
+                      <span>Sincronizando</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-features">
+          <div class="feature-item"><i class="fas fa-leaf"></i><span>Registro de cultivos y plagas</span></div>
+          <div class="feature-item"><i class="fas fa-map-marker-alt"></i><span>GPS de parcelas</span></div>
+          <div class="feature-item"><i class="fas fa-camera"></i><span>Fotos de evidencia</span></div>
+          <div class="feature-item"><i class="fas fa-clipboard-check"></i><span>Checklist de cosechas</span></div>
+          <div class="feature-item"><i class="fas fa-chart-line"></i><span>Avance en tiempo real</span></div>
+          <div class="feature-item"><i class="fas fa-wifi-slash"></i><span>Funciona sin internet</span></div>
+        </div>
+        <div class="modal-cta">
+          <a href="#contacto" class="btn-modal-primary" onclick="closeModal('modal-agricultura')">Quiero una solución así</a>
+          <a href="#sectores" class="btn-modal-secondary" onclick="closeModal('modal-agricultura')">Ver otros sectores</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Manufactura -->
+  <div class="modal-overlay" id="modal-manufactura">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-industry"></i> Ejemplo: Gestión de campo en Manufactura</h3>
+        <button class="modal-close" onclick="closeModal('modal-manufactura')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-description">
+          Así se ve la solución para manufactura: auditores de planta completan checklists de calidad desde su celular, mientras jefes de línea monitorean cumplimiento y asignan inspecciones desde el dashboard web.
+        </p>
+        <div class="modal-screens">
+          <div class="screen-container">
+            <p class="screen-label">📱 App Móvil del Auditor</p>
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="app-header">
+                  <h4>🏭 Auditoría de Calidad</h4>
+                  <p>Auditor: Roberto Silva</p>
+                </div>
+                <div class="app-content">
+                  <div class="app-card">
+                    <div class="app-card-header">
+                      <span class="app-card-title">Línea L-03 - Lote A</span>
+                      <span class="app-card-status status-urgent">Rechazado</span>
+                    </div>
+                    <p class="app-card-details">Defecto: Acabado irregular<br>Estándar: ISO 9001</p>
+                    <div class="app-card-meta">
+                      <span>⏰ 14:45</span>
+                      <span>📸 2 fotos</span>
+                    </div>
+                  </div>
+                  <div class="app-card">
+                    <div class="app-card-header">
+                      <span class="app-card-title">Checklist L-05</span>
+                      <span class="app-card-status status-done">Aprobado</span>
+                    </div>
+                    <p class="app-card-details">Ítems: 15/15 OK<br>Tiempo: 8 min</p>
+                    <div class="app-card-meta">
+                      <span>✓ Firma digital</span>
+                      <span>📍 Línea 5</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="app-actions">
+                  <button class="app-btn app-btn-primary">📷 Defecto</button>
+                  <button class="app-btn app-btn-secondary">✓ Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="screen-container">
+            <p class="screen-label">💻 Dashboard Web del Jefe de Línea</p>
+            <div class="web-mockup">
+              <div class="web-browser-bar">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+                <span class="browser-url">calidad.manufactura.app</span>
+              </div>
+              <div class="web-screen">
+                <div class="web-sidebar">
+                  <div class="sidebar-icon active"><i class="fas fa-home"></i></div>
+                  <div class="sidebar-icon"><i class="fas fa-industry"></i></div>
+                  <div class="sidebar-icon"><i class="fas fa-clipboard-check"></i></div>
+                  <div class="sidebar-icon"><i class="fas fa-chart-pie"></i></div>
+                </div>
+                <div class="web-content">
+                  <div class="web-header">
+                    <h5>Control de Calidad</h5>
+                    <div class="web-user">RS</div>
+                  </div>
+                  <div class="web-stats">
+                    <div class="stat-card">
+                      <p class="stat-value">96%</p>
+                      <p class="stat-label">Aprobación hoy</p>
+                    </div>
+                    <div class="stat-card">
+                      <p class="stat-value">3</p>
+                      <p class="stat-label">No conformidades</p>
+                    </div>
+                    <div class="stat-card">
+                      <p class="stat-value">12</p>
+                      <p class="stat-label">Auditores activos</p>
+                    </div>
+                  </div>
+                  <div class="web-table">
+                    <div class="table-header">
+                      <span>Línea</span>
+                      <span>Estado</span>
+                      <span>% Calidad</span>
+                    </div>
+                    <div class="table-row">
+                      <span>Línea 3</span>
+                      <span>Atención</span>
+                      <span>89%</span>
+                    </div>
+                    <div class="table-row">
+                      <span>Línea 5</span>
+                      <span>Óptimo</span>
+                      <span>98%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-features">
+          <div class="feature-item"><i class="fas fa-clipboard-list"></i><span>Checklist de calidad</span></div>
+          <div class="feature-item"><i class="fas fa-clock"></i><span>Tiempos de inspección</span></div>
+          <div class="feature-item"><i class="fas fa-camera"></i><span>Evidencia de defectos</span></div>
+          <div class="feature-item"><i class="fas fa-exclamation-triangle"></i><span>Alertas de no conformidad</span></div>
+          <div class="feature-item"><i class="fas fa-chart-pie"></i><span>Indicadores de calidad</span></div>
+          <div class="feature-item"><i class="fas fa-users"></i><span>Asignación a auditores</span></div>
+        </div>
+        <div class="modal-cta">
+          <a href="#contacto" class="btn-modal-primary" onclick="closeModal('modal-manufactura')">Quiero una solución así</a>
+          <a href="#sectores" class="btn-modal-secondary" onclick="closeModal('modal-manufactura')">Ver otros sectores</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Minería -->
+  <div class="modal-overlay" id="modal-mineria">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-gem"></i> Ejemplo: Gestión de campo en Minería</h3>
+        <button class="modal-close" onclick="closeModal('modal-mineria')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-description">
+          Así se ve la solución para minería: supervisores de faena documentan condiciones de seguridad y equipos desde su celular, mientras gerencia tiene visibilidad de todas las frentes de trabajo en tiempo real desde la web.
+        </p>
+        <div class="modal-screens">
+          <div class="screen-container">
+            <p class="screen-label">📱 App Móvil del Supervisor</p>
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="app-header">
+                  <h4>⛏️ Seguridad en Faena</h4>
+                  <p>Supervisor: Diego Torres</p>
+                </div>
+                <div class="app-content">
+                  <div class="app-card">
+                    <div class="app-card-header">
+                      <span class="app-card-title">Frente Norte - Nivel 3</span>
+                      <span class="app-card-status status-urgent">Alto Riesgo</span>
+                    </div>
+                    <p class="app-card-details">Condición: Derrumbe potencial<br>Equipos: Retroexcavadora R-12</p>
+                    <div class="app-card-meta">
+                      <span>⚠️ Evacuar zona</span>
+                      <span>📍 Frente N-3</span>
+                    </div>
+                  </div>
+                  <div class="app-card">
+                    <div class="app-card-header">
+                      <span class="app-card-title">Inspección Diaria</span>
+                      <span class="app-card-status status-done">Completado</span>
+                    </div>
+                    <p class="app-card-details">EPP: 100% uso correcto<br>Checklist: 25/25 ítems</p>
+                    <div class="app-card-meta">
+                      <span>✓ Firmado</span>
+                      <span>📸 Evidencia</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="app-actions">
+                  <button class="app-btn app-btn-primary">📷 Evidencia</button>
+                  <button class="app-btn app-btn-secondary">🚨 Alertar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="screen-container">
+            <p class="screen-label">💻 Dashboard Web de Gerencia</p>
+            <div class="web-mockup">
+              <div class="web-browser-bar">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+                <span class="browser-url">faena.mineria.app</span>
+              </div>
+              <div class="web-screen">
+                <div class="web-sidebar">
+                  <div class="sidebar-icon active"><i class="fas fa-home"></i></div>
+                  <div class="sidebar-icon"><i class="fas fa-hard-hat"></i></div>
+                  <div class="sidebar-icon"><i class="fas fa-map"></i></div>
+                  <div class="sidebar-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                </div>
+                <div class="web-content">
+                  <div class="web-header">
+                    <h5>Control de Faena</h5>
+                    <div class="web-user">DT</div>
+                  </div>
+                  <div class="web-stats">
+                    <div class="stat-card">
+                      <p class="stat-value">5</p>
+                      <p class="stat-label">Frentes activos</p>
+                    </div>
+                    <div class="stat-card">
+                      <p class="stat-value">1</p>
+                      <p class="stat-label">Alertas críticas</p>
+                    </div>
+                    <div class="stat-card">
+                      <p class="stat-value">89</p>
+                      <p class="stat-label">Trabajadores</p>
+                    </div>
+                  </div>
+                  <div class="web-table">
+                    <div class="table-header">
+                      <span>Frente</span>
+                      <span>Estado</span>
+                      <span>Supervisor</span>
+                    </div>
+                    <div class="table-row">
+                      <span>Norte N-3</span>
+                      <span>⚠️ Riesgo</span>
+                      <span>D. Torres</span>
+                    </div>
+                    <div class="table-row">
+                      <span>Sur S-1</span>
+                      <span>✓ Normal</span>
+                      <span>L. Méndez</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-features">
+          <div class="feature-item"><i class="fas fa-hard-hat"></i><span>Inspecciones de seguridad</span></div>
+          <div class="feature-item"><i class="fas fa-map-marker-alt"></i><span>Ubicación de frentes</span></div>
+          <div class="feature-item"><i class="fas fa-camera"></i><span>Evidencia fotográfica</span></div>
+          <div class="feature-item"><i class="fas fa-exclamation-circle"></i><span>Reporte de incidentes</span></div>
+          <div class="feature-item"><i class="fas fa-chart-bar"></i><span>Visibilidad en tiempo real</span></div>
+          <div class="feature-item"><i class="fas fa-wifi-slash"></i><span>Funciona en faenas remotas</span></div>
+        </div>
+        <div class="modal-cta">
+          <a href="#contacto" class="btn-modal-primary" onclick="closeModal('modal-mineria')">Quiero una solución así</a>
+          <a href="#sectores" class="btn-modal-secondary" onclick="closeModal('modal-mineria')">Ver otros sectores</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-energia">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-bolt"></i> Ejemplo: Gestión de campo en Energía</h3>
+        <button class="modal-close" onclick="closeModal('modal-energia')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-description">
+          Así se ve la solución para una empresa de energía: técnicos de campo reciben órdenes de servicio en su celular, capturan evidencia de las averías y la coordinación visualiza todo en tiempo real desde la web.
+        </p>
+        
+        <div class="modal-screens">
+          <div class="screen-container">
+            <p class="screen-label">📱 App Móvil del Técnico</p>
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="app-header">
+                  <h4>⚡ Órdenes de Servicio</h4>
+                  <p>Técnico: Carlos Ruiz</p>
+                </div>
+                <div class="app-content">
+                  <div class="app-card">
+                    <div class="app-card-header">
+                      <span class="app-card-title">Transformer T-45</span>
+                      <span class="app-card-status status-urgent">Urgente</span>
+                    </div>
+                    <p class="app-card-details">Alarma: Sobrecarga detectada<br>Ubicación: Av. Principal 234</p>
+                    <div class="app-card-meta">
+                      <span>⏰ Asignado: 14:30</span>
+                      <span>📍 2.3 km</span>
+                    </div>
+                  </div>
+                  <div class="app-card">
+                    <div class="app-card-header">
+                      <span class="app-card-title">Medidor M-892</span>
+                      <span class="app-card-status status-progress">En curso</span>
+                    </div>
+                    <p class="app-card-details">Falla: Lectura errática<br>Cliente: Industrias ACME</p>
+                    <div class="app-card-meta">
+                      <span>⏰ Inicio: 13:15</span>
+                      <span>📍 1.8 km</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="app-actions">
+                  <button class="app-btn app-btn-primary">📷 Foto</button>
+                  <button class="app-btn app-btn-secondary">✓ Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="screen-container">
+            <p class="screen-label">💻 Dashboard Web de Coordinación</p>
+            <div class="web-mockup">
+              <div class="web-browser-bar">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+                <span class="browser-url">dashboard.energia.app</span>
+              </div>
+              <div class="web-screen">
+                <div class="web-sidebar">
+                  <div class="sidebar-icon active"><i class="fas fa-home"></i></div>
+                  <div class="sidebar-icon"><i class="fas fa-bolt"></i></div>
+                  <div class="sidebar-icon"><i class="fas fa-users"></i></div>
+                  <div class="sidebar-icon"><i class="fas fa-chart-bar"></i></div>
+                </div>
+                <div class="web-content">
+                  <div class="web-header">
+                    <h5>Panel de Control - Energía</h5>
+                    <div class="web-user">CR</div>
+                  </div>
+                  <div class="web-stats">
+                    <div class="stat-card">
+                      <p class="stat-value">12</p>
+                      <p class="stat-label">Órdenes activas</p>
+                    </div>
+                    <div class="stat-card">
+                      <p class="stat-value">2.4h</p>
+                      <p class="stat-label">MTTR promedio</p>
+                    </div>
+                    <div class="stat-card">
+                      <p class="stat-value">94%</p>
+                      <p class="stat-label">Cobertura</p>
+                    </div>
+                  </div>
+                  <div class="web-table">
+                    <div class="table-header">
+                      <span>Técnico</span>
+                      <span>Estado</span>
+                      <span>Ubicación</span>
+                    </div>
+                    <div class="table-row">
+                      <span>Carlos R.</span>
+                      <span>En campo</span>
+                      <span>Zona Norte</span>
+                    </div>
+                    <div class="table-row">
+                      <span>Ana M.</span>
+                      <span>Disponible</span>
+                      <span>Base</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-features">
+          <div class="feature-item">
+            <i class="fas fa-bell"></i>
+            <span>Alarmas → Órdenes automáticas</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>GPS y georreferenciación</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-camera"></i>
+            <span>Evidencia fotográfica</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-chart-bar"></i>
+            <span>MTTR y KPIs en vivo</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-wifi-slash"></i>
+            <span>Funciona offline</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-file-signature"></i>
+            <span>Firma digital del cliente</span>
+          </div>
+        </div>
+
+        <div class="modal-cta">
+          <a href="#contacto" class="btn-modal-primary" onclick="closeModal('modal-energia')">Quiero una solución así</a>
+          <a href="#sectores" class="btn-modal-secondary" onclick="closeModal('modal-energia')">Ver otros sectores</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Forestal -->
+  <div class="modal-overlay" id="modal-forestal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-tree"></i> Ejemplo: Gestión de campo Forestal</h3>
+        <button class="modal-close" onclick="closeModal('modal-forestal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-description">
+          Así se ve la solución para el sector forestal: brigadistas inventarían parcelas y controlan extracción desde zonas remotas sin internet, mientras oficina central audita la trazabilidad completa del recurso forestal desde la web.
+        </p>
+        <div class="modal-screens">
+          <div class="screen-container">
+            <p class="screen-label">📱 App Móvil del Brigadista</p>
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="app-header">
+                  <h4>🌲 Inventario Forestal</h4>
+                  <p>Brigadista: Ana Soto</p>
+                </div>
+                <div class="app-content">
+                  <div class="app-card">
+                    <div class="app-card-header">
+                      <span class="app-card-title">Parcela INV-2024-089</span>
+                      <span class="app-card-status status-progress">En inventario</span>
+                    </div>
+                    <p class="app-card-details">Árboles: 45 | Especie: Pino<br>DAP promedio: 35.2 cm</p>
+                    <div class="app-card-meta">
+                      <span>📍 Alt: 1,240 msnm</span>
+                      <span>📸 5 fotos</span>
+                    </div>
+                  </div>
+                  <div class="app-card">
+                    <div class="app-card-header">
+                      <span class="app-card-title">Marcado Extracción</span>
+                      <span class="app-card-status status-done">Listo</span>
+                    </div>
+                    <p class="app-card-details">Árboles marcados: 12<br>Código lote: EXT-2024-056</p>
+                    <div class="app-card-meta">
+                      <span>🌲 Pino, Encino</span>
+                      <span>✓ GPS guardado</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="app-actions">
+                  <button class="app-btn app-btn-primary">📷 Foto</button>
+                  <button class="app-btn app-btn-secondary">✓ Guardar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="screen-container">
+            <p class="screen-label">💻 Dashboard Web de Oficina Central</p>
+            <div class="web-mockup">
+              <div class="web-browser-bar">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+                <span class="browser-url">bosques.forestal.app</span>
+              </div>
+              <div class="web-screen">
+                <div class="web-sidebar">
+                  <div class="sidebar-icon active"><i class="fas fa-home"></i></div>
+                  <div class="sidebar-icon"><i class="fas fa-tree"></i></div>
+                  <div class="sidebar-icon"><i class="fas fa-map"></i></div>
+                  <div class="sidebar-icon"><i class="fas fa-chart-bar"></i></div>
+                </div>
+                <div class="web-content">
+                  <div class="web-header">
+                    <h5>Control Forestal</h5>
+                    <div class="web-user">AS</div>
+                  </div>
+                  <div class="web-stats">
+                    <div class="stat-card">
+                      <p class="stat-value">128</p>
+                      <p class="stat-label">Parcelas activas</p>
+                    </div>
+                    <div class="stat-card">
+                      <p class="stat-value">3,420</p>
+                      <p class="stat-label">Árboles muestreados</p>
+                    </div>
+                    <div class="stat-card">
+                      <p class="stat-value">8</p>
+                      <p class="stat-label">Brigadas en campo</p>
+                    </div>
+                  </div>
+                  <div class="web-table">
+                    <div class="table-header">
+                      <span>Brigada</span>
+                      <span>Parcelas</span>
+                      <span>Sincronizado</span>
+                    </div>
+                    <div class="table-row">
+                      <span>Brigada A. Soto</span>
+                      <span>12/15</span>
+                      <span>Hace 5 min</span>
+                    </div>
+                    <div class="table-row">
+                      <span>Brigada P. López</span>
+                      <span>8/10</span>
+                      <span>Offline</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-features">
+          <div class="feature-item"><i class="fas fa-tree"></i><span>Inventario de parcelas</span></div>
+          <div class="feature-item"><i class="fas fa-map-marker-alt"></i><span>GPS de árboles muestreados</span></div>
+          <div class="feature-item"><i class="fas fa-camera"></i><span>Fotos de especímenes</span></div>
+          <div class="feature-item"><i class="fas fa-cut"></i><span>Control de extracción</span></div>
+          <div class="feature-item"><i class="fas fa-file-alt"></i><span>Trazabilidad completa</span></div>
+          <div class="feature-item"><i class="fas fa-wifi-slash"></i><span>100% offline</span></div>
+        </div>
+        <div class="modal-cta">
+          <a href="#contacto" class="btn-modal-primary" onclick="closeModal('modal-forestal')">Quiero una solución así</a>
+          <a href="#sectores" class="btn-modal-secondary" onclick="closeModal('modal-forestal')">Ver otros sectores</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Cerrar modal al hacer clic fuera del contenido
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('modal-overlay')) {
+        e.target.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Cerrar modal con tecla ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+          modal.classList.remove('active');
+        });
+        document.body.style.overflow = 'auto';
+      }
+    });
+  </script>
 </section>
