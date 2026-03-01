@@ -1,0 +1,96 @@
+---
+import Icon from '../../atoms/Icon.astro';
+
+const metricas = [
+  {
+    valor: '-60%',
+    label: 'Errores de captura',
+    impacto: 'En 3 semanas',
+    icon: 'fa-check-double',
+    descripcion: 'Validación en origen elimina reprocesos'
+  },
+  {
+    valor: '100%',
+    label: 'Trazabilidad',
+    impacto: 'GPS + Timestamp + Fotos',
+    icon: 'fa-map-marker-alt',
+    descripcion: 'Auditorías sin hallazgos garantizadas'
+  },
+  {
+    valor: 'De horas a minutos',
+    label: 'Tiempo de respuesta',
+    impacto: 'Órdenes automáticas',
+    icon: 'fa-bolt',
+    descripcion: 'Alarmas → Asignación sin intervención'
+  },
+  {
+    valor: '100%',
+    label: 'Visibilidad',
+    impacto: 'Operaciones en tiempo real',
+    icon: 'fa-eye',
+    descripcion: 'Sin llamadas de seguimiento'
+  },
+  {
+    valor: '-90%',
+    label: 'Llamadas de supervisión',
+    impacto: 'Dashboard en vivo',
+    icon: 'fa-phone-slash',
+    descripcion: 'Supervisores enfocados en análisis'
+  },
+  {
+    valor: 'De días a minutos',
+    label: 'Tiempos de auditoría',
+    impacto: 'Evidencia inmutable',
+    icon: 'fa-clipboard-check',
+    descripcion: 'Reportes automáticos, sin reconstrucción'
+  }
+];
+---
+
+<section id="resultados" class="py-24 px-6 bg-gradient-to-br from-slate-900 to-slate-800">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        Resultados medibles en las primeras semanas
+      </h2>
+      <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+        Métricas concretas que reportan nuestros clientes tras implementación
+      </p>
+    </div>
+
+    <!-- Metrics Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      {metricas.map((metrica) => (
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center shrink-0">
+              <Icon name={metrica.icon} size="lg" class="text-blue-400" />
+            </div>
+            <div>
+              <p class="text-3xl font-bold text-white">{metrica.valor}</p>
+              <p class="text-sm text-blue-400 font-medium">{metrica.label}</p>
+            </div>
+          </div>
+          <div class="border-t border-white/10 pt-4">
+            <p class="text-sm text-slate-300 mb-1">
+              <strong class="text-white">{metrica.impacto}</strong>
+            </p>
+            <p class="text-xs text-slate-400">{metrica.descripcion}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Proof Anchor -->
+    <div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 rounded-2xl p-8 text-center">
+      <p class="text-lg text-slate-300 mb-2">
+        <Icon name="fa-database" class="inline mr-2 text-blue-400" />
+        <strong class="text-white">+5,000,000 registros procesados</strong> en implementaciones reales
+      </p>
+      <p class="text-sm text-slate-400">
+        +10 años de experiencia en operaciones de campo en sectores críticos
+      </p>
+    </div>
+  </div>
+</section>
