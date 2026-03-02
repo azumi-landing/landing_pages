@@ -1,7 +1,7 @@
 export const contactConfig = {
-  email: 'variable_email@dominio.com',
-  whatsappNumber: 'XXXXXXXXXXX',
-  whatsappDisplay: '+XX XXX-XXX-XXXX',
+  email: 'hola@hguerra.com',
+  whatsappNumber: '93968146',
+  whatsappDisplay: '+502 9396-8146',
   calendlyUrl: 'https://calendly.com/tu-agenda/15min',
   responseTime: 'menos de 1 hora'
 };
