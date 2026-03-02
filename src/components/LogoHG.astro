@@ -1,0 +1,48 @@
+---
+// Logo HG animado como SVG
+---
+
+<a href="/" class="flex items-center gap-2 group">
+  <svg 
+    viewBox="0 0 48 48" 
+    class="h-10 w-10"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <!-- Fondo circular con gradiente -->
+    <defs>
+      <linearGradient id="hg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#3B82F6" />
+        <stop offset="50%" stop-color="#6366F1" />
+        <stop offset="100%" stop-color="#8B5CF6" />
+      </linearGradient>
+    </defs>
+    
+    <!-- Círculo de fondo con animación de pulso -->
+    <circle 
+      cx="24" cy="24" r="22" 
+      fill="url(#hg-gradient)"
+      class="origin-center transition-transform duration-300 group-hover:scale-110"
+    />
+    
+    <!-- Letra H -->
+    <text 
+      x="9" y="34" 
+      fill="white" 
+      font-family="Montserrat, sans-serif" 
+      font-weight="700" 
+      font-size="22"
+      class="transition-transform duration-300 origin-center"
+    >H</text>
+    
+    <!-- Letra G con animación de deslizamiento -->
+    <text 
+      x="25" y="34" 
+      fill="white" 
+      font-family="Montserrat, sans-serif" 
+      font-weight="700" 
+      font-size="22"
+      class="transition-all duration-300 group-hover:translate-x-0.5"
+    >G</text>
+  </svg>
+</a>
