@@ -1,80 +1,101 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
-import AboutCard from '../components/molecules/AboutCard.astro';
 import ServiceStatusCard from '../components/molecules/ServiceStatusCard.astro';
-import ContactStrip from '../components/sections/ContactStrip.astro';
-import { aboutCards } from '../data/about';
+import HomeContact from '../components/sections/HomeContact.astro';
+import { homeHeroBullets, homeProofPoints, homeWorkflowSteps } from '../data/home';
 ---
 
 <SiteLayout
-  title="HGuerra | Arquitecto frontend, producto y automatización aplicada"
-  description="Perfil profesional y líneas de servicio de HGuerra: gestión de operaciones de campo, automatización con IA agéntica y automatización de procesos."
+  title="HGuerra | Consultoría aplicada para operación, producto y automatización"
+  description="Consultoría e implementación para convertir problemas operativos complejos en soluciones claras, adoptables y útiles para equipos reales."
   path="/"
 >
   <main>
-    <section class="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 px-6 pt-24 pb-20">
-      <div class="absolute inset-0 opacity-15">
-        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.14) 1px, transparent 0); background-size: 42px 42px;"></div>
+    <section id="inicio" class="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.18),_transparent_32%),linear-gradient(135deg,_#020617_0%,_#0f172a_52%,_#1e293b_100%)] px-6 pt-20 pb-24">
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute -top-24 right-[-10%] h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl"></div>
+        <div class="absolute bottom-0 left-[-8%] h-80 w-80 rounded-full bg-blue-500/10 blur-3xl"></div>
       </div>
 
-      <div class="relative max-w-7xl mx-auto grid gap-14 lg:grid-cols-[1.2fr_0.8fr] items-center">
+      <div class="relative max-w-7xl mx-auto grid gap-16 lg:grid-cols-[1.15fr_0.85fr] items-center">
         <div>
-          <span class="inline-block px-4 py-2 bg-blue-500/20 text-blue-300 text-sm font-semibold rounded-full border border-blue-500/30 mb-6">
-            Arquitectura frontend + producto + automatización aplicada
+          <span class="inline-flex items-center rounded-full border border-blue-400/30 bg-blue-400/10 px-4 py-2 text-sm font-semibold text-blue-200 mb-6">
+            Consultoría aplicada para ordenar operación, producto y automatización
           </span>
-          <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
-            Diseño experiencias y soluciones que conectan operación, datos y adopción real
+          <h1 class="max-w-4xl text-4xl md:text-6xl font-bold text-white leading-[1.05] mb-6">
+            Te ayudo a convertir problemas operativos complejos en una solución clara que tu equipo pueda usar
           </h1>
-          <p class="text-xl text-slate-300 leading-relaxed max-w-3xl mb-10">
-            Trabajo en la intersección entre producto digital, automatización y operación. Construyo soluciones que aterrizan flujos complejos en experiencias claras, medibles y utilizables por equipos reales.
+          <p class="text-xl text-slate-300 leading-relaxed max-w-3xl mb-8">
+            Trabajo contigo como consultor e implementador. Entiendo el contexto, bajo la complejidad a decisiones útiles y te acompaño a llevar la solución a operación sin venderte una receta genérica.
           </p>
 
-          <div class="grid sm:grid-cols-3 gap-4 mb-10">
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-              <p class="text-sm text-blue-300 font-semibold mb-2">Especialidad</p>
-              <p class="text-slate-200">Sistemas operativos para campo y oficina</p>
-            </div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-              <p class="text-sm text-blue-300 font-semibold mb-2">Enfoque</p>
-              <p class="text-slate-200">Automatización útil, no demos aisladas</p>
-            </div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-              <p class="text-sm text-blue-300 font-semibold mb-2">Trabajo</p>
-              <p class="text-slate-200">Definición, diseño e implementación directa</p>
-            </div>
+          <div class="mb-10 space-y-3">
+            {homeHeroBullets.map((bullet) => (
+              <div class="flex items-start gap-3 text-slate-200">
+                <span class="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-blue-400/15 text-sm text-blue-200">✓</span>
+                <p class="text-base md:text-lg leading-relaxed">{bullet}</p>
+              </div>
+            ))}
           </div>
 
           <div class="flex flex-col sm:flex-row gap-4">
             <a
-              href="#servicios"
-              class="px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold rounded-xl text-lg text-center transition-all duration-300 hover:from-blue-600 hover:to-blue-700 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/25 border border-blue-500/30"
+              href="#contacto"
+              class="px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-400 text-slate-950 font-bold rounded-2xl text-lg text-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-cyan-500/20"
             >
-              Explorar líneas de servicio
+              Cuéntame tu desafío
             </a>
             <a
-              href="/gestion-de-operaciones-de-campo"
-              class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl text-lg text-center transition-all duration-300 border border-white/20"
+              href="#como-trabajo"
+              class="px-8 py-4 bg-white/10 hover:bg-white/15 text-white font-bold rounded-2xl text-lg text-center transition-all duration-300 border border-white/15"
             >
-              Ver solución ya operativa
+              Ver cómo trabajo
             </a>
+          </div>
+
+          <div class="mt-12 flex flex-wrap gap-x-8 gap-y-4 border-t border-white/10 pt-8">
+            {homeProofPoints.map((item) => (
+              <div>
+                <p class="text-2xl md:text-3xl font-bold text-white">{item.value}</p>
+                <p class="mt-1 max-w-[14rem] text-sm leading-relaxed text-slate-400">{item.label}</p>
+              </div>
+            ))}
           </div>
         </div>
 
-        <aside class="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm p-8">
-          <div class="flex flex-col md:flex-row lg:flex-col items-center lg:items-start gap-6">
-            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-500/30 shrink-0">
+        <aside class="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur-md shadow-[0_35px_120px_rgba(15,23,42,0.35)]">
+          <div class="mb-8 flex items-center gap-4">
+            <div class="h-20 w-20 rounded-full overflow-hidden border-2 border-blue-400/30 shrink-0">
               <img
                 src="/mi_foto_pro.jpeg"
                 alt="Foto profesional de HGuerra"
                 class="w-full h-full object-cover"
               />
             </div>
-            <div class="text-center md:text-left lg:text-left">
-              <p class="text-sm uppercase tracking-[0.2em] text-slate-400 mb-2">Perfil</p>
-              <h2 class="text-2xl font-bold text-white mb-2">HGuerra</h2>
-              <p class="text-blue-400 font-medium mb-4">+10 años de experiencia | +5M registros procesados</p>
-              <p class="text-slate-300 leading-relaxed">
-                Diseño soluciones digitales para operaciones exigentes, con foco en claridad de producto, adopción de usuario y ejecución técnica real.
+            <div>
+              <p class="text-sm uppercase tracking-[0.2em] text-slate-400">HGuerra</p>
+              <h2 class="mt-1 text-2xl font-bold text-white">Consultor + implementador</h2>
+              <p class="mt-2 text-sm font-medium text-cyan-200">Producto, automatización y operación aterrizados a tu realidad</p>
+            </div>
+          </div>
+
+          <p class="text-lg leading-relaxed text-slate-200">
+            No trabajo como intermediario comercial. Me involucro en el diagnóstico, en la definición de la solución y en la implementación para que lo que se decide tenga sentido técnico y operativo.
+          </p>
+
+          <div class="my-8 h-px bg-white/10"></div>
+
+          <div class="space-y-5 text-sm text-slate-300">
+            <div>
+              <p class="text-xs uppercase tracking-[0.18em] text-cyan-200">Cuando suelo aportar más valor</p>
+              <p class="mt-2 leading-relaxed">
+                Cuando hay fricción entre operación, datos y adopción, y necesitas a alguien que ordene el problema antes de construir.
+              </p>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-[0.18em] text-cyan-200">Tipo de relación</p>
+              <p class="mt-2 leading-relaxed">
+                Trabajo directo, con criterio de negocio y ejecución, para que la conversación no se quede en ideas bonitas o herramientas sueltas.
               </p>
             </div>
           </div>
@@ -82,22 +103,40 @@ import { aboutCards } from '../data/about';
       </div>
     </section>
 
-    <section class="py-24 px-6 bg-[#F8FAFC]">
+    <section id="como-trabajo" class="py-24 px-6 bg-[#F8FAFC]">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="text-4xl md:text-5xl font-bold text-[#1E293B] mb-4">
+        <div class="max-w-3xl mb-14">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 mb-4">
+            Cómo trabajo
+          </p>
+          <h2 class="text-4xl md:text-5xl font-bold text-[#1E293B] mb-5">
             Cómo trabajo
           </h2>
-          <p class="text-xl text-[#475569] max-w-3xl mx-auto">
-            Bajo la complejidad a decisiones claras y a soluciones que realmente se usan en operación.
+          <p class="text-xl text-[#475569] leading-relaxed">
+            La relación consultor-cliente no empieza con una demo, empieza entendiendo el problema correcto. Mi trabajo es ayudarte a leer la operación, definir una salida viable y acompañar la ejecución hasta que el cambio se use de verdad.
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-6">
-          {aboutCards.map((card) => (
-            <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl">
-              <AboutCard card={card} />
-            </div>
+        <div class="grid gap-6 lg:grid-cols-3">
+          {homeWorkflowSteps.map((step) => (
+            <article class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
+              <div class="flex items-center justify-between gap-4 mb-6">
+                <span class="inline-flex rounded-full bg-slate-950 px-4 py-2 text-sm font-semibold text-white">
+                  Paso {step.step}
+                </span>
+                <span class="text-sm font-medium text-slate-400">Proceso consultivo</span>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-950 leading-tight">{step.title}</h3>
+              <p class="mt-4 text-base leading-relaxed text-slate-600">{step.description}</p>
+              <div class="mt-8 space-y-3 border-t border-slate-200 pt-6">
+                {step.points.map((point) => (
+                  <div class="flex items-start gap-3">
+                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-blue-50 text-xs font-bold text-blue-600">•</span>
+                    <p class="text-sm leading-relaxed text-slate-700">{point}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
       </div>
@@ -144,6 +183,6 @@ import { aboutCards } from '../data/about';
       </div>
     </section>
 
-    <ContactStrip />
+    <HomeContact />
   </main>
 </SiteLayout>

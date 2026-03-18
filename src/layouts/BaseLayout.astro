@@ -1,7 +1,8 @@
 ---
 import '../styles/global.css';
-import Navbar from '../components/Navbar.astro';
+import MainNav from '../components/MainNav.astro';
 import SectionNav from '../components/SectionNav.astro';
+import WhatsAppFloatingButton from '../components/atoms/WhatsAppFloatingButton.astro';
 
 interface Props {
   title?: string;
@@ -51,8 +52,9 @@ const imageUrl = new URL(image, baseUrl).toString();
     <link rel="icon" type="image/svg+xml" href="/hg-favicon.svg">
   </head>
   <body>
-    <Navbar />
+    <MainNav currentPath={path} />
     <SectionNav />
     <slot />
+    <WhatsAppFloatingButton />
   </body>
 </html>

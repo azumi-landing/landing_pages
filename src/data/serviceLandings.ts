@@ -1,9 +1,11 @@
 import type { ServiceLandingConfig } from '../types/serviceLanding';
+import { agenticAutomationTheme, processAutomationTheme } from './serviceThemes';
 
 export const agenticAutomationLanding: ServiceLandingConfig = {
   seoTitle: 'HGuerra | Automatización con IA Agéntica',
   seoDescription: 'Diseño agentes, flujos orquestados y automatización inteligente conectada a tus sistemas con LangGraph, n8n, ML aplicado y servicios de GCP.',
   path: '/automatizacion-con-ia-agentica',
+  theme: agenticAutomationTheme,
   badge: 'Agentes + Orquestación + Trazabilidad operativa',
   title: 'Automatiza decisiones y flujos operativos con IA agéntica conectada a tus sistemas',
   subtitle:
@@ -368,7 +370,26 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     eyebrow: 'Diagnóstico de automatización con IA',
     title: 'Identifiquemos un flujo candidato para agentic automation',
     description:
-      'Revisamos un proceso real de tu operación, detectamos dónde un agente sí aporta valor y definimos una primera arquitectura con control, integración y métricas.'
+      'Revisamos un proceso real de tu operación, detectamos dónde un agente sí aporta valor y definimos una primera arquitectura con control, integración y métricas.',
+    detailsTitle: 'En esta conversación revisamos:',
+    detailsItems: [
+      'Qué parte del flujo hoy sigue dependiendo de lectura, clasificación o decisiones manuales',
+      'Dónde conviene usar agentes y dónde bastan reglas o automatización tradicional',
+      'Qué datos, herramientas y aprobaciones necesita la solución para operar con control',
+      'Cuál sería una primera arquitectura viable para llevarlo a producción'
+    ],
+    topics: [
+      { value: '', label: 'Selecciona el tipo de flujo o necesidad', disabled: true, selected: true },
+      { value: 'triage-incidentes', label: 'Priorización y enrutamiento de incidentes' },
+      { value: 'lectura-documentos', label: 'Lectura estructurada de correos o documentos' },
+      { value: 'agentes-con-tools', label: 'Agentes con tool-calling e integraciones' },
+      { value: 'human-in-the-loop', label: 'Aprobaciones y human-in-the-loop' },
+      { value: 'arquitectura-gcp', label: 'Arquitectura operable en GCP' },
+      { value: 'otro', label: 'Otro / Aún no lo tengo claro' }
+    ],
+    formTitle: 'Cuéntame de tu desafío con IA agéntica',
+    detailPlaceholder: '¿Qué flujo quieres automatizar? ¿Qué sistemas participan hoy? ¿Dónde está el cuello de botella?',
+    source: 'automatizacion-con-ia-agentica'
   }
 };
 
@@ -376,6 +397,7 @@ export const processAutomationLanding: ServiceLandingConfig = {
   seoTitle: 'HGuerra | Automatización de Procesos',
   seoDescription: 'Automatización de procesos con Airflow, SQL, NoSQL, ETL/ELT, ML aplicado y servicios de GCP para flujos críticos y datos confiables.',
   path: '/automatizacion-de-procesos',
+  theme: processAutomationTheme,
   badge: 'Procesos + Datos + Integración operativa',
   title: 'Automatiza procesos críticos con datos confiables, reglas claras y ejecución trazable',
   subtitle:
@@ -740,6 +762,25 @@ export const processAutomationLanding: ServiceLandingConfig = {
     eyebrow: 'Diagnóstico de automatización de procesos',
     title: 'Revisemos un proceso crítico que hoy esté frenando tu operación',
     description:
-      'Mapeamos el flujo actual, detectamos cuellos de botella y definimos una automatización con datos confiables, monitoreo y una arquitectura que puedas sostener.'
+      'Mapeamos el flujo actual, detectamos cuellos de botella y definimos una automatización con datos confiables, monitoreo y una arquitectura que puedas sostener.',
+    detailsTitle: 'En esta conversación revisamos:',
+    detailsItems: [
+      'Dónde se rompen hoy los datos, las integraciones o las dependencias del proceso',
+      'Qué parte conviene orquestar, validar o monitorear primero',
+      'Cómo estructurar datos, reglas y ejecución sin dejar una automatización frágil',
+      'Qué arquitectura te deja una base mantenible para crecer después'
+    ],
+    topics: [
+      { value: '', label: 'Selecciona el proceso o necesidad', disabled: true, selected: true },
+      { value: 'etl-elt', label: 'Pipelines ETL / ELT y calidad de datos' },
+      { value: 'airflow-orquestacion', label: 'Orquestación de workflows con Airflow' },
+      { value: 'integracion-sistemas', label: 'Integración entre sistemas y fuentes' },
+      { value: 'sql-nosql', label: 'Modelado SQL / NoSQL para operación' },
+      { value: 'ml-alertas', label: 'ML para clasificación, alertas o anomalías' },
+      { value: 'otro', label: 'Otro / Aún no lo tengo claro' }
+    ],
+    formTitle: 'Cuéntame de tu proceso crítico',
+    detailPlaceholder: '¿Qué proceso hoy depende de tareas manuales, archivos, correos o integraciones frágiles?',
+    source: 'automatizacion-de-procesos'
   }
 };

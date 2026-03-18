@@ -1,18 +1,24 @@
 ---
 import HeroIllustration from '../../atoms/HeroIllustration.astro';
+import { fieldOperationsTheme } from '../../../data/serviceThemes';
+
+const themeVars = `--field-accent: ${fieldOperationsTheme.accent}; --field-accent-alt: ${fieldOperationsTheme.accentAlt}; --field-accent-soft: ${fieldOperationsTheme.accentSoft}; --field-accent-glow: ${fieldOperationsTheme.accentGlow}; --field-accent-shadow: ${fieldOperationsTheme.accentShadow};`;
 ---
 
-<section id="inicio" class="relative min-h-screen bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-white overflow-hidden">
+<section id="inicio" class="field-hero relative min-h-screen bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-white overflow-hidden" style={themeVars}>
   <!-- Background pattern -->
   <div class="absolute inset-0 opacity-10">
     <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 40px 40px;"></div>
   </div>
+  <div class="field-hero-pattern absolute inset-0 opacity-40"></div>
+  <div class="field-hero-glow absolute left-[-7rem] top-24 h-72 w-72 rounded-full blur-3xl"></div>
   
   <!-- Content -->
   <div class="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16 min-h-screen flex flex-col lg:flex-row items-center justify-between gap-12">
     <div class="max-w-4xl flex-1">
       <!-- Badge -->
-      <span class="inline-block px-4 py-2 bg-blue-500/20 text-blue-300 text-sm font-semibold rounded-full border border-blue-500/30 mb-6">
+      <span class="field-hero-badge inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-full mb-6">
+        <i class="fas fa-map-location-dot"></i>
         ✓ Control + Trazabilidad + Métricas en tiempo real
       </span>
       
@@ -24,11 +30,16 @@ import HeroIllustration from '../../atoms/HeroIllustration.astro';
       <!-- Subtitle -->
       <p class="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed max-w-3xl">
         Plataforma de gestión de campo para empresas en agricultura, manufactura, minería, energía y forestal. 
-        <span class="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent font-semibold">App móvil que funciona offline</span> + 
-        <span class="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent font-semibold">dashboard web en vivo</span> + 
-        <span class="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent font-semibold">auditoría completa con GPS y fotos</span>.
+        <span class="field-hero-highlight bg-clip-text text-transparent font-semibold">App móvil que funciona offline</span> + 
+        <span class="field-hero-highlight bg-clip-text text-transparent font-semibold">dashboard web en vivo</span> + 
+        <span class="field-hero-highlight bg-clip-text text-transparent font-semibold">auditoría completa con GPS y fotos</span>.
         Implementación en semanas, no meses.
       </p>
+
+      <div class="field-hero-chip inline-flex items-center gap-3 rounded-full px-4 py-2 mb-8 text-xs font-semibold uppercase tracking-[0.24em] text-white/80">
+        <span class="field-hero-chip-dot h-2.5 w-2.5 rounded-full"></span>
+        {fieldOperationsTheme.serviceLabel}
+      </div>
       
       <!-- Benefits -->
       <div class="grid sm:grid-cols-3 gap-4 mb-10">
@@ -50,7 +61,7 @@ import HeroIllustration from '../../atoms/HeroIllustration.astro';
       <div class="flex flex-col sm:flex-row gap-4 mb-12">
         <a 
           href="#contacto" 
-          class="px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold rounded-xl text-lg text-center transition-all duration-300 hover:from-blue-600 hover:to-blue-700 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/25 border border-blue-500/30"
+          class="field-hero-cta px-8 py-4 text-white font-bold rounded-xl text-lg text-center transition-all duration-300 border"
         >
           Agendar demo personalizada →
         </a>
@@ -65,19 +76,19 @@ import HeroIllustration from '../../atoms/HeroIllustration.astro';
       <!-- Metrics -->
       <div class="flex flex-wrap gap-8 text-center">
         <div>
-          <p class="text-3xl font-bold text-blue-400">+5M</p>
+          <p class="field-hero-metric text-3xl font-bold">+5M</p>
           <p class="text-sm text-slate-400">registros procesados</p>
         </div>
         <div>
-          <p class="text-3xl font-bold text-blue-400">-60%</p>
+          <p class="field-hero-metric text-3xl font-bold">-60%</p>
           <p class="text-sm text-slate-400">errores de campo</p>
         </div>
         <div>
-          <p class="text-3xl font-bold text-blue-400">10+</p>
+          <p class="field-hero-metric text-3xl font-bold">10+</p>
           <p class="text-sm text-slate-400">años de experiencia</p>
         </div>
         <div>
-          <p class="text-3xl font-bold text-blue-400">2-3</p>
+          <p class="field-hero-metric text-3xl font-bold">2-3</p>
           <p class="text-sm text-slate-400">semanas implementación</p>
         </div>
       </div>
@@ -94,3 +105,60 @@ import HeroIllustration from '../../atoms/HeroIllustration.astro';
     <i class="fas fa-chevron-down text-slate-400 text-2xl"></i>
   </div>
 </section>
+
+<style>
+  .field-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at top left, var(--field-accent-glow), transparent 32%),
+      linear-gradient(135deg, rgba(2, 6, 23, 0.92), rgba(15, 23, 42, 0.88) 52%, rgba(30, 41, 59, 0.94));
+  }
+
+  .field-hero-pattern {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 52px 52px;
+  }
+
+  .field-hero-glow {
+    background: radial-gradient(circle, var(--field-accent-glow) 0%, transparent 70%);
+  }
+
+  .field-hero-badge {
+    border: 1px solid var(--field-accent-soft);
+    background: linear-gradient(135deg, var(--field-accent-soft), rgba(255, 255, 255, 0.04));
+    color: var(--field-accent);
+  }
+
+  .field-hero-highlight {
+    background-image: linear-gradient(135deg, var(--field-accent), var(--field-accent-alt));
+  }
+
+  .field-hero-chip {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), var(--field-accent-soft));
+  }
+
+  .field-hero-chip-dot {
+    background: linear-gradient(135deg, var(--field-accent), var(--field-accent-alt));
+    box-shadow: 0 0 18px -4px var(--field-accent-shadow);
+  }
+
+  .field-hero-cta {
+    background: linear-gradient(135deg, var(--field-accent), var(--field-accent-alt));
+    border-color: rgba(20, 184, 166, 0.34);
+    box-shadow: 0 24px 56px -32px var(--field-accent-shadow);
+  }
+
+  .field-hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 28px 64px -32px var(--field-accent-shadow);
+  }
+
+  .field-hero-metric {
+    color: var(--field-accent);
+  }
+</style>

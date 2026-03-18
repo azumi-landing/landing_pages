@@ -1,9 +1,10 @@
 export const contactConfig = {
   email: 'hola@hguerra.com',
-  whatsappNumber: '93968146',
+  whatsappNumber: '50293968146',
   whatsappDisplay: '+502 9396-8146',
   calendlyUrl: 'https://calendly.com/tu-agenda/15min',
-  responseTime: 'menos de 1 hora'
+  responseTime: 'menos de 1 hora',
+  whatsappMessage: 'Hola HGuerra, quiero contarte un desafío operativo para evaluar una posible solución.'
 };
 
 export const formTopics = [

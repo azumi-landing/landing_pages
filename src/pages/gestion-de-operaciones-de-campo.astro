@@ -13,6 +13,7 @@ import About from '../components/sections/About/index.astro';
 import Investiger from '../components/sections/Investiger/index.astro';
 import FAQ from '../components/sections/FAQ/index.astro';
 import Contact from '../components/sections/Contact/index.astro';
+import { fieldOperationsTheme } from '../data/serviceThemes';
 ---
 
 <BaseLayout
@@ -33,7 +34,7 @@ import Contact from '../components/sections/Contact/index.astro';
     <About />
     <Investiger />
     <FAQ />
-    <Contact />
+    <Contact theme={fieldOperationsTheme} />
   </main>
 </BaseLayout>
 

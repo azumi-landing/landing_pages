@@ -51,16 +51,42 @@ export interface FaqItem {
   answer: string;
 }
 
-export interface ContactStripContent {
+export interface ContactTopic {
+  value: string;
+  label: string;
+  disabled?: boolean;
+  selected?: boolean;
+}
+
+export interface ServiceLandingTheme {
+  serviceLabel: string;
+  sectionMark: string;
+  badgeIcon: IconName;
+  accent: string;
+  accentAlt: string;
+  accentSoft: string;
+  accentGlow: string;
+  accentShadow: string;
+  pattern: 'grid' | 'mesh' | 'flow';
+}
+
+export interface ServiceLandingContactContent {
   eyebrow?: string;
   title: string;
   description: string;
+  detailsTitle: string;
+  detailsItems: string[];
+  topics: ContactTopic[];
+  formTitle?: string;
+  detailPlaceholder?: string;
+  source: string;
 }
 
 export interface ServiceLandingConfig {
   seoTitle: string;
   seoDescription: string;
   path: string;
+  theme: ServiceLandingTheme;
   badge: string;
   title: string;
   subtitle: string;
@@ -96,5 +122,5 @@ export interface ServiceLandingConfig {
   faqTitle: string;
   faqSubtitle: string;
   faqs: FaqItem[];
-  contact: ContactStripContent;
+  contact: ServiceLandingContactContent;
 }
