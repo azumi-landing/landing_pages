@@ -6,3 +6,4 @@ export * from './about';
 export * from './diagrama';
 export * from './investigacion';
 export * from './stack';
+export * from './serviceLanding';

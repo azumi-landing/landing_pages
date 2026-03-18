@@ -1,0 +1,13 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import ServiceLanding from '../components/templates/ServiceLanding.astro';
+import { processAutomationLanding } from '../data/serviceLandings';
+---
+
+<SiteLayout
+  title={processAutomationLanding.seoTitle}
+  description={processAutomationLanding.seoDescription}
+  path={processAutomationLanding.path}
+>
+  <ServiceLanding config={processAutomationLanding} />
+</SiteLayout>

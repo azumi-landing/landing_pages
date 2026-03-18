@@ -1,45 +1,149 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/sections/Hero/index.astro';
-import ElProblema from '../components/sections/ElProblema/index.astro';
-import Sectores from '../components/sections/Sectores/index.astro';
-import Servicios from '../components/sections/Servicios/index.astro';
-import DiagramaProductos from '../components/sections/DiagramaProductos/index.astro';
-import Resultados from '../components/sections/Resultados/index.astro';
-import CasosDeExito from '../components/sections/CasosDeExito/index.astro';
-import Seguridad from '../components/sections/Seguridad/index.astro';
-import Diferenciacion from '../components/sections/Diferenciacion/index.astro';
-import About from '../components/sections/About/index.astro';
-import Investiger from '../components/sections/Investiger/index.astro';
-import FAQ from '../components/sections/FAQ/index.astro';
-import Contact from '../components/sections/Contact/index.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import AboutCard from '../components/molecules/AboutCard.astro';
+import ServiceStatusCard from '../components/molecules/ServiceStatusCard.astro';
+import ContactStrip from '../components/sections/ContactStrip.astro';
+import { aboutCards } from '../data/about';
 ---
 
-<BaseLayout>
+<SiteLayout
+  title="HGuerra | Arquitecto frontend, producto y automatización aplicada"
+  description="Perfil profesional y líneas de servicio de HGuerra: gestión de operaciones de campo, automatización con IA agéntica y automatización de procesos."
+  path="/"
+>
   <main>
-    <Hero />
-    <ElProblema />
-    <Sectores />
-    <Servicios />
-    <DiagramaProductos />
-    <Resultados />
-    <CasosDeExito />
-    <Seguridad />
-    <Diferenciacion />
-    <About />
-    <Investiger />
-    <FAQ />
-    <Contact />
-  </main>
-</BaseLayout>
+    <section class="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 px-6 pt-24 pb-20">
+      <div class="absolute inset-0 opacity-15">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.14) 1px, transparent 0); background-size: 42px 42px;"></div>
+      </div>
 
-<script>
-  // Initialize modal utilities globally
-  import { initModal } from '../utils/modals';
-  
-  if (typeof window !== 'undefined') {
-    document.addEventListener('DOMContentLoaded', () => {
-      initModal();
-    });
-  }
-</script>
+      <div class="relative max-w-7xl mx-auto grid gap-14 lg:grid-cols-[1.2fr_0.8fr] items-center">
+        <div>
+          <span class="inline-block px-4 py-2 bg-blue-500/20 text-blue-300 text-sm font-semibold rounded-full border border-blue-500/30 mb-6">
+            Arquitectura frontend + producto + automatización aplicada
+          </span>
+          <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
+            Diseño experiencias y soluciones que conectan operación, datos y adopción real
+          </h1>
+          <p class="text-xl text-slate-300 leading-relaxed max-w-3xl mb-10">
+            Trabajo en la intersección entre producto digital, automatización y operación. Construyo soluciones que aterrizan flujos complejos en experiencias claras, medibles y utilizables por equipos reales.
+          </p>
+
+          <div class="grid sm:grid-cols-3 gap-4 mb-10">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <p class="text-sm text-blue-300 font-semibold mb-2">Especialidad</p>
+              <p class="text-slate-200">Sistemas operativos para campo y oficina</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <p class="text-sm text-blue-300 font-semibold mb-2">Enfoque</p>
+              <p class="text-slate-200">Automatización útil, no demos aisladas</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <p class="text-sm text-blue-300 font-semibold mb-2">Trabajo</p>
+              <p class="text-slate-200">Definición, diseño e implementación directa</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="#servicios"
+              class="px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold rounded-xl text-lg text-center transition-all duration-300 hover:from-blue-600 hover:to-blue-700 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/25 border border-blue-500/30"
+            >
+              Explorar líneas de servicio
+            </a>
+            <a
+              href="/gestion-de-operaciones-de-campo"
+              class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl text-lg text-center transition-all duration-300 border border-white/20"
+            >
+              Ver solución ya operativa
+            </a>
+          </div>
+        </div>
+
+        <aside class="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm p-8">
+          <div class="flex flex-col md:flex-row lg:flex-col items-center lg:items-start gap-6">
+            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-500/30 shrink-0">
+              <img
+                src="/mi_foto_pro.jpeg"
+                alt="Foto profesional de HGuerra"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="text-center md:text-left lg:text-left">
+              <p class="text-sm uppercase tracking-[0.2em] text-slate-400 mb-2">Perfil</p>
+              <h2 class="text-2xl font-bold text-white mb-2">HGuerra</h2>
+              <p class="text-blue-400 font-medium mb-4">+10 años de experiencia | +5M registros procesados</p>
+              <p class="text-slate-300 leading-relaxed">
+                Diseño soluciones digitales para operaciones exigentes, con foco en claridad de producto, adopción de usuario y ejecución técnica real.
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="py-24 px-6 bg-[#F8FAFC]">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold text-[#1E293B] mb-4">
+            Cómo trabajo
+          </h2>
+          <p class="text-xl text-[#475569] max-w-3xl mx-auto">
+            Bajo la complejidad a decisiones claras y a soluciones que realmente se usan en operación.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          {aboutCards.map((card) => (
+            <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl">
+              <AboutCard card={card} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios" class="py-24 px-6 bg-gradient-to-br from-slate-900 to-slate-800">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            Líneas de servicio
+          </h2>
+          <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+            Tres frentes para resolver problemas operativos con distintos niveles de madurez y velocidad.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+          <ServiceStatusCard
+            title="Gestión de Operaciones de Campo"
+            description="La línea más madura del sitio. Plataforma y experiencia comercial ya desarrolladas para operaciones con app móvil offline, dashboard web y trazabilidad completa."
+            href="/gestion-de-operaciones-de-campo"
+            cta="Ver solución"
+            icon="fa-map-marked-alt"
+            status="available"
+            highlight={true}
+          />
+          <ServiceStatusCard
+            title="Automatización con IA Agéntica"
+            description="Servicio orientado a agentes, orquestación y automatización inteligente sobre procesos y datos de negocio. En esta fase se publica como vista previa."
+            href="/automatizacion-con-ia-agentica"
+            cta="Ver vista previa"
+            icon="fa-robot"
+            status="coming-soon"
+          />
+          <ServiceStatusCard
+            title="Automatización de Procesos"
+            description="Línea enfocada en rediseñar flujos, eliminar trabajo manual e integrar sistemas para reducir fricción operativa. En esta fase se publica como vista previa."
+            href="/automatizacion-de-procesos"
+            cta="Ver vista previa"
+            icon="fa-gears"
+            status="coming-soon"
+          />
+        </div>
+      </div>
+    </section>
+
+    <ContactStrip />
+  </main>
+</SiteLayout>
