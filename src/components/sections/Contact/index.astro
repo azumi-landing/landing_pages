@@ -42,8 +42,8 @@ const whatsappHref = getWhatsAppHref();
 const themeVars = `--service-accent: ${theme.accent}; --service-accent-alt: ${theme.accentAlt}; --service-accent-soft: ${theme.accentSoft}; --service-accent-glow: ${theme.accentGlow}; --service-accent-shadow: ${theme.accentShadow};`;
 ---
 
-<section id="contacto" class="service-contact py-24 px-6 bg-gradient-to-br from-slate-900 to-slate-800" style={themeVars}>
-  <div class="max-w-7xl mx-auto">
+<section id="contacto" class="service-contact section-shell section-dark" style={themeVars}>
+  <div class="page-container">
     <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-start">
       <div>
         {resolvedContent.eyebrow && (

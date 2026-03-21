@@ -10,6 +10,7 @@ interface Props {
   icon: string;
   status: 'available' | 'coming-soon';
   highlight?: boolean;
+  surface?: 'dark' | 'light';
 }
 
 const {
@@ -19,30 +20,42 @@ const {
   cta,
   icon,
   status,
-  highlight = false
+  highlight = false,
+  surface = 'dark'
 } = Astro.props;
 
 const statusLabel = status === 'available' ? 'Disponible' : 'Próximamente';
 const badgeVariant = status === 'available' ? 'accent' : 'outline';
-const cardClasses = highlight
-  ? 'border-blue-500/40 bg-gradient-to-br from-blue-500/10 to-slate-900'
-  : 'border-white/10 bg-white/5';
+const isLight = surface === 'light';
+const cardClasses = isLight
+  ? highlight
+    ? 'surface-card border-blue-200 bg-gradient-to-br from-blue-50 to-white'
+    : 'surface-card'
+  : highlight
+    ? 'surface-card-dark border-blue-500/40 bg-gradient-to-br from-blue-500/10 to-slate-900'
+    : 'surface-card-dark';
+const iconWrapperClass = isLight ? 'bg-slate-950 text-white' : 'bg-blue-500/20';
+const titleClass = isLight ? 'text-slate-950' : 'text-white';
+const descriptionClass = isLight ? 'text-slate-600' : 'text-slate-300';
+const ctaClass = isLight
+  ? 'text-slate-950 bg-slate-950/5 hover:bg-slate-950/10 border border-slate-200'
+  : 'text-white bg-white/10 hover:bg-white/20 border border-white/10';
 ---
 
-<article class={`rounded-2xl border p-8 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/40 ${cardClasses}`}>
+<article class={`p-8 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/40 ${cardClasses}`}>
   <div class="flex items-center justify-between gap-4 mb-6">
-    <div class="w-14 h-14 rounded-2xl bg-blue-500/20 flex items-center justify-center shrink-0">
-      <Icon name={icon} size="xl" class="text-blue-400" />
+    <div class={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 ${iconWrapperClass}`}>
+      <Icon name={icon} size="xl" class={isLight ? 'text-white' : 'text-blue-400'} />
     </div>
     <Badge variant={badgeVariant} size="sm">{statusLabel}</Badge>
   </div>
 
-  <h2 class="text-2xl font-bold text-white mb-3">{title}</h2>
-  <p class="text-slate-300 leading-relaxed mb-8">{description}</p>
+  <h2 class={`text-2xl font-bold mb-3 ${titleClass}`}>{title}</h2>
+  <p class={`leading-relaxed mb-8 ${descriptionClass}`}>{description}</p>
 
   <a
     href={href}
-    class="inline-flex items-center gap-2 text-sm font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/10 rounded-lg px-5 py-3 transition-colors"
+    class={`inline-flex items-center gap-2 text-sm font-semibold rounded-full px-5 py-3 transition-colors ${ctaClass}`}
   >
     {cta}
     <i class="fas fa-arrow-right text-xs"></i>

@@ -10,6 +10,13 @@ export const homeProofPoints = [
   { value: 'Semanas', label: 'para aterrizar una solución útil, no meses de indefinición' }
 ];
 
+export const homeTrustPoints = [
+  { value: '+10 años', label: 'conectando operación, producto y automatización en entornos reales' },
+  { value: '+5M registros', label: 'procesados en implementaciones donde la trazabilidad sí importa' },
+  { value: 'Directo', label: 'diagnóstico, definición e implementación en una misma conversación' },
+  { value: 'En semanas', label: 'para bajar el problema a una ruta útil y operable, no a un backlog eterno' }
+];
+
 export const homeWorkflowSteps = [
   {
     step: '01',

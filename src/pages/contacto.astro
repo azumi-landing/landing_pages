@@ -1,5 +1,5 @@
 ---
-import SiteLayout from '../layouts/SiteLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 import ContactForm from '../components/sections/ContactForm.astro';
 import {
   getWhatsAppHref,
@@ -8,7 +8,7 @@ import {
   isValidContactService,
   contactConfig
 } from '../data/contact';
-import { buildBreadcrumbSchema } from '../data/site';
+import { buildBreadcrumbSchema, buildContactPageSchema } from '../data/site';
 
 const serviceParam = Astro.url.searchParams.get('service');
 const originPath = Astro.url.searchParams.get('origin') ?? '';
@@ -25,12 +25,18 @@ const serviceLabel = defaultService ? getContactServiceLabel(defaultService) : '
 const whatsappHref = getWhatsAppHref();
 ---
 
-<SiteLayout
+<PageLayout
   title="HGuerra | Contacto para consultoría y automatización"
   description="Formulario de contacto para evaluar desafíos de operación, automatización de procesos, IA agéntica y definición de soluciones digitales viables."
   path="/contacto"
   image="/og-contact.svg"
+  bodyVariant="mixed"
   schemas={[
+    buildContactPageSchema({
+      path: '/contacto',
+      title: 'HGuerra | Contacto para consultoría y automatización',
+      description: 'Formulario de contacto para evaluar desafíos de operación, automatización de procesos, IA agéntica y definición de soluciones digitales viables.'
+    }),
     buildBreadcrumbSchema([
       { name: 'Inicio', path: '/' },
       { name: 'Contacto', path: '/contacto' }
@@ -38,14 +44,14 @@ const whatsappHref = getWhatsAppHref();
   ]}
 >
   <main>
-    <section class="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 px-6 pt-24 pb-20">
+    <section class="section-shell-hero section-deep relative overflow-hidden">
       <div class="absolute inset-0 opacity-15">
         <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.14) 1px, transparent 0); background-size: 42px 42px;"></div>
       </div>
 
-      <div class="relative max-w-7xl mx-auto">
-        <div class="max-w-3xl mb-12">
-          <span class="inline-block px-4 py-2 bg-blue-500/20 text-blue-300 text-sm font-semibold rounded-full border border-blue-500/30 mb-6">
+      <div class="page-container relative">
+        <div class="section-intro max-w-4xl">
+          <span class="eyebrow-pill eyebrow-pill-dark mb-6">
             Contacto
           </span>
           <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
@@ -55,71 +61,80 @@ const whatsappHref = getWhatsAppHref();
             Este formulario centraliza el contacto para las tres líneas de servicio. Si vienes desde una página específica, ya dejé precargado el contexto para responderte con menos fricción.
           </p>
         </div>
+      </div>
+    </section>
 
-        <div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] items-start">
-          <section class="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm p-8">
-            <div class="mb-6">
-              <p class="text-sm uppercase tracking-[0.2em] text-slate-400 mb-2">Tema detectado</p>
-              <h2 class="text-2xl font-bold text-white mb-2">{serviceLabel}</h2>
-              {originLabel ? (
-                <p class="text-slate-300">
-                  Origen de la conversación: <span class="text-white font-medium">{originLabel}</span>
-                </p>
-              ) : (
-                <p class="text-slate-300">
-                  Completa el formulario y clasifico el caso según tu necesidad.
-                </p>
-              )}
+    <section class="section-shell section-light">
+      <div class="page-container grid gap-8 lg:grid-cols-[1.05fr_0.95fr] items-start">
+        <section class="surface-card surface-panel p-8">
+          <div class="mb-8 flex flex-wrap items-center gap-3">
+            <span class="eyebrow-pill">
+              Tema detectado
+            </span>
+            <span class="rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700">
+              {serviceLabel}
+            </span>
+          </div>
+
+          {originLabel ? (
+            <p class="text-slate-600 leading-relaxed mb-6">
+              El contexto llegó desde <span class="font-semibold text-slate-950">{originLabel}</span>, así que la conversación ya entra mejor encuadrada.
+            </p>
+          ) : (
+            <p class="text-slate-600 leading-relaxed mb-6">
+              Completa el formulario y clasifico el caso para orientar rápido si conviene diagnóstico, demo o definición de alcance.
+            </p>
+          )}
+
+          <ContactForm
+            defaultService={defaultService}
+            originPath={originPath}
+            originLabel={originLabel}
+            tone="light"
+          />
+        </section>
+
+        <aside class="space-y-6">
+          <div class="surface-soft p-8">
+            <p class="section-eyebrow text-slate-500">Qué puedes esperar</p>
+            <h2 class="text-2xl font-bold text-slate-950 mb-4">Una primera respuesta clara y orientada al caso</h2>
+            <ul class="space-y-4 text-slate-600">
+              <li class="flex items-start gap-3">
+                <span class="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-950 text-xs font-bold text-white">1</span>
+                <span>Respuesta inicial en {contactConfig.responseTime} en horario laboral.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-950 text-xs font-bold text-white">2</span>
+                <span>Lectura rápida para saber si el siguiente paso correcto es diagnóstico, demo o alcance inicial.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-950 text-xs font-bold text-white">3</span>
+                <span>Una conversación centrada en el flujo real de tu operación, no en una presentación genérica.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="cta-band p-8">
+            <p class="section-eyebrow text-cyan-300">Canales alternos</p>
+            <div class="space-y-4">
+              <a
+                href={whatsappHref}
+                class="action-primary w-full"
+              >
+                <span>Abrir WhatsApp</span>
+                <i class="fab fa-whatsapp text-sm"></i>
+              </a>
+              <a
+                href="/sobre-mi"
+                class="action-secondary action-secondary-dark w-full"
+              >
+                <span>Ver experiencia y enfoque</span>
+                <i class="fas fa-user-tie text-sm"></i>
+              </a>
             </div>
-
-            <ContactForm
-              defaultService={defaultService}
-              originPath={originPath}
-              originLabel={originLabel}
-            />
-          </section>
-
-          <aside class="space-y-6">
-            <div class="rounded-3xl border border-blue-500/20 bg-gradient-to-br from-blue-500/15 to-cyan-500/10 p-8">
-              <h2 class="text-2xl font-bold text-white mb-4">Qué puedes esperar</h2>
-              <ul class="space-y-3 text-slate-300">
-                <li class="flex items-start gap-3">
-                  <span class="text-green-400 font-bold mt-0.5">✓</span>
-                  <span>Respuesta inicial en {contactConfig.responseTime} en horario laboral.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="text-green-400 font-bold mt-0.5">✓</span>
-                  <span>Clasificación rápida para saber si el siguiente paso es demo, diagnóstico o definición de alcance.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="text-green-400 font-bold mt-0.5">✓</span>
-                  <span>Una conversación orientada al flujo real de tu operación, no a una demo genérica.</span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="rounded-3xl border border-white/10 bg-slate-900/80 p-8">
-              <h2 class="text-2xl font-bold text-white mb-6">Canales alternos</h2>
-              <div class="space-y-4">
-                <a
-                  href={whatsappHref}
-                  class="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white hover:bg-white/10 transition-colors"
-                >
-                  <span>Abrir WhatsApp</span>
-                  <i class="fab fa-whatsapp text-green-400"></i>
-                </a>
-                <a
-                  href="/sobre-mi"
-                  class="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white hover:bg-white/10 transition-colors"
-                >
-                  <span>Ver experiencia y enfoque</span>
-                  <i class="fas fa-user-tie text-cyan-300"></i>
-                </a>
-              </div>
-            </div>
-          </aside>
-        </div>
+          </div>
+        </aside>
       </div>
     </section>
   </main>
-</SiteLayout>
+</PageLayout>

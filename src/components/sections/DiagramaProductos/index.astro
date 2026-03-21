@@ -7,34 +7,32 @@ import Icon from '../../atoms/Icon.astro';
 const themeVars = `--field-accent: ${fieldOperationsTheme.accent}; --field-accent-alt: ${fieldOperationsTheme.accentAlt}; --field-accent-soft: ${fieldOperationsTheme.accentSoft}; --service-accent: ${fieldOperationsTheme.accent}; --service-accent-soft: ${fieldOperationsTheme.accentSoft};`;
 ---
 
-<section id="como-funciona" class="field-flow py-24 px-6 bg-gradient-to-br from-slate-900 to-slate-800" style={themeVars}>
-  <div class="max-w-7xl mx-auto">
-    <!-- Header -->
-    <div class="text-center mb-12">
-      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+<section id="como-funciona" class="field-flow section-shell section-muted" style={themeVars}>
+  <div class="page-container">
+    <div class="section-intro section-intro-center">
+      <p class="section-eyebrow justify-center text-slate-500">Cómo funciona</p>
+      <h2 class="section-title text-slate-950">
         Cómo funciona
       </h2>
-      <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+      <p class="section-copy text-slate-600">
         Desde la asignación hasta la auditoría: flujo de datos entre campo y oficina
       </p>
     </div>
     
-    <!-- Flow Levels -->
     <div class="space-y-6">
       {flowLevels.map((level) => (
-        <FlowLevel level={level} />
+        <FlowLevel level={level} surface="light" />
       ))}
     </div>
     
-    <!-- Results -->
-    <div class="field-flow-result card border rounded-xl p-6 mt-8">
-      <h3 class="text-xl font-bold text-white mb-6 text-center">Resultado: operaciones conectadas</h3>
+    <div class="field-flow-result rounded-[1.5rem] p-6 mt-8">
+      <h3 class="text-xl font-bold text-slate-950 mb-6 text-center">Resultado: operaciones conectadas</h3>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {resultados.map((resultado) => (
-          <div class="flex items-start gap-3 bg-black/20 p-4 rounded-lg">
-            <Icon name={resultado.icon} size="lg" class="text-white/80 shrink-0" />
+          <div class="flex items-start gap-3 bg-white p-4 rounded-xl border border-slate-200">
+            <Icon name={resultado.icon} size="lg" class="text-slate-500 shrink-0" />
             <div>
-              <span class="text-sm text-white/90" set:html={resultado.text.replace(resultado.highlight!, `<strong class="field-flow-highlight">${resultado.highlight}</strong>`)}></span>
+              <span class="text-sm text-slate-700" set:html={resultado.text.replace(resultado.highlight!, `<strong class="field-flow-highlight">${resultado.highlight}</strong>`)}></span>
             </div>
           </div>
         ))}
@@ -45,8 +43,8 @@ const themeVars = `--field-accent: ${fieldOperationsTheme.accent}; --field-accen
 
 <style>
   .field-flow-result {
-    border-color: var(--field-accent-soft);
-    background: linear-gradient(135deg, var(--field-accent-soft), rgba(15, 23, 42, 0.4));
+    border: 1px solid var(--field-accent-soft);
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.12), rgba(255, 255, 255, 0.9));
   }
 
   .field-flow-highlight {

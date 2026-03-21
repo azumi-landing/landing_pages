@@ -38,6 +38,38 @@ export interface StackGroup {
   items: string[];
 }
 
+export interface ProofMetric {
+  value: string;
+  label: string;
+  detail: string;
+}
+
+export interface ProofPoint {
+  icon: IconName;
+  title: string;
+  description: string;
+}
+
+export interface ServiceTrustItem {
+  value: string;
+  label: string;
+}
+
+export interface ServiceTrustContent {
+  eyebrow?: string;
+  title: string;
+  description: string;
+  items: ServiceTrustItem[];
+}
+
+export interface ServiceExecutionContent {
+  eyebrow?: string;
+  title: string;
+  description: string;
+  bullets: string[];
+  ctaLabel?: string;
+}
+
 export interface DifferentiatorCard {
   icon: IconName;
   title: string;
@@ -111,6 +143,11 @@ export interface ServiceLandingConfig {
   casesTitle: string;
   casesSubtitle: string;
   cases: CaseStudyCard[];
+  proofTitle: string;
+  proofSubtitle: string;
+  proofMetrics: ProofMetric[];
+  proofPoints: ProofPoint[];
+  trustBand: ServiceTrustContent;
   stackTitle: string;
   stackSubtitle: string;
   stackGroups: StackGroup[];
@@ -120,6 +157,7 @@ export interface ServiceLandingConfig {
   notIdealTitle: string;
   notIdealIntro: string;
   notIdealItems: string[];
+  execution: ServiceExecutionContent;
   faqTitle: string;
   faqSubtitle: string;
   faqs: FaqItem[];

@@ -4,36 +4,51 @@ import Icon from '../atoms/Icon.astro';
 
 interface Props {
   level: FlowLevel;
+  surface?: 'dark' | 'light';
 }
 
-const { level } = Astro.props;
+const { level, surface = 'dark' } = Astro.props;
+const isLight = surface === 'light';
 
 const highlightClasses = {
-  blue: 'bg-blue-500/20 border-blue-500/30 text-blue-400',
-  green: 'bg-green-500/20 border-green-500/30 text-green-400',
-  yellow: 'bg-yellow-500/20 border-yellow-500/30 text-yellow-400',
-  purple: 'bg-purple-500/20 border-purple-500/30 text-purple-400',
-  orange: 'bg-orange-500/20 border-orange-500/30 text-orange-400',
-  result: 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 border-blue-500/30'
+  blue: isLight ? 'border-blue-200' : 'bg-blue-500/20 border-blue-500/30 text-blue-400',
+  green: isLight ? 'border-green-200' : 'bg-green-500/20 border-green-500/30 text-green-400',
+  yellow: isLight ? 'border-yellow-200' : 'bg-yellow-500/20 border-yellow-500/30 text-yellow-400',
+  purple: isLight ? 'border-purple-200' : 'bg-purple-500/20 border-purple-500/30 text-purple-400',
+  orange: isLight ? 'border-orange-200' : 'bg-orange-500/20 border-orange-500/30 text-orange-400',
+  result: isLight ? 'border-blue-200' : 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 border-blue-500/30'
 };
+
+const cardClass = isLight
+  ? 'bg-white shadow-[0_18px_50px_rgba(15,23,42,0.08)]'
+  : 'card';
+const iconClass = isLight
+  ? 'bg-slate-950 text-white'
+  : 'bg-white/10';
+const titleClass = isLight ? 'text-slate-950' : 'text-white';
+const itemClass = isLight
+  ? 'border border-slate-200 bg-slate-50'
+  : 'bg-black/20';
+const itemTextClass = isLight ? 'text-slate-700' : 'text-white/90';
+const itemSmallClass = isLight ? 'text-slate-500' : 'text-white/60';
 ---
 
-<div class={`service-flow-card card border rounded-xl p-6 ${highlightClasses[level.highlight]}`}>
+<div class={`service-flow-card border rounded-[1.5rem] p-6 ${cardClass} ${highlightClasses[level.highlight]}`}>
   <div class="flex items-center gap-3 mb-4">
-    <div class="service-flow-icon w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
-      <Icon name={level.icon} size="lg" class="text-white" />
+    <div class={`service-flow-icon w-10 h-10 rounded-lg flex items-center justify-center ${iconClass}`}>
+      <Icon name={level.icon} size="lg" class={isLight ? 'text-white' : 'text-white'} />
     </div>
-    <h3 class="font-bold text-white">{level.title}</h3>
+    <h3 class={`font-bold ${titleClass}`}>{level.title}</h3>
   </div>
   
   <div class={`grid ${level.items.length > 3 ? 'grid-cols-1' : 'grid-cols-2 md:grid-cols-4'} gap-4`}>
     {level.items.map((item) => (
-      <div class="flex items-start gap-3 bg-black/20 p-3 rounded-lg">
-        <Icon name={item.icon} size="md" class="text-white/80 mt-0.5" />
+      <div class={`flex items-start gap-3 p-3 rounded-xl ${itemClass}`}>
+        <Icon name={item.icon} size="md" class={`${isLight ? 'text-slate-500' : 'text-white/80'} mt-0.5`} />
         <div>
-          <span class="text-sm text-white/90">{item.text}</span>
+          <span class={`text-sm ${itemTextClass}`}>{item.text}</span>
           {item.small && (
-            <small class="block text-xs text-white/60 mt-1">{item.small}</small>
+            <small class={`block text-xs mt-1 ${itemSmallClass}`}>{item.small}</small>
           )}
         </div>
       </div>

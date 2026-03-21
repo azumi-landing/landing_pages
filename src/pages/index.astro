@@ -1,26 +1,26 @@
 ---
-import SiteLayout from '../layouts/SiteLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 import ServiceStatusCard from '../components/molecules/ServiceStatusCard.astro';
 import ContactStrip from '../components/sections/ContactStrip.astro';
-import { homeHeroBullets, homeProofPoints, homeWorkflowSteps } from '../data/home';
-import { buildWebsiteSchema } from '../data/site';
+import TrustBand from '../components/sections/TrustBand.astro';
+import { homeHeroBullets, homeTrustPoints, homeWorkflowSteps } from '../data/home';
 ---
 
-<SiteLayout
+<PageLayout
   title="HGuerra | Consultoría aplicada para operación, producto y automatización"
   description="Consultoría e implementación para convertir problemas operativos complejos en soluciones claras, adoptables y útiles para equipos reales."
   path="/"
   image="/og-home.svg"
-  schemas={[buildWebsiteSchema()]}
+  bodyVariant="mixed"
 >
   <main>
-    <section id="inicio" class="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.18),_transparent_32%),linear-gradient(135deg,_#020617_0%,_#0f172a_52%,_#1e293b_100%)] px-6 pt-20 pb-24">
+    <section id="inicio" class="section-shell-hero section-deep relative overflow-hidden">
       <div class="absolute inset-0 overflow-hidden">
         <div class="absolute -top-24 right-[-10%] h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl"></div>
         <div class="absolute bottom-0 left-[-8%] h-80 w-80 rounded-full bg-blue-500/10 blur-3xl"></div>
       </div>
 
-      <div class="relative max-w-7xl mx-auto grid gap-16 lg:grid-cols-[1.15fr_0.85fr] items-center">
+      <div class="page-container relative grid gap-16 lg:grid-cols-[1.15fr_0.85fr] items-center">
         <div>
           <span class="inline-flex items-center rounded-full border border-blue-400/30 bg-blue-400/10 px-4 py-2 text-sm font-semibold text-blue-200 mb-6">
             Consultoría aplicada para ordenar operación, producto y automatización
@@ -44,29 +44,20 @@ import { buildWebsiteSchema } from '../data/site';
           <div class="flex flex-col sm:flex-row gap-4">
             <a
               href="#contacto-general"
-              class="px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-400 text-slate-950 font-bold rounded-2xl text-lg text-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-cyan-500/20"
+              class="action-primary text-lg"
             >
               Cuéntame tu desafío
             </a>
             <a
               href="#como-trabajo"
-              class="px-8 py-4 bg-white/10 hover:bg-white/15 text-white font-bold rounded-2xl text-lg text-center transition-all duration-300 border border-white/15"
+              class="action-secondary action-secondary-dark text-lg"
             >
               Ver cómo trabajo
             </a>
           </div>
-
-          <div class="mt-12 flex flex-wrap gap-x-8 gap-y-4 border-t border-white/10 pt-8">
-            {homeProofPoints.map((item) => (
-              <div>
-                <p class="text-2xl md:text-3xl font-bold text-white">{item.value}</p>
-                <p class="mt-1 max-w-[14rem] text-sm leading-relaxed text-slate-400">{item.label}</p>
-              </div>
-            ))}
-          </div>
         </div>
 
-        <aside class="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur-md shadow-[0_35px_120px_rgba(15,23,42,0.35)]">
+        <aside class="surface-card-dark surface-panel p-8 backdrop-blur-md">
           <div class="mb-8 flex items-center gap-4">
             <div class="h-20 w-20 rounded-full overflow-hidden border-2 border-blue-400/30 shrink-0">
               <img
@@ -88,22 +79,22 @@ import { buildWebsiteSchema } from '../data/site';
           </div>
 
           <p class="text-lg leading-relaxed text-slate-200">
-            No trabajo como intermediario comercial. Me involucro en el diagnóstico, en la definición de la solución y en la implementación para que lo que se decide tenga sentido técnico y operativo.
+            Entro mejor cuando el problema todavía está mezclado entre operación, datos, decisiones y adopción. La conversación no empieza con herramientas: empieza con criterio.
           </p>
 
           <div class="my-8 h-px bg-white/10"></div>
 
           <div class="space-y-5 text-sm text-slate-300">
             <div>
-              <p class="text-xs uppercase tracking-[0.18em] text-cyan-200">Cuando suelo aportar más valor</p>
+              <p class="text-xs uppercase tracking-[0.18em] text-cyan-200">Qué ordenamos primero</p>
               <p class="mt-2 leading-relaxed">
-                Cuando hay fricción entre operación, datos y adopción, y necesitas a alguien que ordene el problema antes de construir.
+                Flujo, responsables, datos críticos y nivel real de solución necesario antes de construir.
               </p>
             </div>
             <div>
-              <p class="text-xs uppercase tracking-[0.18em] text-cyan-200">Tipo de relación</p>
+              <p class="text-xs uppercase tracking-[0.18em] text-cyan-200">Cómo se siente la relación</p>
               <p class="mt-2 leading-relaxed">
-                Trabajo directo, con criterio de negocio y ejecución, para que la conversación no se quede en ideas bonitas o herramientas sueltas.
+                Directa, ejecutiva y aplicada. Sin separar el diagnóstico del criterio técnico que luego ejecuta.
               </p>
             </div>
           </div>
@@ -111,23 +102,31 @@ import { buildWebsiteSchema } from '../data/site';
       </div>
     </section>
 
-    <section id="como-trabajo" class="py-24 px-6 bg-[#F8FAFC]">
-      <div class="max-w-7xl mx-auto">
-        <div class="max-w-3xl mb-14">
-          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 mb-4">
-            Cómo trabajo
+    <TrustBand
+      eyebrow="Señales de confianza"
+      title="Una conversación de consultoría primero, una solución después"
+      description="La propuesta del sitio busca que el cliente entienda rápido el tipo de relación, el nivel de experiencia y la forma de trabajo antes de entrar a detalle técnico."
+      items={homeTrustPoints}
+      tone="muted"
+    />
+
+    <section id="como-trabajo" class="section-shell section-light">
+      <div class="page-container">
+        <div class="section-intro">
+          <p class="section-eyebrow text-slate-500">
+            Método de trabajo
           </p>
-          <h2 class="text-4xl md:text-5xl font-bold text-[#1E293B] mb-5">
-            Cómo trabajo
+          <h2 class="section-title text-slate-800">
+            Así conduzco el trabajo para que el cambio sí entre en operación
           </h2>
-          <p class="text-xl text-[#475569] leading-relaxed">
+          <p class="section-copy text-slate-600">
             La relación consultor-cliente no empieza con una demo, empieza entendiendo el problema correcto. Mi trabajo es ayudarte a leer la operación, definir una salida viable y acompañar la ejecución hasta que el cambio se use de verdad.
           </p>
         </div>
 
         <div class="grid gap-6 lg:grid-cols-3">
           {homeWorkflowSteps.map((step) => (
-            <article class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
+            <article class="surface-card surface-panel p-8">
               <div class="flex items-center justify-between gap-4 mb-6">
                 <span class="inline-flex rounded-full bg-slate-950 px-4 py-2 text-sm font-semibold text-white">
                   Paso {step.step}
@@ -150,13 +149,14 @@ import { buildWebsiteSchema } from '../data/site';
       </div>
     </section>
 
-    <section id="servicios" class="py-24 px-6 bg-gradient-to-br from-slate-900 to-slate-800">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-            Líneas de servicio
+    <section id="servicios" class="section-shell section-muted">
+      <div class="page-container">
+        <div class="section-intro section-intro-center">
+          <p class="section-eyebrow justify-center text-slate-500">Líneas de servicio</p>
+          <h2 class="section-title text-slate-950">
+            Tres rutas según el tipo de problema que necesitas ordenar
           </h2>
-          <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+          <p class="section-copy text-slate-600">
             Tres frentes para resolver problemas operativos con distintos niveles de madurez y velocidad.
           </p>
         </div>
@@ -170,22 +170,25 @@ import { buildWebsiteSchema } from '../data/site';
             icon="fa-map-marked-alt"
             status="available"
             highlight={true}
+            surface="light"
           />
           <ServiceStatusCard
             title="Automatización con IA Agéntica"
-            description="Servicio orientado a agentes, orquestación y automatización inteligente sobre procesos y datos de negocio. En esta fase se publica como vista previa."
+            description="Servicio para diseñar agentes, integraciones y decisiones automatizadas conectadas a sistemas reales con control operativo."
             href="/automatizacion-con-ia-agentica"
-            cta="Ver vista previa"
+            cta="Ver servicio"
             icon="fa-robot"
-            status="coming-soon"
+            status="available"
+            surface="light"
           />
           <ServiceStatusCard
             title="Automatización de Procesos"
-            description="Línea enfocada en rediseñar flujos, eliminar trabajo manual e integrar sistemas para reducir fricción operativa. En esta fase se publica como vista previa."
+            description="Línea enfocada en rediseñar flujos críticos, integrar sistemas y dejar datos confiables para operar con menos fricción."
             href="/automatizacion-de-procesos"
-            cta="Ver vista previa"
+            cta="Ver servicio"
             icon="fa-gears"
-            status="coming-soon"
+            status="available"
+            surface="light"
           />
         </div>
       </div>
@@ -197,4 +200,4 @@ import { buildWebsiteSchema } from '../data/site';
       description="Abrimos una conversación inicial con un formulario único. Si el caso encaja, definimos rápido si conviene consultoría, automatización o implementación."
     />
   </main>
-</SiteLayout>
+</PageLayout>

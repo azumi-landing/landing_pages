@@ -1,5 +1,5 @@
 ---
-import SiteLayout from '../layouts/SiteLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 import ServiceLanding from '../components/templates/ServiceLanding.astro';
 import { processAutomationLanding } from '../data/serviceLandings';
 import {
@@ -7,13 +7,29 @@ import {
   buildFAQSchema,
   buildServiceSchema
 } from '../data/site';
+
+const sectionNavItems = [
+  { id: 'inicio', label: 'Inicio' },
+  { id: 'problema', label: 'Problema' },
+  { id: 'capacidades', label: 'Capacidades' },
+  { id: 'como-funciona', label: 'Cómo funciona' },
+  { id: 'casos-aplicaciones', label: 'Casos' },
+  { id: 'prueba', label: 'Prueba' },
+  { id: 'stack', label: 'Stack' },
+  { id: 'diferenciacion', label: 'Diferenciación' },
+  { id: 'faq', label: 'FAQ' },
+  { id: 'contacto', label: 'Contacto' }
+];
 ---
 
-<SiteLayout
+<PageLayout
   title={processAutomationLanding.seoTitle}
   description={processAutomationLanding.seoDescription}
   path={processAutomationLanding.path}
   image={processAutomationLanding.seoImage}
+  bodyVariant="mixed"
+  showSectionNav={true}
+  sectionNavItems={sectionNavItems}
   schemas={[
     buildServiceSchema({
       name: processAutomationLanding.title,
@@ -28,4 +44,4 @@ import {
   ]}
 >
   <ServiceLanding config={processAutomationLanding} />
-</SiteLayout>
+</PageLayout>

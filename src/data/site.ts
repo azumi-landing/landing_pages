@@ -1,3 +1,5 @@
+import { CONTACT_PAGE_PATH, contactConfig } from './contact';
+
 export const siteConfig = {
   name: 'HGuerra',
   url: 'https://hguerra.com',
@@ -52,7 +54,19 @@ export function getSiteUrl(path = '/') {
   return new URL(path, siteConfig.url).toString();
 }
 
+function getWhatsappTelephone() {
+  const normalizedNumber = contactConfig.whatsappNumber.replace(/[^\d+]/g, '');
+
+  if (!normalizedNumber) {
+    return undefined;
+  }
+
+  return normalizedNumber.startsWith('+') ? normalizedNumber : `+${normalizedNumber}`;
+}
+
 export function buildOrganizationSchema() {
+  const telephone = getWhatsappTelephone();
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -60,8 +74,22 @@ export function buildOrganizationSchema() {
     name: siteConfig.name,
     url: siteConfig.url,
     description: siteConfig.description,
-    logo: getSiteUrl('/hg-favicon.svg'),
-    image: getSiteUrl(siteConfig.defaultImage)
+    logo: getSiteUrl('/logo.png'),
+    image: getSiteUrl('/mi_foto_pro.jpeg'),
+    founder: {
+      '@id': getSiteUrl('/sobre-mi#person')
+    },
+    contactPoint: telephone
+      ? [
+          {
+            '@type': 'ContactPoint',
+            contactType: 'sales',
+            telephone,
+            availableLanguage: ['es'],
+            url: getSiteUrl(CONTACT_PAGE_PATH)
+          }
+        ]
+      : undefined
   };
 }
 
@@ -98,6 +126,55 @@ export function buildWebsiteSchema() {
     description: siteConfig.description,
     inLanguage: 'es',
     publisher: {
+      '@id': getSiteUrl('/#organization')
+    }
+  };
+}
+
+export function buildPersonSchema({
+  path = '/sobre-mi',
+  name = siteConfig.name,
+  description = 'Consultor e implementador para operación, automatización y diseño de soluciones digitales aplicadas.'
+}: {
+  path?: string;
+  name?: string;
+  description?: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${getSiteUrl(path)}#person`,
+    name,
+    url: getSiteUrl(path),
+    image: getSiteUrl('/mi_foto_pro.jpeg'),
+    description,
+    worksFor: {
+      '@id': getSiteUrl('/#organization')
+    }
+  };
+}
+
+export function buildContactPageSchema({
+  path,
+  title,
+  description
+}: {
+  path: string;
+  title: string;
+  description: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    '@id': `${getSiteUrl(path)}#contactpage`,
+    url: getSiteUrl(path),
+    name: title,
+    description,
+    inLanguage: 'es',
+    isPartOf: {
+      '@id': getSiteUrl('/#website')
+    },
+    mainEntity: {
       '@id': getSiteUrl('/#organization')
     }
   };

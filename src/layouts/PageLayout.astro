@@ -2,8 +2,8 @@
 import '../styles/global.css';
 import MainNav from '../components/MainNav.astro';
 import SectionNav from '../components/SectionNav.astro';
-import WhatsAppFloatingButton from '../components/atoms/WhatsAppFloatingButton.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import WhatsAppFloatingButton from '../components/atoms/WhatsAppFloatingButton.astro';
 import SeoHead from '../components/SeoHead.astro';
 import { siteConfig } from '../data/site';
 
@@ -15,17 +15,29 @@ interface Props {
   type?: string;
   noindex?: boolean;
   schemas?: Array<Record<string, unknown>>;
+  bodyVariant?: 'dark' | 'light' | 'mixed';
+  showSectionNav?: boolean;
+  sectionNavItems?: Array<{ id: string; label: string }>;
 }
 
 const {
-  title = 'HGuerra | Especialista en Software para Operaciones de Campo',
-  description = 'Software personalizado para operaciones de campo. +10 años de experiencia, +5M registros procesados. Soluciones que funcionan offline y se adoptan rápido.',
-  path = '/gestion-de-operaciones-de-campo',
+  title = siteConfig.name,
+  description = siteConfig.description,
+  path = '/',
   image = siteConfig.defaultImage,
   type = 'website',
   noindex = false,
-  schemas = []
+  schemas = [],
+  bodyVariant = 'mixed',
+  showSectionNav = false,
+  sectionNavItems = []
 } = Astro.props;
+
+const bodyClass = {
+  dark: 'page-body-dark',
+  light: 'page-body-light',
+  mixed: 'page-body-mixed'
+}[bodyVariant];
 ---
 <html lang="es">
   <head>
@@ -39,9 +51,9 @@ const {
       schemas={schemas}
     />
   </head>
-  <body>
+  <body class={bodyClass}>
     <MainNav currentPath={path} />
-    <SectionNav />
+    {showSectionNav && sectionNavItems.length > 0 && <SectionNav items={sectionNavItems} />}
     <slot />
     <SiteFooter />
     <WhatsAppFloatingButton />

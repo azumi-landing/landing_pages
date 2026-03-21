@@ -1,5 +1,6 @@
 ---
 import { aboutCards, aboutFilter } from '../../../data/about';
+import { areasEspecializacion } from '../../../data/investigacion';
 import AboutCard from '../../molecules/AboutCard.astro';
 import Icon from '../../atoms/Icon.astro';
 ---
@@ -9,10 +10,10 @@ import Icon from '../../atoms/Icon.astro';
     <!-- Header -->
     <div class="text-center mb-12">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-        Por qué trabajo conmigo
+        Quién diseña y ejecuta la solución
       </h2>
       <p class="text-xl text-slate-300 max-w-3xl mx-auto">
-        Desarrollo soluciones de campo que realmente usan los operarios y que entregan visibilidad a la gerencia
+        Diagnóstico, diseño e implementación se trabajan conmigo para que la solución responda al flujo real de tu operación y no a un demo genérico
       </p>
     </div>
     
@@ -33,10 +34,21 @@ import Icon from '../../atoms/Icon.astro';
         <h3 class="text-2xl font-bold text-white mb-2">Especialista en operaciones de campo</h3>
         <p class="text-blue-400 font-medium mb-3">+10 años de experiencia | +5M registros procesados</p>
         <p class="text-slate-300 leading-relaxed">
-          Trabajas directamente conmigo, sin intermediarios. Diseño e implemento soluciones que tus operarios 
-          realmente usan y que entregan visibilidad real a la gerencia. Despliegue ágil en semanas, no meses.
+          Trabajas directamente conmigo, sin una capa comercial separada de la implementación. El mismo criterio que se usa para entender el problema se usa después para definir alcance, arquitectura, adopción y despliegue.
         </p>
       </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 mb-12">
+      {areasEspecializacion.map((area) => (
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/15 flex items-center justify-center mb-4">
+            <Icon name={area.icon} size="lg" class="text-blue-300" />
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">{area.title}</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">{area.description}</p>
+        </article>
+      ))}
     </div>
     
     <!-- Cards Grid -->
@@ -53,7 +65,7 @@ import Icon from '../../atoms/Icon.astro';
           <Icon name={aboutFilter.icon} size="lg" class="text-red-400" />
         </div>
         <div>
-          <h3 class="text-xl font-bold text-white mb-2">{aboutFilter.title}</h3>
+          <h3 class="text-xl font-bold text-white mb-2">Cuándo no soy el ajuste correcto</h3>
           <p class="text-slate-300 mb-4">{aboutFilter.intro}</p>
           <ul class="space-y-2">
             {aboutFilter.exclusions.map((exclusion) => (

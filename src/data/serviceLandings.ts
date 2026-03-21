@@ -3,7 +3,7 @@ import { agenticAutomationTheme, processAutomationTheme } from './serviceThemes'
 
 export const agenticAutomationLanding: ServiceLandingConfig = {
   seoTitle: 'HGuerra | Automatización con IA Agéntica',
-  seoDescription: 'Diseño agentes, flujos orquestados y automatización inteligente conectada a tus sistemas con LangGraph, n8n, ML aplicado y servicios de GCP.',
+  seoDescription: 'Consultoría e implementación de automatización con IA agéntica para integrar agentes, datos y sistemas en flujos operativos con control, trazabilidad y supervisión humana.',
   seoImage: '/og-agentic-automation.svg',
   path: '/automatizacion-con-ia-agentica',
   theme: agenticAutomationTheme,
@@ -21,10 +21,10 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     { value: 'Contexto + herramientas + guardrails', label: 'agentes operando con control' },
     { value: 'Observabilidad end-to-end', label: 'cada acción queda trazada' }
   ],
-  primaryCtaLabel: 'Explorar capacidades',
-  primaryCtaHref: '#capacidades',
-  secondaryCtaLabel: 'Ver casos de aplicación',
-  secondaryCtaHref: '#casos-aplicaciones',
+  primaryCtaLabel: 'Revisar mi flujo',
+  primaryCtaHref: '#contacto',
+  secondaryCtaLabel: 'Ver cómo funciona',
+  secondaryCtaHref: '#como-funciona',
   problemTitle: '¿Tu operación ya usa IA, pero todavía depende de demasiada intervención manual?',
   problemSubtitle:
     'El problema no suele ser “falta de IA”. El problema es que la IA queda aislada del proceso: sin contexto, sin herramientas, sin trazabilidad y sin capacidad real de ejecutar decisiones útiles.',
@@ -81,7 +81,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
       ]
     },
     {
-      icon: 'fa-plug-circle-bolt',
+      icon: 'fa-plug',
       title: 'Orquestación e integraciones con n8n',
       pain: 'La IA no genera valor si no puede leer eventos, llamar APIs y activar acciones en otros sistemas.',
       solution: 'Uso `n8n` para conectar formularios, CRMs, correos, ERPs, bases de datos y servicios internos con los agentes.',
@@ -220,9 +220,9 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
       ]
     }
   ],
-  casesTitle: 'Dónde aporta más valor este enfoque',
+  casesTitle: 'Dónde encaja mejor este servicio',
   casesSubtitle:
-    'Aplicaciones típicas para operaciones y TI donde un agente con contexto resuelve mejor que un script lineal o un prompt aislado.',
+    'Casos operativos donde un agente con contexto, herramientas y guardrails aporta más valor que un script lineal o un prompt aislado.',
   cases: [
     {
       icon: 'fa-triangle-exclamation',
@@ -252,6 +252,67 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
       stack: 'Pub/Sub + BigQuery + ML scoring + LangGraph + Cloud Functions'
     }
   ],
+  proofTitle: 'Prueba de valor y señales de confianza',
+  proofSubtitle:
+    'La propuesta no se sostiene por “lo inteligente” del modelo, sino por qué tan controlado, visible e integrado queda el flujo en operación.',
+  proofMetrics: [
+    {
+      value: 'Controlado',
+      label: 'decisiones con guardrails y revisión humana',
+      detail: 'La automatización no depende de un prompt abierto ni de una sola llamada al modelo.'
+    },
+    {
+      value: 'Trazable',
+      label: 'acciones, rutas y excepciones visibles',
+      detail: 'Cada paso queda disponible para auditoría, mejora y confianza operativa.'
+    },
+    {
+      value: 'Conectado',
+      label: 'integración real con datos y sistemas',
+      detail: 'La IA dispara acciones útiles dentro del proceso, no solo respuestas.'
+    }
+  ],
+  proofPoints: [
+    {
+      icon: 'fa-eye',
+      title: 'Observabilidad desde el diseño',
+      description: 'Logs, métricas y rutas de decisión quedan visibles para auditar y ajustar el flujo sin perder contexto.'
+    },
+    {
+      icon: 'fa-user-shield',
+      title: 'Criterio humano donde sí importa',
+      description: 'Las aprobaciones y excepciones se diseñan desde el inicio para acelerar sin ceder control.'
+    },
+    {
+      icon: 'fa-link',
+      title: 'Integración útil con la operación',
+      description: 'El agente lee, decide y actúa sobre tus herramientas para cerrar trabajo real en lugar de quedarse en un chat.'
+    }
+  ],
+  trustBand: {
+    eyebrow: 'Señales de relación',
+    title: 'IA agéntica aplicada con criterio operativo, no como experimento aislado',
+    description:
+      'Antes de hablar de modelos o prompts, la propuesta deja claro cómo se lee el problema: flujo, contexto, control y ejecución conectados.',
+    items: [
+      {
+        value: 'Proceso primero',
+        label: 'el flujo y las decisiones mandan antes que el modelo o el prompt.'
+      },
+      {
+        value: 'Con guardrails',
+        label: 'agentes, aprobaciones y trazabilidad se diseñan desde el inicio.'
+      },
+      {
+        value: 'Integrado',
+        label: 'la automatización lee y actúa sobre sistemas reales, no sobre un sandbox.'
+      },
+      {
+        value: 'Directo',
+        label: 'diagnóstico, arquitectura y ejecución se trabajan en la misma conversación.'
+      }
+    ]
+  },
   stackTitle: 'Stack y arquitectura que aplico para agentic automation',
   stackSubtitle:
     'La elección tecnológica depende del caso, pero la arquitectura siempre prioriza control, integración, trazabilidad y operabilidad.',
@@ -323,7 +384,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
       highlight: 'Velocidad sin perder control'
     },
     {
-      icon: 'fa-plug-circle-check',
+      icon: 'fa-link',
       title: 'Integración real con sistemas',
       subtitle: 'No se queda en un chat',
       description: 'Los agentes leen y escriben en tus herramientas, disparan flujos y devuelven resultados útiles al negocio.',
@@ -338,6 +399,18 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     'Un piloto de IA sin intención de llevarlo a operación',
     'Resolver un problema que todavía puede cubrirse mejor con reglas simples'
   ],
+  execution: {
+    eyebrow: 'Quién ejecuta',
+    title: 'La arquitectura del agente y la conversación operativa se trabajan directo conmigo',
+    description:
+      'Si el caso avanza, no pasas de una capa comercial a otra técnica. La misma persona que aterriza el flujo define herramientas, límites y forma de despliegue.',
+    bullets: [
+      'Diagnóstico de flujo, diseño de agente y decisiones de integración conectados.',
+      'Criterio para separar lo que conviene resolver con IA, con reglas o con revisión humana.',
+      'Implementación pensada para operación real, no solo para demo o laboratorio.'
+    ],
+    ctaLabel: 'Ver experiencia y enfoque'
+  },
   faqTitle: 'Preguntas frecuentes',
   faqSubtitle: 'Respuestas directas para operaciones y TI antes de automatizar con agentes.',
   faqs: [
@@ -396,7 +469,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
 
 export const processAutomationLanding: ServiceLandingConfig = {
   seoTitle: 'HGuerra | Automatización de Procesos',
-  seoDescription: 'Automatización de procesos con Airflow, SQL, NoSQL, ETL/ELT, ML aplicado y servicios de GCP para flujos críticos y datos confiables.',
+  seoDescription: 'Consultoría e implementación de automatización de procesos para integrar sistemas, ordenar datos y ejecutar flujos críticos con control, monitoreo y trazabilidad.',
   seoImage: '/og-process-automation.svg',
   path: '/automatizacion-de-procesos',
   theme: processAutomationTheme,
@@ -414,10 +487,10 @@ export const processAutomationLanding: ServiceLandingConfig = {
     { value: 'SQL + NoSQL + ETL/ELT', label: 'datos alineados al flujo operativo' },
     { value: 'Alertas y trazabilidad', label: 'errores detectados antes de escalar' }
   ],
-  primaryCtaLabel: 'Ver capacidades',
-  primaryCtaHref: '#capacidades',
-  secondaryCtaLabel: 'Ver casos y aplicaciones',
-  secondaryCtaHref: '#casos-aplicaciones',
+  primaryCtaLabel: 'Revisar mi proceso',
+  primaryCtaHref: '#contacto',
+  secondaryCtaLabel: 'Ver cómo funciona',
+  secondaryCtaHref: '#como-funciona',
   problemTitle: '¿Tu operación sigue moviéndose entre Excel, correos, cargas manuales y sistemas que no conversan bien?',
   problemSubtitle:
     'El cuello de botella no siempre está en una sola herramienta. Suele estar en el proceso completo: datos que no coinciden, dependencias invisibles, pasos manuales y reportes que llegan tarde.',
@@ -613,9 +686,9 @@ export const processAutomationLanding: ServiceLandingConfig = {
       ]
     }
   ],
-  casesTitle: 'Casos y aplicaciones donde este enfoque encaja bien',
+  casesTitle: 'Dónde encaja mejor este servicio',
   casesSubtitle:
-    'El repo ya refleja varios patrones de este tipo de trabajo: ETL crítica, procesamiento histórico, integración operativa y automatización de reporting.',
+    'Patrones operativos donde la automatización gana valor cuando datos, reglas, monitoreo e integración se diseñan como un mismo flujo.',
   cases: [
     {
       icon: 'fa-chart-line',
@@ -645,6 +718,67 @@ export const processAutomationLanding: ServiceLandingConfig = {
       stack: 'Dataproc + BigQuery + Cloud Storage + procesos downstream'
     }
   ],
+  proofTitle: 'Prueba de valor y señales de confianza',
+  proofSubtitle:
+    'Una automatización útil no se mide solo porque “corra”. Se mide por la calidad del dato, la visibilidad del flujo y la capacidad de sostenerlo.',
+  proofMetrics: [
+    {
+      value: 'Visible',
+      label: 'monitoreo y alertas desde el día uno',
+      detail: 'El proceso deja de depender de scripts invisibles y fallos difíciles de rastrear.'
+    },
+    {
+      value: 'Confiable',
+      label: 'datos validados antes de mover decisiones',
+      detail: 'Las reglas de calidad entran en el diseño y no como parche posterior.'
+    },
+    {
+      value: 'Escalable',
+      label: 'arquitectura preparada para crecer',
+      detail: 'La solución soporta nuevas fuentes, cargas y casos sin rehacer el flujo completo.'
+    }
+  ],
+  proofPoints: [
+    {
+      icon: 'fa-shield-halved',
+      title: 'Calidad desde la entrada',
+      description: 'Las validaciones y puntos de control evitan propagar errores a más sistemas, áreas y reportes.'
+    },
+    {
+      icon: 'fa-chart-column',
+      title: 'Trazabilidad operativa',
+      description: 'Cada dependencia, carga, reintento y fallo puede ubicarse con rapidez para corregir sin improvisación.'
+    },
+    {
+      icon: 'fa-brain',
+      title: 'Base lista para mejorar después',
+      description: 'La automatización resuelve hoy y deja una capa útil para analítica, alertas, scoring o ML posterior.'
+    }
+  ],
+  trustBand: {
+    eyebrow: 'Señales de relación',
+    title: 'Automatización de procesos con criterio operativo y arquitectura mantenible',
+    description:
+      'La conversación no se centra en mover datos por moverlos. Se centra en qué flujo hay que estabilizar, cómo se monitorea y cómo se sostiene en el tiempo.',
+    items: [
+      {
+        value: 'End-to-end',
+        label: 'se diseña el proceso completo, no un parche sobre un paso aislado.'
+      },
+      {
+        value: 'Datos confiables',
+        label: 'la calidad, validación y reconciliación entran desde el diseño.'
+      },
+      {
+        value: 'Monitoreado',
+        label: 'alertas, auditoría y puntos de control quedan definidos desde el inicio.'
+      },
+      {
+        value: 'Directo',
+        label: 'lectura operativa, decisiones de arquitectura y ejecución se trabajan en una sola relación.'
+      }
+    ]
+  },
   stackTitle: 'Stack y servicios que aplico en automatización de procesos',
   stackSubtitle:
     'La selección depende de criticidad, volumen, latencia y madurez del equipo, pero el principio es el mismo: procesos observables, integrables y mantenibles.',
@@ -702,7 +836,7 @@ export const processAutomationLanding: ServiceLandingConfig = {
       highlight: 'Menos parches, más coherencia operativa'
     },
     {
-      icon: 'fa-bug-slash',
+      icon: 'fa-shield-halved',
       title: 'Calidad y monitoreo desde el principio',
       subtitle: 'No solo “si corre”',
       description: 'Las validaciones, alertas y puntos de auditoría son parte del diseño, no una capa agregada después del primer incidente.',
@@ -731,6 +865,18 @@ export const processAutomationLanding: ServiceLandingConfig = {
     'Centralizar todo en una sola tecnología por comodidad, aunque no encaje',
     'Resolver un problema de producto o adopción solo con backend y pipelines'
   ],
+  execution: {
+    eyebrow: 'Quién ejecuta',
+    title: 'La conversación de proceso, datos y arquitectura se trabaja directo conmigo',
+    description:
+      'No separo el diagnóstico operativo de las decisiones técnicas. Si el caso avanza, la misma lectura del flujo se traduce en reglas, datos, monitoreo y despliegue.',
+    bullets: [
+      'Mapeo de proceso, diseño de automatización y criterio de arquitectura conectados.',
+      'Decisiones sobre calidad de datos, integraciones y monitoreo hechas con foco en sostenibilidad.',
+      'Implementación orientada a operación continua, no a entregar un script y desaparecer.'
+    ],
+    ctaLabel: 'Ver experiencia y enfoque'
+  },
   faqTitle: 'Preguntas frecuentes',
   faqSubtitle: 'Lo que normalmente conviene aclarar antes de automatizar procesos críticos.',
   faqs: [

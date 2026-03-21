@@ -10,16 +10,25 @@ interface Props {
   defaultService?: string | null;
   originPath?: string | null;
   originLabel?: string | null;
+  tone?: 'dark' | 'light';
 }
 
 const {
   defaultService = '',
   originPath = '',
-  originLabel = ''
+  originLabel = '',
+  tone = 'dark'
 } = Astro.props;
 
 const normalizedService = isValidContactService(defaultService) ? defaultService : '';
 const resolvedOriginLabel = originLabel || getContactServiceLabel(normalizedService);
+const isLight = tone === 'light';
+const labelClass = isLight ? 'text-slate-700' : 'text-slate-300';
+const inputClass = isLight
+  ? 'bg-white border border-slate-200 text-slate-900 placeholder-slate-400 focus:border-slate-950'
+  : 'bg-slate-800/50 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500';
+const legalTextClass = isLight ? 'text-slate-500' : 'text-slate-400';
+const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-blue-300 hover:text-blue-200';
 ---
 
 <form
@@ -34,25 +43,25 @@ const resolvedOriginLabel = originLabel || getContactServiceLabel(normalizedServ
   <input type="hidden" name="page_url" value={Astro.url.pathname} />
 
   <div>
-    <label for="contact-email" class="block text-sm font-medium text-slate-300 mb-2">Email *</label>
+    <label for="contact-email" class={`block text-sm font-medium mb-2 ${labelClass}`}>Email *</label>
     <input
       type="email"
       id="contact-email"
       name="email"
       required
-      class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
+      class={`w-full px-4 py-3 rounded-2xl focus:outline-none transition-colors ${inputClass}`}
       placeholder="tu@empresa.com"
       autocomplete="email"
     />
   </div>
 
   <div>
-    <label for="contact-service" class="block text-sm font-medium text-slate-300 mb-2">¿Qué necesitas? *</label>
+    <label for="contact-service" class={`block text-sm font-medium mb-2 ${labelClass}`}>¿Qué necesitas? *</label>
     <select
       id="contact-service"
       name="interes"
       required
-      class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+      class={`w-full px-4 py-3 rounded-2xl focus:outline-none transition-colors ${inputClass}`}
     >
       {formTopics.map((topic) => (
         <option
@@ -67,12 +76,12 @@ const resolvedOriginLabel = originLabel || getContactServiceLabel(normalizedServ
   </div>
 
   <div>
-    <label for="contact-detail" class="block text-sm font-medium text-slate-300 mb-2">Detalle breve</label>
+    <label for="contact-detail" class={`block text-sm font-medium mb-2 ${labelClass}`}>Detalle breve</label>
     <textarea
       id="contact-detail"
       name="detalle"
       rows={5}
-      class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors resize-y"
+      class={`w-full px-4 py-3 rounded-2xl focus:outline-none transition-colors resize-y ${inputClass}`}
       placeholder="¿Qué proceso quieres mejorar? ¿Qué equipo usa hoy el flujo? ¿Qué sistemas ya existen?"
     ></textarea>
   </div>
@@ -83,12 +92,12 @@ const resolvedOriginLabel = originLabel || getContactServiceLabel(normalizedServ
 
   <div data-form-feedback class="hidden text-center py-4 rounded-lg text-sm"></div>
 
-  <p class="text-xs leading-relaxed text-slate-400">
+  <p class={`text-xs leading-relaxed ${legalTextClass}`}>
     Al enviar este formulario aceptas el tratamiento básico de tus datos para responder tu consulta.
     Puedes revisar la
-    <a href="/privacidad" class="text-blue-300 hover:text-blue-200 transition-colors">política de privacidad</a>
+    <a href="/privacidad" class={`transition-colors ${legalLinkClass}`}>política de privacidad</a>
     y los
-    <a href="/terminos" class="text-blue-300 hover:text-blue-200 transition-colors">términos de uso</a>.
+    <a href="/terminos" class={`transition-colors ${legalLinkClass}`}>términos de uso</a>.
   </p>
 </form>
 

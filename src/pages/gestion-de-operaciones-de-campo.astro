@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 import Hero from '../components/sections/Hero/index.astro';
 import ElProblema from '../components/sections/ElProblema/index.astro';
 import Sectores from '../components/sections/Sectores/index.astro';
@@ -10,7 +10,6 @@ import CasosDeExito from '../components/sections/CasosDeExito/index.astro';
 import Seguridad from '../components/sections/Seguridad/index.astro';
 import Diferenciacion from '../components/sections/Diferenciacion/index.astro';
 import About from '../components/sections/About/index.astro';
-import Investiger from '../components/sections/Investiger/index.astro';
 import FAQ from '../components/sections/FAQ/index.astro';
 import Contact from '../components/sections/Contact/index.astro';
 import RelatedServices from '../components/sections/RelatedServices.astro';
@@ -21,13 +20,31 @@ import {
   buildFAQSchema,
   buildServiceSchema
 } from '../data/site';
+
+const sectionNavItems = [
+  { id: 'inicio', label: 'Inicio' },
+  { id: 'el-problema', label: 'Problema' },
+  { id: 'servicios', label: 'Qué incluye' },
+  { id: 'como-funciona', label: 'Cómo funciona' },
+  { id: 'sectores', label: 'Dónde aplica' },
+  { id: 'resultados', label: 'Resultados' },
+  { id: 'seguridad', label: 'Seguridad' },
+  { id: 'casos', label: 'Casos' },
+  { id: 'diferenciacion', label: 'Diferenciación' },
+  { id: 'about', label: 'Quién ejecuta' },
+  { id: 'faq', label: 'FAQ' },
+  { id: 'contacto', label: 'Contacto' }
+];
 ---
 
-<BaseLayout
+<PageLayout
   title="HGuerra | Gestión de Operaciones de Campo"
   description="Software personalizado para operaciones de campo. App móvil offline, dashboard web en vivo y auditoría completa con GPS y fotos."
   path="/gestion-de-operaciones-de-campo"
   image="/og-field-operations.svg"
+  bodyVariant="mixed"
+  showSectionNav={true}
+  sectionNavItems={sectionNavItems}
   schemas={[
     buildServiceSchema({
       name: 'Gestión de Operaciones de Campo',
@@ -44,20 +61,19 @@ import {
   <main>
     <Hero />
     <ElProblema />
-    <Sectores />
     <Servicios />
     <DiagramaProductos />
+    <Sectores />
     <Resultados />
-    <CasosDeExito />
     <Seguridad />
+    <CasosDeExito />
     <Diferenciacion />
     <About />
-    <Investiger />
     <RelatedServices currentPath="/gestion-de-operaciones-de-campo" />
     <FAQ />
     <Contact theme={fieldOperationsTheme} />
   </main>
-</BaseLayout>
+</PageLayout>
 
 <script>
   import { initModal } from '../utils/modals';

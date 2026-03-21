@@ -3,6 +3,7 @@ import FlowLevel from '../molecules/FlowLevel.astro';
 import Icon from '../atoms/Icon.astro';
 import Contact from '../sections/Contact/index.astro';
 import RelatedServices from '../sections/RelatedServices.astro';
+import TrustBand from '../sections/TrustBand.astro';
 import type { ServiceLandingConfig } from '../../types/serviceLanding';
 
 interface Props {
@@ -19,7 +20,7 @@ const heroPatternClass = {
 ---
 
 <main class="service-landing" style={themeVars}>
-  <section id="inicio" class="service-hero relative min-h-screen bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-white overflow-hidden">
+  <section id="inicio" class="service-hero section-shell-hero relative min-h-screen overflow-hidden">
     <div class="absolute inset-0 opacity-10">
       <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 40px 40px;"></div>
     </div>
@@ -27,7 +28,7 @@ const heroPatternClass = {
     <div class="service-hero-glow service-hero-glow-primary absolute left-[-8rem] top-20 h-72 w-72 rounded-full blur-3xl"></div>
     <div class="service-hero-glow service-hero-glow-secondary absolute right-[-4rem] top-12 h-64 w-64 rounded-full blur-3xl"></div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16 min-h-screen flex flex-col justify-center gap-12">
+    <div class="page-container relative z-10 min-h-screen flex flex-col justify-center gap-12">
       <div class="max-w-4xl">
         <span class="service-hero-badge inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-full mb-6">
           <Icon name={config.theme.badgeIcon} size="sm" class="service-accent-text" />
@@ -73,7 +74,7 @@ const heroPatternClass = {
 
         <div class="grid md:grid-cols-3 gap-6">
           {config.metrics.map((metric) => (
-            <div class="service-metric-card rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div class="service-metric-card surface-card-dark p-6">
               <p class="service-accent-text text-2xl font-bold mb-2">{metric.value}</p>
               <p class="text-sm text-slate-300">{metric.label}</p>
             </div>
@@ -83,20 +84,28 @@ const heroPatternClass = {
     </div>
   </section>
 
-  <section id="problema" class="py-24 px-6 bg-[#F8FAFC]">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold text-[#1E293B] mb-6">
+  <TrustBand
+    eyebrow={config.trustBand.eyebrow}
+    title={config.trustBand.title}
+    description={config.trustBand.description}
+    items={config.trustBand.items}
+    tone="muted"
+  />
+
+  <section id="problema" class="section-shell section-light">
+    <div class="page-container-wide">
+      <div class="section-intro section-intro-center">
+        <h2 class="section-title text-[#1E293B] mb-6">
           {config.problemTitle}
         </h2>
-        <p class="text-xl text-[#475569] max-w-4xl mx-auto leading-relaxed">
+        <p class="section-copy text-[#475569]">
           {config.problemSubtitle}
         </p>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         {config.problemCards.map((card) => (
-          <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+          <div class="surface-card p-6 hover:shadow-md transition-shadow">
             <div class="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center mb-4">
               <Icon name={card.icon} size="lg" class="text-red-600" />
             </div>
@@ -120,20 +129,20 @@ const heroPatternClass = {
     </div>
   </section>
 
-  <section id="capacidades" class="py-24 px-6 bg-gradient-to-br from-slate-900 to-slate-800">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+  <section id="capacidades" class="section-shell section-dark">
+    <div class="page-container">
+      <div class="section-intro section-intro-center">
+        <h2 class="section-title text-white">
           {config.capabilitiesTitle}
         </h2>
-        <p class="text-xl text-slate-300 max-w-4xl mx-auto">
+        <p class="section-copy text-slate-300">
           {config.capabilitiesSubtitle}
         </p>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {config.capabilities.map((capability) => (
-          <div class="service-card card bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-white/20 flex flex-col relative overflow-hidden">
+          <div class="service-card surface-card-dark p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-white/20 flex flex-col relative overflow-hidden backdrop-blur-sm">
             <div class="service-card-glow absolute -top-10 -right-10 w-32 h-32 rounded-full blur-2xl"></div>
 
             <div class="service-icon-badge w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
@@ -171,39 +180,39 @@ const heroPatternClass = {
     </div>
   </section>
 
-  <section id="como-funciona" class="py-24 px-6 bg-gradient-to-br from-slate-900 to-slate-800">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+  <section id="como-funciona" class="section-shell section-muted">
+    <div class="page-container">
+      <div class="section-intro section-intro-center">
+        <h2 class="section-title text-slate-950">
           {config.workflowTitle}
         </h2>
-        <p class="text-xl text-slate-300 max-w-4xl mx-auto">
+        <p class="section-copy text-slate-600">
           {config.workflowSubtitle}
         </p>
       </div>
 
       <div class="space-y-6">
         {config.workflow.map((level) => (
-          <FlowLevel level={level} />
+          <FlowLevel level={level} surface="light" />
         ))}
       </div>
     </div>
   </section>
 
-  <section id="casos-aplicaciones" class="py-24 px-6 bg-[#F8FAFC]">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-4xl md:text-5xl font-bold text-[#1E293B] mb-4">
+  <section id="casos-aplicaciones" class="section-shell section-light">
+    <div class="page-container">
+      <div class="section-intro section-intro-center">
+        <h2 class="section-title text-[#1E293B]">
           {config.casesTitle}
         </h2>
-        <p class="text-xl text-[#475569] max-w-4xl mx-auto">
+        <p class="section-copy text-[#475569]">
           {config.casesSubtitle}
         </p>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {config.cases.map((item) => (
-          <article class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 hover:shadow-lg transition-shadow flex flex-col">
+          <article class="surface-card p-8 hover:shadow-lg transition-shadow flex flex-col">
             <div class="flex items-center justify-between mb-4">
               <Icon name={item.icon} size="2xl" class="service-accent-text" />
               <span class="service-case-label text-xs uppercase tracking-wider px-3 py-1 rounded-full font-semibold">
@@ -236,20 +245,59 @@ const heroPatternClass = {
     </div>
   </section>
 
-  <section id="stack" class="py-24 px-6 bg-gradient-to-br from-slate-900 to-slate-800">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+  <section id="prueba" class="section-shell section-light">
+    <div class="page-container">
+      <div class="section-intro section-intro-center">
+        <h2 class="section-title text-slate-950">
+          {config.proofTitle}
+        </h2>
+        <p class="section-copy text-slate-600">
+          {config.proofSubtitle}
+        </p>
+      </div>
+
+      <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] items-start">
+        <div class="grid gap-4 md:grid-cols-3">
+          {config.proofMetrics.map((metric) => (
+            <article class="surface-card p-6 h-full">
+              <p class="service-accent-text text-2xl font-bold mb-3">{metric.value}</p>
+              <p class="text-sm font-semibold text-slate-950 mb-2">{metric.label}</p>
+              <p class="text-sm text-slate-600 leading-relaxed">{metric.detail}</p>
+            </article>
+          ))}
+        </div>
+
+        <div class="space-y-4">
+          {config.proofPoints.map((point) => (
+            <article class="surface-card p-6 flex items-start gap-4">
+              <div class="service-icon-soft w-12 h-12 rounded-xl flex items-center justify-center shrink-0">
+                <Icon name={point.icon} size="lg" class="service-accent-text" />
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-950 mb-2">{point.title}</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">{point.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack" class="section-shell section-dark">
+    <div class="page-container">
+      <div class="section-intro section-intro-center">
+        <h2 class="section-title text-white">
           {config.stackTitle}
         </h2>
-        <p class="text-xl text-slate-300 max-w-4xl mx-auto">
+        <p class="section-copy text-slate-300">
           {config.stackSubtitle}
         </p>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {config.stackGroups.map((group) => (
-          <div class="service-card bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+          <div class="service-card surface-card-dark p-6 backdrop-blur-sm">
             <div class="service-icon-soft w-12 h-12 rounded-xl flex items-center justify-center mb-4">
               <Icon name={group.icon} size="lg" class="service-accent-text" />
             </div>
@@ -269,20 +317,20 @@ const heroPatternClass = {
     </div>
   </section>
 
-  <section id="diferenciacion" class="py-24 px-6 bg-gradient-to-br from-slate-900 to-slate-800">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+  <section id="diferenciacion" class="section-shell section-dark">
+    <div class="page-container">
+      <div class="section-intro section-intro-center">
+        <h2 class="section-title text-white">
           {config.differentiationTitle}
         </h2>
-        <p class="text-xl text-slate-300 max-w-4xl mx-auto">
+        <p class="section-copy text-slate-300">
           {config.differentiationSubtitle}
         </p>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
         {config.differentiators.map((item) => (
-          <div class="service-card bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+          <div class="service-card surface-card-dark p-6 hover:bg-white/10 transition-colors backdrop-blur-sm">
             <div class="service-icon-soft w-12 h-12 rounded-xl flex items-center justify-center mb-4">
               <Icon name={item.icon} size="lg" class="service-accent-text" />
             </div>
@@ -321,40 +369,34 @@ const heroPatternClass = {
     </div>
   </section>
 
-  <section class="py-24 px-6 bg-gradient-to-br from-slate-950 to-slate-900 text-white">
-    <div class="max-w-6xl mx-auto grid gap-8 lg:grid-cols-[1.1fr_0.9fr] items-start">
+  <section class="section-shell section-light">
+    <div class="page-container-wide grid gap-8 lg:grid-cols-[1.1fr_0.9fr] items-start">
       <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-400 mb-4">Quién ejecuta</p>
-        <h2 class="text-4xl md:text-5xl font-bold mb-4">
-          La conversación técnica y operativa se trabaja directo conmigo
+        <p class="section-eyebrow text-slate-500">{config.execution.eyebrow ?? 'Quién ejecuta'}</p>
+        <h2 class="section-title text-slate-950">
+          {config.execution.title}
         </h2>
-        <p class="text-xl leading-relaxed text-slate-300">
-          No hay una capa comercial separada de la implementación. Si el caso avanza, el mismo criterio que se usa para diagnosticar el problema se usa después para definir arquitectura, alcance y ejecución.
+        <p class="section-copy text-slate-600">
+          {config.execution.description}
         </p>
       </div>
 
-      <aside class="rounded-[1.75rem] border border-white/10 bg-white/5 p-8">
-        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300 mb-4">Señales de confianza</p>
-        <ul class="space-y-3 text-slate-300">
-          <li class="flex items-start gap-3">
-            <span class="mt-1 text-cyan-300">•</span>
-            <span>Diagnóstico, diseño de solución e implementación conectados en una misma conversación.</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="mt-1 text-cyan-300">•</span>
-            <span>Experiencia aplicada en operación, datos, automatización y adopción de soluciones reales.</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="mt-1 text-cyan-300">•</span>
-            <span>Más contexto sobre experiencia, enfoque y filtros en una página dedicada.</span>
-          </li>
+      <aside class="surface-card surface-panel p-8">
+        <p class="section-eyebrow text-slate-500">Señales de confianza</p>
+        <ul class="space-y-3 text-slate-600">
+          {config.execution.bullets.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 text-slate-950">•</span>
+              <span>{item}</span>
+            </li>
+          ))}
         </ul>
 
         <a
           href="/sobre-mi"
-          class="mt-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/15"
+          class="action-primary mt-6"
         >
-          Ver experiencia y enfoque
+          {config.execution.ctaLabel ?? 'Ver experiencia y enfoque'}
           <i class="fas fa-arrow-right text-xs"></i>
         </a>
       </aside>
@@ -363,20 +405,20 @@ const heroPatternClass = {
 
   <RelatedServices currentPath={config.path} />
 
-  <section id="faq" class="py-24 px-6 bg-[#F8FAFC]">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-4xl md:text-5xl font-bold text-[#1E293B] mb-4">
+  <section id="faq" class="section-shell section-light">
+    <div class="page-container-text">
+      <div class="section-intro section-intro-center">
+        <h2 class="section-title text-[#1E293B]">
           {config.faqTitle}
         </h2>
-        <p class="text-xl text-[#475569]">
+        <p class="section-copy text-[#475569]">
           {config.faqSubtitle}
         </p>
       </div>
 
       <div class="space-y-4">
         {config.faqs.map((faq, index) => (
-          <details class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden group">
+          <details class="surface-card overflow-hidden group">
             <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-slate-50 transition-colors">
               <div class="flex items-center gap-4">
                 <span class="service-faq-badge w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm shrink-0">

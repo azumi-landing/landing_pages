@@ -1,0 +1,70 @@
+---
+interface TrustItem {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  items: TrustItem[];
+  tone?: 'light' | 'dark' | 'muted';
+  id?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  items,
+  tone = 'light',
+  id
+} = Astro.props;
+
+const sectionToneClass = {
+  light: 'section-light',
+  dark: 'section-dark',
+  muted: 'section-muted'
+}[tone];
+
+const bandClass = tone === 'dark' ? 'trust-band trust-band-dark' : 'trust-band';
+const itemClass = tone === 'dark' ? 'trust-item trust-item-dark' : 'trust-item';
+const valueClass = tone === 'dark' ? 'trust-value text-white' : 'trust-value text-slate-950';
+const labelClass = tone === 'dark' ? 'trust-label text-slate-300' : 'trust-label text-slate-600';
+---
+
+<section id={id} class={`section-shell ${sectionToneClass}`}>
+  <div class="page-container">
+    <div class={`${bandClass} p-8 md:p-10`}>
+      {(eyebrow || title || description) && (
+        <div class="section-intro mb-10">
+          {eyebrow && (
+            <p class={`section-eyebrow ${tone === 'dark' ? 'text-cyan-300' : 'text-slate-500'}`}>
+              {eyebrow}
+            </p>
+          )}
+          {title && (
+            <h2 class={`section-title ${tone === 'dark' ? 'text-white' : 'text-slate-950'}`}>
+              {title}
+            </h2>
+          )}
+          {description && (
+            <p class={`section-copy ${tone === 'dark' ? 'text-slate-300' : 'text-slate-600'}`}>
+              {description}
+            </p>
+          )}
+        </div>
+      )}
+
+      <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        {items.map((item) => (
+          <article class={itemClass}>
+            <span class={valueClass}>{item.value}</span>
+            <span class={labelClass}>{item.label}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

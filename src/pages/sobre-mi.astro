@@ -1,16 +1,60 @@
 ---
-import SiteLayout from '../layouts/SiteLayout.astro';
-import { aboutCards, aboutFilter } from '../data/about';
-import { buildBreadcrumbSchema } from '../data/site';
+import PageLayout from '../layouts/PageLayout.astro';
+import { buildBreadcrumbSchema, buildPersonSchema } from '../data/site';
 import { CONTACT_PAGE_PATH } from '../data/contact';
+
+const experienceAreas = [
+  'Sistemas de medición y análisis energético para operaciones e infraestructura.',
+  'Automatización de procesos operativos y técnicos con trazabilidad y control.',
+  'Desarrollo de aplicaciones web y móviles conectadas a flujos reales de trabajo.',
+  'Arquitecturas en la nube con APIs, bases de datos, microservicios y analítica.',
+  'Integración de inteligencia artificial en procesos donde sí importa la supervisión.',
+  'Plataformas para operación de campo, auditoría y análisis de datos.'
+];
+
+const engineeringPrinciples = [
+  {
+    title: 'Entender el problema real antes de programar',
+    description:
+      'La solución correcta casi nunca aparece cuando se empieza por la herramienta. Primero ordeno flujo, responsables, restricciones y datos críticos.'
+  },
+  {
+    title: 'Diseñar la arquitectura correcta antes de construir',
+    description:
+      'Busco que la solución sea operable, escalable y mantenible, no solo funcional para una demo o un piloto corto.'
+  },
+  {
+    title: 'Implementar con disciplina técnica',
+    description:
+      'Combino criterio de ingeniería con ejecución práctica para dejar sistemas que soporten uso real, integración y evolución.'
+  },
+  {
+    title: 'Medir resultados con datos, no con opiniones',
+    description:
+      'Si el proceso no mejora en visibilidad, errores, tiempo o capacidad operativa, la tecnología no está resolviendo el problema.'
+  }
+];
+
+const fitExclusions = [
+  'Proyectos que solo buscan “algo rápido” aunque quede mal diseñado desde el inicio.',
+  'Soluciones genéricas sin contexto operativo, sin estructura y sin criterios de escalabilidad.',
+  'Implementaciones donde la prioridad sea verse bien en demo, pero no funcionar en el mundo real.',
+  'Iniciativas sin interés en trazabilidad, control, adopción o mejora medible del proceso.'
+];
 ---
 
-<SiteLayout
+<PageLayout
   title="HGuerra | Sobre mí"
-  description="Experiencia, enfoque y forma de trabajo detrás de HGuerra para operación, producto y automatización."
+  description="Perfil, formación y enfoque de HGuerra para diseñar soluciones aplicadas en operación, automatización, software y nube."
   path="/sobre-mi"
   image="/og-home.svg"
+  bodyVariant="mixed"
   schemas={[
+    buildPersonSchema({
+      path: '/sobre-mi',
+      description:
+        'Ingeniero electricista y consultor en operación, automatización, software y nube con enfoque de ingeniería aplicada.'
+    }),
     buildBreadcrumbSchema([
       { name: 'Inicio', path: '/' },
       { name: 'Sobre mí', path: '/sobre-mi' }
@@ -18,36 +62,26 @@ import { CONTACT_PAGE_PATH } from '../data/contact';
   ]}
 >
   <main>
-    <section class="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 px-6 pt-24 pb-20">
-      <div class="max-w-6xl mx-auto grid gap-10 lg:grid-cols-[1.05fr_0.95fr] items-center">
+    <section class="section-shell-hero section-deep">
+      <div class="page-container-wide grid gap-10 lg:grid-cols-[1.05fr_0.95fr] items-center">
         <div>
           <p class="inline-flex rounded-full border border-blue-400/30 bg-blue-400/10 px-4 py-2 text-sm font-semibold text-blue-200 mb-6">
-            Sobre HGuerra
+            Sobre Héctor Guerra
           </p>
           <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
-            Trabajo problemas operativos complejos hasta convertirlos en soluciones útiles
+            Ingeniería aplicada para convertir operaciones complejas en sistemas claros, útiles y escalables
           </h1>
-          <p class="text-xl leading-relaxed text-slate-300 mb-8">
-            HGuerra combina consultoría aplicada, diseño de solución e implementación para operación de campo, automatización de procesos y arquitectura orientada a uso real. La propuesta no parte de una demo: parte del flujo operativo que necesitas ordenar.
-          </p>
-
-          <div class="grid gap-4 sm:grid-cols-3">
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-              <p class="text-3xl font-bold text-white">10+</p>
-              <p class="mt-2 text-sm text-slate-400">años de experiencia en operaciones y software aplicado</p>
-            </div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-              <p class="text-3xl font-bold text-white">+5M</p>
-              <p class="mt-2 text-sm text-slate-400">registros procesados en implementaciones reales</p>
-            </div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-              <p class="text-3xl font-bold text-white">Directo</p>
-              <p class="mt-2 text-sm text-slate-400">sin intermediarios entre diagnóstico, ejecución y soporte</p>
-            </div>
+          <div class="space-y-5 text-xl leading-relaxed text-slate-300 mb-8">
+            <p>
+              Desde los 13 años me interesa la tecnología, no solo por usarla, sino por entender cómo funciona, cómo se construye y cómo puede aplicarse para resolver problemas reales.
+            </p>
+            <p>
+              Soy ingeniero electricista y actualmente curso una maestría en ingeniería de la computación. Esa base me permite trabajar entre operación, infraestructura, software, datos y nube con una lógica de ingeniería: leer el sistema completo antes de decidir qué construir, sin separar el diagnóstico del diseño, la implementación y el soporte.
+            </p>
           </div>
         </div>
 
-        <aside class="rounded-[2rem] border border-white/10 bg-white/5 p-8">
+        <aside class="surface-card-dark surface-panel p-8">
           <img
             src="/mi_foto_pro.jpeg"
             alt="Foto profesional de HGuerra"
@@ -59,49 +93,83 @@ import { CONTACT_PAGE_PATH } from '../data/contact';
             class="mx-auto h-56 w-56 rounded-full border-4 border-blue-400/20 object-cover"
           />
           <div class="mt-8 text-center">
-            <h2 class="text-2xl font-bold text-white">Consultoría aplicada para equipos reales</h2>
+            <h2 class="text-2xl font-bold text-white">Tecnología pensada para operar en el mundo real</h2>
             <p class="mt-4 text-slate-300 leading-relaxed">
-              Trabajo mejor cuando hay fricción entre operación, datos, adopción y decisiones técnicas. El objetivo no es llenar un backlog: es definir una solución que tenga sentido para el negocio y que el equipo sí pueda operar.
+              Trabajo mejor cuando el reto cruza infraestructura, procesos, datos, automatización y adopción. Mi enfoque no es entregar piezas aisladas, sino sistemas bien pensados que ayuden a ordenar operaciones, reducir errores y sostener crecimiento.
             </p>
           </div>
         </aside>
       </div>
     </section>
 
-    <section class="bg-[#F8FAFC] px-6 py-24">
-      <div class="max-w-6xl mx-auto">
-        <div class="max-w-3xl mb-12">
-          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500 mb-4">Cómo trabajo</p>
-          <h2 class="text-4xl md:text-5xl font-bold text-slate-950 mb-4">
-            El valor está en conectar criterio operativo con implementación real
+    <section class="section-shell section-light">
+      <div class="page-container-wide">
+        <div class="section-intro">
+          <p class="section-eyebrow text-slate-500">Trayectoria y contexto</p>
+          <h2 class="section-title text-slate-950">
+            La tecnología aquí no se trabaja como catálogo de herramientas
           </h2>
-          <p class="text-xl text-slate-600 leading-relaxed">
-            Estas son las capacidades que hoy se reflejan en el sitio y en la forma de trabajar los proyectos.
+          <p class="section-copy text-slate-600">
+            A lo largo de mi trayectoria he trabajado en proyectos donde la tecnología sirve para ordenar operaciones, integrar sistemas y dar estructura a procesos que antes dependían demasiado de intervención manual.
           </p>
         </div>
 
         <div class="grid gap-6 md:grid-cols-2">
-          {aboutCards.map((card) => (
-            <article class="rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
-              <h3 class="text-2xl font-bold text-slate-950 mb-3">{card.title}</h3>
-              <p class="text-slate-600 mb-5">{card.description}</p>
-              <ul class="space-y-3 text-slate-700">
-                {card.bullets.map((bullet) => (
-                  <li class="flex items-start gap-3">
-                    <span class="mt-1 text-blue-600">•</span>
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </ul>
+          <article class="surface-card surface-panel p-8">
+            <h3 class="text-2xl font-bold text-slate-950 mb-4">Formación y forma de pensar</h3>
+            <div class="space-y-4 text-slate-700 leading-relaxed">
+              <p>
+                Mi base viene de la ingeniería eléctrica, donde aprendí a pensar en sistemas, restricciones, confiabilidad y operación. La maestría en ingeniería de la computación amplía esa base hacia software, arquitectura, datos e infraestructura digital.
+              </p>
+              <p>
+                Esa mezcla me permite moverme con naturalidad entre energía, industria, operaciones técnicas, desarrollo de software y computación en la nube sin perder el criterio de ingeniería detrás de cada decisión.
+              </p>
+            </div>
+          </article>
+
+          <article class="surface-card surface-panel p-8">
+            <h3 class="text-2xl font-bold text-slate-950 mb-4">Experiencia aplicada</h3>
+            <ul class="space-y-3 text-slate-700">
+              {experienceAreas.map((item) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-1 text-blue-600">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell section-muted">
+      <div class="page-container-wide">
+        <div class="section-intro">
+          <p class="section-eyebrow text-slate-500">Principios de trabajo</p>
+          <h2 class="section-title text-slate-950">
+            Mi forma de construir parte de principios de ingeniería, no de improvisación
+          </h2>
+          <p class="section-copy text-slate-600">
+            Creo en la tecnología como herramienta para ordenar sistemas complejos, reducir fricción humana y dejar procesos controlados, auditables y optimizables con el tiempo.
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          {engineeringPrinciples.map((principle) => (
+            <article class="surface-card surface-panel p-8">
+              <h3 class="text-2xl font-bold text-slate-950 mb-3">{principle.title}</h3>
+              <p class="text-slate-700 leading-relaxed">{principle.description}</p>
             </article>
           ))}
         </div>
 
         <div class="mt-10 rounded-[1.75rem] border border-red-200 bg-red-50 p-8">
-          <h3 class="text-2xl font-bold text-slate-950 mb-3">{aboutFilter.title}</h3>
-          <p class="text-slate-700 mb-5">{aboutFilter.intro}</p>
+          <h3 class="text-2xl font-bold text-slate-950 mb-3">Cuándo no encajo</h3>
+          <p class="text-slate-700 mb-5">
+            Si buscas velocidad sin estructura o una solución hecha solo para salir del paso, probablemente no soy la persona indicada.
+          </p>
           <ul class="space-y-3 text-slate-700">
-            {aboutFilter.exclusions.map((item) => (
+            {fitExclusions.map((item) => (
               <li class="flex items-start gap-3">
                 <span class="mt-1 text-red-600">•</span>
                 <span>{item}</span>
@@ -112,14 +180,14 @@ import { CONTACT_PAGE_PATH } from '../data/contact';
       </div>
     </section>
 
-    <section class="bg-slate-950 px-6 py-24">
-      <div class="max-w-5xl mx-auto rounded-[2rem] border border-white/10 bg-white/5 p-10 text-center">
-        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300 mb-4">Siguiente paso</p>
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-          Si el reto es real, la conversación también debería serlo
+    <section class="section-shell section-dark">
+      <div class="page-container-text cta-band p-10 text-center">
+        <p class="section-eyebrow justify-center text-cyan-300">Siguiente paso</p>
+        <h2 class="section-title text-white">
+          Si necesitas más que una app o una web, vale la pena hablar
         </h2>
-        <p class="text-xl leading-relaxed text-slate-300 mb-8">
-          Usa el formulario para contarme el flujo que quieres ordenar, automatizar o rediseñar. La idea es definir rápido si el siguiente paso correcto es diagnóstico, demo o alcance inicial.
+        <p class="section-copy text-slate-300 mb-8">
+          Trabajo con empresas, instituciones y proyectos que necesitan soluciones bien diseñadas, conectadas a la operación y preparadas para crecer con el tiempo. Si ese es el tipo de reto que tienes, usemos el formulario para revisar el caso.
         </p>
         <a
           href={CONTACT_PAGE_PATH}
@@ -131,4 +199,4 @@ import { CONTACT_PAGE_PATH } from '../data/contact';
       </div>
     </section>
   </main>
-</SiteLayout>
+</PageLayout>

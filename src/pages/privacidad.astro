@@ -1,12 +1,13 @@
 ---
-import SiteLayout from '../layouts/SiteLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 import { buildBreadcrumbSchema } from '../data/site';
 ---
 
-<SiteLayout
+<PageLayout
   title="HGuerra | Política de privacidad"
   description="Política de privacidad para el formulario y las interacciones de contacto de HGuerra."
   path="/privacidad"
+  bodyVariant="light"
   schemas={[
     buildBreadcrumbSchema([
       { name: 'Inicio', path: '/' },
@@ -14,8 +15,8 @@ import { buildBreadcrumbSchema } from '../data/site';
     ])
   ]}
 >
-  <main class="bg-[#F8FAFC] px-6 py-24">
-    <div class="mx-auto max-w-4xl rounded-[2rem] border border-slate-200 bg-white p-10 shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
+  <main class="section-shell section-light">
+    <div class="page-container-text surface-card surface-panel p-10">
       <h1 class="text-4xl md:text-5xl font-bold text-slate-950 mb-6">Política de privacidad</h1>
       <div class="space-y-8 text-slate-700 leading-relaxed">
         <section>
@@ -51,4 +52,4 @@ import { buildBreadcrumbSchema } from '../data/site';
       </div>
     </div>
   </main>
-</SiteLayout>
+</PageLayout>

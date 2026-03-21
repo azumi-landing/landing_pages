@@ -1,8 +1,23 @@
 ---
-// Navegación lateral entre secciones - flechas derecha centro
+interface Props {
+  items: Array<{
+    id: string;
+    label: string;
+  }>;
+}
+
+const { items } = Astro.props;
+const navItems = items.map((item) => ({
+  ...item,
+  selector: item.id.startsWith('#') ? item.id : `#${item.id}`
+}));
 ---
 
-<div id="section-nav" class="fixed right-4 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-3">
+<div
+  id="section-nav"
+  data-items={JSON.stringify(navItems)}
+  class="fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-3 xl:flex"
+>
   <button 
     id="nav-prev" 
     class="w-10 h-10 rounded-full bg-slate-800/80 backdrop-blur-sm border border-slate-600/50 text-slate-400 hover:text-white hover:bg-blue-500/80 hover:border-blue-500/50 transition-all duration-300 flex items-center justify-center shadow-lg opacity-50 hover:opacity-100"
@@ -28,22 +43,16 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const sections = [
-      '#inicio',
-      '#el-problema',
-      '#sectores',
-      '#servicios',
-      '#como-funciona',
-      '#resultados',
-      '#casos',
-      '#seguridad',
-      '#diferenciacion',
-      '#about',
-      '#investigacion',
-      '#faq',
-      '#contacto'
-    ];
-    
+    const navRoot = document.getElementById('section-nav');
+    const items = JSON.parse(navRoot?.dataset.items ?? '[]')
+      .filter((item) => document.querySelector(item.selector));
+    const sections = items.map((item) => item.selector);
+
+    if (!navRoot || sections.length < 2) {
+      navRoot?.remove();
+      return;
+    }
+
     const prevBtn = document.getElementById('nav-prev');
     const nextBtn = document.getElementById('nav-next');
     
@@ -82,12 +91,16 @@
     function updateButtons() {
       const currentIndex = getCurrentSectionIndex();
       
-      if (prevBtn) {
+      if (prevBtn instanceof HTMLButtonElement) {
+        prevBtn.title = currentIndex > 0 ? `Ir a ${items[currentIndex - 1]?.label ?? 'la sección anterior'}` : 'Sección anterior';
         prevBtn.style.opacity = currentIndex === 0 ? '0.2' : '0.7';
         prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
       }
       
-      if (nextBtn) {
+      if (nextBtn instanceof HTMLButtonElement) {
+        nextBtn.title = currentIndex < sections.length - 1
+          ? `Ir a ${items[currentIndex + 1]?.label ?? 'la sección siguiente'}`
+          : 'Sección siguiente';
         nextBtn.style.opacity = currentIndex === sections.length - 1 ? '0.2' : '0.7';
         nextBtn.style.pointerEvents = currentIndex === sections.length - 1 ? 'none' : 'auto';
       }
