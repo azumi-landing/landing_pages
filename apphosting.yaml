@@ -2,10 +2,31 @@ scripts:
   buildCommand: npm run build
   runCommand: npm run start
 
+env:
+  - variable: PUBLIC_EMAILJS_SERVICE_ID
+    value: service_tyrkren
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: PUBLIC_EMAILJS_TEMPLATE_ID
+    value: template_g2gyspf
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: PUBLIC_EMAILJS_PUBLIC_KEY
+    value: UvVQ7HT5huT9YsYNM
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: PUBLIC_WHATSAPP_NUMBER
+    value: "50432045265"
+    availability:
+      - BUILD
+      - RUNTIME
+
 runConfig:
   minInstances: 0
   maxInstances: 2
   cpu: 1
   memoryMiB: 512
   concurrency: 10
-
