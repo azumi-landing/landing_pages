@@ -1,4 +1,5 @@
 ---
+import { buildContactHref } from '../../../data/contact';
 import Icon from '../../atoms/Icon.astro';
 
 const faqs = [
@@ -47,6 +48,12 @@ Diferencias clave: offline-first diseñado para zonas remotas (no un add-on), tr
 Trabajas directamente con un especialista, no con un equipo de implementación genérico.`
   }
 ];
+
+const fieldOpsContactHref = buildContactHref({
+  service: 'gestion-operaciones-de-campo',
+  originPath: '/gestion-de-operaciones-de-campo',
+  originLabel: 'Gestión de Operaciones de Campo'
+});
 ---
 
 <section id="faq" class="py-24 px-6 bg-[#F8FAFC]">
@@ -90,7 +97,7 @@ Trabajas directamente con un especialista, no con un equipo de implementación g
     <div class="mt-12 text-center">
       <p class="text-[#475569] mb-4">¿Tienes otra pregunta específica para tu operación?</p>
       <a 
-        href="#contacto" 
+        href={fieldOpsContactHref}
         class="inline-flex items-center gap-2 px-6 py-3 bg-[#1E3A8A] text-white font-semibold rounded-lg transition-all duration-300 hover:bg-[#1E40AF] hover:-translate-y-0.5 hover:shadow-lg"
       >
         <Icon name="fa-comments" />

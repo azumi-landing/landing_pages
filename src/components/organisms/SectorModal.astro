@@ -1,5 +1,6 @@
 ---
 import type { Sector } from '../../types';
+import { buildContactHref, contactConfig } from '../../data/contact';
 import Icon from '../atoms/Icon.astro';
 import PhoneMockup from '../molecules/PhoneMockup.astro';
 import WebMockup from '../molecules/WebMockup.astro';
@@ -11,6 +12,11 @@ interface Props {
 }
 
 const { sector } = Astro.props;
+const fieldOpsContactHref = buildContactHref({
+  service: 'gestion-operaciones-de-campo',
+  originPath: '/gestion-de-operaciones-de-campo',
+  originLabel: `Sector ${sector.title}`
+});
 ---
 
 <div id={`modal-${sector.id}`} class="sector-modal fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300" data-modal>
@@ -61,10 +67,10 @@ const { sector } = Astro.props;
       
       <!-- CTA -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4 border-t border-slate-200">
-        <Button href="#contacto" variant="primary" size="lg">
+        <Button href={fieldOpsContactHref} variant="primary" size="lg">
           Solicitar demo para tu sector
         </Button>
-        <Button href="https://calendly.com/tu-agenda/15min" variant="secondary" size="lg">
+        <Button href={contactConfig.calendlyUrl} variant="secondary" size="lg">
           <i class="fas fa-calendar-alt mr-2"></i>
           Agendar llamada
         </Button>

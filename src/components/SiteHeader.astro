@@ -1,6 +1,6 @@
 ---
 import LogoHG from './LogoHG.astro';
-import { contactConfig } from '../data/contact';
+import { CONTACT_PAGE_PATH } from '../data/contact';
 
 const navLinks = [
   { href: '/', label: 'Inicio' },
@@ -30,10 +30,10 @@ const navLinks = [
       </ul>
 
       <a
-        href={contactConfig.calendlyUrl}
+        href={CONTACT_PAGE_PATH}
         class="inline-flex items-center justify-center px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold rounded-lg transition-colors whitespace-nowrap"
       >
-        Agendar llamada
+        Contacto
       </a>
     </div>
 

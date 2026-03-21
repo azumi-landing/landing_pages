@@ -1,38 +1,40 @@
 ---
 import HeroIllustration from '../../atoms/HeroIllustration.astro';
+import { buildContactHref } from '../../../data/contact';
 import { fieldOperationsTheme } from '../../../data/serviceThemes';
+
+const fieldOpsContactHref = buildContactHref({
+  service: 'gestion-operaciones-de-campo',
+  originPath: '/gestion-de-operaciones-de-campo',
+  originLabel: 'Gestión de Operaciones de Campo'
+});
 
 const themeVars = `--field-accent: ${fieldOperationsTheme.accent}; --field-accent-alt: ${fieldOperationsTheme.accentAlt}; --field-accent-soft: ${fieldOperationsTheme.accentSoft}; --field-accent-glow: ${fieldOperationsTheme.accentGlow}; --field-accent-shadow: ${fieldOperationsTheme.accentShadow};`;
 ---
 
 <section id="inicio" class="field-hero relative min-h-screen bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-white overflow-hidden" style={themeVars}>
-  <!-- Background pattern -->
   <div class="absolute inset-0 opacity-10">
     <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 40px 40px;"></div>
   </div>
   <div class="field-hero-pattern absolute inset-0 opacity-40"></div>
   <div class="field-hero-glow absolute left-[-7rem] top-24 h-72 w-72 rounded-full blur-3xl"></div>
-  
-  <!-- Content -->
+
   <div class="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16 min-h-screen flex flex-col lg:flex-row items-center justify-between gap-12">
     <div class="max-w-4xl flex-1">
-      <!-- Badge -->
       <span class="field-hero-badge inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-full mb-6">
         <i class="fas fa-map-location-dot"></i>
         ✓ Control + Trazabilidad + Métricas en tiempo real
       </span>
-      
-      <!-- Title -->
+
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
         Control total de tus operaciones de campo
       </h1>
-      
-      <!-- Subtitle -->
+
       <p class="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed max-w-3xl">
-        Plataforma de gestión de campo para empresas en agricultura, manufactura, minería, energía y forestal. 
-        <span class="field-hero-highlight bg-clip-text text-transparent font-semibold">App móvil que funciona offline</span> + 
-        <span class="field-hero-highlight bg-clip-text text-transparent font-semibold">dashboard web en vivo</span> + 
-        <span class="field-hero-highlight bg-clip-text text-transparent font-semibold">auditoría completa con GPS y fotos</span>.
+        Plataforma de gestión de campo para empresas en agricultura, manufactura, minería, energía y forestal.
+        <span class="field-hero-highlight bg-clip-text text-transparent font-semibold"> App móvil que funciona offline</span> +
+        <span class="field-hero-highlight bg-clip-text text-transparent font-semibold"> dashboard web en vivo</span> +
+        <span class="field-hero-highlight bg-clip-text text-transparent font-semibold"> auditoría completa con GPS y fotos</span>.
         Implementación en semanas, no meses.
       </p>
 
@@ -40,8 +42,7 @@ const themeVars = `--field-accent: ${fieldOperationsTheme.accent}; --field-accen
         <span class="field-hero-chip-dot h-2.5 w-2.5 rounded-full"></span>
         {fieldOperationsTheme.serviceLabel}
       </div>
-      
-      <!-- Benefits -->
+
       <div class="grid sm:grid-cols-3 gap-4 mb-10">
         <div class="flex items-center gap-3">
           <span class="text-green-400 text-xl">↓</span>
@@ -56,24 +57,22 @@ const themeVars = `--field-accent: ${fieldOperationsTheme.accent}; --field-accen
           <span class="text-slate-300">Auditoría completa con GPS y fotos</span>
         </div>
       </div>
-      
-      <!-- CTAs -->
+
       <div class="flex flex-col sm:flex-row gap-4 mb-12">
-        <a 
-          href="#contacto" 
+        <a
+          href={fieldOpsContactHref}
           class="field-hero-cta px-8 py-4 text-white font-bold rounded-xl text-lg text-center transition-all duration-300 border"
         >
           Agendar demo personalizada →
         </a>
-        <a 
-          href="#como-funciona" 
+        <a
+          href="#como-funciona"
           class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl text-lg text-center transition-all duration-300 border border-white/20"
         >
           Ver cómo funciona (3 min)
         </a>
       </div>
-      
-      <!-- Metrics -->
+
       <div class="flex flex-wrap gap-8 text-center">
         <div>
           <p class="field-hero-metric text-3xl font-bold">+5M</p>
@@ -93,14 +92,12 @@ const themeVars = `--field-accent: ${fieldOperationsTheme.accent}; --field-accen
         </div>
       </div>
     </div>
-    
-    <!-- Hero Illustration -->
+
     <div class="flex-1 flex justify-center lg:justify-end pt-8 lg:pt-12">
       <HeroIllustration />
     </div>
   </div>
-  
-  <!-- Scroll indicator -->
+
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
     <i class="fas fa-chevron-down text-slate-400 text-2xl"></i>
   </div>

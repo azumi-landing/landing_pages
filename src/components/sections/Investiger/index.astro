@@ -1,6 +1,13 @@
 ---
 import { areasEspecializacion } from '../../../data/investigacion';
+import { buildContactHref } from '../../../data/contact';
 import FeatureCard from '../../molecules/FeatureCard.astro';
+
+const fieldOpsContactHref = buildContactHref({
+  service: 'gestion-operaciones-de-campo',
+  originPath: '/gestion-de-operaciones-de-campo',
+  originLabel: 'Gestión de Operaciones de Campo'
+});
 ---
 
 <section id="investigacion" class="py-24 px-6 bg-gradient-to-br from-slate-900 to-slate-800">
@@ -41,7 +48,7 @@ import FeatureCard from '../../molecules/FeatureCard.astro';
     <!-- CTA -->
     <div class="text-center mt-12">
       <a 
-        href="#contacto" 
+        href={fieldOpsContactHref}
         class="inline-block px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg text-center transition-all duration-300 hover:from-blue-600 hover:to-blue-700 hover:-translate-y-0.5 hover:shadow-lg border border-blue-500/30"
       >
         Explorar aplicación en tu operación

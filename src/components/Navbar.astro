@@ -1,5 +1,6 @@
 ---
 import LogoHG from './LogoHG.astro';
+import { CONTACT_PAGE_PATH } from '../data/contact';
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-700/50">
@@ -31,7 +32,7 @@ import LogoHG from './LogoHG.astro';
       <li><a href="#resultados" class="hover:text-blue-400 transition-colors">Resultados</a></li>
       <li><a href="#casos" class="hover:text-blue-400 transition-colors">Casos</a></li>
       <li><a href="#faq" class="hover:text-blue-400 transition-colors">FAQ</a></li>
-      <li><a href="#contacto" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors">Contacto</a></li>
+      <li><a href={CONTACT_PAGE_PATH} class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors">Contacto</a></li>
     </ul>
   </div>
   
@@ -49,7 +50,7 @@ import LogoHG from './LogoHG.astro';
       <li><a href="#resultados" class="block py-2 hover:text-blue-400 transition-colors">Resultados</a></li>
       <li><a href="#casos" class="block py-2 hover:text-blue-400 transition-colors">Casos</a></li>
       <li><a href="#faq" class="block py-2 hover:text-blue-400 transition-colors">FAQ</a></li>
-      <li><a href="#contacto" class="block py-2 text-blue-400 font-medium">Contacto</a></li>
+      <li><a href={CONTACT_PAGE_PATH} class="block py-2 text-blue-400 font-medium">Contacto</a></li>
     </ul>
   </div>
 </nav>
@@ -90,5 +91,4 @@ import LogoHG from './LogoHG.astro';
     });
   });
 </script>
-
 

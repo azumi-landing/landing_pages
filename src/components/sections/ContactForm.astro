@@ -1,0 +1,170 @@
+---
+import Button from '../atoms/Button.astro';
+import {
+  formTopics,
+  getContactServiceLabel,
+  isValidContactService
+} from '../../data/contact';
+
+interface Props {
+  defaultService?: string | null;
+  originPath?: string | null;
+  originLabel?: string | null;
+}
+
+const {
+  defaultService = '',
+  originPath = '',
+  originLabel = ''
+} = Astro.props;
+
+const normalizedService = isValidContactService(defaultService) ? defaultService : '';
+const resolvedOriginLabel = originLabel || getContactServiceLabel(normalizedService);
+---
+
+<form
+  class="space-y-6"
+  data-emailjs-form
+  data-emailjs-service-id={import.meta.env.PUBLIC_EMAILJS_SERVICE_ID ?? ''}
+  data-emailjs-template-id={import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID ?? ''}
+  data-emailjs-public-key={import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY ?? ''}
+>
+  <input type="hidden" name="origin_path" value={originPath} />
+  <input type="hidden" name="origin_label" value={resolvedOriginLabel} />
+  <input type="hidden" name="page_url" value={Astro.url.pathname} />
+
+  <div>
+    <label for="contact-email" class="block text-sm font-medium text-slate-300 mb-2">Email *</label>
+    <input
+      type="email"
+      id="contact-email"
+      name="email"
+      required
+      class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
+      placeholder="tu@empresa.com"
+      autocomplete="email"
+    />
+  </div>
+
+  <div>
+    <label for="contact-service" class="block text-sm font-medium text-slate-300 mb-2">¿Qué necesitas? *</label>
+    <select
+      id="contact-service"
+      name="interes"
+      required
+      class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+    >
+      {formTopics.map((topic) => (
+        <option
+          value={topic.value}
+          disabled={topic.disabled}
+          selected={topic.value === normalizedService || (!normalizedService && topic.value === '')}
+        >
+          {topic.label}
+        </option>
+      ))}
+    </select>
+  </div>
+
+  <div>
+    <label for="contact-detail" class="block text-sm font-medium text-slate-300 mb-2">Detalle breve</label>
+    <textarea
+      id="contact-detail"
+      name="detalle"
+      rows={5}
+      class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors resize-y"
+      placeholder="¿Qué proceso quieres mejorar? ¿Qué equipo usa hoy el flujo? ¿Qué sistemas ya existen?"
+    ></textarea>
+  </div>
+
+  <Button type="submit" variant="primary" size="lg" class="w-full justify-center">
+    Enviar mensaje
+  </Button>
+
+  <div data-form-feedback class="hidden text-center py-4 rounded-lg text-sm"></div>
+</form>
+
+<script>
+  import emailjs from '@emailjs/browser';
+
+  const contactForms = document.querySelectorAll('[data-emailjs-form]');
+
+  contactForms.forEach((form) => {
+    if (!(form instanceof HTMLFormElement) || form.dataset.bound === 'true') {
+      return;
+    }
+
+    form.dataset.bound = 'true';
+
+    const feedback = form.querySelector('[data-form-feedback]');
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    const setFeedback = (type, message) => {
+      if (!(feedback instanceof HTMLElement)) {
+        return;
+      }
+
+      const baseClasses = 'block text-center py-4 rounded-lg text-sm border';
+      const toneClasses = {
+        success: 'bg-green-500/20 text-green-400 border-green-500/30',
+        error: 'bg-red-500/20 text-red-400 border-red-500/30'
+      };
+
+      feedback.className = `${baseClasses} ${toneClasses[type] ?? toneClasses.error}`;
+      feedback.textContent = message;
+    };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const serviceId = form.dataset.emailjsServiceId?.trim();
+      const templateId = form.dataset.emailjsTemplateId?.trim();
+      const publicKey = form.dataset.emailjsPublicKey?.trim();
+
+      if (!(submitBtn instanceof HTMLButtonElement)) {
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+
+      const pageUrlInput = form.querySelector('input[name="page_url"]');
+      if (pageUrlInput instanceof HTMLInputElement) {
+        pageUrlInput.value = window.location.href;
+      }
+
+      try {
+        if (!serviceId || !templateId || !publicKey) {
+          throw new Error('EmailJS no está configurado');
+        }
+
+        const payload = Object.fromEntries(new FormData(form).entries());
+        await emailjs.send(serviceId, templateId, payload, publicKey);
+
+        setFeedback('success', 'Mensaje enviado. Te responderé pronto.');
+        form.reset();
+
+        const serviceField = form.querySelector('#contact-service');
+        if (serviceField instanceof HTMLSelectElement) {
+          const defaultValue = serviceField.querySelector('option[selected]')?.getAttribute('value') ?? '';
+          serviceField.value = defaultValue;
+        }
+
+        const originPathField = form.querySelector('input[name="origin_path"]');
+        if (originPathField instanceof HTMLInputElement) {
+          originPathField.value = originPathField.defaultValue;
+        }
+
+        const originLabelField = form.querySelector('input[name="origin_label"]');
+        if (originLabelField instanceof HTMLInputElement) {
+          originLabelField.value = originLabelField.defaultValue;
+        }
+      } catch (error) {
+        setFeedback('error', 'No pude enviar el mensaje. Escríbeme por WhatsApp o correo mientras reviso el formulario.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar mensaje';
+      }
+    });
+  });
+</script>
