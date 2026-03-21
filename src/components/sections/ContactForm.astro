@@ -41,6 +41,15 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
   <input type="hidden" name="origin_path" value={originPath} />
   <input type="hidden" name="origin_label" value={resolvedOriginLabel} />
   <input type="hidden" name="page_url" value={Astro.url.pathname} />
+  <input type="hidden" name="reply_to" value="" />
+  <input type="hidden" name="from_email" value="" />
+  <input type="hidden" name="from_name" value="" />
+  <input type="hidden" name="name" value="" />
+  <input type="hidden" name="service" value={normalizedService} />
+  <input type="hidden" name="service_label" value={normalizedService ? getContactServiceLabel(normalizedService) : ''} />
+  <input type="hidden" name="subject" value="" />
+  <input type="hidden" name="message" value="" />
+  <input type="hidden" name="submitted_at" value="" />
 
   <div>
     <label for="contact-email" class={`block text-sm font-medium mb-2 ${labelClass}`}>Email *</label>
@@ -76,11 +85,12 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
   </div>
 
   <div>
-    <label for="contact-detail" class={`block text-sm font-medium mb-2 ${labelClass}`}>Detalle breve</label>
+    <label for="contact-detail" class={`block text-sm font-medium mb-2 ${labelClass}`}>Detalle breve *</label>
     <textarea
       id="contact-detail"
       name="detalle"
       rows={5}
+      required
       class={`w-full px-4 py-3 rounded-2xl focus:outline-none transition-colors resize-y ${inputClass}`}
       placeholder="¿Qué proceso quieres mejorar? ¿Qué equipo usa hoy el flujo? ¿Qué sistemas ya existen?"
     ></textarea>
@@ -102,7 +112,7 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
 </form>
 
 <script>
-  import emailjs from '@emailjs/browser';
+  import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 
   const contactForms = document.querySelectorAll('[data-emailjs-form]');
 
@@ -115,6 +125,12 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
 
     const feedback = form.querySelector('[data-form-feedback]');
     const submitBtn = form.querySelector('button[type="submit"]');
+    const emailField = form.querySelector('#contact-email');
+    const serviceField = form.querySelector('#contact-service');
+    const detailField = form.querySelector('#contact-detail');
+    const originPathField = form.querySelector('input[name="origin_path"]');
+    const originLabelField = form.querySelector('input[name="origin_label"]');
+    const pageUrlField = form.querySelector('input[name="page_url"]');
 
     const setFeedback = (type, message) => {
       if (!(feedback instanceof HTMLElement)) {
@@ -131,6 +147,54 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
       feedback.textContent = message;
     };
 
+    const setHiddenValue = (name, value) => {
+      const field = form.querySelector(`input[name="${name}"]`);
+      if (field instanceof HTMLInputElement) {
+        field.value = value;
+      }
+    };
+
+    const syncEmailJsFields = () => {
+      const email = emailField instanceof HTMLInputElement ? emailField.value.trim() : '';
+      const selectedOption = serviceField instanceof HTMLSelectElement
+        ? serviceField.selectedOptions[0] ?? null
+        : null;
+      const serviceValue = serviceField instanceof HTMLSelectElement ? serviceField.value : '';
+      const serviceLabel = selectedOption?.textContent?.trim() ?? '';
+      const detail = detailField instanceof HTMLTextAreaElement ? detailField.value.trim() : '';
+      const originPathValue = originPathField instanceof HTMLInputElement
+        ? originPathField.value.trim()
+        : '';
+      const originLabelValue = originLabelField instanceof HTMLInputElement
+        ? originLabelField.value.trim()
+        : '';
+      const pageUrlValue = pageUrlField instanceof HTMLInputElement
+        ? pageUrlField.value.trim()
+        : '';
+
+      const messageLines = [
+        `Interes: ${serviceLabel || serviceValue || 'No especificado'}`,
+        `Email: ${email || 'No especificado'}`,
+        `Origen: ${originLabelValue || originPathValue || 'No especificado'}`,
+        '',
+        detail || 'Sin detalle adicional.',
+        '',
+        `Pagina: ${pageUrlValue || 'No especificada'}`
+      ];
+
+      setHiddenValue('reply_to', email);
+      setHiddenValue('from_email', email);
+      setHiddenValue('from_name', email || serviceLabel || 'Contacto web');
+      setHiddenValue('name', email || 'Contacto web');
+      setHiddenValue('service', serviceValue);
+      setHiddenValue('service_label', serviceLabel);
+      setHiddenValue('subject', `Nuevo contacto web | ${serviceLabel || 'Consulta general'}`);
+      setHiddenValue('message', messageLines.join('\n'));
+      setHiddenValue('submitted_at', new Date().toISOString());
+    };
+
+    syncEmailJsFields();
+
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
 
@@ -145,38 +209,48 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
       submitBtn.disabled = true;
       submitBtn.textContent = 'Enviando...';
 
-      const pageUrlInput = form.querySelector('input[name="page_url"]');
-      if (pageUrlInput instanceof HTMLInputElement) {
-        pageUrlInput.value = window.location.href;
+      if (pageUrlField instanceof HTMLInputElement) {
+        pageUrlField.value = window.location.href;
       }
+
+      syncEmailJsFields();
 
       try {
         if (!serviceId || !templateId || !publicKey) {
           throw new Error('EmailJS no está configurado');
         }
 
-        const payload = Object.fromEntries(new FormData(form).entries());
-        await emailjs.send(serviceId, templateId, payload, publicKey);
+        await emailjs.sendForm(serviceId, templateId, form, { publicKey });
 
         setFeedback('success', 'Mensaje enviado. Te responderé pronto.');
         form.reset();
 
-        const serviceField = form.querySelector('#contact-service');
         if (serviceField instanceof HTMLSelectElement) {
           const defaultValue = serviceField.querySelector('option[selected]')?.getAttribute('value') ?? '';
           serviceField.value = defaultValue;
         }
 
-        const originPathField = form.querySelector('input[name="origin_path"]');
         if (originPathField instanceof HTMLInputElement) {
           originPathField.value = originPathField.defaultValue;
         }
 
-        const originLabelField = form.querySelector('input[name="origin_label"]');
         if (originLabelField instanceof HTMLInputElement) {
           originLabelField.value = originLabelField.defaultValue;
         }
+
+        if (pageUrlField instanceof HTMLInputElement) {
+          pageUrlField.value = pageUrlField.defaultValue;
+        }
+
+        syncEmailJsFields();
       } catch (error) {
+        console.error('EmailJS submit failed', error);
+
+        if (error instanceof EmailJSResponseStatus && error.status === 429) {
+          setFeedback('error', 'El formulario recibió demasiados intentos seguidos. Espera unos segundos y vuelve a intentarlo.');
+          return;
+        }
+
         setFeedback('error', 'No pude enviar el mensaje. Escríbeme por WhatsApp mientras reviso el formulario.');
       } finally {
         submitBtn.disabled = false;
