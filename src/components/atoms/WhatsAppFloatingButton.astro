@@ -1,7 +1,7 @@
 ---
-import { contactConfig } from '../../data/contact';
+import { getWhatsAppHref } from '../../data/contact';
 
-const whatsappHref = `https://wa.me/${contactConfig.whatsappNumber}?text=${encodeURIComponent(contactConfig.whatsappMessage)}`;
+const whatsappHref = getWhatsAppHref();
 ---
 
 <a

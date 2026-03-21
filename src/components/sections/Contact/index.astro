@@ -2,6 +2,7 @@
 import {
   buildContactHref,
   contactConfig,
+  getWhatsAppHref,
   getContactContextByPath
 } from '../../../data/contact';
 import { fieldOperationsTheme } from '../../../data/serviceThemes';
@@ -37,7 +38,7 @@ const contactHref = buildContactHref({
   originPath,
   originLabel: context.originLabel
 });
-const whatsappHref = `https://wa.me/${contactConfig.whatsappNumber}?text=${encodeURIComponent(contactConfig.whatsappMessage)}`;
+const whatsappHref = getWhatsAppHref();
 const themeVars = `--service-accent: ${theme.accent}; --service-accent-alt: ${theme.accentAlt}; --service-accent-soft: ${theme.accentSoft}; --service-accent-glow: ${theme.accentGlow}; --service-accent-shadow: ${theme.accentShadow};`;
 ---
 
@@ -77,7 +78,7 @@ const themeVars = `--service-accent: ${theme.accent}; --service-accent-alt: ${th
 
         <div class="flex flex-col sm:flex-row gap-4">
           <Button href={contactHref} variant="primary" size="lg" class="service-contact-submit">
-            Abrir formulario unificado
+            Abrir formulario
           </Button>
           <Button href={contactConfig.calendlyUrl} variant="secondary" size="lg">
             <i class="fas fa-calendar-alt mr-2"></i>
@@ -96,19 +97,19 @@ const themeVars = `--service-accent: ${theme.accent}; --service-accent-alt: ${th
             <div>
               <p class="text-white font-medium">WhatsApp</p>
               <a href={whatsappHref} class="service-contact-link text-slate-300 transition-colors">
-                {contactConfig.whatsappDisplay}
+                Abrir conversación
               </a>
             </div>
           </div>
 
           <div class="flex items-center gap-4">
             <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center">
-              <i class="fas fa-envelope text-blue-500 text-xl"></i>
+              <i class="fas fa-calendar-alt text-blue-500 text-xl"></i>
             </div>
             <div>
-              <p class="text-white font-medium">Email</p>
-              <a href={`mailto:${contactConfig.email}`} class="service-contact-link text-slate-300 transition-colors">
-                {contactConfig.email}
+              <p class="text-white font-medium">Agenda una llamada</p>
+              <a href={contactConfig.calendlyUrl} class="service-contact-link text-slate-300 transition-colors">
+                Coordinar por Calendly
               </a>
             </div>
           </div>

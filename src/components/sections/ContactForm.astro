@@ -160,7 +160,7 @@ const resolvedOriginLabel = originLabel || getContactServiceLabel(normalizedServ
           originLabelField.value = originLabelField.defaultValue;
         }
       } catch (error) {
-        setFeedback('error', 'No pude enviar el mensaje. Escríbeme por WhatsApp o correo mientras reviso el formulario.');
+        setFeedback('error', 'No pude enviar el mensaje. Escríbeme por WhatsApp mientras reviso el formulario.');
       } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Enviar mensaje';

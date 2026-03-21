@@ -1,6 +1,6 @@
 ---
 import LogoHG from './LogoHG.astro';
-import { contactConfig } from '../data/contact';
+import { CONTACT_PAGE_PATH, contactConfig, getWhatsAppHref } from '../data/contact';
 
 const footerLinks = [
   { href: '/', label: 'Inicio' },
@@ -9,6 +9,8 @@ const footerLinks = [
   { href: '/automatizacion-de-procesos', label: 'Automatización de Procesos' },
   { href: '/contacto', label: 'Contacto' }
 ];
+
+const whatsappHref = getWhatsAppHref();
 ---
 
 <footer class="border-t border-slate-800 bg-slate-950">
@@ -40,8 +42,8 @@ const footerLinks = [
     <div>
       <h2 class="text-sm font-semibold text-white mb-4">Contacto</h2>
       <ul class="space-y-3 text-sm text-slate-400">
-        <li><a href={`mailto:${contactConfig.email}`} class="hover:text-blue-400 transition-colors">{contactConfig.email}</a></li>
-        <li><a href={`https://wa.me/${contactConfig.whatsappNumber}`} class="hover:text-blue-400 transition-colors">{contactConfig.whatsappDisplay}</a></li>
+        <li><a href={CONTACT_PAGE_PATH} class="hover:text-blue-400 transition-colors">Formulario</a></li>
+        <li><a href={whatsappHref} class="hover:text-blue-400 transition-colors">WhatsApp</a></li>
         <li><a href={contactConfig.calendlyUrl} class="hover:text-blue-400 transition-colors">Calendly</a></li>
       </ul>
     </div>

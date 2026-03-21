@@ -1,11 +1,10 @@
 ---
 import '../styles/contact.css'
+import { CONTACT_PAGE_PATH, contactConfig, getWhatsAppHref } from '../../data/contact';
 
 // Variables de contacto - Configurar con datos reales
-const CONTACT_EMAIL = "variable_email@dominio.com";
-const WHATSAPP_NUMBER = "XXXXXXXXXXX";
-const WHATSAPP_DISPLAY = "+XX XXX-XXX-XXXX";
-const CALENDLY_URL = "https://calendly.com/tu-agenda/15min";
+const whatsappHref = getWhatsAppHref();
+const CALENDLY_URL = contactConfig.calendlyUrl;
 ---
 
 <section class="contact-page-two" id="contacto">
@@ -17,22 +16,15 @@ const CALENDLY_URL = "https://calendly.com/tu-agenda/15min";
 
             <div class="contact-detail-item">
                 <div class="contact-text">
-                    <p class="label">Correo directo</p>
-                    <p class="value"><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+                    <p class="label">Formulario</p>
+                    <p class="value"><a href={CONTACT_PAGE_PATH}>Abrir contacto</a></p>
                 </div>
             </div>
 
             <div class="contact-detail-item">
                 <div class="contact-text">
-                    <p class="label">WhatsApp personal</p>
-                    <p class="value"><a href={`https://wa.me/${WHATSAPP_NUMBER}`}>{WHATSAPP_DISPLAY}</a></p>
-                </div>
-            </div>
-
-            <div class="contact-detail-item">
-                <div class="contact-text">
-                    <p class="label">Agenda una llamada</p>
-                    <p class="value"><a href={CALENDLY_URL} target="_blank">Agendar 15 min</a></p>
+                    <p class="label">WhatsApp</p>
+                    <p class="value"><a href={whatsappHref}>Abrir conversación</a></p>
                 </div>
             </div>
         </div>
@@ -45,7 +37,7 @@ const CALENDLY_URL = "https://calendly.com/tu-agenda/15min";
 
             <div class="quick-actions">
                 <a class="quick-btn primary" href={CALENDLY_URL} target="_blank">Agendar llamada 15 min</a>
-                <a class="quick-btn ghost" href={`https://wa.me/${WHATSAPP_NUMBER}`}>Escríbeme por WhatsApp</a>
+                <a class="quick-btn ghost" href={whatsappHref}>Escríbeme por WhatsApp</a>
             </div>
 
             <form class="clean-form">

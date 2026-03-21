@@ -2,6 +2,7 @@
 import {
   buildContactHref,
   contactConfig,
+  getWhatsAppHref,
   getContactContextByPath
 } from '../../data/contact';
 
@@ -21,7 +22,7 @@ const {
   title = '¿Quieres definir la mejor línea de servicio para tu operación?',
   description = 'Revisamos tu contexto, priorizamos la ruta correcta y aterrizamos un alcance inicial sin vender una solución genérica.',
   ctaHref,
-  ctaLabel = 'Abrir formulario unificado',
+  ctaLabel = 'Abrir formulario',
   service,
   originPath = '/',
   originLabel
@@ -33,6 +34,7 @@ const resolvedCtaHref = ctaHref ?? buildContactHref({
   originPath,
   originLabel: originLabel ?? defaultContext.originLabel
 });
+const whatsappHref = getWhatsAppHref();
 ---
 
 <section id="contacto-general" class="py-24 px-6 bg-gradient-to-br from-slate-900 to-slate-800">
@@ -66,17 +68,10 @@ const resolvedCtaHref = ctaHref ?? buildContactHref({
           <i class="fas fa-calendar-alt text-blue-400"></i>
         </a>
         <a
-          href={`mailto:${contactConfig.email}`}
+          href={whatsappHref}
           class="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white hover:bg-white/10 transition-colors"
         >
-          <span>{contactConfig.email}</span>
-          <i class="fas fa-envelope text-blue-400"></i>
-        </a>
-        <a
-          href={`https://wa.me/${contactConfig.whatsappNumber}`}
-          class="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white hover:bg-white/10 transition-colors"
-        >
-          <span>{contactConfig.whatsappDisplay}</span>
+          <span>WhatsApp</span>
           <i class="fab fa-whatsapp text-green-400"></i>
         </a>
       </div>

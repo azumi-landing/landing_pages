@@ -1,9 +1,7 @@
 export const CONTACT_PAGE_PATH = '/contacto';
 
 export const contactConfig = {
-  email: 'hola@hguerra.com',
-  whatsappNumber: '50293968146',
-  whatsappDisplay: '+502 9396-8146',
+  whatsappNumber: import.meta.env.PUBLIC_WHATSAPP_NUMBER ?? '',
   calendlyUrl: 'https://calendly.com/tu-agenda/15min',
   responseTime: 'menos de 1 hora',
   whatsappMessage: 'Hola HGuerra, quiero contarte un desafío operativo para evaluar una posible solución.'
@@ -98,4 +96,21 @@ export function buildContactHref(options: BuildContactHrefOptions = {}) {
 
   const query = params.toString();
   return query ? `${CONTACT_PAGE_PATH}?${query}` : CONTACT_PAGE_PATH;
+}
+
+export function getWhatsAppHref(message = contactConfig.whatsappMessage) {
+  if (!contactConfig.whatsappNumber) {
+    return CONTACT_PAGE_PATH;
+  }
+
+  const params = new URLSearchParams();
+
+  if (message) {
+    params.set('text', message);
+  }
+
+  const query = params.toString();
+  return query
+    ? `https://wa.me/${contactConfig.whatsappNumber}?${query}`
+    : `https://wa.me/${contactConfig.whatsappNumber}`;
 }
