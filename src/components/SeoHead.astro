@@ -1,0 +1,71 @@
+---
+import {
+  buildOrganizationSchema,
+  buildWebPageSchema,
+  getSiteUrl,
+  siteConfig
+} from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+  image?: string;
+  type?: string;
+  noindex?: boolean;
+  schemas?: Array<Record<string, unknown>>;
+}
+
+const {
+  title,
+  description,
+  path = '/',
+  image = siteConfig.defaultImage,
+  type = 'website',
+  noindex = false,
+  schemas = []
+} = Astro.props;
+
+const pageUrl = getSiteUrl(path);
+const imageUrl = getSiteUrl(image);
+const robots = noindex ? 'noindex,nofollow' : 'index,follow';
+const jsonLd = [
+  buildOrganizationSchema(),
+  buildWebPageSchema({ path, title, description }),
+  ...schemas
+];
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="robots" content={robots} />
+<link rel="canonical" href={pageUrl} />
+
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={siteConfig.name} />
+<meta property="og:locale" content={siteConfig.locale} />
+<meta property="og:url" content={pageUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={pageUrl} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+<link rel="icon" type="image/svg+xml" href="/hg-favicon.svg" />
+
+{jsonLd.map((schema) => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}

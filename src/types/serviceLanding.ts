@@ -85,6 +85,7 @@ export interface ServiceLandingContactContent {
 export interface ServiceLandingConfig {
   seoTitle: string;
   seoDescription: string;
+  seoImage?: string;
   path: string;
   theme: ServiceLandingTheme;
   badge: string;

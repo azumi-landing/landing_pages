@@ -13,13 +13,33 @@ import About from '../components/sections/About/index.astro';
 import Investiger from '../components/sections/Investiger/index.astro';
 import FAQ from '../components/sections/FAQ/index.astro';
 import Contact from '../components/sections/Contact/index.astro';
+import RelatedServices from '../components/sections/RelatedServices.astro';
 import { fieldOperationsTheme } from '../data/serviceThemes';
+import { fieldOperationsFaqs } from '../data/faqs';
+import {
+  buildBreadcrumbSchema,
+  buildFAQSchema,
+  buildServiceSchema
+} from '../data/site';
 ---
 
 <BaseLayout
   title="HGuerra | Gestión de Operaciones de Campo"
   description="Software personalizado para operaciones de campo. App móvil offline, dashboard web en vivo y auditoría completa con GPS y fotos."
   path="/gestion-de-operaciones-de-campo"
+  image="/og-field-operations.svg"
+  schemas={[
+    buildServiceSchema({
+      name: 'Gestión de Operaciones de Campo',
+      description: 'Software personalizado para operaciones de campo con app móvil offline, dashboard web y trazabilidad operativa.',
+      path: '/gestion-de-operaciones-de-campo'
+    }),
+    buildBreadcrumbSchema([
+      { name: 'Inicio', path: '/' },
+      { name: 'Gestión de Operaciones de Campo', path: '/gestion-de-operaciones-de-campo' }
+    ]),
+    buildFAQSchema(fieldOperationsFaqs)
+  ]}
 >
   <main>
     <Hero />
@@ -33,6 +53,7 @@ import { fieldOperationsTheme } from '../data/serviceThemes';
     <Diferenciacion />
     <About />
     <Investiger />
+    <RelatedServices currentPath="/gestion-de-operaciones-de-campo" />
     <FAQ />
     <Contact theme={fieldOperationsTheme} />
   </main>

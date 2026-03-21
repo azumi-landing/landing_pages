@@ -1,0 +1,54 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { buildBreadcrumbSchema } from '../data/site';
+---
+
+<SiteLayout
+  title="HGuerra | Política de privacidad"
+  description="Política de privacidad para el formulario y las interacciones de contacto de HGuerra."
+  path="/privacidad"
+  schemas={[
+    buildBreadcrumbSchema([
+      { name: 'Inicio', path: '/' },
+      { name: 'Privacidad', path: '/privacidad' }
+    ])
+  ]}
+>
+  <main class="bg-[#F8FAFC] px-6 py-24">
+    <div class="mx-auto max-w-4xl rounded-[2rem] border border-slate-200 bg-white p-10 shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-950 mb-6">Política de privacidad</h1>
+      <div class="space-y-8 text-slate-700 leading-relaxed">
+        <section>
+          <h2 class="text-2xl font-bold text-slate-950 mb-3">Datos que se recopilan</h2>
+          <p>
+            El sitio recopila la información que envías voluntariamente a través del formulario de contacto, incluyendo correo electrónico, interés seleccionado, detalle del caso y contexto de la página desde la que escribes.
+          </p>
+        </section>
+        <section>
+          <h2 class="text-2xl font-bold text-slate-950 mb-3">Uso de la información</h2>
+          <p>
+            Los datos se usan únicamente para responder la consulta, clasificar el tipo de necesidad y dar seguimiento comercial o técnico a la conversación iniciada por ti.
+          </p>
+        </section>
+        <section>
+          <h2 class="text-2xl font-bold text-slate-950 mb-3">Procesamiento del formulario</h2>
+          <p>
+            El formulario utiliza EmailJS para enviar la consulta. Eso implica que la información viaja por un servicio tercero de mensajería transaccional únicamente para entregar el mensaje recibido.
+          </p>
+        </section>
+        <section>
+          <h2 class="text-2xl font-bold text-slate-950 mb-3">Conservación y acceso</h2>
+          <p>
+            La información se conserva solo el tiempo necesario para responder la solicitud, dar seguimiento al caso o mantener un historial básico de conversaciones relevantes.
+          </p>
+        </section>
+        <section>
+          <h2 class="text-2xl font-bold text-slate-950 mb-3">Tus derechos</h2>
+          <p>
+            Puedes solicitar la actualización o eliminación de la información enviada usando el mismo canal de contacto desde el que originaste la consulta.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+</SiteLayout>

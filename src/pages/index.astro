@@ -3,12 +3,15 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 import ServiceStatusCard from '../components/molecules/ServiceStatusCard.astro';
 import ContactStrip from '../components/sections/ContactStrip.astro';
 import { homeHeroBullets, homeProofPoints, homeWorkflowSteps } from '../data/home';
+import { buildWebsiteSchema } from '../data/site';
 ---
 
 <SiteLayout
   title="HGuerra | Consultoría aplicada para operación, producto y automatización"
   description="Consultoría e implementación para convertir problemas operativos complejos en soluciones claras, adoptables y útiles para equipos reales."
   path="/"
+  image="/og-home.svg"
+  schemas={[buildWebsiteSchema()]}
 >
   <main>
     <section id="inicio" class="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.18),_transparent_32%),linear-gradient(135deg,_#020617_0%,_#0f172a_52%,_#1e293b_100%)] px-6 pt-20 pb-24">
@@ -69,6 +72,11 @@ import { homeHeroBullets, homeProofPoints, homeWorkflowSteps } from '../data/hom
               <img
                 src="/mi_foto_pro.jpeg"
                 alt="Foto profesional de HGuerra"
+                width="80"
+                height="80"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
                 class="w-full h-full object-cover"
               />
             </div>

@@ -1,6 +1,7 @@
 ---
 import LogoHG from './LogoHG.astro';
 import { CONTACT_PAGE_PATH } from '../data/contact';
+import { serviceLinks } from '../data/site';
 
 interface Props {
   currentPath?: string;
@@ -13,27 +14,6 @@ const contactLink = {
   href: currentPath === '/' ? '#contacto-general' : CONTACT_PAGE_PATH,
   label: 'Contacto'
 };
-const serviceLinks = [
-  {
-    href: '/gestion-de-operaciones-de-campo',
-    label: 'Gestión de Operaciones de Campo',
-    shortLabel: 'Operaciones de campo',
-    description: 'Digitalización, trazabilidad y app offline para operación en terreno.'
-  },
-  {
-    href: '/automatizacion-con-ia-agentica',
-    label: 'Automatización con IA Agéntica',
-    shortLabel: 'IA agéntica',
-    description: 'Agentes, orquestación y automatización con control e integración real.'
-  },
-  {
-    href: '/automatizacion-de-procesos',
-    label: 'Automatización de Procesos',
-    shortLabel: 'Procesos',
-    description: 'Pipelines, integraciones y backend para flujos críticos y datos confiables.'
-  }
-];
-
 const isActive = (href: string) => currentPath === href;
 const isServicesActive = serviceLinks.some((link) => link.href === currentPath);
 ---

@@ -1,14 +1,7 @@
 ---
 import LogoHG from './LogoHG.astro';
 import { CONTACT_PAGE_PATH, getWhatsAppHref } from '../data/contact';
-
-const footerLinks = [
-  { href: '/', label: 'Inicio' },
-  { href: '/gestion-de-operaciones-de-campo', label: 'Gestión de Operaciones de Campo' },
-  { href: '/automatizacion-con-ia-agentica', label: 'Automatización con IA Agéntica' },
-  { href: '/automatizacion-de-procesos', label: 'Automatización de Procesos' },
-  { href: '/contacto', label: 'Contacto' }
-];
+import { footerLinks } from '../data/site';
 
 const whatsappHref = getWhatsAppHref();
 ---

@@ -1,0 +1,54 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { buildBreadcrumbSchema } from '../data/site';
+---
+
+<SiteLayout
+  title="HGuerra | Términos de uso"
+  description="Términos básicos de uso para el sitio web de HGuerra y sus formularios de contacto."
+  path="/terminos"
+  schemas={[
+    buildBreadcrumbSchema([
+      { name: 'Inicio', path: '/' },
+      { name: 'Términos', path: '/terminos' }
+    ])
+  ]}
+>
+  <main class="bg-[#F8FAFC] px-6 py-24">
+    <div class="mx-auto max-w-4xl rounded-[2rem] border border-slate-200 bg-white p-10 shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-950 mb-6">Términos de uso</h1>
+      <div class="space-y-8 text-slate-700 leading-relaxed">
+        <section>
+          <h2 class="text-2xl font-bold text-slate-950 mb-3">Uso del sitio</h2>
+          <p>
+            El contenido del sitio tiene fines informativos y comerciales para presentar servicios de consultoría, automatización y diseño de soluciones digitales aplicadas a operación.
+          </p>
+        </section>
+        <section>
+          <h2 class="text-2xl font-bold text-slate-950 mb-3">Alcance de la información</h2>
+          <p>
+            La información publicada busca describir capacidades, enfoque y casos de uso. No constituye una propuesta contractual cerrada ni una garantía de resultados idénticos para todos los proyectos.
+          </p>
+        </section>
+        <section>
+          <h2 class="text-2xl font-bold text-slate-950 mb-3">Formulario y comunicaciones</h2>
+          <p>
+            Al enviar una consulta, aceptas que HGuerra use los datos proporcionados para responderte y dar seguimiento al caso. El envío de un formulario no crea una relación contractual automática.
+          </p>
+        </section>
+        <section>
+          <h2 class="text-2xl font-bold text-slate-950 mb-3">Propiedad del contenido</h2>
+          <p>
+            Los textos, estructura y elementos visuales del sitio pertenecen a HGuerra salvo que se indique lo contrario. No deben reutilizarse íntegramente sin autorización.
+          </p>
+        </section>
+        <section>
+          <h2 class="text-2xl font-bold text-slate-950 mb-3">Cambios</h2>
+          <p>
+            Estos términos pueden actualizarse para reflejar cambios en el sitio, el formulario, los servicios descritos o las necesidades operativas del negocio.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+</SiteLayout>

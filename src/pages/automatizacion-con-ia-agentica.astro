@@ -2,12 +2,30 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 import ServiceLanding from '../components/templates/ServiceLanding.astro';
 import { agenticAutomationLanding } from '../data/serviceLandings';
+import {
+  buildBreadcrumbSchema,
+  buildFAQSchema,
+  buildServiceSchema
+} from '../data/site';
 ---
 
 <SiteLayout
   title={agenticAutomationLanding.seoTitle}
   description={agenticAutomationLanding.seoDescription}
   path={agenticAutomationLanding.path}
+  image={agenticAutomationLanding.seoImage}
+  schemas={[
+    buildServiceSchema({
+      name: agenticAutomationLanding.title,
+      description: agenticAutomationLanding.seoDescription,
+      path: agenticAutomationLanding.path
+    }),
+    buildBreadcrumbSchema([
+      { name: 'Inicio', path: '/' },
+      { name: 'Automatización con IA Agéntica', path: agenticAutomationLanding.path }
+    ]),
+    buildFAQSchema(agenticAutomationLanding.faqs)
+  ]}
 >
   <ServiceLanding config={agenticAutomationLanding} />
 </SiteLayout>

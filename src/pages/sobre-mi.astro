@@ -1,0 +1,134 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { aboutCards, aboutFilter } from '../data/about';
+import { buildBreadcrumbSchema } from '../data/site';
+import { CONTACT_PAGE_PATH } from '../data/contact';
+---
+
+<SiteLayout
+  title="HGuerra | Sobre mí"
+  description="Experiencia, enfoque y forma de trabajo detrás de HGuerra para operación, producto y automatización."
+  path="/sobre-mi"
+  image="/og-home.svg"
+  schemas={[
+    buildBreadcrumbSchema([
+      { name: 'Inicio', path: '/' },
+      { name: 'Sobre mí', path: '/sobre-mi' }
+    ])
+  ]}
+>
+  <main>
+    <section class="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 px-6 pt-24 pb-20">
+      <div class="max-w-6xl mx-auto grid gap-10 lg:grid-cols-[1.05fr_0.95fr] items-center">
+        <div>
+          <p class="inline-flex rounded-full border border-blue-400/30 bg-blue-400/10 px-4 py-2 text-sm font-semibold text-blue-200 mb-6">
+            Sobre HGuerra
+          </p>
+          <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
+            Trabajo problemas operativos complejos hasta convertirlos en soluciones útiles
+          </h1>
+          <p class="text-xl leading-relaxed text-slate-300 mb-8">
+            HGuerra combina consultoría aplicada, diseño de solución e implementación para operación de campo, automatización de procesos y arquitectura orientada a uso real. La propuesta no parte de una demo: parte del flujo operativo que necesitas ordenar.
+          </p>
+
+          <div class="grid gap-4 sm:grid-cols-3">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <p class="text-3xl font-bold text-white">10+</p>
+              <p class="mt-2 text-sm text-slate-400">años de experiencia en operaciones y software aplicado</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <p class="text-3xl font-bold text-white">+5M</p>
+              <p class="mt-2 text-sm text-slate-400">registros procesados en implementaciones reales</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <p class="text-3xl font-bold text-white">Directo</p>
+              <p class="mt-2 text-sm text-slate-400">sin intermediarios entre diagnóstico, ejecución y soporte</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="rounded-[2rem] border border-white/10 bg-white/5 p-8">
+          <img
+            src="/mi_foto_pro.jpeg"
+            alt="Foto profesional de HGuerra"
+            width="320"
+            height="320"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+            class="mx-auto h-56 w-56 rounded-full border-4 border-blue-400/20 object-cover"
+          />
+          <div class="mt-8 text-center">
+            <h2 class="text-2xl font-bold text-white">Consultoría aplicada para equipos reales</h2>
+            <p class="mt-4 text-slate-300 leading-relaxed">
+              Trabajo mejor cuando hay fricción entre operación, datos, adopción y decisiones técnicas. El objetivo no es llenar un backlog: es definir una solución que tenga sentido para el negocio y que el equipo sí pueda operar.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="bg-[#F8FAFC] px-6 py-24">
+      <div class="max-w-6xl mx-auto">
+        <div class="max-w-3xl mb-12">
+          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500 mb-4">Cómo trabajo</p>
+          <h2 class="text-4xl md:text-5xl font-bold text-slate-950 mb-4">
+            El valor está en conectar criterio operativo con implementación real
+          </h2>
+          <p class="text-xl text-slate-600 leading-relaxed">
+            Estas son las capacidades que hoy se reflejan en el sitio y en la forma de trabajar los proyectos.
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          {aboutCards.map((card) => (
+            <article class="rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
+              <h3 class="text-2xl font-bold text-slate-950 mb-3">{card.title}</h3>
+              <p class="text-slate-600 mb-5">{card.description}</p>
+              <ul class="space-y-3 text-slate-700">
+                {card.bullets.map((bullet) => (
+                  <li class="flex items-start gap-3">
+                    <span class="mt-1 text-blue-600">•</span>
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+
+        <div class="mt-10 rounded-[1.75rem] border border-red-200 bg-red-50 p-8">
+          <h3 class="text-2xl font-bold text-slate-950 mb-3">{aboutFilter.title}</h3>
+          <p class="text-slate-700 mb-5">{aboutFilter.intro}</p>
+          <ul class="space-y-3 text-slate-700">
+            {aboutFilter.exclusions.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-1 text-red-600">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-slate-950 px-6 py-24">
+      <div class="max-w-5xl mx-auto rounded-[2rem] border border-white/10 bg-white/5 p-10 text-center">
+        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300 mb-4">Siguiente paso</p>
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          Si el reto es real, la conversación también debería serlo
+        </h2>
+        <p class="text-xl leading-relaxed text-slate-300 mb-8">
+          Usa el formulario para contarme el flujo que quieres ordenar, automatizar o rediseñar. La idea es definir rápido si el siguiente paso correcto es diagnóstico, demo o alcance inicial.
+        </p>
+        <a
+          href={CONTACT_PAGE_PATH}
+          class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 px-6 py-3 text-sm font-bold text-slate-950 transition-transform hover:-translate-y-0.5"
+        >
+          Abrir formulario
+          <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+    </section>
+  </main>
+</SiteLayout>

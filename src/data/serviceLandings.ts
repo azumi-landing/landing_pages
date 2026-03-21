@@ -4,6 +4,7 @@ import { agenticAutomationTheme, processAutomationTheme } from './serviceThemes'
 export const agenticAutomationLanding: ServiceLandingConfig = {
   seoTitle: 'HGuerra | Automatización con IA Agéntica',
   seoDescription: 'Diseño agentes, flujos orquestados y automatización inteligente conectada a tus sistemas con LangGraph, n8n, ML aplicado y servicios de GCP.',
+  seoImage: '/og-agentic-automation.svg',
   path: '/automatizacion-con-ia-agentica',
   theme: agenticAutomationTheme,
   badge: 'Agentes + Orquestación + Trazabilidad operativa',
@@ -396,6 +397,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
 export const processAutomationLanding: ServiceLandingConfig = {
   seoTitle: 'HGuerra | Automatización de Procesos',
   seoDescription: 'Automatización de procesos con Airflow, SQL, NoSQL, ETL/ELT, ML aplicado y servicios de GCP para flujos críticos y datos confiables.',
+  seoImage: '/og-process-automation.svg',
   path: '/automatizacion-de-procesos',
   theme: processAutomationTheme,
   badge: 'Procesos + Datos + Integración operativa',

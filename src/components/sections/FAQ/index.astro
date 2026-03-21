@@ -1,53 +1,7 @@
 ---
 import { buildContactHref } from '../../../data/contact';
+import { fieldOperationsFaqs } from '../../../data/faqs';
 import Icon from '../../atoms/Icon.astro';
-
-const faqs = [
-  {
-    question: '¿Cuánto tiempo toma implementar la plataforma?',
-    answer: `La implementación típica toma 2-3 semanas desde el primer contacto hasta operación productiva. Esto incluye: configuración personalizada de tus formularios y flujos, instalación de la app en dispositivos de tu equipo, capacitación práctica (30 minutos, no días), y acompañamiento en las primeras operaciones en vivo.
-
-No somos un software genérico que descargas y te arreglas solo; te acompañamos en todo el proceso.`
-  },
-  {
-    question: '¿Funciona sin internet en zonas remotas?',
-    answer: `Sí. La app está diseñada "offline-first": tus operarios capturan datos, fotos, firmas y todo se almacena localmente en el dispositivo. Al detectar conexión (WiFi o datos móviles), se sincroniza automáticamente con la plataforma web.
-
-Cero pérdida de datos, cero duplicados. Funciona en minas, bosques, fincas, o cualquier zona sin cobertura.`
-  },
-  {
-    question: '¿Se integra con nuestro ERP/SAP/sistema actual?',
-    answer: `Sí. Ofrecemos APIs REST para integraciones custom y conectores pre-construidos para SAP, Salesforce, Oracle y otros sistemas empresariales comunes.
-
-La sincronización es bidireccional: podemos leer catálogos de clientes/activos de tu ERP y escribir resultados de campo de vuelta a tu sistema de facturación o gestión.`
-  },
-  {
-    question: '¿Qué pasa si un operario pierde o daña su celular?',
-    answer: `Los datos capturados se sincronizan al cloud tan pronto hay conexión, así que no se pierde información por daño del dispositivo.
-
-Para acceso a la app, usamos autenticación con tus credenciales corporativas (SSO), así que sin login válido no hay acceso a datos. Además, el administrador puede desactivar remotamente el acceso de cualquier dispositivo.`
-  },
-  {
-    question: '¿Cómo garantizan la trazabilidad y evidencia para auditorías?',
-    answer: `Cada registro en campo incluye automáticamente: timestamp de fecha/hora (no editable), ubicación GPS, fotos obligatorias con metadatos preservados, y firma digital del operario.
-
-Todo queda en un historial inmutable con trazabilidad completa desde la asignación en web hasta el cierre en campo. Nuestros clientes pasan auditorías externas sin hallazgos de trazabilidad.`
-  },
-  {
-    question: '¿Para qué tipo de operaciones NO sirve esta plataforma?',
-    answer: `No somos la opción ideal si: buscas una solución genérica sin personalización para tu flujo específico; necesitas solo un app simple sin dashboard web de supervisión; tu operación es 100% indoors con conectividad garantizada y no necesitas modo offline; o prefieres un proceso de implementación de 6+ meses con consultoras grandes.
-
-Trabajamos con empresas que valoran velocidad de implementación y atención personalizada.`
-  },
-  {
-    question: '¿Cómo se compara con otras plataformas de formularios móviles?',
-    answer: `Las plataformas genéricas de formularios móviles te dan la herramienta y te dejan solo. Nosotros implementamos tu operación específica en semanas, no meses, con acompañamiento directo.
-
-Diferencias clave: offline-first diseñado para zonas remotas (no un add-on), trazabilidad inmutable con GPS + fotos obligatorias (no opcionales), órdenes de servicio automáticas desde alarmas/series de tiempo, e integración directa con sistemas enterprise (SAP, etc.).
-
-Trabajas directamente con un especialista, no con un equipo de implementación genérico.`
-  }
-];
 
 const fieldOpsContactHref = buildContactHref({
   service: 'gestion-operaciones-de-campo',
@@ -70,7 +24,7 @@ const fieldOpsContactHref = buildContactHref({
 
     <!-- FAQ Accordion -->
     <div class="space-y-4">
-      {faqs.map((faq, index) => (
+      {fieldOperationsFaqs.map((faq, index) => (
         <details class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden group">
           <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-slate-50 transition-colors">
             <div class="flex items-center gap-4">

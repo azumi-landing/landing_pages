@@ -2,12 +2,30 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 import ServiceLanding from '../components/templates/ServiceLanding.astro';
 import { processAutomationLanding } from '../data/serviceLandings';
+import {
+  buildBreadcrumbSchema,
+  buildFAQSchema,
+  buildServiceSchema
+} from '../data/site';
 ---
 
 <SiteLayout
   title={processAutomationLanding.seoTitle}
   description={processAutomationLanding.seoDescription}
   path={processAutomationLanding.path}
+  image={processAutomationLanding.seoImage}
+  schemas={[
+    buildServiceSchema({
+      name: processAutomationLanding.title,
+      description: processAutomationLanding.seoDescription,
+      path: processAutomationLanding.path
+    }),
+    buildBreadcrumbSchema([
+      { name: 'Inicio', path: '/' },
+      { name: 'Automatización de Procesos', path: processAutomationLanding.path }
+    ]),
+    buildFAQSchema(processAutomationLanding.faqs)
+  ]}
 >
   <ServiceLanding config={processAutomationLanding} />
 </SiteLayout>

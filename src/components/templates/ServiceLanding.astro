@@ -2,6 +2,7 @@
 import FlowLevel from '../molecules/FlowLevel.astro';
 import Icon from '../atoms/Icon.astro';
 import Contact from '../sections/Contact/index.astro';
+import RelatedServices from '../sections/RelatedServices.astro';
 import type { ServiceLandingConfig } from '../../types/serviceLanding';
 
 interface Props {
@@ -319,6 +320,48 @@ const heroPatternClass = {
       </div>
     </div>
   </section>
+
+  <section class="py-24 px-6 bg-gradient-to-br from-slate-950 to-slate-900 text-white">
+    <div class="max-w-6xl mx-auto grid gap-8 lg:grid-cols-[1.1fr_0.9fr] items-start">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-400 mb-4">Quién ejecuta</p>
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">
+          La conversación técnica y operativa se trabaja directo conmigo
+        </h2>
+        <p class="text-xl leading-relaxed text-slate-300">
+          No hay una capa comercial separada de la implementación. Si el caso avanza, el mismo criterio que se usa para diagnosticar el problema se usa después para definir arquitectura, alcance y ejecución.
+        </p>
+      </div>
+
+      <aside class="rounded-[1.75rem] border border-white/10 bg-white/5 p-8">
+        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300 mb-4">Señales de confianza</p>
+        <ul class="space-y-3 text-slate-300">
+          <li class="flex items-start gap-3">
+            <span class="mt-1 text-cyan-300">•</span>
+            <span>Diagnóstico, diseño de solución e implementación conectados en una misma conversación.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 text-cyan-300">•</span>
+            <span>Experiencia aplicada en operación, datos, automatización y adopción de soluciones reales.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 text-cyan-300">•</span>
+            <span>Más contexto sobre experiencia, enfoque y filtros en una página dedicada.</span>
+          </li>
+        </ul>
+
+        <a
+          href="/sobre-mi"
+          class="mt-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/15"
+        >
+          Ver experiencia y enfoque
+          <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <RelatedServices currentPath={config.path} />
 
   <section id="faq" class="py-24 px-6 bg-[#F8FAFC]">
     <div class="max-w-4xl mx-auto">

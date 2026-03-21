@@ -1,0 +1,55 @@
+---
+import { serviceLinks } from '../../data/site';
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+const relatedServices = serviceLinks.filter((service) => service.href !== currentPath);
+---
+
+<section class="py-24 px-6 bg-[#F8FAFC]">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-3xl mb-10">
+      <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500 mb-4">Servicios relacionados</p>
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-950 mb-4">
+        Si este no es el frente correcto, aquí están las otras rutas
+      </h2>
+      <p class="text-xl text-slate-600 leading-relaxed">
+        El sitio está organizado por tipo de problema. Si tu necesidad está más cerca de automatización, IA agéntica o una conversación estratégica inicial, puedes entrar por la ruta que mejor describa tu caso.
+      </p>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-[1fr_1fr_0.9fr]">
+      {relatedServices.map((service) => (
+        <article class="rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
+          <h3 class="text-2xl font-bold text-slate-950 mb-3">{service.label}</h3>
+          <p class="text-slate-600 leading-relaxed mb-6">{service.description}</p>
+          <a
+            href={service.href}
+            class="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 transition-colors hover:text-blue-800"
+          >
+            Explorar esta línea
+            <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </article>
+      ))}
+
+      <aside class="rounded-[1.75rem] border border-slate-200 bg-slate-950 p-8 text-white shadow-[0_20px_60px_rgba(15,23,42,0.18)]">
+        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300 mb-4">Señales de confianza</p>
+        <h3 class="text-2xl font-bold mb-4">Trabajo directo, no por intermediación</h3>
+        <p class="text-slate-300 leading-relaxed mb-6">
+          La conversación, el diagnóstico y la implementación se trabajan conmigo. Si quieres más contexto sobre experiencia, enfoque y sectores, lo dejo documentado en una página propia.
+        </p>
+        <a
+          href="/sobre-mi"
+          class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/15"
+        >
+          Ver experiencia y enfoque
+          <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+      </aside>
+    </div>
+  </div>
+</section>
