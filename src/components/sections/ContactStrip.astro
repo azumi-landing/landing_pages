@@ -1,7 +1,6 @@
 ---
 import {
   buildContactHref,
-  contactConfig,
   getWhatsAppHref,
   getContactContextByPath
 } from '../../data/contact';
@@ -59,13 +58,6 @@ const whatsappHref = getWhatsAppHref();
         >
           <span>{ctaLabel}</span>
           <i class="fas fa-paper-plane text-blue-400"></i>
-        </a>
-        <a
-          href={contactConfig.calendlyUrl}
-          class="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white hover:bg-white/10 transition-colors"
-        >
-          <span>Agendar llamada</span>
-          <i class="fas fa-calendar-alt text-blue-400"></i>
         </a>
         <a
           href={whatsappHref}

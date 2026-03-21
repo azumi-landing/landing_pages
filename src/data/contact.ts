@@ -2,7 +2,6 @@ export const CONTACT_PAGE_PATH = '/contacto';
 
 export const contactConfig = {
   whatsappNumber: import.meta.env.PUBLIC_WHATSAPP_NUMBER ?? '',
-  calendlyUrl: 'https://calendly.com/tu-agenda/15min',
   responseTime: 'menos de 1 hora',
   whatsappMessage: 'Hola HGuerra, quiero contarte un desafío operativo para evaluar una posible solución.'
 };

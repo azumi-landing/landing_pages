@@ -1,6 +1,6 @@
 ---
 import type { Sector } from '../../types';
-import { buildContactHref, contactConfig } from '../../data/contact';
+import { buildContactHref } from '../../data/contact';
 import Icon from '../atoms/Icon.astro';
 import PhoneMockup from '../molecules/PhoneMockup.astro';
 import WebMockup from '../molecules/WebMockup.astro';
@@ -69,10 +69,6 @@ const fieldOpsContactHref = buildContactHref({
       <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4 border-t border-slate-200">
         <Button href={fieldOpsContactHref} variant="primary" size="lg">
           Solicitar demo para tu sector
-        </Button>
-        <Button href={contactConfig.calendlyUrl} variant="secondary" size="lg">
-          <i class="fas fa-calendar-alt mr-2"></i>
-          Agendar llamada
         </Button>
       </div>
     </div>

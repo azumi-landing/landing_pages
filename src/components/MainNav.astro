@@ -1,6 +1,6 @@
 ---
 import LogoHG from './LogoHG.astro';
-import { contactConfig } from '../data/contact';
+import { CONTACT_PAGE_PATH } from '../data/contact';
 
 interface Props {
   currentPath?: string;
@@ -9,7 +9,10 @@ interface Props {
 const { currentPath = '/' } = Astro.props;
 
 const homeLink = { href: '/', label: 'Inicio' };
-const contactLink = { href: '#contacto', label: 'Contacto' };
+const contactLink = {
+  href: currentPath === '/' ? '#contacto-general' : CONTACT_PAGE_PATH,
+  label: 'Contacto'
+};
 const serviceLinks = [
   {
     href: '/gestion-de-operaciones-de-campo',
@@ -99,13 +102,6 @@ const isServicesActive = serviceLinks.some((link) => link.href === currentPath);
       </div>
 
       <div class="flex items-center gap-2">
-        <a
-          href={contactConfig.calendlyUrl}
-          class="hidden md:inline-flex items-center justify-center rounded-full border border-blue-400/25 bg-blue-500/12 px-4 py-2 text-sm font-semibold text-blue-100 transition-all duration-200 hover:border-blue-400/45 hover:bg-blue-500/18 hover:text-white"
-        >
-          Agendar
-        </a>
-
         <button
           id="main-nav-toggle"
           type="button"
@@ -160,13 +156,6 @@ const isServicesActive = serviceLinks.some((link) => link.href === currentPath);
 
         <a href={contactLink.href} class="mobile-link">
           {contactLink.label}
-        </a>
-
-        <a
-          href={contactConfig.calendlyUrl}
-          class="mobile-cta mt-3 inline-flex w-full items-center justify-center rounded-full px-4 py-3 text-sm font-semibold text-white transition-all duration-200"
-        >
-          Agendar llamada
         </a>
       </div>
     </div>

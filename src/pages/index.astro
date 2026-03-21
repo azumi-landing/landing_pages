@@ -2,14 +2,7 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 import ServiceStatusCard from '../components/molecules/ServiceStatusCard.astro';
 import ContactStrip from '../components/sections/ContactStrip.astro';
-import { buildContactHref } from '../data/contact';
 import { homeHeroBullets, homeProofPoints, homeWorkflowSteps } from '../data/home';
-
-const homeContactHref = buildContactHref({
-  service: 'arquitectura-producto-y-automatizacion',
-  originPath: '/',
-  originLabel: 'Inicio'
-});
 ---
 
 <SiteLayout
@@ -47,7 +40,7 @@ const homeContactHref = buildContactHref({
 
           <div class="flex flex-col sm:flex-row gap-4">
             <a
-              href={homeContactHref}
+              href="#contacto-general"
               class="px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-400 text-slate-950 font-bold rounded-2xl text-lg text-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-cyan-500/20"
             >
               Cuéntame tu desafío
@@ -191,9 +184,7 @@ const homeContactHref = buildContactHref({
     </section>
 
     <ContactStrip
-      service="arquitectura-producto-y-automatizacion"
-      originPath="/"
-      originLabel="Inicio"
+      ctaHref="/contacto"
       title="¿Quieres ordenar una operación, rediseñar un flujo o definir una solución digital viable?"
       description="Abrimos una conversación inicial con un formulario único. Si el caso encaja, definimos rápido si conviene consultoría, automatización o implementación."
     />

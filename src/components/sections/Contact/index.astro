@@ -80,10 +80,6 @@ const themeVars = `--service-accent: ${theme.accent}; --service-accent-alt: ${th
           <Button href={contactHref} variant="primary" size="lg" class="service-contact-submit">
             Abrir formulario
           </Button>
-          <Button href={contactConfig.calendlyUrl} variant="secondary" size="lg">
-            <i class="fas fa-calendar-alt mr-2"></i>
-            Agendar llamada
-          </Button>
         </div>
       </div>
 
@@ -98,18 +94,6 @@ const themeVars = `--service-accent: ${theme.accent}; --service-accent-alt: ${th
               <p class="text-white font-medium">WhatsApp</p>
               <a href={whatsappHref} class="service-contact-link text-slate-300 transition-colors">
                 Abrir conversación
-              </a>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center">
-              <i class="fas fa-calendar-alt text-blue-500 text-xl"></i>
-            </div>
-            <div>
-              <p class="text-white font-medium">Agenda una llamada</p>
-              <a href={contactConfig.calendlyUrl} class="service-contact-link text-slate-300 transition-colors">
-                Coordinar por Calendly
               </a>
             </div>
           </div>

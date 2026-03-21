@@ -1,10 +1,9 @@
 ---
 import '../styles/contact.css'
-import { CONTACT_PAGE_PATH, contactConfig, getWhatsAppHref } from '../../data/contact';
+import { CONTACT_PAGE_PATH, getWhatsAppHref } from '../../data/contact';
 
 // Variables de contacto - Configurar con datos reales
 const whatsappHref = getWhatsAppHref();
-const CALENDLY_URL = contactConfig.calendlyUrl;
 ---
 
 <section class="contact-page-two" id="contacto">
@@ -36,7 +35,7 @@ const CALENDLY_URL = contactConfig.calendlyUrl;
             <p class="form-instruction">Cuéntame sobre tu operación y te propongo una solución personalizada. Respondo directamente en menos de 1 hora.</p>
 
             <div class="quick-actions">
-                <a class="quick-btn primary" href={CALENDLY_URL} target="_blank">Agendar llamada 15 min</a>
+                <a class="quick-btn primary" href={CONTACT_PAGE_PATH}>Abrir formulario</a>
                 <a class="quick-btn ghost" href={whatsappHref}>Escríbeme por WhatsApp</a>
             </div>
 
