@@ -3,49 +3,57 @@ import PageLayout from '../layouts/PageLayout.astro';
 import { buildBreadcrumbSchema, buildPersonSchema } from '../data/site';
 import { CONTACT_PAGE_PATH } from '../data/contact';
 
-const experienceAreas = [
-  'Sistemas de medición y análisis energético para operaciones e infraestructura.',
-  'Automatización de procesos operativos y técnicos con trazabilidad y control.',
-  'Desarrollo de aplicaciones web y móviles conectadas a flujos reales de trabajo.',
-  'Arquitecturas en la nube con APIs, bases de datos, microservicios y analítica.',
-  'Integración de inteligencia artificial en procesos donde sí importa la supervisión.',
-  'Plataformas para operación de campo, auditoría y análisis de datos.'
+const proofStats = [
+  { value: '+10 años', label: 'diseñando operaciones digitales en sectores críticos' },
+  { value: '+5M', label: 'registros procesados en implementaciones reales' },
+  { value: '2-3 semanas', label: 'del primer contacto a operación en producción' },
+  { value: '1 persona', label: 'del diagnóstico al acompañamiento — sin intermediarios' }
 ];
 
-const engineeringPrinciples = [
+const painSignals = [
+  'Los operarios todavía trabajan con papel y las fotos se pierden en WhatsApp.',
+  'Los reportes de campo llegan días después y cada área tiene una versión distinta del dato.',
+  'Tienes un piloto de IA que funciona en el notebook pero nunca entró a producción.',
+  'La operación depende demasiado de una persona clave — y ya es un riesgo.',
+  'Probaste una herramienta genérica de formularios o field service y el equipo no la usa.',
+  'Una consultora grande cobró mucho, entregó slides, y el problema sigue ahí.'
+];
+
+const howIWork = [
   {
-    title: 'Entender el problema real antes de programar',
+    title: 'Entiendo tu operación antes de tocar código',
     description:
-      'La solución correcta casi nunca aparece cuando se empieza por la herramienta. Primero ordeno flujo, responsables, restricciones y datos críticos.'
+      'La primera conversación no es una demo. Es mapear tu flujo real: quién hace qué, dónde se rompe, qué dato importa, qué restricciones tienes. La herramienta correcta solo aparece después.'
   },
   {
-    title: 'Diseñar la arquitectura correcta antes de construir',
+    title: 'Diseño para producción, no para demo',
     description:
-      'Busco que la solución sea operable, escalable y mantenible, no solo funcional para una demo o un piloto corto.'
+      'Arquitectura operable sobre stack estándar (`Cloud Run`, `Pub/Sub`, `BigQuery`, `Airflow`, `LangGraph`, `n8n`). Queda documentada y la puede operar cualquier equipo técnico competente — incluso sin mí.'
   },
   {
-    title: 'Implementar con disciplina técnica',
+    title: 'Implemento end-to-end yo mismo',
     description:
-      'Combino criterio de ingeniería con ejecución práctica para dejar sistemas que soporten uso real, integración y evolución.'
+      'App móvil offline, backend, pipeline de datos, agente IA con guardrails. Sin pasar el proyecto entre analistas, consultores junior y desarrolladores que no hablan entre sí.'
   },
   {
-    title: 'Medir resultados con datos, no con opiniones',
+    title: 'Acompaño hasta que el equipo lo usa de verdad',
     description:
-      'Si el proceso no mejora en visibilidad, errores, tiempo o capacidad operativa, la tecnología no está resolviendo el problema.'
+      'Entregar un sistema no es el final. El indicador real es cuando el operario en terreno lo abre sin dudar, cuando el dashboard se consulta todos los días, cuando el agente IA opera con confianza.'
   }
 ];
 
 const fitExclusions = [
   'Proyectos que solo buscan “algo rápido” aunque quede mal diseñado desde el inicio.',
-  'Soluciones genéricas sin contexto operativo, sin estructura y sin criterios de escalabilidad.',
-  'Implementaciones donde la prioridad sea verse bien en demo, pero no funcionar en el mundo real.',
-  'Iniciativas sin interés en trazabilidad, control, adopción o mejora medible del proceso.'
+  'Soluciones genéricas sin contexto operativo, sin trazabilidad y sin criterio de escalabilidad.',
+  'Iniciativas donde la prioridad sea verse bien en una demo, no funcionar en el mundo real.',
+  'Compras donde el driver principal es el logo de una marca grande por tema de compliance.',
+  'Operaciones 100% indoor que no necesitan offline, trazabilidad ni integración con sistemas legados.'
 ];
 ---
 
 <PageLayout
   title="HGuerra | Sobre mí"
-  description="Perfil, formación y enfoque de HGuerra para diseñar soluciones aplicadas en operación, automatización, software y nube."
+  description="Ingeniero que diseña e implementa operaciones de campo, automatización e IA agéntica end-to-end. Sin intermediarios, en semanas, con +5M registros procesados en producción."
   path="/sobre-mi"
   image="/og-home.svg"
   bodyVariant="mixed"
@@ -53,7 +61,7 @@ const fitExclusions = [
     buildPersonSchema({
       path: '/sobre-mi',
       description:
-        'Ingeniero electricista y consultor en operación, automatización, software y nube con enfoque de ingeniería aplicada.'
+        'Ingeniero electricista y consultor especializado en operaciones de campo, automatización con IA agéntica e ingeniería de datos. Implementación directa sin intermediarios.'
     }),
     buildBreadcrumbSchema([
       { name: 'Inicio', path: '/' },
@@ -69,15 +77,30 @@ const fitExclusions = [
             Sobre Héctor Guerra
           </p>
           <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
-            Ingeniería aplicada para convertir operaciones complejas en sistemas claros, útiles y escalables
+            Si ya probaste Excel, WhatsApp o una herramienta genérica y el equipo no la usa, el problema no es la herramienta.
           </h1>
           <div class="space-y-5 text-xl leading-relaxed text-slate-300 mb-8">
             <p>
-              Desde los 13 años me interesa la tecnología, no solo por usarla, sino por entender cómo funciona, cómo se construye y cómo puede aplicarse para resolver problemas reales.
+              Soy Héctor Guerra. Diseño e implemento <strong class="text-white">operaciones de campo, automatización con IA agéntica e ingeniería de datos</strong> para empresas con procesos críticos que no pueden fallar.
             </p>
             <p>
-              Soy ingeniero electricista y actualmente curso una maestría en ingeniería de la computación. Esa base me permite trabajar entre operación, infraestructura, software, datos y nube con una lógica de ingeniería: leer el sistema completo antes de decidir qué construir, sin separar el diagnóstico del diseño, la implementación y el soporte.
+              Trabajas directamente conmigo — sin analistas, sin capas de consultora, sin discovery de tres meses. Diagnóstico, diseño, implementación y acompañamiento en la misma conversación.
             </p>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href={CONTACT_PAGE_PATH}
+              class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 px-6 py-3 text-sm font-bold text-slate-950 transition-transform hover:-translate-y-0.5"
+            >
+              Revisar mi caso en 30 min
+              <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+            <a
+              href="/#servicios"
+              class="inline-flex items-center gap-2 rounded-full border border-slate-500 px-6 py-3 text-sm font-semibold text-slate-200 hover:border-slate-300 hover:text-white"
+            >
+              Ver las tres líneas de servicio
+            </a>
           </div>
         </div>
 
@@ -93,51 +116,58 @@ const fitExclusions = [
             class="mx-auto h-56 w-56 rounded-full border-4 border-blue-400/20 object-cover"
           />
           <div class="mt-8 text-center">
-            <h2 class="text-2xl font-bold text-white">Tecnología pensada para operar en el mundo real</h2>
+            <h2 class="text-2xl font-bold text-white">Ingeniero electricista. Maestría en ingeniería de la computación.</h2>
             <p class="mt-4 text-slate-300 leading-relaxed">
-              Trabajo mejor cuando el reto cruza infraestructura, procesos, datos, automatización y adopción. Mi enfoque no es entregar piezas aisladas, sino sistemas bien pensados que ayuden a ordenar operaciones, reducir errores y sostener crecimiento.
+              Esa combinación es rara por una razón: me permite leer tu operación como sistema físico y como sistema digital a la vez. Veo dónde se rompe el flujo antes de proponer qué construir.
             </p>
           </div>
         </aside>
       </div>
     </section>
 
+    <section class="section-shell section-dark border-t border-slate-800/60">
+      <div class="page-container-wide">
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {proofStats.map((stat) => (
+            <div class="text-center lg:text-left">
+              <p class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                {stat.value}
+              </p>
+              <p class="mt-2 text-sm text-slate-400 leading-relaxed">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+        <p class="mt-10 text-center text-sm text-slate-500">
+          Sectores con los que he trabajado: agricultura y agroindustria · manufactura · minería · energía y utilities · forestal
+        </p>
+      </div>
+    </section>
+
     <section class="section-shell section-light">
       <div class="page-container-wide">
         <div class="section-intro">
-          <p class="section-eyebrow text-slate-500">Trayectoria y contexto</p>
+          <p class="section-eyebrow text-slate-500">¿Algo de esto te suena?</p>
           <h2 class="section-title text-slate-950">
-            La tecnología aquí no se trabaja como catálogo de herramientas
+            Si reconoces una de estas frases, probablemente puedo ayudarte
           </h2>
           <p class="section-copy text-slate-600">
-            A lo largo de mi trayectoria he trabajado en proyectos donde la tecnología sirve para ordenar operaciones, integrar sistemas y dar estructura a procesos que antes dependían demasiado de intervención manual.
+            Son las que escucho una y otra vez de gerentes de operaciones, jefes de planta y dueños antes de arrancar un proyecto. No son problemas de tecnología — son síntomas de un flujo operativo que nunca fue ordenado.
           </p>
         </div>
 
-        <div class="grid gap-6 md:grid-cols-2">
-          <article class="surface-card surface-panel p-8">
-            <h3 class="text-2xl font-bold text-slate-950 mb-4">Formación y forma de pensar</h3>
-            <div class="space-y-4 text-slate-700 leading-relaxed">
-              <p>
-                Mi base viene de la ingeniería eléctrica, donde aprendí a pensar en sistemas, restricciones, confiabilidad y operación. La maestría en ingeniería de la computación amplía esa base hacia software, arquitectura, datos e infraestructura digital.
-              </p>
-              <p>
-                Esa mezcla me permite moverme con naturalidad entre energía, industria, operaciones técnicas, desarrollo de software y computación en la nube sin perder el criterio de ingeniería detrás de cada decisión.
-              </p>
+        <div class="grid gap-4 md:grid-cols-2">
+          {painSignals.map((signal) => (
+            <div class="surface-card surface-panel flex items-start gap-4 p-6">
+              <span class="mt-1 text-2xl leading-none text-blue-600">“</span>
+              <p class="text-slate-700 leading-relaxed">{signal}</p>
             </div>
-          </article>
+          ))}
+        </div>
 
-          <article class="surface-card surface-panel p-8">
-            <h3 class="text-2xl font-bold text-slate-950 mb-4">Experiencia aplicada</h3>
-            <ul class="space-y-3 text-slate-700">
-              {experienceAreas.map((item) => (
-                <li class="flex items-start gap-3">
-                  <span class="mt-1 text-blue-600">•</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </article>
+        <div class="mt-10 rounded-[1.75rem] border border-blue-200 bg-blue-50 p-8 text-center">
+          <p class="text-lg text-slate-800 leading-relaxed">
+            <strong>Si alguna de estas frases se dijo en tu última reunión operativa</strong>, la primera conversación conmigo ya tiene sentido. No vengo a venderte una plataforma — vengo a entender el cuello de botella.
+          </p>
         </div>
       </div>
     </section>
@@ -145,34 +175,81 @@ const fitExclusions = [
     <section class="section-shell section-muted">
       <div class="page-container-wide">
         <div class="section-intro">
-          <p class="section-eyebrow text-slate-500">Principios de trabajo</p>
+          <p class="section-eyebrow text-slate-500">Por qué trabajo así</p>
           <h2 class="section-title text-slate-950">
-            Mi forma de construir parte de principios de ingeniería, no de improvisación
+            Llevo desde los 13 años metido en esto — y sigue importándome el mismo detalle
           </h2>
           <p class="section-copy text-slate-600">
-            Creo en la tecnología como herramienta para ordenar sistemas complejos, reducir fricción humana y dejar procesos controlados, auditables y optimizables con el tiempo.
+            No llegué a la tecnología por moda. Llegué por la pregunta de cómo funcionan las cosas y por qué se rompen. Esa pregunta sigue siendo el motor de cómo trabajo con clientes hoy: no entrego la primera solución que se ve bien; entrego la que aguanta el mundo real.
           </p>
         </div>
 
         <div class="grid gap-6 md:grid-cols-2">
-          {engineeringPrinciples.map((principle) => (
+          <article class="surface-card surface-panel p-8">
+            <h3 class="text-2xl font-bold text-slate-950 mb-4">La base técnica que tengo</h3>
+            <div class="space-y-4 text-slate-700 leading-relaxed">
+              <p>
+                Ingeniería eléctrica me enseñó a pensar en sistemas, restricciones y confiabilidad. La maestría en ingeniería de la computación me dio la capa de software, arquitectura distribuida, datos y nube.
+              </p>
+              <p>
+                Cuando un cliente me describe su problema, no estoy pensando en qué framework usar. Estoy pensando en <strong>dónde está el cuello de botella real</strong> — que casi nunca es donde el cliente cree.
+              </p>
+            </div>
+          </article>
+
+          <article class="surface-card surface-panel p-8">
+            <h3 class="text-2xl font-bold text-slate-950 mb-4">“Eres una sola persona — ¿qué pasa si te pasa algo?”</h3>
+            <div class="space-y-4 text-slate-700 leading-relaxed">
+              <p>
+                Es la objeción más honesta que recibo, y merece una respuesta honesta: trabajo sobre stack estándar y documentado (<code class="text-sm bg-slate-100 px-1.5 py-0.5 rounded">GCP</code>, <code class="text-sm bg-slate-100 px-1.5 py-0.5 rounded">Airflow</code>, <code class="text-sm bg-slate-100 px-1.5 py-0.5 rounded">LangGraph</code>, <code class="text-sm bg-slate-100 px-1.5 py-0.5 rounded">n8n</code>). Nada queda atado a una caja negra propietaria.
+              </p>
+              <p>
+                Si mañana decides operar el sistema internamente o con otro equipo, el código y los procesos están preparados para eso. Prefiero ser honesto sobre el alcance antes que inflar un equipo para quedar bien en la propuesta.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell section-light">
+      <div class="page-container-wide">
+        <div class="section-intro">
+          <p class="section-eyebrow text-slate-500">Cómo trabajo contigo</p>
+          <h2 class="section-title text-slate-950">
+            Cuatro principios que te ahorran las pesadillas típicas de los proyectos de tecnología
+          </h2>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          {howIWork.map((principle, index) => (
             <article class="surface-card surface-panel p-8">
-              <h3 class="text-2xl font-bold text-slate-950 mb-3">{principle.title}</h3>
-              <p class="text-slate-700 leading-relaxed">{principle.description}</p>
+              <div class="flex items-start gap-4 mb-3">
+                <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-lg font-bold text-blue-700">
+                  {index + 1}
+                </span>
+                <h3 class="text-2xl font-bold text-slate-950 leading-tight">{principle.title}</h3>
+              </div>
+              <p class="text-slate-700 leading-relaxed" set:html={principle.description.replace(/`([^`]+)`/g, '<code class="text-sm bg-slate-100 px-1.5 py-0.5 rounded">$1</code>')}></p>
             </article>
           ))}
         </div>
+      </div>
+    </section>
 
-        <div class="mt-10 rounded-[1.75rem] border border-red-200 bg-red-50 p-8">
-          <h3 class="text-2xl font-bold text-slate-950 mb-3">Cuándo no encajo</h3>
-          <p class="text-slate-700 mb-5">
-            Si buscas velocidad sin estructura o una solución hecha solo para salir del paso, probablemente no soy la persona indicada.
+    <section class="section-shell section-muted">
+      <div class="page-container-wide">
+        <div class="rounded-[1.75rem] border border-red-200 bg-red-50 p-10">
+          <p class="section-eyebrow text-red-700 mb-4">Honestidad por adelantado</p>
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-950 mb-4">Cuándo NO soy tu mejor opción</h2>
+          <p class="text-lg text-slate-700 mb-6 leading-relaxed">
+            Prefiero filtrar esto en cinco minutos y no en el mes dos de un proyecto. Si tu caso encaja en alguno de estos puntos, te ahorro la reunión y te lo digo directo:
           </p>
           <ul class="space-y-3 text-slate-700">
             {fitExclusions.map((item) => (
               <li class="flex items-start gap-3">
-                <span class="mt-1 text-red-600">•</span>
-                <span>{item}</span>
+                <span class="mt-1 text-red-600">✕</span>
+                <span class="leading-relaxed">{item}</span>
               </li>
             ))}
           </ul>
@@ -184,18 +261,21 @@ const fitExclusions = [
       <div class="page-container-text cta-band p-10 text-center">
         <p class="section-eyebrow justify-center text-cyan-300">Siguiente paso</p>
         <h2 class="section-title text-white">
-          Si necesitas más que una app o una web, vale la pena hablar
+          Cuéntame el cuello de botella. Te digo si puedo ayudarte antes de cobrarte nada.
         </h2>
         <p class="section-copy text-slate-300 mb-8">
-          Trabajo con empresas, instituciones y proyectos que necesitan soluciones bien diseñadas, conectadas a la operación y preparadas para crecer con el tiempo. Si ese es el tipo de reto que tienes, usemos el formulario para revisar el caso.
+          En la primera conversación (30 minutos, sin costo) mapeamos el problema, validamos si encaja con lo que hago, y si encaja te propongo cómo lo abordaría, en qué plazo y con qué alcance. Si no encaja, te lo digo en esa misma llamada — honestidad primero.
         </p>
         <a
           href={CONTACT_PAGE_PATH}
-          class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 px-6 py-3 text-sm font-bold text-slate-950 transition-transform hover:-translate-y-0.5"
+          class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 px-8 py-4 text-base font-bold text-slate-950 transition-transform hover:-translate-y-0.5"
         >
-          Abrir formulario
+          Describir mi caso
           <i class="fas fa-arrow-right text-xs"></i>
         </a>
+        <p class="mt-6 text-sm text-slate-400">
+          Respuesta en menos de 24 horas hábiles. Sin formularios eternos ni calificación automática.
+        </p>
       </div>
     </section>
   </main>

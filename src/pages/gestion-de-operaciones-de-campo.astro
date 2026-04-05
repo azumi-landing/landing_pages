@@ -1,20 +1,7 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import Hero from '../components/sections/Hero/index.astro';
-import ElProblema from '../components/sections/ElProblema/index.astro';
-import Sectores from '../components/sections/Sectores/index.astro';
-import Servicios from '../components/sections/Servicios/index.astro';
-import DiagramaProductos from '../components/sections/DiagramaProductos/index.astro';
-import Resultados from '../components/sections/Resultados/index.astro';
-import CasosDeExito from '../components/sections/CasosDeExito/index.astro';
-import Seguridad from '../components/sections/Seguridad/index.astro';
-import Diferenciacion from '../components/sections/Diferenciacion/index.astro';
-import About from '../components/sections/About/index.astro';
-import FAQ from '../components/sections/FAQ/index.astro';
-import Contact from '../components/sections/Contact/index.astro';
-import RelatedServices from '../components/sections/RelatedServices.astro';
-import { fieldOperationsTheme } from '../data/serviceThemes';
-import { fieldOperationsFaqs } from '../data/faqs';
+import ServiceLanding from '../components/templates/ServiceLanding.astro';
+import { fieldOperationsLanding } from '../data/serviceLandings';
 import {
   buildBreadcrumbSchema,
   buildFAQSchema,
@@ -23,64 +10,38 @@ import {
 
 const sectionNavItems = [
   { id: 'inicio', label: 'Inicio' },
-  { id: 'el-problema', label: 'Problema' },
-  { id: 'servicios', label: 'Qué incluye' },
+  { id: 'problema', label: 'Problema' },
+  { id: 'capacidades', label: 'Qué incluye' },
   { id: 'como-funciona', label: 'Cómo funciona' },
-  { id: 'sectores', label: 'Dónde aplica' },
-  { id: 'resultados', label: 'Resultados' },
-  { id: 'seguridad', label: 'Seguridad' },
-  { id: 'casos', label: 'Casos' },
+  { id: 'casos-aplicaciones', label: 'Casos' },
+  { id: 'prueba', label: 'Prueba' },
+  { id: 'stack', label: 'Stack' },
   { id: 'diferenciacion', label: 'Diferenciación' },
-  { id: 'about', label: 'Quién ejecuta' },
   { id: 'faq', label: 'FAQ' },
   { id: 'contacto', label: 'Contacto' }
 ];
 ---
 
 <PageLayout
-  title="HGuerra | Gestión de Operaciones de Campo"
-  description="Software personalizado para operaciones de campo. App móvil offline, dashboard web en vivo y auditoría completa con GPS y fotos."
-  path="/gestion-de-operaciones-de-campo"
-  image="/og-field-operations.svg"
+  title={fieldOperationsLanding.seoTitle}
+  description={fieldOperationsLanding.seoDescription}
+  path={fieldOperationsLanding.path}
+  image={fieldOperationsLanding.seoImage}
   bodyVariant="mixed"
   showSectionNav={true}
   sectionNavItems={sectionNavItems}
   schemas={[
     buildServiceSchema({
       name: 'Gestión de Operaciones de Campo',
-      description: 'Software personalizado para operaciones de campo con app móvil offline, dashboard web y trazabilidad operativa.',
-      path: '/gestion-de-operaciones-de-campo'
+      description: fieldOperationsLanding.seoDescription,
+      path: fieldOperationsLanding.path
     }),
     buildBreadcrumbSchema([
       { name: 'Inicio', path: '/' },
-      { name: 'Gestión de Operaciones de Campo', path: '/gestion-de-operaciones-de-campo' }
+      { name: 'Gestión de Operaciones de Campo', path: fieldOperationsLanding.path }
     ]),
-    buildFAQSchema(fieldOperationsFaqs)
+    buildFAQSchema(fieldOperationsLanding.faqs)
   ]}
 >
-  <main>
-    <Hero />
-    <ElProblema />
-    <Servicios />
-    <DiagramaProductos />
-    <Sectores />
-    <Resultados />
-    <Seguridad />
-    <CasosDeExito />
-    <Diferenciacion />
-    <About />
-    <RelatedServices currentPath="/gestion-de-operaciones-de-campo" />
-    <FAQ />
-    <Contact theme={fieldOperationsTheme} />
-  </main>
+  <ServiceLanding config={fieldOperationsLanding} />
 </PageLayout>
-
-<script>
-  import { initModal } from '../utils/modals';
-
-  if (typeof window !== 'undefined') {
-    document.addEventListener('DOMContentLoaded', () => {
-      initModal();
-    });
-  }
-</script>

@@ -1,5 +1,6 @@
 import type { ServiceLandingConfig } from '../types/serviceLanding';
-import { agenticAutomationTheme, processAutomationTheme } from './serviceThemes';
+import { agenticAutomationTheme, fieldOperationsTheme, processAutomationTheme } from './serviceThemes';
+import { fieldOperationsFaqs } from './faqs';
 
 export const agenticAutomationLanding: ServiceLandingConfig = {
   seoTitle: 'HGuerra | Automatización con IA Agéntica',
@@ -8,20 +9,21 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
   path: '/automatizacion-con-ia-agentica',
   theme: agenticAutomationTheme,
   badge: 'Agentes + Orquestación + Trazabilidad operativa',
-  title: 'Automatiza decisiones y flujos operativos con IA agéntica conectada a tus sistemas',
+  title: 'Tu piloto de IA se ve bien en demo, pero nunca entró a producción. El problema no es el modelo — es que nadie diseñó el proceso.',
   subtitle:
-    'Diseño agentes que leen contexto, consultan datos, usan herramientas y ejecutan acciones con supervisión humana cuando hace falta. No vendo demos aisladas: construyo automatización útil para operaciones y equipos de TI.',
+    'Diseño e implemento agentes con `LangGraph` y `n8n` que leen contexto, consultan datos, usan herramientas y ejecutan acciones con supervisión humana. No vendo demos aisladas: construyo automatización útil que opera en producción con guardrails, trazabilidad y control.',
   benefits: [
     'Menos trabajo manual para priorizar, clasificar y responder',
     'Decisiones automatizadas con trazabilidad y control',
     'Integración real con tus fuentes de datos, APIs y workflows'
   ],
   metrics: [
-    { value: 'De lectura manual a flujo orquestado', label: 'decisiones repetitivas automatizadas' },
-    { value: 'Contexto + herramientas + guardrails', label: 'agentes operando con control' },
-    { value: 'Observabilidad end-to-end', label: 'cada acción queda trazada' }
+    { value: '+10 años', label: 'diseñando operaciones digitales y automatización' },
+    { value: '+5M', label: 'registros procesados en implementaciones reales' },
+    { value: '2-3 sem', label: 'del primer contacto a operación productiva' },
+    { value: 'Guardrails', label: 'human-in-the-loop y observabilidad por defecto' }
   ],
-  primaryCtaLabel: 'Revisar mi flujo',
+  primaryCtaLabel: 'Revisar mi flujo en 30 min',
   primaryCtaHref: '#contacto',
   secondaryCtaLabel: 'Ver cómo funciona',
   secondaryCtaHref: '#como-funciona',
@@ -31,33 +33,33 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
   problemCards: [
     {
       icon: 'fa-envelope-open-text',
-      title: 'Correos, tickets y solicitudes que alguien debe leer uno por uno',
-      description: 'La clasificación y priorización sigue siendo manual, lenta y dependiente de la experiencia de pocas personas.'
+      title: 'Alguien lee correos y tickets uno por uno para clasificarlos',
+      description: 'La priorización sigue siendo manual, lenta y dependiente de pocas personas que "saben" cómo escalar.'
     },
     {
       icon: 'fa-comments',
-      title: 'Prompts sueltos sin conexión con la operación',
-      description: 'El equipo prueba IA en chats o copilots, pero nada queda integrado al flujo real ni genera acciones confiables.'
+      title: 'Probamos ChatGPT para triage y nadie lo usa dos veces',
+      description: 'El equipo probó IA en chats o copilots, pero nada quedó integrado al flujo real ni genera acciones confiables.'
     },
     {
       icon: 'fa-triangle-exclamation',
-      title: 'Alertas que solo generan ruido',
-      description: 'Hay eventos, anomalías o incidencias, pero no un mecanismo claro que interprete contexto y active el siguiente paso.'
+      title: 'Las alertas llegan, pero nadie sabe qué hacer con ellas',
+      description: 'Hay eventos y anomalías, pero no un mecanismo que interprete contexto y active el siguiente paso sin intervención manual.'
     },
     {
       icon: 'fa-diagram-project',
-      title: 'Procesos que requieren varias decisiones seguidas',
-      description: 'Reglas simples ya no alcanzan cuando hay que consultar fuentes distintas, evaluar condiciones y decidir con contexto.'
+      title: 'Reglas simples ya no alcanzan para decidir',
+      description: 'El proceso necesita consultar varias fuentes, evaluar condiciones y tomar rutas distintas según contexto — y eso hoy lo hace una persona.'
     },
     {
       icon: 'fa-user-clock',
-      title: 'Analistas ocupados en tareas repetitivas',
-      description: 'El tiempo valioso se consume en revisar, resumir, copiar, etiquetar y escalar información entre herramientas.'
+      title: 'Los analistas pasan el día clasificando, copiando y escalando',
+      description: 'El tiempo valioso se consume en tareas repetitivas que un agente con contexto y herramientas podría resolver en segundos.'
     },
     {
       icon: 'fa-shield-halved',
-      title: 'Temor legítimo a automatizar sin control',
-      description: 'Si no hay guardrails, aprobaciones y observabilidad, cualquier automatización inteligente se vuelve un riesgo operativo.'
+      title: '"¿Y si la IA se equivoca en algo crítico?"',
+      description: 'Temor legítimo. Sin guardrails, aprobaciones y observabilidad, cualquier automatización inteligente se vuelve un riesgo operativo.'
     }
   ],
   riskTitle: 'El riesgo de improvisar con IA',
@@ -389,15 +391,23 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
       subtitle: 'No se queda en un chat',
       description: 'Los agentes leen y escriben en tus herramientas, disparan flujos y devuelven resultados útiles al negocio.',
       highlight: 'La IA termina trabajo, no solo responde'
+    },
+    {
+      icon: 'fa-handshake',
+      title: 'Trabajas directo conmigo — sin intermediarios',
+      subtitle: 'Stack estándar, código operable',
+      description: 'Una sola persona del diagnóstico al deploy. El código queda documentado sobre `GCP`, `LangGraph`, `n8n` — operable por cualquier equipo técnico si decides continuar sin mí.',
+      highlight: '+10 años y +5M registros en implementaciones reales'
     }
   ],
-  notIdealTitle: 'Para quién NO es la mejor opción',
-  notIdealIntro: 'Esta línea no es la mejor elección si buscas lo siguiente:',
+  notIdealTitle: 'Cuándo NO soy tu mejor opción',
+  notIdealIntro: 'Prefiero filtrar esto en cinco minutos y no en el mes dos del proyecto. Si tu caso encaja en alguno de estos puntos, te lo digo directo:',
   notIdealItems: [
-    'Un chatbot genérico sin integración con tus procesos',
-    'Automatizar decisiones sensibles sin revisión ni trazabilidad',
-    'Un piloto de IA sin intención de llevarlo a operación',
-    'Resolver un problema que todavía puede cubrirse mejor con reglas simples'
+    'Buscas un chatbot genérico sin integración con tus procesos ni datos.',
+    'Quieres automatizar decisiones sensibles sin revisión humana ni trazabilidad.',
+    'Necesitas un piloto de IA para mostrar en una reunión, sin intención de llevarlo a producción.',
+    'El problema se resuelve mejor con reglas simples — y preferís no complicarlo.',
+    'El driver principal de la compra es el logo de una marca grande, no que la solución funcione.'
   ],
   execution: {
     eyebrow: 'Quién ejecuta',
@@ -442,15 +452,15 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
   ],
   contact: {
     eyebrow: 'Diagnóstico de automatización con IA',
-    title: 'Identifiquemos un flujo candidato para agentic automation',
+    title: 'Cuéntame el flujo que quieres automatizar. Te digo si puedo ayudarte antes de cobrarte nada.',
     description:
-      'Revisamos un proceso real de tu operación, detectamos dónde un agente sí aporta valor y definimos una primera arquitectura con control, integración y métricas.',
+      'En la primera conversación (30 minutos, sin costo) mapeamos el flujo, validamos si un agente aporta valor real, y si encaja te propongo cómo lo abordaría. Si no encaja, te lo digo en esa misma llamada.',
     detailsTitle: 'En esta conversación revisamos:',
     detailsItems: [
       'Qué parte del flujo hoy sigue dependiendo de lectura, clasificación o decisiones manuales',
       'Dónde conviene usar agentes y dónde bastan reglas o automatización tradicional',
       'Qué datos, herramientas y aprobaciones necesita la solución para operar con control',
-      'Cuál sería una primera arquitectura viable para llevarlo a producción'
+      'Si mi enfoque encaja o no — si no encaja, te lo digo en esa misma llamada'
     ],
     topics: [
       { value: '', label: 'Selecciona el tipo de flujo o necesidad', disabled: true, selected: true },
@@ -474,20 +484,21 @@ export const processAutomationLanding: ServiceLandingConfig = {
   path: '/automatizacion-de-procesos',
   theme: processAutomationTheme,
   badge: 'Procesos + Datos + Integración operativa',
-  title: 'Automatiza procesos críticos con datos confiables, reglas claras y ejecución trazable',
+  title: 'Tus procesos críticos viven en Excel, correos y cargas manuales — y cada persona clave que renuncia se lleva el "cómo se hace".',
   subtitle:
-    'Diseño automatizaciones robustas para procesos que hoy dependen de Excel, correos, cargas manuales y demasiados pasos invisibles. Integro datos, sistemas y reglas para que la operación avance con menos fricción y más control.',
+    'Diseño automatizaciones robustas con `Airflow`, `BigQuery` y `Cloud Run` para procesos que hoy dependen de scripts sueltos, pasos invisibles y demasiada intervención manual. Integro datos, sistemas y reglas para que la operación avance con trazabilidad, monitoreo y sin depender de una persona clave.',
   benefits: [
     'Menos retrabajo y menos dependencia de tareas manuales',
     'Datos listos para operar y decidir, no solo para reportar',
     'Procesos trazables, monitoreados y preparados para escalar'
   ],
   metrics: [
-    { value: 'De scripts sueltos a orquestación visible', label: 'procesos críticos con control' },
-    { value: 'SQL + NoSQL + ETL/ELT', label: 'datos alineados al flujo operativo' },
-    { value: 'Alertas y trazabilidad', label: 'errores detectados antes de escalar' }
+    { value: '+10 años', label: 'diseñando operaciones digitales y pipelines de datos' },
+    { value: '+5M', label: 'registros procesados en implementaciones reales' },
+    { value: '2-3 sem', label: 'del primer contacto a operación productiva' },
+    { value: 'Monitoreo', label: 'alertas, calidad de datos y trazabilidad por defecto' }
   ],
-  primaryCtaLabel: 'Revisar mi proceso',
+  primaryCtaLabel: 'Revisar mi proceso en 30 min',
   primaryCtaHref: '#contacto',
   secondaryCtaLabel: 'Ver cómo funciona',
   secondaryCtaHref: '#como-funciona',
@@ -497,33 +508,33 @@ export const processAutomationLanding: ServiceLandingConfig = {
   problemCards: [
     {
       icon: 'fa-file-excel',
-      title: 'Procesos críticos que viven en hojas y correos',
-      description: 'Cada actualización depende de copiar, pegar, consolidar o reenviar información entre personas y áreas.'
+      title: 'El proceso crítico vive en un Excel que “solo Juan sabe usar”',
+      description: 'Cada actualización depende de copiar, pegar, consolidar o reenviar información entre personas y áreas. Si Juan se va, el proceso se frena.'
     },
     {
       icon: 'fa-shuffle',
-      title: 'Sistemas que no se integran de forma confiable',
-      description: 'La operación salta entre ERP, CRM, app, base de datos y reportes sin una capa clara de sincronización.'
+      title: 'El ERP, el CRM y la base de datos no se hablan entre sí',
+      description: 'La operación salta entre sistemas sin una capa clara de sincronización. Alguien consolida a mano — y ese “alguien” ya está saturado.'
     },
     {
       icon: 'fa-bug',
-      title: 'ETL frágil o invisible',
-      description: 'Las cargas funcionan hasta que fallan, y cuando fallan nadie sabe rápido dónde se rompió el flujo ni qué quedó inconsistente.'
+      title: 'El ETL funciona... hasta que falla y nadie se entera',
+      description: 'Las cargas corren en silencio hasta que se rompen, y cuando fallan nadie sabe rápido dónde ni qué quedó inconsistente.'
     },
     {
       icon: 'fa-database',
-      title: 'Datos distintos según el área que los mire',
-      description: 'Finanzas, operaciones y analítica terminan trabajando con versiones parciales o contradictorias del mismo proceso.'
+      title: 'Cada área tiene una versión distinta del mismo dato',
+      description: 'Finanzas, operaciones y analítica trabajan con versiones parciales o contradictorias. “¿Cuál es el dato correcto?” — depende de a quién le preguntes.'
     },
     {
       icon: 'fa-user-gear',
-      title: 'Dependencia excesiva de personas clave',
+      title: 'Si la persona clave renuncia, el proceso se muere',
       description: 'El conocimiento operativo queda en quien armó el script, conoce el orden correcto o sabe cómo “arreglarlo” manualmente.'
     },
     {
       icon: 'fa-hourglass-half',
-      title: 'Decisiones tardías por falta de flujo confiable',
-      description: 'Cuando el dato llega tarde o mal, la automatización no acelera: solo mueve el problema a otra parte.'
+      title: 'Las decisiones llegan tarde porque el dato llega tarde',
+      description: 'Cuando la información no fluye, la automatización no acelera — solo traslada el cuello de botella a otra parte.'
     }
   ],
   riskTitle: 'El costo de no estructurar bien el proceso',
@@ -855,15 +866,23 @@ export const processAutomationLanding: ServiceLandingConfig = {
       subtitle: 'No se queda en mover datos',
       description: 'La automatización deja una base sobre la que luego puedes activar alertas, scoring, predicción o agentes.',
       highlight: 'El proceso mejora hoy y habilita capacidades mañana'
+    },
+    {
+      icon: 'fa-handshake',
+      title: 'Trabajas directo conmigo — sin intermediarios',
+      subtitle: 'Stack estándar, código operable',
+      description: 'Una sola persona del diagnóstico al deploy. El código queda documentado sobre `Airflow`, `BigQuery`, `Cloud Run` — operable por cualquier equipo técnico si decides continuar sin mí.',
+      highlight: '+10 años y +5M registros en implementaciones reales'
     }
   ],
-  notIdealTitle: 'Para quién NO es la mejor opción',
-  notIdealIntro: 'Esta línea no es la mejor elección si lo que buscas es:',
+  notIdealTitle: 'Cuándo NO soy tu mejor opción',
+  notIdealIntro: 'Prefiero filtrar esto en cinco minutos y no en el mes dos del proyecto. Si tu caso encaja en alguno de estos puntos, te lo digo directo:',
   notIdealItems: [
-    'Un script rápido sin intención de mantenimiento ni monitoreo',
-    'Mover datos entre dos puntos sin revisar calidad ni reglas de negocio',
-    'Centralizar todo en una sola tecnología por comodidad, aunque no encaje',
-    'Resolver un problema de producto o adopción solo con backend y pipelines'
+    'Buscas un script rápido sin intención de mantenimiento, monitoreo ni documentación.',
+    'Quieres mover datos entre dos puntos sin revisar calidad ni reglas de negocio.',
+    'La prioridad es centralizar todo en una sola tecnología por comodidad, aunque no encaje.',
+    'El problema es de producto o adopción y crees que solo con backend y pipelines se resuelve.',
+    'El driver principal de la compra es el logo de una marca grande, no que la automatización funcione.'
   ],
   execution: {
     eyebrow: 'Quién ejecuta',
@@ -908,15 +927,15 @@ export const processAutomationLanding: ServiceLandingConfig = {
   ],
   contact: {
     eyebrow: 'Diagnóstico de automatización de procesos',
-    title: 'Revisemos un proceso crítico que hoy esté frenando tu operación',
+    title: 'Cuéntame qué proceso te tiene frenado. Te digo si puedo ayudarte antes de cobrarte nada.',
     description:
-      'Mapeamos el flujo actual, detectamos cuellos de botella y definimos una automatización con datos confiables, monitoreo y una arquitectura que puedas sostener.',
+      'En la primera conversación (30 minutos, sin costo) mapeamos el flujo actual, detectamos el cuello de botella y validamos si encaja con lo que hago. Si no encaja, te lo digo en esa misma llamada.',
     detailsTitle: 'En esta conversación revisamos:',
     detailsItems: [
       'Dónde se rompen hoy los datos, las integraciones o las dependencias del proceso',
       'Qué parte conviene orquestar, validar o monitorear primero',
       'Cómo estructurar datos, reglas y ejecución sin dejar una automatización frágil',
-      'Qué arquitectura te deja una base mantenible para crecer después'
+      'Si mi enfoque encaja o no — si no encaja, te lo digo en esa misma llamada'
     ],
     topics: [
       { value: '', label: 'Selecciona el proceso o necesidad', disabled: true, selected: true },
@@ -930,5 +949,455 @@ export const processAutomationLanding: ServiceLandingConfig = {
     formTitle: 'Cuéntame de tu proceso crítico',
     detailPlaceholder: '¿Qué proceso hoy depende de tareas manuales, archivos, correos o integraciones frágiles?',
     source: 'automatizacion-de-procesos'
+  }
+};
+
+export const fieldOperationsLanding: ServiceLandingConfig = {
+  seoTitle: 'HGuerra | Gestión de Operaciones de Campo',
+  seoDescription: 'App móvil offline + dashboard web + trazabilidad auditable con GPS y fotos. Implementación directa en 2-3 semanas. +5M registros procesados en producción.',
+  seoImage: '/og-field-operations.svg',
+  path: '/gestion-de-operaciones-de-campo',
+  theme: fieldOperationsTheme,
+  badge: 'Operaciones de campo + Offline real + Trazabilidad auditable',
+  title: 'Tus operarios capturan en papel, las fotos se pierden en WhatsApp y los reportes llegan días tarde. La operación es una caja negra.',
+  subtitle:
+    'Diseño e implemento app móvil offline + dashboard web + trazabilidad con GPS, fotos y firma digital para que sepas qué pasa en campo en tiempo real. Trabajas directo conmigo — sin intermediarios, en producción en 2-3 semanas.',
+  benefits: [
+    '-60% errores de captura con validaciones y evidencia obligatoria',
+    'Visibilidad de la operación en vivo, no cuando alguien manda el reporte',
+    'Auditorías sin hallazgos: GPS + foto + timestamp + firma en cada registro'
+  ],
+  metrics: [
+    { value: '+5M', label: 'registros procesados en implementaciones reales' },
+    { value: '-60%', label: 'errores de captura en las primeras 3 semanas' },
+    { value: '2-3 sem', label: 'del primer contacto a operación productiva' },
+    { value: '+10 años', label: 'diseñando operaciones digitales en campo' }
+  ],
+  primaryCtaLabel: 'Revisar mi operación en 30 min',
+  primaryCtaHref: '#contacto',
+  secondaryCtaLabel: 'Ver cómo funciona',
+  secondaryCtaHref: '#como-funciona',
+  problemTitle: '¿Tu operación de campo sigue siendo una caja negra?',
+  problemSubtitle:
+    'El supervisor llama al operario: "¿Ya inspeccionaste la línea 3? ¿Enviaste las fotos?". El operario: "Sí, jefe, las mandé por WhatsApp hace una hora... ¿o era a la otra supervisora?". Si esa conversación te suena familiar, este es tu problema.',
+  problemCards: [
+    {
+      icon: 'fa-clock',
+      title: 'Los reportes de campo llegan días después',
+      description: 'Cuando la información llega, ya no sirve para corregir. Las decisiones se toman con datos desactualizados o incompletos.'
+    },
+    {
+      icon: 'fa-image',
+      title: 'Las fotos se pierden en WhatsApp',
+      description: 'Fotos sin contexto, sin GPS, sin timestamp, revueltas entre chats personales. Imposible auditar ni reconstruir qué pasó.'
+    },
+    {
+      icon: 'fa-phone-slash',
+      title: 'Los supervisores viven al teléfono',
+      description: 'El 30% de su tiempo se va en llamadas de seguimiento que no deberían existir. Eso no es supervisión — es apagar fuegos.'
+    },
+    {
+      icon: 'fa-user-gear',
+      title: 'La operación depende de una persona clave',
+      description: 'El conocimiento de quién hace qué, dónde y cuándo vive en la cabeza de alguien. Si esa persona falta, la operación se frena.'
+    },
+    {
+      icon: 'fa-triangle-exclamation',
+      title: 'Las auditorías nos encuentran sin trazabilidad',
+      description: 'Cada revisión externa es una ruleta rusa de no-conformidades por falta de evidencia. "¿Quién hizo qué y cuándo?" — silencio incómodo.'
+    },
+    {
+      icon: 'fa-wifi',
+      title: 'Trabajamos en zonas sin internet y los datos se pierden',
+      description: 'Minas, bosques, fincas. Sin cobertura, los datos se capturan en papel y se transcriben después — con errores, duplicados y semanas de atraso.'
+    }
+  ],
+  riskTitle: 'El riesgo de no actuar',
+  riskDescription:
+    'Una auditoría externa, un incidente de seguridad o un reclamo legal puede exponer que tu trazabilidad no existe cuando más la necesitas. Mientras tanto, cada foto que se pierde, cada reporte que llega tarde y cada decisión con datos viejos te cuesta dinero real.',
+  capabilitiesTitle: 'Qué incluyo en una solución de operaciones de campo',
+  capabilitiesSubtitle:
+    'No entrego una app genérica. Diseño la solución completa: captura, sincronización, trazabilidad, integración, dashboard y acompañamiento hasta que tu equipo la use de verdad.',
+  capabilities: [
+    {
+      icon: 'fa-mobile-alt',
+      title: 'App móvil offline-first para tu equipo en terreno',
+      pain: 'Operarios con planillas de papel, fotos perdidas en WhatsApp y datos incompletos que llegan días después.',
+      solution: 'App intuitiva donde reciben asignaciones, capturan datos estructurados, toman fotos con GPS y firman digitalmente — todo sin internet.',
+      outcome: '-60% errores de captura y evidencia completa desde el momento del registro en campo.',
+      bullets: [
+        'Captura offline completa: fotos, formularios, firmas',
+        'Sincronización automática al detectar red',
+        'Validaciones en campo que evitan datos incompletos',
+        'Diseñada para operarios, no para técnicos de IT'
+      ]
+    },
+    {
+      icon: 'fa-bolt',
+      title: 'Órdenes de servicio desde alarmas y series de tiempo',
+      pain: 'Las alarmas generan trabajo de campo, pero la asignación es manual, lenta y sin seguimiento.',
+      solution: 'Las órdenes se crean automáticamente desde alarmas SCADA/IoT o manualmente. Se asignan al operario más cercano o disponible.',
+      outcome: 'Tiempo de respuesta de horas a minutos. Cero órdenes perdidas. Ruta optimizada.',
+      bullets: [
+        'Generación automática desde alarmas y series de tiempo',
+        'Asignación por proximidad, habilidad y carga de trabajo',
+        'Escalamiento si no hay respuesta en tiempo definido',
+        'Programación de rutas y visitas preventivas'
+      ]
+    },
+    {
+      icon: 'fa-chart-line',
+      title: 'Dashboard web con KPIs operativos en vivo',
+      pain: 'Reportes de campo que tardan días en llegar. Decisiones basadas en datos viejos sin visibilidad del momento.',
+      solution: 'Plataforma web donde supervisores y gerencia ven métricas en vivo: avance, cumplimiento, MTTR, cobertura geográfica.',
+      outcome: 'Decisiones informadas en el momento, con datos que se actualizan automáticamente desde la app móvil.',
+      bullets: [
+        'KPIs configurables por rol y operación',
+        'Mapa de calor de cobertura de campo',
+        'Alertas automáticas por desviaciones',
+        'Exportación de reportes en un clic'
+      ]
+    },
+    {
+      icon: 'fa-clipboard-check',
+      title: 'Trazabilidad inmutable con GPS, fotos y firma',
+      pain: 'Sin registro de quién hizo qué, cuándo y dónde. Evidencia perdida o manipulada. Auditorías con hallazgos.',
+      solution: 'Cada registro queda con timestamp, GPS, fotos obligatorias y firma digital. La trazabilidad no es opcional — es el default.',
+      outcome: 'Auditorías sin hallazgos, cumplimiento normativo demostrable y respaldo legal de cada operación.',
+      bullets: [
+        'Registro automático de fecha, hora y ubicación GPS',
+        'Fotos obligatorias con metadatos preservados',
+        'Firma digital del operario y del cliente',
+        'Historial inmutable de cambios y evidencia'
+      ]
+    },
+    {
+      icon: 'fa-plug',
+      title: 'Integración con tu ERP, SAP y sistemas actuales',
+      pain: 'Plataformas aisladas que no hablan con tu ERP o sistema de facturación. Doble trabajo de migración.',
+      solution: 'APIs REST para sincronizar clientes, activos, órdenes de trabajo y resultados con tus sistemas existentes.',
+      outcome: 'Ecosistema unificado sin romper lo que ya funciona. Datos fluyen entre campo y oficina central.',
+      bullets: [
+        'APIs REST documentadas para integraciones',
+        'Conectores SAP, Salesforce, Oracle',
+        'Sincronización bidireccional de datos',
+        'Single Sign-On (SSO) con tus credenciales'
+      ]
+    },
+    {
+      icon: 'fa-cloud',
+      title: 'Arquitectura operable en GCP',
+      pain: 'Soluciones que funcionan como piloto pero no aguantan operación real: sin monitoreo, sin escalabilidad, sin seguridad.',
+      solution: 'Despliego sobre `Cloud Run`, `Pub/Sub`, `Firestore`, `BigQuery` y `Cloud Logging` para una base que aguante producción.',
+      outcome: 'La solución queda lista para operar, escalar y ser mantenida por cualquier equipo técnico competente.',
+      bullets: [
+        'Cloud Run para servicios backend',
+        'Pub/Sub para eventos y sincronización',
+        'Firestore para datos offline/online',
+        'BigQuery y Logging para auditoría y análisis'
+      ]
+    }
+  ],
+  workflowTitle: 'Cómo funciona la solución de punta a punta',
+  workflowSubtitle:
+    'Desde que el operario recibe la asignación en su celular hasta que el gerente ve el dato en el dashboard — todo conectado, trazable y sin intervención manual.',
+  workflow: [
+    {
+      id: 'captura',
+      title: '1. CAPTURA EN TERRENO',
+      description: 'El operario recibe la asignación y captura datos, fotos y firmas desde la app — con o sin internet',
+      level: 1,
+      highlight: 'blue',
+      icon: 'fa-mobile-alt',
+      items: [
+        { icon: 'fa-list-check', text: 'Formularios guiados y validados' },
+        { icon: 'fa-camera', text: 'Fotos con GPS y timestamp' },
+        { icon: 'fa-file-signature', text: 'Firma digital del operario' }
+      ]
+    },
+    {
+      id: 'sincronizacion',
+      title: '2. SINCRONIZACIÓN OFFLINE',
+      description: 'Al detectar red, la app sincroniza automáticamente sin pérdida ni duplicados',
+      level: 2,
+      highlight: 'green',
+      icon: 'fa-arrows-rotate',
+      items: [
+        { icon: 'fa-wifi', text: 'Detección automática de red' },
+        { icon: 'fa-shield-halved', text: 'Resolución de conflictos' },
+        { icon: 'fa-database', text: 'Persistencia local completa' }
+      ]
+    },
+    {
+      id: 'validacion',
+      title: '3. VALIDACIÓN Y ORQUESTACIÓN',
+      description: 'El backend valida datos, dispara alertas y genera órdenes desde alarmas o series de tiempo',
+      level: 3,
+      highlight: 'yellow',
+      icon: 'fa-gears',
+      items: [
+        { icon: 'fa-circle-check', text: 'Validaciones automáticas' },
+        { icon: 'fa-bell', text: 'Alarmas que generan órdenes' },
+        { icon: 'fa-bolt', text: 'Asignación inteligente' },
+        { icon: 'fa-triangle-exclamation', text: 'Escalamiento por SLA' }
+      ]
+    },
+    {
+      id: 'integracion',
+      title: '4. PERSISTENCIA E INTEGRACIÓN',
+      description: 'Los datos se almacenan con trazabilidad y se sincronizan con ERP, SAP y sistemas existentes',
+      level: 4,
+      highlight: 'purple',
+      icon: 'fa-database',
+      items: [
+        { icon: 'fa-server', text: 'Firestore + Cloud SQL' },
+        { icon: 'fa-chart-line', text: 'BigQuery para analítica' },
+        { icon: 'fa-plug', text: 'APIs REST hacia ERP/SAP' },
+        { icon: 'fa-share-nodes', text: 'Webhooks y eventos' }
+      ]
+    },
+    {
+      id: 'operacion',
+      title: '5. DASHBOARD Y AUDITORÍA',
+      description: 'Supervisores y gerencia ven la operación en vivo con KPIs, mapas y evidencia auditable',
+      level: 5,
+      highlight: 'orange',
+      icon: 'fa-chart-column',
+      items: [
+        { icon: 'fa-gauge-high', text: 'KPIs: MTTR, cobertura, cumplimiento' },
+        { icon: 'fa-map-location-dot', text: 'Mapa de operaciones en vivo' },
+        { icon: 'fa-file-lines', text: 'Evidencia auditable por registro' },
+        { icon: 'fa-download', text: 'Exportación de reportes' }
+      ]
+    }
+  ],
+  casesTitle: 'Dónde encaja mejor este servicio',
+  casesSubtitle:
+    'Casos operativos donde la combinación de app móvil offline, trazabilidad y dashboard resuelve un problema que herramientas genéricas no pudieron.',
+  cases: [
+    {
+      icon: 'fa-file-alt',
+      label: 'Evidencias',
+      title: 'Procesamiento masivo de evidencias sin intervención manual',
+      challenge: 'Revisión manual de millones de archivos con riesgo de error y tiempos de días.',
+      approach: 'App móvil para registro en campo (fotos, GPS) + plataforma web para supervisión. Validaciones automáticas y auditoría completa.',
+      result: '+5,000,000 archivos procesados con validaciones automáticas. Revisión baja de días a minutos.',
+      stack: 'AppSheet → Cloud Run → Eventarc → Cloud SQL'
+    },
+    {
+      icon: 'fa-search-location',
+      label: 'Inspecciones',
+      title: 'Inspecciones sin errores con captura obligatoria y trazabilidad',
+      challenge: 'Datos incompletos y errores en inspecciones manuales sin trazabilidad por activo.',
+      approach: 'App móvil con formularios inteligentes, fotos y GPS obligatorios. Sync offline/online. Dashboard con métricas en tiempo real.',
+      result: '-60% errores de captura en 3 semanas. Trazabilidad completa por activo.',
+      stack: 'Flutter + Firebase/GCP + Serverless sync'
+    },
+    {
+      icon: 'fa-hard-hat',
+      label: 'Seguridad minera',
+      title: 'Inspecciones de seguridad con evidencia completa y alertas automáticas',
+      challenge: 'Inspecciones de seguridad en zonas remotas sin evidencia confiable y reportes que tardan días.',
+      approach: 'App móvil offline-first para zonas sin cobertura, checklist de seguridad, fotos georreferenciadas y alertas automáticas al sincronizar.',
+      result: '100% inspecciones con evidencia georreferenciada. Alertas críticas en minutos, no días.',
+      stack: 'Flutter + Cloud Functions + Pub/Sub + BigQuery'
+    },
+    {
+      icon: 'fa-seedling',
+      label: 'Agro',
+      title: 'Control de insumos y certificaciones sin errores de inventario',
+      challenge: 'Control manual de insumos agrícolas con errores frecuentes en inventarios y certificaciones sin trazabilidad.',
+      approach: 'App móvil para registro de insumos en campo (QR, fotos, GPS) y plataforma web para trazabilidad completa y reportes de certificación.',
+      result: 'Trazabilidad completa de insumos por lote y parcela. Certificaciones con evidencia auditable.',
+      stack: 'Flutter + Firebase + Airflow ETL + BigQuery'
+    }
+  ],
+  proofTitle: 'Prueba de valor y señales de confianza',
+  proofSubtitle:
+    'La propuesta no se sostiene por la tecnología detrás. Se sostiene por lo que el equipo en terreno usa, lo que el supervisor ve y lo que el auditor encuentra.',
+  proofMetrics: [
+    {
+      value: 'Offline real',
+      label: 'captura completa sin red, sin pérdida ni duplicados',
+      detail: 'No es un "modo offline" parcial. La app está construida desde cero para operar 100% sin internet.'
+    },
+    {
+      value: 'Trazable',
+      label: 'GPS + foto + timestamp + firma en cada registro',
+      detail: 'No es opcional. Cada captura incluye evidencia inmutable automáticamente — el operario no puede "olvidar" la foto.'
+    },
+    {
+      value: 'Integrado',
+      label: 'conectado a tu ERP, SAP y sistemas existentes',
+      detail: 'APIs REST documentadas. La plataforma no vive aislada — los datos fluyen entre campo y oficina central.'
+    }
+  ],
+  proofPoints: [
+    {
+      icon: 'fa-wifi',
+      title: 'Funciona donde no hay señal',
+      description: 'Minas, bosques, fincas remotas. El equipo captura todo normalmente y al detectar red, sincroniza sin intervención.'
+    },
+    {
+      icon: 'fa-fingerprint',
+      title: 'Evidencia inmutable por defecto',
+      description: 'GPS, fotos, timestamp y firma digital se registran automáticamente. Sin atajos, sin manipulación posible.'
+    },
+    {
+      icon: 'fa-handshake',
+      title: 'Implementación directa, sin intermediarios',
+      description: 'Trabajas conmigo desde el diagnóstico hasta que el equipo en campo lo está usando. Sin capas comerciales ni rotación de consultores.'
+    }
+  ],
+  trustBand: {
+    eyebrow: 'Señales de relación',
+    title: 'Operaciones de campo con trazabilidad real, no con una app genérica de formularios',
+    description:
+      'La diferencia no está en tener una app. Está en conectar campo, oficina y trazabilidad dentro de una operación que sí se puede sostener.',
+    items: [
+      {
+        value: 'Offline-first real',
+        label: 'diseñado para zonas sin cobertura, no como feature añadido.'
+      },
+      {
+        value: 'Trazabilidad inmutable',
+        label: 'GPS + foto + timestamp + firma son el default, no una opción.'
+      },
+      {
+        value: 'Conectado',
+        label: 'integración con ERP, SAP y sistemas existentes vía APIs REST.'
+      },
+      {
+        value: 'Directo',
+        label: 'diagnóstico, implementación y acompañamiento se trabajan en la misma conversación.'
+      }
+    ]
+  },
+  stackTitle: 'Stack y arquitectura que aplico para operaciones de campo',
+  stackSubtitle:
+    'La elección tecnológica depende del caso, pero la arquitectura siempre prioriza offline, trazabilidad, integración y operabilidad.',
+  stackGroups: [
+    {
+      icon: 'fa-mobile-alt',
+      title: 'App móvil',
+      description: 'Captura en terreno con soporte offline completo.',
+      items: [
+        'Flutter para iOS y Android nativos',
+        'SQLite local para persistencia offline',
+        'Sincronización automática con resolución de conflictos'
+      ]
+    },
+    {
+      icon: 'fa-server',
+      title: 'Backend',
+      description: 'Servicios, eventos y lógica de negocio.',
+      items: [
+        'Cloud Run para APIs y workers',
+        'Pub/Sub para eventos y sincronización',
+        'Firestore para estados y datos en tiempo real'
+      ]
+    },
+    {
+      icon: 'fa-database',
+      title: 'Datos y analítica',
+      description: 'Almacenamiento, transformación y reporte.',
+      items: [
+        'BigQuery para analítica e histórico',
+        'Cloud SQL cuando el flujo pide SQL relacional',
+        'Dataform para transformaciones limpias'
+      ]
+    },
+    {
+      icon: 'fa-chart-column',
+      title: 'Observabilidad',
+      description: 'Monitoreo, alertas y auditoría de la operación.',
+      items: [
+        'Cloud Logging para auditoría de eventos',
+        'Alertas configurables por SLA y desviaciones',
+        'Dashboard con KPIs operativos: MTTR, cobertura, cumplimiento'
+      ]
+    }
+  ],
+  differentiationTitle: '¿Qué hace útil este enfoque frente a una herramienta genérica de formularios?',
+  differentiationSubtitle:
+    'La diferencia no está en "tener una app". Está en que la operación completa — captura, trazabilidad, integración y adopción — funcione de verdad.',
+  differentiators: [
+    {
+      icon: 'fa-user-tie',
+      title: 'No soy un software genérico — soy un especialista que implementa',
+      subtitle: 'La solución se diseña para tu flujo, no al revés',
+      description: 'No vendo licencias y desaparezco. Diseño tu operación específica y acompaño la adopción con tu equipo de campo hasta que funcione.',
+      highlight: 'Implementación en 2-3 semanas, no 6+ meses'
+    },
+    {
+      icon: 'fa-wifi',
+      title: 'Offline-first de verdad, no un feature añadido',
+      subtitle: 'Diseñado para minas, bosques y fincas remotas',
+      description: 'La app está construida desde cero para operar 100% sin internet, con sincronización inteligente. No es un modo degradado.',
+      highlight: 'Captura completa sin red, sin pérdida ni duplicados'
+    },
+    {
+      icon: 'fa-fingerprint',
+      title: 'Trazabilidad inmutable por defecto',
+      subtitle: 'GPS + timestamp + fotos obligatorias + firma digital',
+      description: 'No es opcional. Cada registro incluye evidencia completa automáticamente. El operario no puede "olvidar" el GPS o la foto.',
+      highlight: 'Auditorías sin hallazgos por falta de documentación'
+    },
+    {
+      icon: 'fa-handshake',
+      title: 'Trabajas directo conmigo — sin intermediarios',
+      subtitle: '+10 años en operaciones de campo',
+      description: 'La misma persona que entiende tu problema diseña la solución, la implementa y te acompaña. Sin capas de consultora ni rotación de equipo.',
+      highlight: '+5M registros procesados en implementaciones reales'
+    }
+  ],
+  notIdealTitle: 'Cuándo NO soy tu mejor opción',
+  notIdealIntro: 'Prefiero filtrar esto en cinco minutos y no en el mes dos del proyecto. Si tu caso encaja en alguno de estos puntos, te lo digo directo:',
+  notIdealItems: [
+    'Buscas una plataforma genérica de formularios sin personalización para tu flujo operativo.',
+    'Tu operación es 100% indoor, sin necesidad de offline, GPS ni trazabilidad con evidencia.',
+    'El driver principal de la compra es el logo de una marca grande por tema de compliance — no que la herramienta funcione.',
+    'Quieres una demo rápida para mostrar en una reunión, no una solución que entre a producción.',
+    'No hay interés en adopción real: si el equipo de campo no la va a usar, la tecnología no resuelve el problema.'
+  ],
+  execution: {
+    eyebrow: 'Quién ejecuta',
+    title: 'La lectura de tu operación, el diseño de la solución y la implementación se trabajan directo conmigo',
+    description:
+      'Si el caso avanza, no pasas de una capa comercial a otra técnica. La misma persona que entiende tu problema en campo define app, backend, integración y acompañamiento.',
+    bullets: [
+      'Diagnóstico de la operación, diseño de la solución y decisiones de integración conectados.',
+      'Criterio para separar lo que necesita app móvil, lo que necesita dashboard y lo que necesita automatización.',
+      'Implementación pensada para adopción real, no solo para demo o piloto corto.'
+    ],
+    ctaLabel: 'Ver experiencia y enfoque'
+  },
+  faqTitle: 'Preguntas frecuentes',
+  faqSubtitle: 'Lo que normalmente conviene aclarar antes de digitalizar operaciones de campo.',
+  faqs: [...fieldOperationsFaqs],
+  contact: {
+    eyebrow: 'Diagnóstico de operaciones de campo',
+    title: 'Cuéntame el cuello de botella de tu operación. Te digo si puedo ayudarte antes de cobrarte nada.',
+    description:
+      'En la primera conversación (30 minutos, sin costo) mapeamos el problema, validamos si encaja con lo que hago, y si encaja te propongo cómo lo abordaría. Si no encaja, te lo digo en esa misma llamada.',
+    detailsTitle: 'En esta conversación revisamos:',
+    detailsItems: [
+      'Cómo se captura hoy la información en campo y qué se pierde en el proceso',
+      'Dónde está el cuello de botella real: captura, supervisión, trazabilidad o integración',
+      'Qué nivel de offline, evidencia y trazabilidad necesita tu operación',
+      'Si mi enfoque encaja o no — si no encaja, te lo digo en esa misma llamada'
+    ],
+    topics: [
+      { value: '', label: 'Selecciona el tipo de operación o necesidad', disabled: true, selected: true },
+      { value: 'app-movil-offline', label: 'App móvil offline para equipo de campo' },
+      { value: 'ordenes-automaticas', label: 'Órdenes de servicio desde alarmas o series de tiempo' },
+      { value: 'dashboard-kpis', label: 'Dashboard web con KPIs operativos' },
+      { value: 'trazabilidad-auditoria', label: 'Trazabilidad y auditoría con evidencia' },
+      { value: 'integracion-erp-sap', label: 'Integración con ERP, SAP u otros sistemas' },
+      { value: 'otro', label: 'Otro / Aún no lo tengo claro' }
+    ],
+    formTitle: 'Cuéntame de tu operación de campo',
+    detailPlaceholder: '¿Qué operación hoy depende de papel, WhatsApp o herramientas genéricas? ¿Dónde se pierde la información? ¿Qué intentaron antes?',
+    source: 'gestion-operaciones-de-campo'
   }
 };
