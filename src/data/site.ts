@@ -5,7 +5,7 @@ export const siteConfig = {
   url: 'https://hguerra.com',
   description:
     'Consultoría e implementación para convertir problemas operativos complejos en soluciones claras, adoptables y útiles para equipos reales.',
-  defaultImage: '/og-home.svg',
+  defaultImage: '/og-home.png',
   locale: 'es_HN'
 } as const;
 

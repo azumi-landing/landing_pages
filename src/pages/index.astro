@@ -3,15 +3,24 @@ import PageLayout from '../layouts/PageLayout.astro';
 import ServiceStatusCard from '../components/molecules/ServiceStatusCard.astro';
 import ContactStrip from '../components/sections/ContactStrip.astro';
 import TrustBand from '../components/sections/TrustBand.astro';
-import { homeHeroBullets, homeTrustPoints, homeWorkflowSteps } from '../data/home';
+import {
+  homeHeroBullets,
+  homeTrustPoints,
+  homeWorkflowSteps,
+  homeProblemPoints,
+  homeCaseStudy,
+  homeFaqs
+} from '../data/home';
+import { buildFAQSchema } from '../data/site';
 ---
 
 <PageLayout
-  title="HGuerra | Consultoría aplicada para operación, producto y automatización"
-  description="Consultoría e implementación para convertir problemas operativos complejos en soluciones claras, adoptables y útiles para equipos reales."
+  title="Consultoría en operaciones de campo, IA agéntica y automatización de procesos"
+  description="Saco tu operación del papel, los Excels sueltos y el WhatsApp. Diagnóstico, diseño e implementación directa — en semanas, no en meses."
   path="/"
-  image="/og-home.svg"
+  image="/og-home.png"
   bodyVariant="mixed"
+  schemas={[buildFAQSchema(homeFaqs)]}
 >
   <main>
     <section id="inicio" class="section-shell-hero section-deep relative overflow-hidden">
@@ -23,13 +32,13 @@ import { homeHeroBullets, homeTrustPoints, homeWorkflowSteps } from '../data/hom
       <div class="page-container relative grid gap-16 lg:grid-cols-[1.15fr_0.85fr] items-center">
         <div>
           <span class="inline-flex items-center rounded-full border border-blue-400/30 bg-blue-400/10 px-4 py-2 text-sm font-semibold text-blue-200 mb-6">
-            Consultoría aplicada para ordenar operación, producto y automatización
+            Consultoría + implementación directa · Honduras y LatAm
           </span>
           <h1 class="max-w-4xl text-4xl md:text-6xl font-bold text-white leading-[1.05] mb-6">
-            Te ayudo a convertir problemas operativos complejos en una solución clara que tu equipo pueda usar
+            Saca tu operación del papel, los Excels sueltos y el WhatsApp. En semanas, no en meses.
           </h1>
           <p class="text-xl text-slate-300 leading-relaxed max-w-3xl mb-8">
-            Trabajo contigo como consultor e implementador. Entiendo el contexto, bajo la complejidad a decisiones útiles y te acompaño a llevar la solución a operación sin venderte una receta genérica.
+            Diagnóstico, diseño e implementación directa — misma persona, sin intermediarios. Entro cuando ya probaste lo genérico y no funcionó.
           </p>
 
           <div class="mb-10 space-y-3">
@@ -46,19 +55,16 @@ import { homeHeroBullets, homeTrustPoints, homeWorkflowSteps } from '../data/hom
               href="#contacto-general"
               class="action-primary text-lg"
             >
-              Cuéntame tu desafío
-            </a>
-            <a
-              href="#como-trabajo"
-              class="action-secondary action-secondary-dark text-lg"
-            >
-              Ver cómo trabajo
+              Agendar diagnóstico gratuito (30 min)
             </a>
           </div>
+          <p class="mt-4 text-sm text-slate-400">
+            Agenda abierta esta semana · Respondo personalmente en menos de 24 h
+          </p>
         </div>
 
         <aside class="surface-card-dark surface-panel p-8 backdrop-blur-md">
-          <div class="mb-8 flex items-center gap-4">
+          <div class="mb-6 flex items-center gap-4">
             <div class="h-20 w-20 rounded-full overflow-hidden border-2 border-blue-400/30 shrink-0">
               <img
                 src="/mi_foto_pro.jpeg"
@@ -73,44 +79,194 @@ import { homeHeroBullets, homeTrustPoints, homeWorkflowSteps } from '../data/hom
             </div>
             <div>
               <p class="text-sm uppercase tracking-[0.2em] text-slate-400">HGuerra</p>
-              <h2 class="mt-1 text-2xl font-bold text-white">Consultor + implementador</h2>
-              <p class="mt-2 text-sm font-medium text-cyan-200">Producto, automatización y operación aterrizados a tu realidad</p>
+              <p class="mt-1 text-2xl font-bold text-white">Consultor + implementador</p>
+              <p class="mt-2 text-sm font-medium text-cyan-200">Una sola persona, de extremo a extremo</p>
             </div>
           </div>
 
-          <p class="text-lg leading-relaxed text-slate-200">
-            Entro mejor cuando el problema todavía está mezclado entre operación, datos, decisiones y adopción. La conversación no empieza con herramientas: empieza con criterio.
+          <div class="grid grid-cols-2 gap-4 mb-6">
+            <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+              <p class="text-2xl font-bold text-white">+5M</p>
+              <p class="mt-1 text-xs text-slate-300 leading-snug">registros operativos en producción</p>
+            </div>
+            <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+              <p class="text-2xl font-bold text-white">+10 años</p>
+              <p class="mt-1 text-xs text-slate-300 leading-snug">en operación, producto y automatización</p>
+            </div>
+          </div>
+
+          <p class="text-base leading-relaxed text-slate-200">
+            Entro cuando el problema todavía está mezclado entre operación, datos, decisiones y adopción. La conversación no empieza con herramientas: empieza con criterio.
           </p>
-
-          <div class="my-8 h-px bg-white/10"></div>
-
-          <div class="space-y-5 text-sm text-slate-300">
-            <div>
-              <p class="text-xs uppercase tracking-[0.18em] text-cyan-200">Qué ordenamos primero</p>
-              <p class="mt-2 leading-relaxed">
-                Flujo, responsables, datos críticos y nivel real de solución necesario antes de construir.
-              </p>
-            </div>
-            <div>
-              <p class="text-xs uppercase tracking-[0.18em] text-cyan-200">Cómo se siente la relación</p>
-              <p class="mt-2 leading-relaxed">
-                Directa, ejecutiva y aplicada. Sin separar el diagnóstico del criterio técnico que luego ejecuta.
-              </p>
-            </div>
-          </div>
         </aside>
       </div>
     </section>
 
+    <!-- SECCIÓN: PROBLEMA (nueva) -->
+    <section id="el-problema" class="section-shell section-light">
+      <div class="page-container">
+        <div class="section-intro section-intro-center">
+          <p class="section-eyebrow justify-center text-slate-500">El dolor que escucho una y otra vez</p>
+          <h2 class="section-title text-slate-950">
+            Tu operación funciona a pesar de Excel, no gracias a Excel
+          </h2>
+          <p class="section-copy text-slate-600">
+            Si algo de esto te suena, no estás solo — y no es un problema de disciplina del equipo. Es un problema de arquitectura.
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {homeProblemPoints.map((item) => (
+            <article class="surface-card surface-panel p-6">
+              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-red-50">
+                <i class={`fas ${item.icon} text-red-600 text-lg`}></i>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
+              <p class="text-sm italic leading-relaxed text-slate-600">{item.quote}</p>
+            </article>
+          ))}
+        </div>
+
+        <div class="mt-12 max-w-3xl mx-auto text-center">
+          <p class="text-lg text-slate-700 leading-relaxed">
+            Los tres servicios que ofrezco resuelven exactamente esto: <strong class="text-slate-950">primero ordeno los datos y el flujo, después automatizo con control.</strong>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: CASO DE REFERENCIA (nueva) -->
+    <section id="caso" class="section-shell section-dark">
+      <div class="page-container">
+        <div class="section-intro section-intro-center">
+          <p class="section-eyebrow justify-center text-cyan-300">{homeCaseStudy.eyebrow}</p>
+          <h2 class="section-title text-white">
+            De miles de Excels a un flujo unificado de campo a auditoría
+          </h2>
+          <p class="section-copy text-slate-300">
+            {homeCaseStudy.client}
+          </p>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-3">
+          <!-- Antes -->
+          <article class="rounded-2xl border border-red-400/20 bg-red-500/5 p-8">
+            <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-red-500/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-red-300">
+              <i class="fas fa-exclamation-circle"></i>
+              {homeCaseStudy.before.title}
+            </div>
+            <ul class="space-y-3">
+              {homeCaseStudy.before.points.map((point) => (
+                <li class="flex items-start gap-3 text-sm leading-relaxed text-slate-300">
+                  <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-red-400"></span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <!-- Solución -->
+          <article class="rounded-2xl border border-blue-400/30 bg-blue-500/10 p-8">
+            <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-blue-500/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-200">
+              <i class="fas fa-cogs"></i>
+              {homeCaseStudy.solution.title}
+            </div>
+            <ul class="space-y-3">
+              {homeCaseStudy.solution.points.map((point) => (
+                <li class="flex items-start gap-3 text-sm leading-relaxed text-slate-200">
+                  <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-300"></span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <!-- Resultado -->
+          <article class="rounded-2xl border border-emerald-400/25 bg-emerald-500/5 p-8">
+            <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-300">
+              <i class="fas fa-check-circle"></i>
+              {homeCaseStudy.result.title}
+            </div>
+            <ul class="space-y-3">
+              {homeCaseStudy.result.points.map((point) => (
+                <li class="flex items-start gap-3 text-sm leading-relaxed text-slate-200">
+                  <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400"></span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
+
+        <!-- Testimonio (reconstrucción) -->
+        <figure class="mt-12 mx-auto max-w-3xl rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
+          <i class="fas fa-quote-left text-cyan-300 text-2xl mb-4"></i>
+          <blockquote class="text-lg italic leading-relaxed text-slate-100">
+            "Antes cada orden vivía en un Excel distinto, las fotos en WhatsApp y los PDFs en correos. Ahora todo está integrado y dejamos de perder tiempo manejando ficheros — el dato llega solo desde el campo hasta la auditoría."
+          </blockquote>
+          <figcaption class="mt-4 text-sm text-slate-400">
+            Reconstrucción del feedback recibido durante la implementación · Equipo del programa
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
     <TrustBand
-      eyebrow="Señales de confianza"
-      title="Una conversación de consultoría primero, una solución después"
-      description="La propuesta del sitio busca que el cliente entienda rápido el tipo de relación, el nivel de experiencia y la forma de trabajo antes de entrar a detalle técnico."
+      eyebrow="Experiencia aplicada"
+      title="Los números que respaldan cómo trabajo"
+      description="Métricas de implementaciones reales. Sin slides, sin proyecciones: trabajo que ya entró en operación."
       items={homeTrustPoints}
       tone="muted"
     />
 
-    <section id="como-trabajo" class="section-shell section-light">
+    <!-- SECCIÓN: SERVICIOS -->
+    <section id="servicios" class="section-shell section-light">
+      <div class="page-container">
+        <div class="section-intro section-intro-center">
+          <p class="section-eyebrow justify-center text-slate-500">Líneas de servicio</p>
+          <h2 class="section-title text-slate-950">
+            Tres rutas según el tipo de problema que necesitas ordenar
+          </h2>
+          <p class="section-copy text-slate-600">
+            Si tu problema es de campo, de datos o de decisiones repetitivas, una de estas rutas aplica. Si no estás seguro, el diagnóstico gratuito lo define.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+          <ServiceStatusCard
+            title="Gestión de Operaciones de Campo"
+            description="Operarios sin papel, asignaciones en tiempo real, trazabilidad con GPS y fotos. Ya con +5M registros procesados. Implementación típica: 3 semanas."
+            href="/gestion-de-operaciones-de-campo"
+            cta="Ver cómo funciona (caso real)"
+            icon="fa-map-marked-alt"
+            status="available"
+            highlight={true}
+            surface="light"
+          />
+          <ServiceStatusCard
+            title="Automatización con IA Agéntica"
+            description="Automatiza decisiones repetitivas — clasificación, triage, aprobaciones — con IA que tiene guardrails, human-in-the-loop y observabilidad. De cero a producción en semanas."
+            href="/automatizacion-con-ia-agentica"
+            cta="Entender si aplica a tu caso"
+            icon="fa-robot"
+            status="available"
+            surface="light"
+          />
+          <ServiceStatusCard
+            title="Automatización de Procesos"
+            description="Integra Excels, SAP, CRM y APIs en un flujo único con Airflow, validación de datos y monitoreo. Deja de depender del que 'sabe cómo funciona el script'."
+            href="/automatizacion-de-procesos"
+            cta="Revisar un caso similar"
+            icon="fa-gears"
+            status="available"
+            surface="light"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: MÉTODO (movida después de servicios) -->
+    <section id="como-trabajo" class="section-shell section-muted">
       <div class="page-container">
         <div class="section-intro">
           <p class="section-eyebrow text-slate-500">
@@ -149,55 +305,57 @@ import { homeHeroBullets, homeTrustPoints, homeWorkflowSteps } from '../data/hom
       </div>
     </section>
 
-    <section id="servicios" class="section-shell section-muted">
-      <div class="page-container">
+    <!-- SECCIÓN: FAQ / OBJECIONES (nueva) -->
+    <section id="faq" class="section-shell section-light">
+      <div class="page-container-text">
         <div class="section-intro section-intro-center">
-          <p class="section-eyebrow justify-center text-slate-500">Líneas de servicio</p>
+          <p class="section-eyebrow justify-center text-slate-500">Objeciones honestas</p>
           <h2 class="section-title text-slate-950">
-            Tres rutas según el tipo de problema que necesitas ordenar
+            Lo que más preocupa antes de arrancar — y cómo lo resuelvo
           </h2>
           <p class="section-copy text-slate-600">
-            Tres frentes para resolver problemas operativos con distintos niveles de madurez y velocidad.
+            Respuestas directas, sin evasivas de consultora.
           </p>
         </div>
 
-        <div class="grid lg:grid-cols-3 gap-8">
-          <ServiceStatusCard
-            title="Gestión de Operaciones de Campo"
-            description="La línea más madura del sitio. Plataforma y experiencia comercial ya desarrolladas para operaciones con app móvil offline, dashboard web y trazabilidad completa."
-            href="/gestion-de-operaciones-de-campo"
-            cta="Ver solución"
-            icon="fa-map-marked-alt"
-            status="available"
-            highlight={true}
-            surface="light"
-          />
-          <ServiceStatusCard
-            title="Automatización con IA Agéntica"
-            description="Servicio para diseñar agentes, integraciones y decisiones automatizadas conectadas a sistemas reales con control operativo."
-            href="/automatizacion-con-ia-agentica"
-            cta="Ver servicio"
-            icon="fa-robot"
-            status="available"
-            surface="light"
-          />
-          <ServiceStatusCard
-            title="Automatización de Procesos"
-            description="Línea enfocada en rediseñar flujos críticos, integrar sistemas y dejar datos confiables para operar con menos fricción."
-            href="/automatizacion-de-procesos"
-            cta="Ver servicio"
-            icon="fa-gears"
-            status="available"
-            surface="light"
-          />
+        <div class="space-y-4">
+          {homeFaqs.map((faq, index) => (
+            <details class="surface-card overflow-hidden group">
+              <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-slate-50 transition-colors">
+                <div class="flex items-center gap-4">
+                  <span class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm shrink-0">
+                    {index + 1}
+                  </span>
+                  <h3 class="text-lg font-semibold text-slate-900">{faq.question}</h3>
+                </div>
+                <i class="fas fa-chevron-down text-slate-400 transition-transform duration-300 group-open:rotate-180"></i>
+              </summary>
+              <div class="px-6 pb-6 pt-2">
+                <div class="pl-12">
+                  <p class="text-slate-600 leading-relaxed">{faq.answer}</p>
+                </div>
+              </div>
+            </details>
+          ))}
         </div>
       </div>
+
+      <style>
+        details > summary::-webkit-details-marker {
+          display: none;
+        }
+        details > summary {
+          list-style: none;
+        }
+      </style>
     </section>
 
     <ContactStrip
       ctaHref="/contacto"
-      title="¿Quieres ordenar una operación, rediseñar un flujo o definir una solución digital viable?"
-      description="Abrimos una conversación inicial con un formulario único. Si el caso encaja, definimos rápido si conviene consultoría, automatización o implementación."
+      ctaLabel="Agendar diagnóstico gratuito"
+      eyebrow="Conversación inicial"
+      title="Cuéntame el cuello de botella. Te digo si puedo ayudarte antes de cobrarte nada."
+      description="Diagnóstico de 30 minutos, sin costo. Te digo en esa llamada qué línea de servicio aplica, cómo lo abordaría y en qué plazo. Si no encaja, te lo digo honestamente — sin presión."
     />
   </main>
 </PageLayout>

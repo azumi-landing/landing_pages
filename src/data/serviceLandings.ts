@@ -3,9 +3,9 @@ import { agenticAutomationTheme, fieldOperationsTheme, processAutomationTheme } 
 import { fieldOperationsFaqs } from './faqs';
 
 export const agenticAutomationLanding: ServiceLandingConfig = {
-  seoTitle: 'HGuerra | Automatización con IA Agéntica',
+  seoTitle: 'Automatización con IA Agéntica — Agentes en producción con guardrails',
   seoDescription: 'Consultoría e implementación de automatización con IA agéntica para integrar agentes, datos y sistemas en flujos operativos con control, trazabilidad y supervisión humana.',
-  seoImage: '/og-agentic-automation.svg',
+  seoImage: '/og-agentic-automation.png',
   path: '/automatizacion-con-ia-agentica',
   theme: agenticAutomationTheme,
   badge: 'Agentes + Orquestación + Trazabilidad operativa',
@@ -478,9 +478,9 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
 };
 
 export const processAutomationLanding: ServiceLandingConfig = {
-  seoTitle: 'HGuerra | Automatización de Procesos',
+  seoTitle: 'Automatización de Procesos — Airflow, integraciones y datos confiables',
   seoDescription: 'Consultoría e implementación de automatización de procesos para integrar sistemas, ordenar datos y ejecutar flujos críticos con control, monitoreo y trazabilidad.',
-  seoImage: '/og-process-automation.svg',
+  seoImage: '/og-process-automation.png',
   path: '/automatizacion-de-procesos',
   theme: processAutomationTheme,
   badge: 'Procesos + Datos + Integración operativa',
@@ -953,9 +953,9 @@ export const processAutomationLanding: ServiceLandingConfig = {
 };
 
 export const fieldOperationsLanding: ServiceLandingConfig = {
-  seoTitle: 'HGuerra | Gestión de Operaciones de Campo',
+  seoTitle: 'Gestión de Operaciones de Campo — App offline, dashboard y trazabilidad',
   seoDescription: 'App móvil offline + dashboard web + trazabilidad auditable con GPS y fotos. Implementación directa en 2-3 semanas. +5M registros procesados en producción.',
-  seoImage: '/og-field-operations.svg',
+  seoImage: '/og-field-operations.png',
   path: '/gestion-de-operaciones-de-campo',
   theme: fieldOperationsTheme,
   badge: 'Operaciones de campo + Offline real + Trazabilidad auditable',
