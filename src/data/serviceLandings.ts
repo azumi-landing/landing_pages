@@ -3,282 +3,317 @@ import { agenticAutomationTheme, fieldOperationsTheme, processAutomationTheme } 
 import { fieldOperationsFaqs } from './faqs';
 
 export const agenticAutomationLanding: ServiceLandingConfig = {
-  seoTitle: 'Automatización con IA Agéntica — Agentes en producción con guardrails',
-  seoDescription: 'Consultoría e implementación de automatización con IA agéntica para integrar agentes, datos y sistemas en flujos operativos con control, trazabilidad y supervisión humana.',
+  seoTitle: 'Automatización con IA para WhatsApp, Excel y procesos manuales',
+  seoDescription: 'Automatización con IA aplicada a procesos reales en Honduras: WhatsApp, Excel, seguimiento manual, recordatorios, integración con sistemas y control humano.',
   seoImage: '/og-agentic-automation.png',
   path: '/automatizacion-con-ia-agentica',
   theme: agenticAutomationTheme,
-  badge: 'Agentes + Orquestación + Trazabilidad operativa',
-  title: 'Tu piloto de IA se ve bien en demo, pero nunca entró a producción. El problema no es el modelo — es que nadie diseñó el proceso.',
+  badge: 'IA aplicada a procesos reales, no demos aisladas',
+  title: 'Automatiza seguimiento, respuestas y tareas repetitivas sin perder control humano.',
   subtitle:
-    'Diseño e implemento agentes con `LangGraph` y `n8n` que leen contexto, consultan datos, usan herramientas y ejecutan acciones con supervisión humana. No vendo demos aisladas: construyo automatización útil que opera en producción con guardrails, trazabilidad y control.',
+    'Diseño agentes de IA e integraciones para empresas que hoy trabajan entre WhatsApp, Excel, correos y seguimiento manual. La idea no es reemplazar a tu equipo: es darle más orden, velocidad y trazabilidad a procesos que ya existen.',
   benefits: [
-    'Menos trabajo manual para priorizar, clasificar y responder',
-    'Decisiones automatizadas con trazabilidad y control',
-    'Integración real con tus fuentes de datos, APIs y workflows'
+    'Menos seguimiento manual y menos mensajes perdidos',
+    'Atención más rápida con aprobaciones humanas cuando hace falta',
+    'Más orden en WhatsApp, Excel y sistemas reales'
   ],
   metrics: [
     { value: '+10 años', label: 'diseñando operaciones digitales y automatización' },
     { value: '+5M', label: 'registros procesados en implementaciones reales' },
-    { value: '2-3 sem', label: 'del primer contacto a operación productiva' },
-    { value: 'Guardrails', label: 'human-in-the-loop y observabilidad por defecto' }
+    { value: 'Por etapas', label: 'empezamos simple y subimos complejidad con control' },
+    { value: 'Control humano', label: 'guardrails, aprobaciones y trazabilidad por defecto' }
   ],
-  primaryCtaLabel: 'Revisar mi flujo en 30 min',
-  primaryCtaHref: '#contacto',
-  secondaryCtaLabel: 'Ver cómo funciona',
+  primaryCtaLabel: 'Escribir por WhatsApp',
+  primaryCtaHref: 'https://wa.me/50432045265?text=Hola+H%C3%A9ctor%2C+quiero+revisar+un+proceso+de+mi+empresa+que+hoy+manejamos+con+WhatsApp%2C+Excel+o+seguimiento+manual.+Me+interesa+saber+si+se+puede+automatizar+con+IA+y+control+humano.',
+  secondaryCtaLabel: 'Agendar diagnóstico de 30 min',
   secondaryCtaHref: '#como-funciona',
-  problemTitle: '¿Tu operación ya usa IA, pero todavía depende de demasiada intervención manual?',
+  problemTitle: '¿Tu empresa todavía depende de WhatsApp, Excel y recordatorios manuales?',
   problemSubtitle:
-    'El problema no suele ser “falta de IA”. El problema es que la IA queda aislada del proceso: sin contexto, sin herramientas, sin trazabilidad y sin capacidad real de ejecutar decisiones útiles.',
+    'En muchas empresas hondureñas el problema no es falta de tecnología. Es que el seguimiento vive regado entre chats, hojas de cálculo, llamadas y personas que tienen que acordarse de todo.',
   problemCards: [
     {
-      icon: 'fa-envelope-open-text',
-      title: 'Alguien lee correos y tickets uno por uno para clasificarlos',
-      description: 'La priorización sigue siendo manual, lenta y dependiente de pocas personas que "saben" cómo escalar.'
-    },
-    {
       icon: 'fa-comments',
-      title: 'Probamos ChatGPT para triage y nadie lo usa dos veces',
-      description: 'El equipo probó IA en chats o copilots, pero nada quedó integrado al flujo real ni genera acciones confiables.'
+      title: 'Los clientes escriben y nadie les da seguimiento a tiempo',
+      description: 'Entre WhatsApp, llamadas y correos, una consulta importante puede quedar enterrada.'
     },
     {
-      icon: 'fa-triangle-exclamation',
-      title: 'Las alertas llegan, pero nadie sabe qué hacer con ellas',
-      description: 'Hay eventos y anomalías, pero no un mecanismo que interprete contexto y active el siguiente paso sin intervención manual.'
-    },
-    {
-      icon: 'fa-diagram-project',
-      title: 'Reglas simples ya no alcanzan para decidir',
-      description: 'El proceso necesita consultar varias fuentes, evaluar condiciones y tomar rutas distintas según contexto — y eso hoy lo hace una persona.'
+      icon: 'fa-file-excel',
+      title: 'La información queda en Excel, chats y libretas',
+      description: 'El gerente no ve el estado completo del proceso sin pedir reportes o revisar mensajes.'
     },
     {
       icon: 'fa-user-clock',
-      title: 'Los analistas pasan el día clasificando, copiando y escalando',
-      description: 'El tiempo valioso se consume en tareas repetitivas que un agente con contexto y herramientas podría resolver en segundos.'
+      title: 'Demasiado tiempo se va en copiar, responder y recordar',
+      description: 'El equipo termina haciendo seguimiento manual en vez de atender mejor al cliente.'
+    },
+    {
+      icon: 'fa-user-gear',
+      title: 'Una persona clave sabe cómo funciona todo',
+      description: 'Si esa persona se atrasa, se enferma o se va, el proceso queda frágil.'
+    },
+    {
+      icon: 'fa-robot',
+      title: 'Ya probaron IA, pero no quedó en operación',
+      description: 'Usar un chat suelto ayuda poco si no está conectado al flujo real de trabajo.'
     },
     {
       icon: 'fa-shield-halved',
-      title: '"¿Y si la IA se equivoca en algo crítico?"',
-      description: 'Temor legítimo. Sin guardrails, aprobaciones y observabilidad, cualquier automatización inteligente se vuelve un riesgo operativo.'
+      title: 'Hay desconfianza hacia automatizar demasiado',
+      description: 'Es una preocupación válida. Por eso los flujos se diseñan con límites, aprobaciones y revisión humana.'
     }
   ],
-  riskTitle: 'El riesgo de improvisar con IA',
+  riskTitle: 'La IA no debe operar a ciegas',
   riskDescription:
-    'Cuando la IA se conecta sin diseño de proceso, termina generando más fricción: respuestas inconsistentes, acciones no auditables, dependencias frágiles y desconfianza del equipo. La oportunidad no está en “usar IA”, sino en orquestarla bien.',
-  capabilitiesTitle: 'Capacidades que incluyo en una solución de IA agéntica',
+    'La oportunidad no está en conectar un chatbot y esperar milagros. Está en definir qué puede automatizarse, qué debe aprobar una persona y cómo dejar registro de cada paso importante.',
+  capabilitiesTitle: 'Qué puede hacer una automatización con IA bien diseñada',
   capabilitiesSubtitle:
-    'Combino agentes, automatización, ML aplicado e integración para que la IA haga trabajo real dentro de tu operación y no solo produzca texto.',
+    'La solución depende del caso, pero el objetivo es simple: menos seguimiento manual, atención más rápida y procesos con control humano.',
   capabilities: [
     {
-      icon: 'fa-robot',
-      title: 'Agentes con estado y control de flujo',
-      pain: 'Los flujos se rompen cuando una sola llamada al modelo no basta para resolver una tarea compleja.',
-      solution: 'Diseño agentes con `LangGraph` para manejar contexto, memoria de trabajo, decisiones multietapa y rutas alternativas.',
-      outcome: 'La automatización deja de depender de prompts lineales y puede operar como un proceso con lógica real.',
+      icon: 'fa-comments',
+      title: 'Ordenar mensajes y solicitudes',
+      pain: 'Las solicitudes llegan por WhatsApp, correo o formularios y se mezclan con conversaciones normales.',
+      solution: 'El agente lee, clasifica y ordena cada solicitud según tipo, urgencia o cliente.',
+      outcome: 'El equipo sabe qué atender primero y reduce mensajes perdidos.',
       bullets: [
-        'Estados y transiciones explícitas',
-        'Tool-calling y decisiones condicionales',
-        'Rutas de fallback y escalamiento',
-        'Memoria acotada por caso o sesión'
+        'Clasificación de mensajes entrantes',
+        'Registro de datos importantes',
+        'Asignación o escalamiento interno',
+        'Seguimiento por estado del caso'
       ]
     },
     {
-      icon: 'fa-plug',
-      title: 'Orquestación e integraciones con n8n',
-      pain: 'La IA no genera valor si no puede leer eventos, llamar APIs y activar acciones en otros sistemas.',
-      solution: 'Uso `n8n` para conectar formularios, CRMs, correos, ERPs, bases de datos y servicios internos con los agentes.',
-      outcome: 'Los agentes pasan de “responder” a ejecutar pasos concretos dentro del proceso.',
+      icon: 'fa-bell',
+      title: 'Recordatorios automáticos',
+      pain: 'Muchas ventas, citas o cobros se pierden porque alguien tenía que acordarse de escribir o llamar.',
+      solution: 'El flujo crea recordatorios y avisos según fechas, estados o documentos pendientes.',
+      outcome: 'Hay menos seguimiento manual y más continuidad en la atención.',
       bullets: [
-        'Triggers por correo, webhook o scheduler',
-        'Conexión con APIs y servicios SaaS',
-        'Normalización y enrutamiento de datos',
-        'Automatizaciones híbridas con reglas + IA'
+        'Confirmaciones de citas o reservas',
+        'Avisos de documentos pendientes',
+        'Seguimiento a cotizaciones',
+        'Alertas para tareas vencidas'
       ]
     },
     {
-      icon: 'fa-brain',
-      title: 'ML aplicado a clasificación, priorización y decisión asistida',
-      pain: 'No todo debe resolverse con un LLM; muchas decisiones mejoran con modelos especializados y señales históricas.',
-      solution: 'Incorporo ML para scoring, clasificación, detección de anomalías, extracción o recomendación dentro del flujo del agente.',
-      outcome: 'La IA agéntica se vuelve más precisa y útil porque combina lenguaje, reglas y modelos orientados al problema.',
+      icon: 'fa-paper-plane',
+      title: 'Respuestas más rápidas',
+      pain: 'Responder lo mismo todos los días consume tiempo y aumenta el riesgo de dejar clientes sin respuesta.',
+      solution: 'La IA propone o envía respuestas para preguntas frecuentes, siempre con reglas y límites claros.',
+      outcome: 'El cliente recibe orientación más rápido y el equipo se enfoca en casos especiales.',
       bullets: [
-        'Clasificación automática de solicitudes',
-        'Scoring de prioridad o riesgo',
-        'Detección de patrones anómalos',
-        'Extracción estructurada desde texto o documentos'
+        'Preguntas frecuentes',
+        'Información de requisitos o pasos',
+        'Mensajes de seguimiento',
+        'Escalamiento cuando no hay certeza'
       ]
     },
     {
       icon: 'fa-database',
-      title: 'Contexto vivo desde tus datos y documentos',
-      pain: 'Un agente sin contexto termina inventando, preguntando de más o actuando sin información suficiente.',
-      solution: 'Conecto el flujo a bases operativas, knowledge bases, logs, documentos y métricas para que el agente decida con evidencia.',
-      outcome: 'Las respuestas y acciones nacen del estado real del negocio, no de contexto genérico.',
+      title: 'Consulta de datos reales',
+      pain: 'Un asistente sin contexto puede dar respuestas incompletas o pedir información que la empresa ya tiene.',
+      solution: 'Conecto el flujo a hojas, bases de datos, documentos, CRM o sistemas internos cuando el caso lo permite.',
+      outcome: 'La automatización trabaja con información del negocio, no solo con texto genérico.',
       bullets: [
-        'Consulta de Cloud SQL, BigQuery o Firestore',
-        'Recuperación de documentos relevantes',
-        'Enriquecimiento por entidad, cliente o incidente',
-        'Versionado de fuentes y contexto'
+        'Consulta de estado de casos',
+        'Lectura de documentos o registros',
+        'Búsqueda de historial por cliente',
+        'Validación contra reglas del negocio'
       ]
     },
     {
       icon: 'fa-user-check',
-      title: 'Human-in-the-loop y aprobaciones',
-      pain: 'Automatizar sin supervisión es inviable cuando hay impacto comercial, operativo o reputacional.',
-      solution: 'Diseño puntos de revisión humana para excepciones, aprobaciones o decisiones de alto riesgo.',
-      outcome: 'El equipo gana velocidad sin perder control ni responsabilidad sobre el proceso.',
+      title: 'Aprobaciones humanas',
+      pain: 'No todo debe ejecutarse automáticamente, especialmente si afecta dinero, reputación o decisiones sensibles.',
+      solution: 'Diseño puntos donde una persona revisa, aprueba o corrige antes de continuar.',
+      outcome: 'La empresa gana velocidad sin perder responsabilidad ni criterio humano.',
       bullets: [
         'Aprobaciones antes de ejecutar acciones sensibles',
-        'Bandejas de revisión para excepciones',
+        'Revisión de excepciones',
         'Escalamiento a analista o supervisor',
-        'Reglas para cuándo intervenir y cuándo no'
+        'Reglas claras para intervenir'
       ]
     },
     {
-      icon: 'fa-cloud',
-      title: 'Arquitectura operable en GCP',
-      pain: 'Muchos pilotos de IA mueren al salir del notebook porque no tienen despliegue, seguridad ni monitoreo.',
-      solution: 'Despliego agentes y servicios en `Cloud Run`, eventos en `Pub/Sub`, secretos en `Secret Manager`, observabilidad en `Cloud Logging` y analítica en `BigQuery`.',
-      outcome: 'La solución queda lista para operar en producción con trazabilidad, seguridad y capacidad de evolucionar.',
+      icon: 'fa-eye',
+      title: 'Trazabilidad del proceso',
+      pain: 'Cuando todo pasa por chat o memoria, después cuesta saber qué ocurrió y por qué.',
+      solution: 'Cada acción importante queda registrada para seguimiento, auditoría y mejora.',
+      outcome: 'El gerente tiene más visibilidad sin pedir reportes manuales todo el tiempo.',
       bullets: [
-        'Cloud Run para servicios y workers',
-        'Pub/Sub para eventos y colas',
-        'Secret Manager y control de acceso',
-        'BigQuery y Logging para auditoría y análisis'
+        'Registro de acciones y estados',
+        'Historial de aprobaciones',
+        'Excepciones visibles',
+        'Mejora continua del flujo'
       ]
     }
   ],
-  workflowTitle: 'Cómo aterrizo la IA agéntica en un proceso operativo real',
+  workflowTitle: 'Cómo lo aterrizo en un proceso real',
   workflowSubtitle:
-    'La lógica no empieza en el modelo. Empieza en el flujo: evento, contexto, decisión, ejecución y trazabilidad.',
+    'Si el proceso es complejo, no empezamos automatizando todo. Tomamos un primer flujo manejable, validamos que funcione con control y luego aumentamos la complejidad por etapas.',
   workflow: [
     {
       id: 'evento',
-      title: '1. EVENTO O SOLICITUD DE ENTRADA',
-      description: 'Correo, ticket, alerta, formulario o webhook dispara el flujo',
+      title: '1. REVISAMOS EL FLUJO',
+      description: 'Identificamos dónde se pierde tiempo o seguimiento',
       level: 1,
       highlight: 'blue',
       icon: 'fa-inbox',
       items: [
-        { icon: 'fa-envelope', text: 'Correo o ticket recibido' },
-        { icon: 'fa-bell', text: 'Alerta o evento operativo' },
-        { icon: 'fa-file-import', text: 'Documento o formulario nuevo' }
+        { icon: 'fa-comments', text: 'WhatsApp y mensajes' },
+        { icon: 'fa-file-excel', text: 'Excel o formularios' },
+        { icon: 'fa-phone', text: 'Llamadas y seguimiento manual' }
       ]
     },
     {
       id: 'contexto',
-      title: '2. ENRIQUECIMIENTO CON CONTEXTO',
-      description: 'El agente consulta datos, historial, reglas y documentos relevantes',
+      title: '2. DEFINIMOS QUÉ AUTOMATIZAR',
+      description: 'Separamos tareas repetitivas de decisiones que requieren criterio humano',
       level: 2,
       highlight: 'green',
       icon: 'fa-database',
       items: [
-        { icon: 'fa-database', text: 'Consulta bases y APIs' },
-        { icon: 'fa-book', text: 'Recupera documentación' },
-        { icon: 'fa-clock-rotate-left', text: 'Usa historial del caso' },
-        { icon: 'fa-tags', text: 'Agrega scoring o clasificación ML' }
+        { icon: 'fa-list-check', text: 'Clasificación de solicitudes' },
+        { icon: 'fa-bell', text: 'Recordatorios' },
+        { icon: 'fa-paper-plane', text: 'Respuestas y seguimiento' },
+        { icon: 'fa-user-check', text: 'Aprobaciones necesarias' }
       ]
     },
     {
       id: 'decision',
-      title: '3. DECISIÓN DEL AGENTE',
-      description: 'LangGraph coordina el razonamiento y decide qué herramienta o ruta usar',
+      title: '3. DISEÑAMOS CONTROLES',
+      description: 'Definimos límites, guardrails y rutas de escalamiento',
       level: 3,
       highlight: 'yellow',
-      icon: 'fa-robot',
+      icon: 'fa-shield-halved',
       items: [
-        { icon: 'fa-sitemap', text: 'Evalúa condiciones y rutas' },
-        { icon: 'fa-toolbox', text: 'Selecciona herramienta adecuada' },
-        { icon: 'fa-shield-halved', text: 'Aplica guardrails' },
-        { icon: 'fa-user-check', text: 'Escala a humano si aplica' }
+        { icon: 'fa-shield-halved', text: 'Acciones permitidas' },
+        { icon: 'fa-user-check', text: 'Revisión humana' },
+        { icon: 'fa-route', text: 'Rutas de excepción' },
+        { icon: 'fa-eye', text: 'Trazabilidad' }
       ]
     },
     {
       id: 'ejecucion',
-      title: '4. EJECUCIÓN E INTEGRACIÓN',
-      description: 'n8n y servicios backend activan acciones sobre sistemas y equipos',
+      title: '4. INTEGRAMOS HERRAMIENTAS',
+      description: 'Conectamos el flujo a las herramientas que ya usa la empresa',
       level: 4,
       highlight: 'purple',
       icon: 'fa-gears',
       items: [
-        { icon: 'fa-arrows-rotate', text: 'Actualiza estados y registros' },
-        { icon: 'fa-paper-plane', text: 'Envía respuesta o notificación' },
-        { icon: 'fa-list-check', text: 'Crea tareas u órdenes' },
-        { icon: 'fa-plug', text: 'Llama APIs internas o SaaS' }
+        { icon: 'fa-comments', text: 'WhatsApp o formularios' },
+        { icon: 'fa-file-excel', text: 'Excel o Google Sheets' },
+        { icon: 'fa-envelope', text: 'Correo' },
+        { icon: 'fa-plug', text: 'CRM, APIs o sistemas internos' }
       ]
     },
     {
       id: 'auditoria',
-      title: '5. OBSERVABILIDAD Y MEJORA',
-      description: 'Cada paso queda trazado para auditoría, análisis y optimización',
+      title: '5. MEDIMOS Y AJUSTAMOS',
+      description: 'El flujo queda visible para revisar errores, excepciones y mejoras',
       level: 5,
       highlight: 'orange',
       icon: 'fa-chart-line',
       items: [
-        { icon: 'fa-file-lines', text: 'Logs por acción y decisión' },
-        { icon: 'fa-chart-column', text: 'Métricas de desempeño' },
-        { icon: 'fa-magnifying-glass', text: 'Análisis de errores y excepciones' },
-        { icon: 'fa-repeat', text: 'Mejora continua del flujo' }
+        { icon: 'fa-file-lines', text: 'Registro de acciones' },
+        { icon: 'fa-magnifying-glass', text: 'Revisión de excepciones' },
+        { icon: 'fa-chart-column', text: 'Indicadores simples' },
+        { icon: 'fa-repeat', text: 'Ajustes por uso real' }
       ]
     }
   ],
-  casesTitle: 'Dónde encaja mejor este servicio',
+  casesTitle: 'Casos de uso comunes en Honduras',
   casesSubtitle:
-    'Casos operativos donde un agente con contexto, herramientas y guardrails aporta más valor que un script lineal o un prompt aislado.',
+    'Estos son algunos de los casos donde la IA puede apoyar procesos reales con bajo riesgo. Si tu rubro no aparece, igual podemos revisar si hay un flujo que valga la pena automatizar.',
   cases: [
     {
-      icon: 'fa-triangle-exclamation',
-      label: 'Incidencias',
-      title: 'Priorización y enrutamiento automático de incidentes',
-      challenge: 'Los equipos reciben solicitudes mezcladas, con urgencias mal clasificadas y demasiadas revisiones manuales.',
-      approach: 'Agente que lee el contexto del caso, clasifica prioridad, detecta riesgo, propone respuesta y crea la siguiente acción en el sistema.',
-      result: 'Menos tiempo perdido triageando y mejor uso del criterio humano en los casos que sí requieren intervención.',
-      stack: 'LangGraph + n8n + Cloud Run + Pub/Sub + Cloud SQL'
+      icon: 'fa-house',
+      label: 'Inmobiliarias',
+      title: 'Seguimiento a prospectos y visitas',
+      challenge: 'Los interesados escriben por WhatsApp, piden información y luego se pierde el seguimiento.',
+      approach: 'Clasificar leads, responder preguntas frecuentes, recordar visitas y registrar qué propiedad busca cada cliente.',
+      result: 'No perder clientes por falta de respuesta y dar seguimiento con más orden.',
+      stack: 'WhatsApp + hojas de cálculo + CRM o base interna'
     },
     {
-      icon: 'fa-file-lines',
-      label: 'Documentos',
-      title: 'Lectura estructurada de correos, archivos y solicitudes',
-      challenge: 'Documentos y mensajes llegan en formatos distintos y terminan obligando a capturar datos manualmente.',
-      approach: 'ML + LLM para extraer información, validar campos, enriquecer con contexto y activar flujos posteriores.',
-      result: 'La información entra más rápido al proceso y con menos fricción para el equipo operativo.',
-      stack: 'Vertex AI/Gemini + Cloud Run + Firestore + n8n'
+      icon: 'fa-stethoscope',
+      label: 'Clínicas',
+      title: 'Citas, resultados y consultas frecuentes',
+      challenge: 'Recepción pasa mucho tiempo confirmando citas, explicando pasos y respondiendo lo mismo.',
+      approach: 'Recordatorios automáticos, clasificación de consultas y escalamiento a personal humano cuando aplica.',
+      result: 'Atención más rápida sin quitar control al equipo clínico o administrativo.',
+      stack: 'WhatsApp + calendario + formularios + sistema existente'
     },
     {
-      icon: 'fa-satellite-dish',
-      label: 'Monitoreo',
-      title: 'Alertas accionables, no solo notificaciones',
-      challenge: 'Las anomalías llegan como ruido y requieren a alguien que interprete qué hacer y a quién involucrar.',
-      approach: 'Agente que consume eventos, consulta historial, aplica scoring y decide si abrir tarea, pedir validación o responder automáticamente.',
-      result: 'Las alertas se convierten en flujo operativo con contexto y trazabilidad.',
-      stack: 'Pub/Sub + BigQuery + ML scoring + LangGraph + Cloud Functions'
+      icon: 'fa-hammer',
+      label: 'Ferreterías',
+      title: 'Cotizaciones y pedidos de materiales',
+      challenge: 'Los clientes preguntan por precios, existencia y entregas en varios chats.',
+      approach: 'Ordenar solicitudes, pedir datos faltantes, preparar cotizaciones y alertar cuando requiere revisión.',
+      result: 'Menos confusión y mejor seguimiento a oportunidades de venta.',
+      stack: 'WhatsApp + inventario + Excel o sistema de ventas'
+    },
+    {
+      icon: 'fa-hotel',
+      label: 'Hoteles y tours',
+      title: 'Reservas, disponibilidad y pagos pendientes',
+      challenge: 'En temporada alta, las consultas y confirmaciones se mezclan entre recepción y administración.',
+      approach: 'Responder información básica, registrar solicitudes, recordar pagos y escalar casos especiales.',
+      result: 'Más orden en reservas sin depender de revisar cada chat manualmente.',
+      stack: 'WhatsApp + calendario + formularios + hojas de control'
+    },
+    {
+      icon: 'fa-landmark',
+      label: 'Cooperativas',
+      title: 'Documentos pendientes y orientación inicial',
+      challenge: 'El cliente pregunta por requisitos, estados o pasos, y el seguimiento queda manual.',
+      approach: 'Orientar sobre requisitos, recordar documentos pendientes y escalar casos que requieren evaluación.',
+      result: 'Menos llamadas repetitivas y mejor control del avance de cada solicitud.',
+      stack: 'WhatsApp + formularios + sistema interno o base de datos'
+    },
+    {
+      icon: 'fa-car',
+      label: 'Talleres',
+      title: 'Citas, repuestos y cotizaciones',
+      challenge: 'Las solicitudes llegan incompletas y alguien debe pedir placa, modelo, fotos o datos del repuesto.',
+      approach: 'Pedir datos necesarios, ordenar cotizaciones, recordar citas y registrar estado del caso.',
+      result: 'Menos mensajes perdidos y mejor seguimiento al cliente.',
+      stack: 'WhatsApp + agenda + inventario o hoja de pedidos'
     }
   ],
-  proofTitle: 'Prueba de valor y señales de confianza',
+  casesCta: {
+    title: '¿Tienes otro tipo de negocio o un proceso más complejo?',
+    description:
+      'También se pueden revisar procesos de energía, operación técnica, mantenimiento, monitoreo, aprobaciones internas o flujos con varios sistemas. La forma prudente no es automatizar todo de golpe: empezamos con una parte sencilla y bien controlada, medimos si aporta valor y luego avanzamos hacia procesos más complejos.',
+    ctaLabel: 'Consultar mi proceso por WhatsApp',
+    ctaHref:
+      'https://wa.me/50432045265?text=Hola+H%C3%A9ctor%2C+tengo+un+proceso+operativo+que+podr%C3%ADa+automatizarse+con+IA+ag%C3%A9ntica.+Quiero+revisar+si+conviene+empezar+con+un+flujo+sencillo+y+luego+aumentar+la+complejidad+por+etapas.'
+  },
+  proofTitle: 'Control, trazabilidad y límites claros',
   proofSubtitle:
-    'La propuesta no se sostiene por “lo inteligente” del modelo, sino por qué tan controlado, visible e integrado queda el flujo en operación.',
+    'La IA puede equivocarse. Por eso una solución seria no promete magia: define controles, registra acciones y deja intervención humana donde importa.',
   proofMetrics: [
     {
       value: 'Controlado',
-      label: 'decisiones con guardrails y revisión humana',
-      detail: 'La automatización no depende de un prompt abierto ni de una sola llamada al modelo.'
+      label: 'acciones con guardrails y revisión humana',
+      detail: 'La automatización trabaja dentro de límites definidos y escala cuando no debe decidir sola.'
     },
     {
       value: 'Trazable',
-      label: 'acciones, rutas y excepciones visibles',
-      detail: 'Cada paso queda disponible para auditoría, mejora y confianza operativa.'
+      label: 'registro de acciones, estados y excepciones',
+      detail: 'Cada paso importante puede revisarse para entender qué pasó y qué debe mejorarse.'
     },
     {
       value: 'Conectado',
-      label: 'integración real con datos y sistemas',
-      detail: 'La IA dispara acciones útiles dentro del proceso, no solo respuestas.'
+      label: 'integración con herramientas reales',
+      detail: 'El agente puede leer y activar flujos sobre WhatsApp, hojas, formularios, correos o sistemas internos.'
     }
   ],
   proofPoints: [
     {
       icon: 'fa-eye',
-      title: 'Observabilidad desde el diseño',
-      description: 'Logs, métricas y rutas de decisión quedan visibles para auditar y ajustar el flujo sin perder contexto.'
+      title: 'Visibilidad para gerencia',
+      description: 'El objetivo es que el proceso sea más visible sin pedir reportes manuales todo el tiempo.'
     },
     {
       icon: 'fa-user-shield',
@@ -287,192 +322,185 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     },
     {
       icon: 'fa-link',
-      title: 'Integración útil con la operación',
-      description: 'El agente lee, decide y actúa sobre tus herramientas para cerrar trabajo real en lugar de quedarse en un chat.'
+      title: 'Integración útil, no solo chat',
+      description: 'La IA debe ayudar a cerrar tareas reales: responder, registrar, recordar, escalar o crear seguimiento.'
     }
   ],
   trustBand: {
-    eyebrow: 'Señales de relación',
-    title: 'IA agéntica aplicada con criterio operativo, no como experimento aislado',
+    eyebrow: 'Enfoque de trabajo',
+    title: 'Primero el proceso. Después la IA.',
     description:
-      'Antes de hablar de modelos o prompts, la propuesta deja claro cómo se lee el problema: flujo, contexto, control y ejecución conectados.',
+      'No empiezo vendiendo una herramienta. Primero entiendo cómo trabaja tu equipo, dónde se pierden clientes o tiempo, y qué parte conviene automatizar con bajo riesgo.',
     items: [
       {
-        value: 'Proceso primero',
-        label: 'el flujo y las decisiones mandan antes que el modelo o el prompt.'
+        value: 'Cercano',
+        label: 'pensado para empresas que ya usan WhatsApp, Excel y procesos manuales.'
       },
       {
-        value: 'Con guardrails',
-        label: 'agentes, aprobaciones y trazabilidad se diseñan desde el inicio.'
+        value: 'Con control',
+        label: 'la IA apoya, pero no toma decisiones sensibles sin supervisión.'
       },
       {
         value: 'Integrado',
-        label: 'la automatización lee y actúa sobre sistemas reales, no sobre un sandbox.'
+        label: 'la automatización se conecta a herramientas reales, no solo a una demo.'
       },
       {
         value: 'Directo',
-        label: 'diagnóstico, arquitectura y ejecución se trabajan en la misma conversación.'
+        label: 'diagnóstico, diseño e implementación se trabajan conmigo.'
       }
     ]
   },
-  stackTitle: 'Stack y arquitectura que aplico para agentic automation',
+  stackTitle: 'Tecnología en segundo plano',
   stackSubtitle:
-    'La elección tecnológica depende del caso, pero la arquitectura siempre prioriza control, integración, trazabilidad y operabilidad.',
+    'El cliente no necesita aprender IA agéntica para saber si le sirve. La tecnología se define según el flujo, las herramientas disponibles y el nivel de control requerido.',
   stackGroups: [
     {
       icon: 'fa-robot',
-      title: 'Capa de agentes',
-      description: 'Motor de decisión y orquestación del flujo inteligente.',
+      title: 'Agentes de IA',
+      description: 'Ayudan a interpretar mensajes, contexto y próximos pasos.',
       items: [
-        'LangGraph para estados, rutas y tool-calling',
-        'Vertex AI / Gemini cuando el caso pide LLM gestionado',
-        'Prompts y políticas acopladas al proceso, no aisladas'
+        'Clasificación de solicitudes',
+        'Respuestas sugeridas o controladas',
+        'Escalamiento cuando hay duda'
       ]
     },
     {
       icon: 'fa-link',
-      title: 'Capa de automatización',
-      description: 'Conectores, triggers y ejecución coordinada entre sistemas.',
+      title: 'Integraciones',
+      description: 'Conectan la IA con las herramientas que ya usa la empresa.',
       items: [
-        'n8n para flujos, triggers e integraciones',
-        'Webhooks, APIs REST y colas de eventos',
-        'Aprobaciones humanas y automatizaciones híbridas'
+        'WhatsApp, correo y formularios',
+        'Excel o Google Sheets',
+        'CRM, ERP, APIs o sistemas internos'
       ]
     },
     {
-      icon: 'fa-brain',
-      title: 'ML aplicado',
-      description: 'Modelos complementarios para clasificación, scoring y detección.',
+      icon: 'fa-shield-halved',
+      title: 'Guardrails',
+      description: 'Definen límites de acción y cuándo debe intervenir una persona.',
       items: [
-        'Clasificación y priorización de casos',
-        'Extracción estructurada desde texto',
-        'Detección de anomalías para activar agentes'
+        'Acciones permitidas',
+        'Aprobaciones humanas',
+        'Rutas de excepción'
       ]
     },
     {
-      icon: 'fa-cloud',
-      title: 'Servicios GCP',
-      description: 'Base de despliegue, eventos, datos y observabilidad.',
+      icon: 'fa-file-lines',
+      title: 'Trazabilidad',
+      description: 'Deja evidencia para revisar y mejorar el flujo.',
       items: [
-        'Cloud Run, Cloud Functions y Pub/Sub',
-        'Cloud SQL, Firestore y BigQuery',
-        'Secret Manager, Cloud Logging y Cloud Storage'
+        'Estados y registros',
+        'Historial de aprobaciones',
+        'Errores y excepciones visibles'
       ]
     }
   ],
-  differentiationTitle: '¿Qué hace útil esta propuesta frente a otras aproximaciones de IA?',
+  differentiationTitle: 'Qué hace útil este enfoque',
   differentiationSubtitle:
-    'La diferencia no está en “usar modelos”. Está en integrar agentes al proceso con control operativo y diseño de producto.',
+    'La diferencia no está en usar un modelo de moda. Está en aterrizar la IA al proceso correcto, con límites claros y utilidad diaria.',
   differentiators: [
     {
       icon: 'fa-route',
-      title: 'No diseño demos; diseño flujos',
-      subtitle: 'El punto de partida es el proceso',
-      description: 'La automatización se define a partir de decisiones, dependencias, excepciones y responsables reales.',
-      highlight: 'La IA queda acoplada a una operación concreta'
-    },
-    {
-      icon: 'fa-eye',
-      title: 'Observabilidad desde el inicio',
-      subtitle: 'Cada decisión se puede revisar',
-      description: 'Logs, métricas, rutas y excepciones quedan visibles para poder auditar, mejorar y confiar en la solución.',
-      highlight: 'Sin caja negra operativa'
-    },
-    {
-      icon: 'fa-user-shield',
-      title: 'Control humano donde sí importa',
-      subtitle: 'Automatización con guardrails',
-      description: 'No todo debe ejecutarse sin revisión. Defino puntos de aprobación según riesgo y costo de error.',
-      highlight: 'Velocidad sin perder control'
-    },
-    {
-      icon: 'fa-link',
-      title: 'Integración real con sistemas',
-      subtitle: 'No se queda en un chat',
-      description: 'Los agentes leen y escriben en tus herramientas, disparan flujos y devuelven resultados útiles al negocio.',
-      highlight: 'La IA termina trabajo, no solo responde'
+      title: 'No empiezo por el modelo',
+      subtitle: 'Empiezo por el flujo',
+      description: 'Primero entendemos quién recibe la solicitud, qué datos necesita, qué decisión se toma y qué pasa después.',
+      highlight: 'La IA se adapta al proceso'
     },
     {
       icon: 'fa-handshake',
-      title: 'Trabajas directo conmigo — sin intermediarios',
-      subtitle: 'Stack estándar, código operable',
-      description: 'Una sola persona del diagnóstico al deploy. El código queda documentado sobre `GCP`, `LangGraph`, `n8n` — operable por cualquier equipo técnico si decides continuar sin mí.',
-      highlight: '+10 años y +5M registros en implementaciones reales'
+      title: 'No vendo humo tecnológico',
+      subtitle: 'Si no conviene, lo digo',
+      description: 'Algunas tareas se resuelven mejor con reglas simples o integraciones tradicionales. No todo requiere IA.',
+      highlight: 'Menos complejidad innecesaria'
+    },
+    {
+      icon: 'fa-user-shield',
+      title: 'No busco reemplazar al equipo',
+      subtitle: 'IA como apoyo operativo',
+      description: 'La meta es reducir trabajo repetitivo, mejorar seguimiento y liberar tiempo para decisiones humanas.',
+      highlight: 'Personas con mejor soporte'
+    },
+    {
+      icon: 'fa-link',
+      title: 'Se conecta al trabajo real',
+      subtitle: 'No se queda en un chat',
+      description: 'La automatización debe registrar, recordar, responder, crear tareas o escalar casos dentro del flujo existente.',
+      highlight: 'Utilidad operativa diaria'
     }
   ],
   notIdealTitle: 'Cuándo NO soy tu mejor opción',
-  notIdealIntro: 'Prefiero filtrar esto en cinco minutos y no en el mes dos del proyecto. Si tu caso encaja en alguno de estos puntos, te lo digo directo:',
+  notIdealIntro: 'Prefiero filtrar esto temprano. Si tu caso encaja en alguno de estos puntos, probablemente conviene otro enfoque:',
   notIdealItems: [
-    'Buscas un chatbot genérico sin integración con tus procesos ni datos.',
-    'Quieres automatizar decisiones sensibles sin revisión humana ni trazabilidad.',
-    'Necesitas un piloto de IA para mostrar en una reunión, sin intención de llevarlo a producción.',
-    'El problema se resuelve mejor con reglas simples — y preferís no complicarlo.',
-    'El driver principal de la compra es el logo de una marca grande, no que la solución funcione.'
+    'Solo quieres un chatbot genérico sin revisar el proceso.',
+    'Quieres automatizar decisiones sensibles sin revisión humana.',
+    'No tienes claro qué flujo quieres mejorar.',
+    'El problema se resuelve mejor con una regla simple y no hace falta IA.',
+    'Buscas una promesa de resultados garantizados sin revisar datos, equipo ni operación.'
   ],
   execution: {
-    eyebrow: 'Quién ejecuta',
-    title: 'La arquitectura del agente y la conversación operativa se trabajan directo conmigo',
+    eyebrow: 'Quién implementa',
+    title: 'Trabajas directo conmigo, del diagnóstico a la implementación',
     description:
-      'Si el caso avanza, no pasas de una capa comercial a otra técnica. La misma persona que aterriza el flujo define herramientas, límites y forma de despliegue.',
+      'Si el caso avanza, no pasas de una capa comercial a otra técnica. La misma persona que entiende el flujo define la solución, los límites, la integración y la forma de operación.',
     bullets: [
-      'Diagnóstico de flujo, diseño de agente y decisiones de integración conectados.',
-      'Criterio para separar lo que conviene resolver con IA, con reglas o con revisión humana.',
-      'Implementación pensada para operación real, no solo para demo o laboratorio.'
+      'Diagnóstico práctico del flujo y sus cuellos de botella.',
+      'Criterio para separar IA, reglas simples, integración y revisión humana.',
+      'Implementación pensada para uso real, no solo para mostrar una demo.'
     ],
     ctaLabel: 'Ver experiencia y enfoque'
   },
   faqTitle: 'Preguntas frecuentes',
-  faqSubtitle: 'Respuestas directas para operaciones y TI antes de automatizar con agentes.',
+  faqSubtitle: 'Respuestas directas para gerentes y dueños antes de automatizar con IA.',
   faqs: [
     {
-      question: '¿Cuándo conviene usar IA agéntica y cuándo basta con reglas fijas?',
+      question: '¿La IA va a reemplazar a mi equipo?',
       answer:
-        'Conviene usar agentes cuando el flujo requiere interpretar contexto, consultar varias fuentes, elegir herramientas y manejar excepciones. Si el proceso es determinístico y estable, una automatización basada solo en reglas suele ser más simple y conveniente.'
+        'No es el enfoque. La IA se usa como apoyo operativo para tareas repetitivas: clasificar, responder preguntas frecuentes, recordar pendientes, registrar datos o escalar casos. Las decisiones sensibles pueden quedar bajo revisión humana.'
     },
     {
-      question: '¿Qué rol juega LangGraph dentro de la solución?',
+      question: '¿Necesito tener sistemas modernos para empezar?',
       answer:
-        'LangGraph me sirve para modelar estados, transiciones, herramientas, aprobaciones y rutas alternativas. Eso permite que el comportamiento del agente se parezca más a un proceso controlado que a un prompt aislado.'
+        'No necesariamente. Muchas empresas empiezan con WhatsApp, Excel, formularios o correo. Primero se ordena el flujo y luego se decide qué integración conviene.'
     },
     {
-      question: '¿n8n reemplaza al agente?',
+      question: '¿Esto sirve para empresas pequeñas?',
       answer:
-        'No. n8n resuelve la orquestación e integración entre sistemas. El agente decide, clasifica, interpreta y propone acciones; n8n ejecuta y conecta el flujo con herramientas y eventos.'
+        'Sí, si existe un proceso repetitivo que consume tiempo o causa pérdida de clientes. La recomendación es empezar con un flujo pequeño, claro y de bajo riesgo.'
     },
     {
-      question: '¿Cómo evitas errores o acciones incorrectas?',
+      question: '¿Qué pasa si la IA se equivoca?',
       answer:
-        'Con guardrails, tool-calling restringido, contexto acotado, validaciones previas y puntos de revisión humana cuando el riesgo lo amerita. La automatización debe diseñarse para operar con límites claros.'
+        'Por eso se diseñan guardrails, aprobaciones y rutas de escalamiento. La automatización no debe ejecutar acciones sensibles sin control cuando el caso requiere revisión humana.'
     },
     {
-      question: '¿Se puede desplegar todo esto en GCP?',
+      question: '¿Cuánto cuesta?',
       answer:
-        'Sí. La combinación típica incluye Cloud Run para servicios, Pub/Sub para eventos, Cloud SQL o Firestore para persistencia, BigQuery para análisis y Secret Manager/Cloud Logging para operación segura.'
+        'Depende del flujo, las integraciones y el nivel de control requerido. Por eso conviene empezar con un diagnóstico breve antes de cotizar.'
     }
   ],
   contact: {
-    eyebrow: 'Diagnóstico de automatización con IA',
-    title: 'Cuéntame el flujo que quieres automatizar. Te digo si puedo ayudarte antes de cobrarte nada.',
+    eyebrow: 'Diagnóstico breve de automatización',
+    title: 'Cuéntame qué proceso quieres ordenar. Te digo si conviene usar IA o algo más simple.',
     description:
-      'En la primera conversación (30 minutos, sin costo) mapeamos el flujo, validamos si un agente aporta valor real, y si encaja te propongo cómo lo abordaría. Si no encaja, te lo digo en esa misma llamada.',
+      'En una llamada de 30 minutos revisamos el flujo, detectamos dónde hay seguimiento manual y vemos si conviene empezar con una automatización sencilla antes de avanzar a IA agéntica más compleja.',
     detailsTitle: 'En esta conversación revisamos:',
     detailsItems: [
-      'Qué parte del flujo hoy sigue dependiendo de lectura, clasificación o decisiones manuales',
-      'Dónde conviene usar agentes y dónde bastan reglas o automatización tradicional',
-      'Qué datos, herramientas y aprobaciones necesita la solución para operar con control',
-      'Si mi enfoque encaja o no — si no encaja, te lo digo en esa misma llamada'
+      'Qué parte del flujo depende hoy de WhatsApp, Excel o seguimiento manual',
+      'Dónde se pierden clientes, tiempo o información',
+      'Qué se puede automatizar con bajo riesgo y qué debe revisar una persona',
+      'Cómo empezar simple y aumentar complejidad por etapas si el caso lo amerita'
     ],
     topics: [
-      { value: '', label: 'Selecciona el tipo de flujo o necesidad', disabled: true, selected: true },
-      { value: 'triage-incidentes', label: 'Priorización y enrutamiento de incidentes' },
-      { value: 'lectura-documentos', label: 'Lectura estructurada de correos o documentos' },
-      { value: 'agentes-con-tools', label: 'Agentes con tool-calling e integraciones' },
-      { value: 'human-in-the-loop', label: 'Aprobaciones y human-in-the-loop' },
-      { value: 'arquitectura-gcp', label: 'Arquitectura operable en GCP' },
+      { value: '', label: 'Selecciona el tipo de proceso', disabled: true, selected: true },
+      { value: 'whatsapp-seguimiento', label: 'WhatsApp y seguimiento a clientes' },
+      { value: 'recordatorios', label: 'Recordatorios automáticos' },
+      { value: 'cotizaciones-pedidos', label: 'Cotizaciones, pedidos o reservas' },
+      { value: 'clasificacion-solicitudes', label: 'Clasificación de solicitudes' },
+      { value: 'integracion-excel-sistemas', label: 'Excel, formularios o sistemas internos' },
       { value: 'otro', label: 'Otro / Aún no lo tengo claro' }
     ],
-    formTitle: 'Cuéntame de tu desafío con IA agéntica',
-    detailPlaceholder: '¿Qué flujo quieres automatizar? ¿Qué sistemas participan hoy? ¿Dónde está el cuello de botella?',
+    formTitle: 'Cuéntame el proceso que quieres ordenar',
+    detailPlaceholder: '¿Qué proceso manejan hoy con WhatsApp, Excel o seguimiento manual? ¿Dónde se pierde tiempo o clientes?',
     source: 'automatizacion-con-ia-agentica'
   }
 };

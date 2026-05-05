@@ -31,6 +31,13 @@ export interface CaseStudyCard {
   stack: string;
 }
 
+export interface ServiceCasesCta {
+  title: string;
+  description: string;
+  ctaLabel: string;
+  ctaHref: string;
+}
+
 export interface StackGroup {
   icon: IconName;
   title: string;
@@ -143,6 +150,7 @@ export interface ServiceLandingConfig {
   casesTitle: string;
   casesSubtitle: string;
   cases: CaseStudyCard[];
+  casesCta?: ServiceCasesCta;
   proofTitle: string;
   proofSubtitle: string;
   proofMetrics: ProofMetric[];

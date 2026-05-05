@@ -7,6 +7,7 @@ import {
   getWhatsAppHref,
   getContactContextByPath,
   getContactServiceLabel,
+  getContactServiceGuidance,
   isValidContactService,
   contactConfig
 } from '../data/contact';
@@ -20,10 +21,20 @@ const derivedContext = originPath ? getContactContextByPath(originPath) : null;
 const defaultService = isValidContactService(serviceParam)
   ? serviceParam
   : derivedContext?.service ?? '';
-const originLabel = hasPresetContext
+const serviceGuidance = getContactServiceGuidance(defaultService);
+const originLabel = serviceGuidance?.originLabel
+  ?? (hasPresetContext
   ? originLabelParam ?? (originPath ? derivedContext?.originLabel ?? originPath : getContactServiceLabel(defaultService))
-  : '';
+  : '');
 const serviceLabel = defaultService ? getContactServiceLabel(defaultService) : 'Por definir';
+const contextMessage = serviceGuidance?.contextMessage;
+const expectationTitle = serviceGuidance?.expectationTitle
+  ?? 'Una respuesta que reconozca tu problema, no una respuesta de catálogo';
+const expectationItems = serviceGuidance?.expectationItems ?? [
+  'Respuesta en menos de 1 hora (horario laboral) — yo mismo, sin chatbot ni asistente.',
+  'En 15 minutos, te digo si lo tuyo es diagnóstico (30 min gratis), implementación directa, o si no es un fit.',
+  'Una conversación centrada en el flujo real de tu operación, no en una presentación genérica.'
+];
 const whatsappHref = getWhatsAppHref();
 ---
 
@@ -80,7 +91,9 @@ const whatsappHref = getWhatsAppHref();
 
           {originLabel ? (
             <p class="text-slate-600 leading-relaxed mb-6">
-              Ya sé que vienes desde <span class="font-semibold text-slate-950">{originLabel}</span>. Así respondo directo sobre ese servicio sin perder tiempo en contexto.
+              {contextMessage ?? (
+                <>Ya sé que vienes desde <span class="font-semibold text-slate-950">{originLabel}</span>. Así respondo directo sobre ese servicio sin perder tiempo en contexto.</>
+              )}
             </p>
           ) : (
             <p class="text-slate-600 leading-relaxed mb-6">
@@ -99,20 +112,14 @@ const whatsappHref = getWhatsAppHref();
         <aside class="space-y-6">
           <div class="surface-soft p-8">
             <p class="section-eyebrow text-slate-500">Qué puedes esperar</p>
-            <h2 class="text-2xl font-bold text-slate-950 mb-4">Una respuesta que reconozca tu problema, no una respuesta de catálogo</h2>
+            <h2 class="text-2xl font-bold text-slate-950 mb-4">{expectationTitle}</h2>
             <ul class="space-y-4 text-slate-600">
-              <li class="flex items-start gap-3">
-                <span class="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-950 text-xs font-bold text-white">1</span>
-                <span>Respuesta en <strong class="text-slate-950">menos de 1 hora</strong> (horario laboral) — yo mismo, sin chatbot ni asistente.</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-950 text-xs font-bold text-white">2</span>
-                <span>En 15 minutos, te digo si lo tuyo es diagnóstico (30 min gratis), implementación directa, o si no es un fit.</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-950 text-xs font-bold text-white">3</span>
-                <span>Una conversación centrada en el flujo real de tu operación, no en una presentación genérica.</span>
-              </li>
+              {expectationItems.map((item, index) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-950 text-xs font-bold text-white">{index + 1}</span>
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
 

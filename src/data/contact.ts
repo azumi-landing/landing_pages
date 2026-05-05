@@ -17,7 +17,7 @@ export const contactServices = [
   },
   {
     value: 'automatizacion-con-ia-agentica',
-    label: 'Automatización con IA Agéntica'
+    label: 'Automatización con IA por etapas'
   },
   {
     value: 'automatizacion-de-procesos',
@@ -49,7 +49,7 @@ export const contactContextByPath = {
   },
   '/automatizacion-con-ia-agentica': {
     service: 'automatizacion-con-ia-agentica',
-    originLabel: 'Automatización con IA Agéntica'
+    originLabel: 'Automatización con IA por etapas'
   },
   '/automatizacion-de-procesos': {
     service: 'automatizacion-de-procesos',
@@ -63,6 +63,32 @@ export function isValidContactService(value?: string | null): value is ContactSe
 
 export function getContactServiceLabel(value?: string | null) {
   return contactServices.find((service) => service.value === value)?.label ?? 'Otro / No estoy seguro';
+}
+
+export const contactServiceGuidance: Partial<Record<ContactServiceValue, {
+  originLabel: string;
+  contextMessage: string;
+  detailPlaceholder: string;
+  expectationTitle: string;
+  expectationItems: string[];
+}>> = {
+  'automatizacion-con-ia-agentica': {
+    originLabel: 'Automatización con IA por etapas',
+    contextMessage:
+      'Vienes por automatización con IA. Para responder mejor, cuéntame el proceso completo aunque todavía esté general: energía, mantenimiento, monitoreo, atención, aprobaciones o cualquier flujo operativo. La idea es detectar por dónde conviene empezar simple y cómo aumentar la complejidad con control.',
+    detailPlaceholder:
+      'Ejemplo: “Tenemos un proceso de energía/mantenimiento/operación que hoy depende de reportes, WhatsApp, Excel o revisión manual. Quiero saber qué primer flujo sencillo se podría automatizar y cómo escalarlo por etapas.”',
+    expectationTitle: 'Primero buscamos el punto de entrada correcto',
+    expectationItems: [
+      'Identificamos un primer flujo sencillo dentro del proceso complejo.',
+      'Definimos qué puede automatizarse con bajo riesgo y qué requiere revisión humana.',
+      'Si el primer flujo tiene sentido, planteamos cómo subir la complejidad por etapas.'
+    ]
+  }
+};
+
+export function getContactServiceGuidance(value?: string | null) {
+  return isValidContactService(value) ? contactServiceGuidance[value] : undefined;
 }
 
 export function getContactContextByPath(path: string) {

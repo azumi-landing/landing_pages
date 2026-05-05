@@ -2,6 +2,7 @@
 import Button from '../atoms/Button.astro';
 import {
   formTopics,
+  getContactServiceGuidance,
   getContactServiceLabel,
   isValidContactService
 } from '../../data/contact';
@@ -22,6 +23,9 @@ const {
 
 const normalizedService = isValidContactService(defaultService) ? defaultService : '';
 const resolvedOriginLabel = originLabel || getContactServiceLabel(normalizedService);
+const serviceGuidance = getContactServiceGuidance(normalizedService);
+const detailPlaceholder = serviceGuidance?.detailPlaceholder
+  ?? '¿Qué proceso quieres mejorar? ¿Qué equipo usa hoy el flujo? ¿Qué sistemas ya existen?';
 const isLight = tone === 'light';
 const labelClass = isLight ? 'text-slate-700' : 'text-slate-300';
 const inputClass = isLight
@@ -92,7 +96,7 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
       rows={5}
       required
       class={`w-full px-4 py-3 rounded-2xl focus:outline-none transition-colors resize-y ${inputClass}`}
-      placeholder="¿Qué proceso quieres mejorar? ¿Qué equipo usa hoy el flujo? ¿Qué sistemas ya existen?"
+      placeholder={detailPlaceholder}
     ></textarea>
   </div>
 
