@@ -1,0 +1,1469 @@
+---
+import '../../styles/global.css';
+
+const uuid = 'a7f3e9c2-4b81-4d6f-9e5a-1c8b2d4e7f0a';
+const pageUrl = `https://hguerra.com/sentinel/${uuid}`;
+const ogImage = 'https://hguerra.com/mi_foto_pro.jpeg';
+const title = 'SENTINEL — De la detección al afloramiento';
+const description = 'SENTINEL: detección inteligente de pérdidas no técnicas para ENEE. Un ciclo inteligente, trazable y auditable.';
+---
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex, nofollow" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_HN" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={pageUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="/hg-favicon.svg">
+
+    <style>
+      :root {
+        --sentinel-blue: #0066CC;
+        --sentinel-yellow: #FFB800;
+        --sentinel-dark: #1A1A2E;
+      }
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: 'Montserrat', system-ui, sans-serif;
+        background: #1A1A2E;
+        color: white;
+        -webkit-font-smoothing: antialiased;
+      }
+      .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(2rem);
+        transition: opacity .8s ease-out, transform .8s ease-out;
+        will-change: opacity, transform;
+      }
+      [data-reveal].is-visible {
+        opacity: 1;
+        transform: none;
+      }
+      [data-reveal][data-delay="1"] { transition-delay: .15s; }
+      [data-reveal][data-delay="2"] { transition-delay: .30s; }
+      [data-reveal][data-delay="3"] { transition-delay: .45s; }
+
+      .cursor::after {
+        content: '▋';
+        margin-left: 2px;
+        color: #FFB800;
+        animation: blink 1s step-end infinite;
+      }
+      @keyframes blink { 50% { opacity: 0; } }
+
+      .chevron-bounce {
+        animation: bounce 2s ease-in-out infinite;
+      }
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(8px); }
+      }
+
+      .cycle-spin {
+        animation: spin 24s linear infinite;
+      }
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
+      .chaos-arrow {
+        stroke: #FFB800;
+        stroke-width: 2;
+        fill: none;
+        stroke-linecap: round;
+        opacity: 0.7;
+      }
+      .chaos-cell {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 9px;
+      }
+
+      .phone-notch {
+        width: 110px;
+        height: 22px;
+        border-radius: 0 0 14px 14px;
+        background: #0b0b14;
+        margin: 0 auto;
+      }
+
+      .bar {
+        transition: height 1.2s cubic-bezier(.2,.8,.2,1);
+      }
+      .is-visible .bar {
+        height: var(--bar-final);
+      }
+      .bar {
+        height: 0;
+      }
+
+      .grid-chaos {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 2px;
+      }
+
+      /* Side nav */
+      [data-nav]:disabled {
+        opacity: 0.25;
+        pointer-events: none;
+      }
+      .nav-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 9999px;
+        background: rgba(255,255,255,0.25);
+        transition: all .25s ease;
+      }
+      .nav-dot.active {
+        background: #FFB800;
+        transform: scale(1.6);
+      }
+
+      /* Modal base */
+      [data-modal-id] {
+        display: none;
+        position: fixed;
+        inset: 0;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+        padding: 1rem;
+      }
+      [data-modal-id].is-open {
+        display: flex;
+      }
+
+      /* Mini sparkline inside phone mockup */
+      .sparkline {
+        display: flex;
+        align-items: flex-end;
+        gap: 3px;
+        height: 22px;
+      }
+      .sparkline > span {
+        flex: 1;
+        background: #0066CC;
+        border-radius: 1px;
+        opacity: 0.8;
+      }
+
+      /* === Lean design tokens === */
+      :root {
+        --ink: #1A1A2E;
+        --muted: #64748b;
+        --accent: #0066CC;
+        --accent-2: #FFB800;
+        --ok: #34d399;
+        --line-light: rgba(26,26,46,0.10);
+        --line-dark: rgba(255,255,255,0.12);
+        --shadow-lift: 0 24px 60px rgba(15,23,42,0.10);
+      }
+
+      /* Typographic roles */
+      .t-meta {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+      .t-head {
+        font-family: 'Montserrat', system-ui, sans-serif;
+        font-size: clamp(2rem, 3.6vw, 3.25rem);
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+      }
+      .t-lede {
+        font-size: clamp(1.0625rem, 1.35vw, 1.25rem);
+        line-height: 1.65;
+      }
+
+      /* Narrative thread (vertical rule on the text column) */
+      .thread {
+        border-left: 1px solid rgba(0,102,204,0.25);
+        padding-left: 1.75rem;
+      }
+      @media (min-width: 1024px) {
+        .thread { padding-left: 2.25rem; }
+      }
+
+      /* Yellow highlight mark under the brand letter */
+      .mark-yellow {
+        background-image: linear-gradient(transparent 68%, rgba(255,184,0,0.55) 68%);
+      }
+
+      /* Ghost link — secondary actions ("detalles técnicos") */
+      .ghost-link {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0 0 2px 0;
+        border: 0;
+        border-bottom: 1px solid currentColor;
+        background: none;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: gap .25s ease, opacity .2s ease;
+      }
+      .ghost-link:hover { gap: 0.95rem; opacity: 1; }
+      .ghost-link i { font-size: 10px; }
+    </style>
+  </head>
+  <body>
+    <!-- STICKY SIDE NAV -->
+    <nav aria-label="Navegación de actos" class="fixed right-3 md:right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-2 rounded-full border border-white/10 bg-[#1A1A2E]/80 backdrop-blur-md px-2 py-2.5">
+      <button data-nav="prev" aria-label="Sección anterior" class="h-9 w-9 flex items-center justify-center rounded-full text-white/85 hover:bg-white/10 transition">
+        <i class="fa-solid fa-chevron-up text-xs"></i>
+      </button>
+
+      <span data-nav-counter class="t-meta text-white/70 py-1">01 / 12</span>
+
+      <button data-nav="next" aria-label="Sección siguiente" class="h-9 w-9 flex items-center justify-center rounded-full text-white/85 hover:bg-white/10 transition">
+        <i class="fa-solid fa-chevron-down text-xs"></i>
+      </button>
+    </nav>
+
+    <main>
+      <!-- 0. HERO / INTRO -->
+      <section id="sec-0" data-reveal class="relative min-h-screen flex items-center justify-center px-6 py-24 overflow-hidden bg-[#1A1A2E]">
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+          <div class="absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full bg-[#0066CC]/20 blur-3xl"></div>
+          <div class="absolute -bottom-40 -right-40 h-[520px] w-[520px] rounded-full bg-[#FFB800]/10 blur-3xl"></div>
+          <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 24px 24px;"></div>
+        </div>
+
+        <div class="relative max-w-5xl mx-auto w-full text-center">
+          <p class="t-meta text-slate-400 mb-10">/ ENEE · Honduras</p>
+
+          <h1 class="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tight mb-8 leading-none">
+            SENT<span class="mark-yellow">I</span>NEL
+          </h1>
+
+          <p class="t-lede text-slate-300 max-w-3xl mx-auto mb-4 font-light">
+            Detección inteligente de pérdidas no técnicas.
+          </p>
+          <p class="t-meta text-[#FFB800] mb-16">De la detección al afloramiento</p>
+
+          <div class="flex flex-col items-center gap-3 text-slate-500">
+            <span class="t-meta">Desliza para recorrer el ciclo</span>
+            <i class="fa-solid fa-chevron-down text-2xl chevron-bounce text-[#0066CC]"></i>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTO 1 — EL PROBLEMA -->
+      <section id="sec-1" data-reveal class="min-h-screen flex items-center px-6 py-24 bg-white text-[#1A1A2E]">
+        <div class="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center">
+          <div class="thread">
+            <p class="t-meta mb-6 text-[#0066CC]">/ 01 &nbsp; El problema</p>
+            <h2 class="t-head mb-6">
+              Dos decisiones a ciegas, encadenadas.
+            </h2>
+            <p class="t-lede text-slate-600">
+              Sobre <strong class="text-[#1A1A2E]">+2M clientes</strong>, el analista decide a quién investigar y a qué cuadrilla enviar — sin modelo de scoring, sin ruteo, sin feedback del campo. <strong class="text-[#1A1A2E]">El problema no es el tipeo. Es el criterio.</strong>
+            </p>
+            <div class="mt-10 space-y-2">
+              <div class="inline-flex items-center gap-4 border-l-2 border-[#FFB800] pl-4 py-1">
+                <span class="t-meta text-[#FFB800]">paso 1</span>
+                <span class="text-sm text-slate-600">¿a quién investigar? · selección al ojo</span>
+              </div>
+              <div class="inline-flex items-center gap-4 border-l-2 border-[#FFB800] pl-4 py-1">
+                <span class="t-meta text-[#FFB800]">paso 2</span>
+                <span class="text-sm text-slate-600">¿qué cuadrilla la atiende? · asignación sin ruteo</span>
+              </div>
+            </div>
+            <div class="mt-10">
+              <button data-modal-target="act1" class="ghost-link text-[#0066CC]">
+                detalles técnicos <i class="fa-solid fa-arrow-right-long"></i>
+              </button>
+            </div>
+          </div>
+
+          <div data-reveal data-delay="1" class="relative">
+            <!-- Excel chaotic mockup -->
+            <div class="relative rounded-xl border border-slate-300 bg-slate-50 shadow-2xl overflow-hidden">
+              <div class="flex items-center gap-2 px-4 py-2 bg-slate-200 border-b border-slate-300">
+                <div class="flex gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-red-400"></span>
+                  <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+                  <span class="w-3 h-3 rounded-full bg-green-400"></span>
+                </div>
+                <span class="mono text-xs text-slate-600 ml-2">ods_abril_final_v7_REVISADO.xlsx</span>
+              </div>
+              <div class="relative p-4">
+                <div class="grid-chaos">
+                  <div class="chaos-cell h-7 bg-slate-200 text-slate-500 flex items-center justify-center font-bold">A</div>
+                  <div class="chaos-cell h-7 bg-slate-200 text-slate-500 flex items-center justify-center font-bold">B</div>
+                  <div class="chaos-cell h-7 bg-slate-200 text-slate-500 flex items-center justify-center font-bold">C</div>
+                  <div class="chaos-cell h-7 bg-slate-200 text-slate-500 flex items-center justify-center font-bold">D</div>
+                  <div class="chaos-cell h-7 bg-slate-200 text-slate-500 flex items-center justify-center font-bold">E</div>
+                  <div class="chaos-cell h-7 bg-slate-200 text-slate-500 flex items-center justify-center font-bold">F</div>
+
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">4821</div>
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">N-5</div>
+                  <div class="chaos-cell h-7 bg-yellow-100 border border-yellow-300 flex items-center justify-center">?</div>
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">12.3</div>
+                  <div class="chaos-cell h-7 bg-red-100 border border-red-300 flex items-center justify-center text-red-700">!</div>
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">-</div>
+
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">4822</div>
+                  <div class="chaos-cell h-7 bg-yellow-100 border border-yellow-300 flex items-center justify-center">?</div>
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">S-2</div>
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center"></div>
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">8.1</div>
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">??</div>
+
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">4823</div>
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">C-1</div>
+                  <div class="chaos-cell h-7 bg-red-100 border border-red-300 flex items-center justify-center text-red-700">ERR</div>
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">4.2</div>
+                  <div class="chaos-cell h-7 bg-yellow-100 border border-yellow-300 flex items-center justify-center">?</div>
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">-</div>
+
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">4824</div>
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">N-3</div>
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">22.0</div>
+                  <div class="chaos-cell h-7 bg-yellow-100 border border-yellow-300 flex items-center justify-center">?</div>
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center"></div>
+                  <div class="chaos-cell h-7 bg-red-100 border border-red-300 flex items-center justify-center text-red-700">!</div>
+
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">4825</div>
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">?</div>
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">?</div>
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">?</div>
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">?</div>
+                  <div class="chaos-cell h-7 bg-white border border-slate-200 flex items-center justify-center">?</div>
+                </div>
+
+                <!-- Chaotic arrows overlay -->
+                <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 240" preserveAspectRatio="none">
+                  <path class="chaos-arrow" d="M 40 60 Q 120 20 200 80 T 380 50" />
+                  <path class="chaos-arrow" d="M 360 180 Q 280 140 200 200 T 30 190" />
+                  <path class="chaos-arrow" d="M 50 200 L 200 80 L 340 180" />
+                  <circle cx="200" cy="120" r="18" fill="#FFB800" fill-opacity="0.3" stroke="#FFB800" stroke-width="2" />
+                  <text x="200" y="127" text-anchor="middle" font-size="20" font-weight="bold" fill="#1A1A2E">?</text>
+                </svg>
+              </div>
+              <div class="px-4 py-2 bg-slate-100 border-t border-slate-300 mono text-[10px] text-slate-500">
+                Listo · 47 medidores · sin criterio
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTO 2 — LA DETECCIÓN (capítulo "el agente en acción" · beat 1 · cool) -->
+      <section id="sec-2" data-reveal class="min-h-screen flex items-center px-6 py-24 bg-[#1A1A2E] text-white relative overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+          <div class="absolute -top-24 -left-24 h-[30rem] w-[30rem] rounded-full bg-[#0066CC]/12 blur-3xl"></div>
+          <div class="absolute top-1/2 -right-32 h-80 w-80 rounded-full bg-[#0066CC]/8 blur-3xl"></div>
+        </div>
+        <div class="relative max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center">
+          <div class="thread">
+            <p class="t-meta mb-6 text-[#FFB800]">/ 02 &nbsp; La detección</p>
+            <h2 class="t-head mb-6">
+              El criterio sale de los datos, no del ojo.
+            </h2>
+            <p class="t-lede text-slate-300">
+              No son las series de consumo. Es el <strong class="text-white">contexto</strong>: <span class="mono text-[#FFB800]">geohash</span>, región, circuito, temporada e histórico de la cuenta. El agente cruza todo eso —para cada medidor, convencional o telegestionado— y saca señales que el ojo no ve.
+            </p>
+            <div class="mt-8">
+              <p class="t-meta text-slate-400 mb-3">inputs</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="inline-flex items-center gap-2 rounded-full border border-white/15 px-3.5 py-1.5 text-xs text-slate-200"><i class="fa-solid fa-bolt text-[#0066CC]"></i> consumos mensuales</span>
+                <span class="inline-flex items-center gap-2 rounded-full border border-white/15 px-3.5 py-1.5 text-xs text-slate-200"><i class="fa-solid fa-clock-rotate-left text-[#0066CC]"></i> ODS históricas</span>
+                <span class="inline-flex items-center gap-2 rounded-full border border-white/15 px-3.5 py-1.5 text-xs text-slate-200"><i class="fa-solid fa-bell text-[#0066CC]"></i> alarmas (telegestión)</span>
+                <span class="inline-flex items-center gap-2 rounded-full border border-[#FFB800]/40 px-3.5 py-1.5 text-xs text-[#FFB800]"><i class="fa-solid fa-location-dot"></i> geohash · región · circuito · temporada</span>
+              </div>
+            </div>
+            <div class="mt-6">
+              <p class="t-meta text-slate-400 mb-3">stack</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="inline-flex items-center gap-2 rounded-full border border-white/15 px-3.5 py-1.5 text-xs text-slate-200"><i class="fa-solid fa-brain text-[#0066CC]"></i> ML · Anomaly detection</span>
+                <span class="inline-flex items-center gap-2 rounded-full border border-white/15 px-3.5 py-1.5 text-xs text-slate-200"><i class="fa-solid fa-diagram-project text-[#0066CC]"></i> Deep Learning</span>
+                <span class="inline-flex items-center gap-2 rounded-full border border-white/15 px-3.5 py-1.5 text-xs text-slate-200"><i class="fa-solid fa-database text-[#0066CC]"></i> RAG sobre histórico</span>
+                <span class="inline-flex items-center gap-2 rounded-full border border-[#FFB800]/40 px-3.5 py-1.5 text-xs text-[#FFB800]"><i class="fa-solid fa-plug"></i> MCP · <span class="mono">sentinel.query_meters</span></span>
+              </div>
+            </div>
+            <div class="mt-10">
+              <button data-modal-target="act2" class="ghost-link text-[#FFB800]">
+                detalles técnicos <i class="fa-solid fa-arrow-right-long"></i>
+              </button>
+            </div>
+          </div>
+
+          <div data-reveal data-delay="1" class="relative">
+            <!-- CLI terminal mockup -->
+            <div class="rounded-xl bg-black/80 ring-1 ring-[#0066CC]/60 shadow-[0_30px_80px_rgba(0,102,204,0.25)] overflow-hidden backdrop-blur">
+              <div class="flex items-center gap-2 px-4 py-3 bg-slate-900/90 border-b border-slate-800">
+                <div class="flex gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-red-400"></span>
+                  <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+                  <span class="w-3 h-3 rounded-full bg-green-400"></span>
+                </div>
+                <span class="mono text-xs text-slate-400 ml-2">sentinel@enee:~</span>
+              </div>
+              <div class="mono text-xs md:text-sm p-5 md:p-6 space-y-2 leading-relaxed">
+                <p class="text-slate-400">$ sentinel --init</p>
+                <p class="text-[#0066CC]">▸ Agente listo. ¿Qué analizamos?</p>
+                <p class="text-slate-100"><span class="text-[#FFB800]">&gt;</span> analizar zona norte sector 5</p>
+                <p class="text-slate-300">🤖 invocando tool MCP → <span class="text-[#FFB800]">sentinel.query_meters</span>(zona=<span class="text-green-300">"N-5"</span>)</p>
+                <p class="text-slate-300">🤖 recuperando histórico vía RAG (2023–2026)...</p>
+                <p class="text-slate-300">🤖 inferencia DL: autoencoder + gradient boosting</p>
+                <p class="text-slate-300">🤖 <span class="text-[#FFB800] font-semibold">47 medidores sospechosos</span>. Top 20 por probabilidad...</p>
+                <p class="text-slate-100"><span class="text-[#FFB800]">&gt;</span> generar ODS para los 20 primeros</p>
+                <p class="text-slate-300">🤖 tool MCP → <span class="text-[#FFB800]">soe.create_ods</span>(batch=<span class="text-green-300">20</span>)</p>
+                <p class="text-green-400">🤖 <span class="font-semibold">20 ODS creadas en SOE</span> <i class="fa-solid fa-check"></i></p>
+                <p class="text-slate-100"><span class="text-[#FFB800]">&gt;</span><span class="cursor"></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTO 3 — LA ASIGNACIÓN (capítulo "el agente en acción" · beat 2 · warm) -->
+      <section id="sec-3" data-reveal class="min-h-screen flex flex-col items-center justify-center px-6 py-24 bg-[#1A1A2E] text-white relative overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+          <div class="absolute -bottom-24 -right-24 h-[30rem] w-[30rem] rounded-full bg-[#FFB800]/10 blur-3xl"></div>
+          <div class="absolute top-1/3 -left-32 h-80 w-80 rounded-full bg-[#FFB800]/6 blur-3xl"></div>
+        </div>
+
+        <!-- Chapter continuation marker: un capítulo, dos beats -->
+        <div class="relative w-full max-w-5xl mx-auto mb-14 lg:mb-20">
+          <div class="flex items-center justify-center gap-5">
+            <div class="h-px flex-1 bg-gradient-to-r from-transparent to-white/12"></div>
+            <span class="mono text-[10px] text-[#FFB800]/55 tracking-[0.35em]">//</span>
+            <div class="h-px flex-1 bg-gradient-to-l from-transparent to-white/12"></div>
+          </div>
+        </div>
+
+        <div class="relative max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center">
+          <div data-reveal data-delay="1" class="order-2 lg:order-1">
+            <!-- CLI terminal with assignment (warm halo — decision beat) -->
+            <div class="rounded-xl bg-black/80 ring-1 ring-[#FFB800]/55 shadow-[0_30px_80px_rgba(255,184,0,0.18)] overflow-hidden">
+              <div class="flex items-center gap-2 px-4 py-3 bg-slate-900/90 border-b border-slate-800">
+                <div class="flex gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-red-400"></span>
+                  <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+                  <span class="w-3 h-3 rounded-full bg-green-400"></span>
+                </div>
+                <span class="mono text-xs text-slate-400 ml-2">sentinel@enee:~/asignacion</span>
+              </div>
+              <div class="mono text-xs md:text-sm p-5 md:p-6 space-y-2 leading-relaxed">
+                <p class="text-slate-100"><span class="text-[#FFB800]">&gt;</span> asignar ODS 4821-4840 --optimizar</p>
+                <p class="text-slate-300">🤖 tool MCP → <span class="text-[#FFB800]">sentinel.assign_ods</span>(ods=<span class="text-green-300">[4821..4840]</span>)</p>
+                <p class="text-slate-300">🤖 evaluando técnicos disponibles...</p>
+                <p class="text-slate-400 pl-4">· cercanía geográfica</p>
+                <p class="text-slate-400 pl-4">· carga de trabajo</p>
+                <p class="text-slate-400 pl-4">· historial del técnico</p>
+                <p class="text-slate-300">🤖 asignación óptima calculada:</p>
+                <div class="pl-4 space-y-1">
+                  <p class="text-slate-300">→ <span class="text-[#FFB800]">J. MARTÍNEZ</span> · 8 ODS · sector N-5</p>
+                  <p class="text-slate-300">→ <span class="text-[#FFB800]">L. CASTILLO</span> · 7 ODS · sector S-2</p>
+                  <p class="text-slate-300">→ <span class="text-[#FFB800]">R. HERNÁNDEZ</span> · 5 ODS · sector C-1</p>
+                </div>
+                <p class="text-slate-300">🤖 precargando datos en las apps móviles</p>
+                <p class="text-slate-400 pl-4">cliente · coordenadas · medidor · histórico</p>
+                <p class="text-green-400">🤖 <span class="font-semibold">20 ODS despachadas</span> <i class="fa-solid fa-check"></i></p>
+                <p class="text-slate-100"><span class="text-[#FFB800]">&gt;</span><span class="cursor"></span></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="order-1 lg:order-2 thread">
+            <p class="t-meta mb-6 text-[#FFB800]">/ 03 &nbsp; La asignación</p>
+            <h2 class="t-head mb-6">
+              El agente no solo detecta. Asigna.
+            </h2>
+            <p class="t-lede text-slate-300">
+              <strong class="text-white">Cercanía, carga de trabajo, historial del técnico.</strong> Una segunda tool MCP calcula la asignación óptima sobre la flota disponible y la <strong class="text-white">despacha just-in-time</strong>: la ODS llega al técnico al momento de ejecutarla, precargada con los datos del cliente.
+            </p>
+            <p class="mt-6 text-sm text-slate-500 mono">
+              <span class="text-[#FFB800]">sentinel.assign_ods</span> &nbsp;·&nbsp; greedy + ILP &nbsp;·&nbsp; JIT dispatch
+            </p>
+            <div class="mt-10">
+              <button data-modal-target="act3" class="ghost-link text-[#FFB800]">
+                detalles técnicos <i class="fa-solid fa-arrow-right-long"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTO 4 — EL CAMPO -->
+      <section id="sec-4" data-reveal class="min-h-screen flex items-center px-6 py-24 bg-white text-[#1A1A2E]">
+        <div class="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center">
+          <div class="thread">
+            <p class="t-meta mb-6 text-[#0066CC]">/ 04 &nbsp; El campo</p>
+            <h2 class="t-head mb-6">
+              El técnico recibe la ODS ya cargada.
+            </h2>
+            <p class="t-lede text-slate-600">
+              Cliente, dirección, coordenadas y datos del medidor vienen <strong class="text-[#1A1A2E]">precargados</strong> desde la asignación. La app es <strong class="text-[#1A1A2E]">offline-first</strong>: captura, valida y guarda en local, luego sincroniza al reconectar. Su estado se ve en vivo desde el centro de control.
+            </p>
+
+            <dl class="mt-10 grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 text-sm">
+              <dt class="t-meta text-[#0066CC]">entra</dt>
+              <dd class="text-slate-600">Datos de la ODS desde PostgreSQL (OpenAPI)</dd>
+              <dt class="t-meta text-[#FFB800]">sale</dt>
+              <dd class="text-slate-600">Evidencias + acta PDF hacia Cloud Storage</dd>
+            </dl>
+
+            <div class="mt-8 flex items-start gap-4 border-l-2 border-[#FFB800] pl-4 py-1">
+              <span class="t-meta text-[#FFB800] shrink-0 mt-0.5">ad-hoc</span>
+              <span class="text-sm text-slate-600">Si detecta una <strong class="text-[#1A1A2E]">conexión ilegal en un vecino</strong>, el técnico levanta una ODS desde la misma app. SENTINEL la incorpora al ciclo como una más.</span>
+            </div>
+
+            <div class="mt-10">
+              <button data-modal-target="act4" class="ghost-link text-[#0066CC]">
+                detalles técnicos <i class="fa-solid fa-arrow-right-long"></i>
+              </button>
+            </div>
+          </div>
+
+          <div data-reveal data-delay="1" class="flex justify-center">
+            <!-- Phone mockup -->
+            <div class="relative w-[300px] rounded-[2.5rem] bg-[#1A1A2E] p-3 ring-[10px] ring-slate-200 shadow-[0_30px_80px_rgba(15,23,42,0.25)]">
+              <div class="phone-notch mb-2"></div>
+              <div class="rounded-[1.75rem] bg-white overflow-hidden">
+                <!-- App header -->
+                <div class="bg-[#0066CC] px-4 py-3 text-white flex items-center justify-between">
+                  <div>
+                    <p class="text-[10px] uppercase tracking-wide opacity-80">Orden activa</p>
+                    <p class="text-base font-bold mono">ODS #4821</p>
+                  </div>
+                  <div class="flex items-center gap-1.5 text-[9px] uppercase tracking-wider">
+                    <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#34d399]"></span>
+                    live
+                  </div>
+                </div>
+
+                <!-- Zone A: Pre-loaded (read-only) -->
+                <div class="bg-slate-50 border-b border-slate-200">
+                  <div class="flex items-center gap-1 px-4 pt-3 pb-1">
+                    <i class="fa-solid fa-lock text-[8px] text-slate-400"></i>
+                    <span class="text-[9px] font-bold uppercase tracking-wider text-slate-500">Pre-cargado</span>
+                  </div>
+                  <div class="px-4 pb-4 space-y-2.5">
+                    <div>
+                      <p class="text-[8px] text-slate-500 uppercase tracking-wider">Cliente</p>
+                      <p class="text-xs font-bold text-[#1A1A2E] truncate">MARÍA A. RAMÍREZ</p>
+                    </div>
+                    <div>
+                      <p class="text-[8px] text-slate-500 uppercase tracking-wider">NIS</p>
+                      <p class="text-[10px] mono text-[#1A1A2E]">M-847291</p>
+                    </div>
+                    <div>
+                      <p class="text-[8px] text-slate-500 uppercase tracking-wider">Dirección</p>
+                      <p class="text-[10px] text-[#1A1A2E] truncate">Col. Kennedy, Blq. 7, Casa 12</p>
+                    </div>
+                    <div>
+                      <p class="text-[8px] text-slate-500 uppercase tracking-wider">Coordenadas</p>
+                      <p class="text-[9px] mono text-slate-600">15.4851° N · 88.0264° W</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Zone B: Field capture (editable) -->
+                <div class="px-4 pt-4 pb-4 space-y-3.5">
+                  <div class="flex items-center gap-1">
+                    <i class="fa-solid fa-hand text-[8px] text-[#FFB800]"></i>
+                    <span class="text-[9px] font-bold uppercase tracking-wider text-[#FFB800]">Captura del técnico</span>
+                  </div>
+
+                  <!-- Evidences -->
+                  <div>
+                    <p class="text-[8px] text-slate-500 uppercase tracking-wider mb-1.5">Evidencias</p>
+                    <div class="grid grid-cols-4 gap-1.5">
+                      <div class="aspect-square rounded bg-slate-300 flex items-center justify-center">
+                        <i class="fa-solid fa-image text-white/80 text-[10px]"></i>
+                      </div>
+                      <div class="aspect-square rounded bg-slate-300 flex items-center justify-center">
+                        <i class="fa-solid fa-image text-white/80 text-[10px]"></i>
+                      </div>
+                      <div class="aspect-square rounded bg-slate-300 flex items-center justify-center">
+                        <i class="fa-solid fa-image text-white/80 text-[10px]"></i>
+                      </div>
+                      <div class="aspect-square rounded border border-dashed border-[#FFB800] flex items-center justify-center">
+                        <i class="fa-solid fa-plus text-[#FFB800] text-[10px]"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Pruebas checklist -->
+                  <div>
+                    <p class="text-[8px] text-slate-500 uppercase tracking-wider mb-1.5">Pruebas ejecutadas</p>
+                    <div class="space-y-1">
+                      <div class="flex items-center gap-1.5 text-[10px] text-[#1A1A2E]">
+                        <span class="w-3 h-3 rounded-sm bg-[#0066CC] flex items-center justify-center"><i class="fa-solid fa-check text-white text-[7px]"></i></span>
+                        Inspección visual del medidor
+                      </div>
+                      <div class="flex items-center gap-1.5 text-[10px] text-[#1A1A2E]">
+                        <span class="w-3 h-3 rounded-sm bg-[#0066CC] flex items-center justify-center"><i class="fa-solid fa-check text-white text-[7px]"></i></span>
+                        Verificación de sello
+                      </div>
+                      <div class="flex items-center gap-1.5 text-[10px] text-[#1A1A2E]">
+                        <span class="w-3 h-3 rounded-sm bg-[#0066CC] flex items-center justify-center"><i class="fa-solid fa-check text-white text-[7px]"></i></span>
+                        Prueba de continuidad
+                      </div>
+                      <div class="flex items-center gap-1.5 text-[10px] text-slate-400">
+                        <span class="w-3 h-3 rounded-sm border border-slate-300"></span>
+                        Medición de tensión en línea
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- CTA -->
+                  <button class="w-full rounded-lg bg-[#FFB800] py-2.5 text-[10px] font-bold text-[#1A1A2E] uppercase tracking-wider">
+                    Levantar acta PDF
+                  </button>
+                  <button class="w-full mt-1.5 flex items-center justify-center gap-1.5 text-[9px] text-slate-500 tracking-wider py-1 uppercase">
+                    <i class="fa-solid fa-plus text-[8px]"></i> reportar ODS vecina
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTO 5 — EL FILTRO -->
+      <section id="sec-5" data-reveal class="min-h-screen flex items-center px-6 py-24 bg-[#1A1A2E] text-white relative overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 h-96 w-[600px] rounded-full bg-[#0066CC]/10 blur-3xl"></div>
+        </div>
+
+        <div class="relative max-w-6xl mx-auto w-full">
+          <div class="max-w-3xl mb-14 thread">
+            <p class="t-meta mb-6 text-[#FFB800]">/ 05 &nbsp; El filtro</p>
+            <h2 class="t-head mb-6">
+              El supervisor aprueba. El pipeline arranca solo.
+            </h2>
+            <p class="t-lede text-slate-300">
+              La aprobación del <strong class="text-white">supervisor regional</strong> dispara el pipeline. <strong class="text-white">Cloud Tasks</strong> encola la ODS y <strong class="text-white">Cloud Run escala horizontalmente</strong>: 5 aprobaciones o 500, se procesan en paralelo. Cada worker arma el PDF, corre OCR sobre el acta y valida fotos. <strong class="text-white">Sin batch nocturno. Sin cola acumulada.</strong>
+            </p>
+            <div class="mt-10">
+              <button data-modal-target="act5" class="ghost-link text-[#FFB800]">
+                detalles técnicos <i class="fa-solid fa-arrow-right-long"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Pipeline · nodos flat sobre el fondo de sección -->
+          <div class="flex flex-col lg:flex-row items-stretch lg:items-center gap-3 lg:gap-4">
+            <div data-reveal data-delay="1" class="flex-1 rounded-xl border border-white/15 p-5 text-center">
+              <i class="fa-solid fa-user-check text-xl text-[#0066CC] mb-2"></i>
+              <p class="mono text-[10px] text-slate-400 uppercase tracking-wider">Supervisor regional</p>
+              <p class="text-sm font-semibold text-white mt-1">Aprueba al técnico</p>
+              <p class="mono text-[10px] text-slate-500 mt-1">trigger del pipeline</p>
+            </div>
+            <i class="fa-solid fa-arrow-right-long text-sm text-white/30 hidden lg:block"></i>
+            <i class="fa-solid fa-arrow-down text-sm text-white/30 lg:hidden mx-auto"></i>
+
+            <div data-reveal data-delay="1" class="flex-1 rounded-xl border border-white/15 p-5 text-center">
+              <i class="fa-solid fa-list-check text-xl text-[#0066CC] mb-2"></i>
+              <p class="mono text-[10px] text-slate-400 uppercase tracking-wider">Cloud Tasks</p>
+              <p class="text-sm font-semibold text-white mt-1">Encolado</p>
+              <p class="mono text-[10px] text-slate-500 mt-1">1 aprobación = 1 task</p>
+            </div>
+            <i class="fa-solid fa-arrow-right-long text-sm text-white/30 hidden lg:block"></i>
+            <i class="fa-solid fa-arrow-down text-sm text-white/30 lg:hidden mx-auto"></i>
+
+            <div data-reveal data-delay="1" class="flex-1 rounded-xl border border-[#FFB800]/40 p-5 text-center relative">
+              <i class="fa-solid fa-gear text-xl text-[#FFB800] mb-2"></i>
+              <p class="mono text-[10px] text-slate-400 uppercase tracking-wider">Cloud Run</p>
+              <p class="text-sm font-semibold text-white mt-1">N workers en paralelo</p>
+              <p class="mono text-[10px] text-[#FFB800] mt-1">escala horizontal · autoscaling</p>
+            </div>
+            <i class="fa-solid fa-arrow-right-long text-sm text-white/30 hidden lg:block"></i>
+            <i class="fa-solid fa-arrow-down text-sm text-white/30 lg:hidden mx-auto"></i>
+
+            <div data-reveal data-delay="2" class="flex-1 rounded-xl border border-white/15 p-5 text-center">
+              <i class="fa-solid fa-shield-halved text-xl text-[#0066CC] mb-2"></i>
+              <p class="mono text-[10px] text-slate-400 uppercase tracking-wider">QA automático</p>
+              <p class="text-sm font-semibold text-white mt-1">PDF · OCR · validación</p>
+              <p class="mono text-[10px] text-slate-500 mt-1">~segundos por ODS</p>
+            </div>
+          </div>
+
+          <!-- Branches · líneas editoriales -->
+          <div data-reveal data-delay="3" class="mt-10 flex flex-col gap-4 text-sm">
+            <div class="flex items-start gap-4">
+              <i class="fa-solid fa-check text-[#34d399] mt-1"></i>
+              <span class="text-slate-300"><strong class="text-white">Avanza</strong> — acta completa, fotos nítidas, datos coherentes.</span>
+            </div>
+            <div class="flex items-start gap-4">
+              <i class="fa-solid fa-rotate-left text-[#FFB800] mt-1"></i>
+              <span class="text-slate-300"><strong class="text-white">Devuelta a campo</strong> — incompleta, borrosa o incoherente.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTO 6 — LA VALIDACIÓN -->
+      <section id="sec-6" data-reveal class="min-h-screen flex items-center px-6 py-24 bg-white text-[#1A1A2E]">
+        <div class="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center">
+          <div class="thread">
+            <p class="t-meta mb-6 text-[#0066CC]">/ 06 &nbsp; La validación</p>
+            <h2 class="t-head mb-6">
+              La última palabra es de un ingeniero eléctrico.
+            </h2>
+            <p class="t-lede text-slate-600">
+              El expediente llega al <strong class="text-[#1A1A2E]">centro técnico</strong> con el supervisor regional y el QA automático ya aprobados. Un <strong class="text-[#1A1A2E]">ingeniero eléctrico</strong> decide <strong class="text-[#1A1A2E]">conforme</strong> o <strong class="text-[#1A1A2E]">no conforme</strong>: es el único juicio técnico del ciclo — por eso el sistema le entrega todo preparado.
+            </p>
+            <div class="mt-10">
+              <button data-modal-target="act6" class="ghost-link text-[#0066CC]">
+                detalles técnicos <i class="fa-solid fa-arrow-right-long"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Validation flow (right column) -->
+          <div data-reveal data-delay="1" class="flex flex-col items-center gap-5">
+            <!-- Inherited gates -->
+            <div class="t-meta text-[#34d399] flex items-center gap-2">
+              <i class="fa-solid fa-check-double"></i>
+              <span>Supervisor + QA automático superados</span>
+            </div>
+            <p class="text-xs text-slate-500 -mt-3">expediente armado · OCR · fotos validadas</p>
+
+            <i class="fa-solid fa-arrow-down text-sm text-slate-300"></i>
+
+            <!-- Centro técnico -->
+            <div class="rounded-2xl bg-white border-2 border-[#0066CC] px-8 py-6 text-center" style="box-shadow: var(--shadow-lift);">
+              <i class="fa-solid fa-bolt text-[#0066CC] text-2xl mb-2"></i>
+              <p class="font-bold text-[#1A1A2E]">Centro técnico</p>
+              <p class="t-meta text-[#0066CC] mt-1 font-semibold">Ingeniero eléctrico</p>
+              <p class="text-xs text-slate-500 mt-2">decisión humana sobre el expediente completo</p>
+            </div>
+
+            <!-- Branch -->
+            <div class="w-full flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-10 pt-6">
+              <div class="flex flex-col items-center gap-2">
+                <i class="fa-solid fa-arrow-down-long text-sm text-[#FFB800]"></i>
+                <div class="rounded-full border-2 border-[#FFB800] text-[#1A1A2E] px-5 py-2 font-bold text-sm">
+                  <i class="fa-solid fa-check mr-2 text-[#FFB800]"></i>Conforme
+                </div>
+                <p class="text-xs text-slate-500">La orden cierra</p>
+              </div>
+
+              <div class="flex flex-col items-center gap-2">
+                <i class="fa-solid fa-arrow-down-long text-sm text-[#0066CC]"></i>
+                <div class="rounded-full border-2 border-[#0066CC] text-[#0066CC] px-5 py-2 font-bold text-sm">
+                  <i class="fa-solid fa-rotate-left mr-2"></i>No conforme
+                </div>
+                <p class="text-xs text-slate-500">Vuelve a campo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTO 7 — LA VERIFICACIÓN CRUZADA -->
+      <section id="sec-7" data-reveal class="min-h-screen flex items-center px-6 py-24 bg-white text-[#1A1A2E] relative border-t border-[#FFB800]/25">
+        <div class="absolute inset-0 pointer-events-none opacity-60" style="background: linear-gradient(180deg, #f8fafc 0%, #ffffff 40%);"></div>
+        <div class="relative max-w-6xl mx-auto w-full grid lg:grid-cols-[0.95fr_1.05fr] gap-16 items-center">
+          <div class="thread">
+            <p class="t-meta mb-6 text-[#0066CC]">/ 07 &nbsp; La verificación cruzada</p>
+            <h2 class="t-head mb-6">
+              Dos pares de ojos, por diseño.
+            </h2>
+            <p class="t-lede text-slate-600">
+              Una fracción controlada de las ODS son <strong class="text-[#1A1A2E]">re-inspecciones</strong>: clientes ya revisados, asignados a una <strong class="text-[#1A1A2E]">cuadrilla distinta</strong>. SENTINEL cruza ambos reportes. Cuando los resultados no cuadran, la discrepancia se escala como <strong class="text-[#1A1A2E]">señal de integridad</strong> — no como error.
+            </p>
+            <p class="mt-6 text-sm text-slate-500 italic">
+              El ciclo se vuelve su propio auditor.
+            </p>
+            <div class="mt-10">
+              <button data-modal-target="act7" class="ghost-link text-[#0066CC]">
+                detalles técnicos <i class="fa-solid fa-arrow-right-long"></i>
+              </button>
+            </div>
+          </div>
+
+          <div data-reveal data-delay="1">
+            <!-- Two parallel inspection cards for same client + divergence -->
+            <div class="relative">
+              <p class="t-meta text-slate-400 mb-4 text-center">Medidor M-847291 · MARÍA A. RAMÍREZ</p>
+
+              <div class="grid grid-cols-2 gap-6 relative">
+                <!-- Operativo 1 -->
+                <div class="rounded-2xl bg-white border border-slate-200 p-5" style="box-shadow: var(--shadow-lift);">
+                  <p class="t-meta text-slate-400 mb-3">Operativo 1 · marzo</p>
+                  <div class="flex items-center gap-2 mb-3">
+                    <i class="fa-solid fa-users text-[#0066CC] text-sm"></i>
+                    <span class="text-xs mono font-semibold text-[#1A1A2E]">Cuadrilla A</span>
+                  </div>
+                  <div class="space-y-1.5 text-xs">
+                    <div class="flex justify-between"><span class="text-slate-500">Sello</span><span class="text-[#1A1A2E]">intacto</span></div>
+                    <div class="flex justify-between"><span class="text-slate-500">Lectura</span><span class="mono text-[#1A1A2E]">12,483</span></div>
+                    <div class="flex justify-between"><span class="text-slate-500">Hallazgo</span><span class="text-slate-400 italic">sin hallazgo</span></div>
+                  </div>
+                </div>
+
+                <!-- Operativo 2 -->
+                <div class="rounded-2xl bg-white border border-[#FFB800] p-5" style="box-shadow: var(--shadow-lift);">
+                  <p class="t-meta text-[#FFB800] mb-3">Operativo 2 · abril · <span class="text-slate-400">muestra</span></p>
+                  <div class="flex items-center gap-2 mb-3">
+                    <i class="fa-solid fa-users text-[#0066CC] text-sm"></i>
+                    <span class="text-xs mono font-semibold text-[#1A1A2E]">Cuadrilla B</span>
+                  </div>
+                  <div class="space-y-1.5 text-xs">
+                    <div class="flex justify-between"><span class="text-slate-500">Sello</span><span class="text-[#FFB800] font-semibold">vulnerado</span></div>
+                    <div class="flex justify-between"><span class="text-slate-500">Lectura</span><span class="mono text-[#1A1A2E]">12,491</span></div>
+                    <div class="flex justify-between"><span class="text-slate-500">Hallazgo</span><span class="text-[#FFB800] font-semibold">anomalía</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Divergence indicator below cards -->
+              <div class="mt-8 flex items-center justify-center gap-3">
+                <div class="h-px flex-1 bg-[#FFB800]/40"></div>
+                <div class="t-meta text-[#FFB800] flex items-center gap-2">
+                  <i class="fa-solid fa-triangle-exclamation"></i> Discrepancia detectada
+                </div>
+                <div class="h-px flex-1 bg-[#FFB800]/40"></div>
+              </div>
+              <p class="text-xs text-slate-500 text-center mt-3">escalada al centro técnico &nbsp;·&nbsp; feedback al modelo</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTO 8 — EL RESULTADO -->
+      <section id="sec-8" data-reveal class="min-h-screen flex items-center px-6 py-24 bg-[#1A1A2E] text-white relative overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+          <div class="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-[#FFB800]/10 blur-3xl"></div>
+        </div>
+
+        <div class="relative max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center">
+          <div class="thread">
+            <p class="t-meta mb-6 text-[#FFB800]">/ 08 &nbsp; El resultado</p>
+            <h2 class="t-head mb-6">
+              Cada orden conforme dispara la medición de afloramiento.
+            </h2>
+            <p class="t-lede text-slate-300 mb-8">
+              Medimos cuánta energía volvió al sistema con <strong class="text-white">línea base (EnB)</strong> e <strong class="text-white">indicadores (EnPI)</strong>, bajo el marco de ISO 50001.
+            </p>
+            <p class="t-meta text-[#FFB800] flex items-center gap-2">
+              <i class="fa-solid fa-certificate"></i> ISO 50001 · Gestión energética
+            </p>
+            <div class="mt-10">
+              <button data-modal-target="act8" class="ghost-link text-[#FFB800]">
+                detalles técnicos <i class="fa-solid fa-arrow-right-long"></i>
+              </button>
+            </div>
+          </div>
+
+          <div data-reveal data-delay="1" class="rounded-2xl border border-white/10 p-8">
+            <p class="t-meta text-slate-400 mb-6">kWh / mes &nbsp;·&nbsp; afloramiento</p>
+
+            <!-- Bar chart before/after -->
+            <div class="grid grid-cols-2 gap-8">
+              <div>
+                <p class="t-meta text-slate-500 mb-3">Antes</p>
+                <div class="h-48 flex items-end gap-2">
+                  <div class="bar flex-1 bg-white/20 rounded-t" style="--bar-final: 30%;"></div>
+                  <div class="bar flex-1 bg-white/20 rounded-t" style="--bar-final: 25%;"></div>
+                  <div class="bar flex-1 bg-white/20 rounded-t" style="--bar-final: 35%;"></div>
+                  <div class="bar flex-1 bg-white/20 rounded-t" style="--bar-final: 28%;"></div>
+                  <div class="bar flex-1 bg-white/20 rounded-t" style="--bar-final: 32%;"></div>
+                </div>
+                <p class="mono text-[10px] text-slate-500 mt-3">baseline EnB</p>
+              </div>
+              <div>
+                <p class="t-meta text-[#FFB800] mb-3">Después</p>
+                <div class="h-48 flex items-end gap-2">
+                  <div class="bar flex-1 bg-[#FFB800] rounded-t" style="--bar-final: 72%;"></div>
+                  <div class="bar flex-1 bg-[#FFB800] rounded-t" style="--bar-final: 85%;"></div>
+                  <div class="bar flex-1 bg-[#FFB800] rounded-t" style="--bar-final: 80%;"></div>
+                  <div class="bar flex-1 bg-[#FFB800] rounded-t" style="--bar-final: 92%;"></div>
+                  <div class="bar flex-1 bg-[#FFB800] rounded-t" style="--bar-final: 88%;"></div>
+                </div>
+                <p class="mono text-[10px] text-[#FFB800] mt-3">EnPI actual</p>
+              </div>
+            </div>
+
+            <!-- Callout · editorial, not fill -->
+            <div class="mt-8 border-t border-white/10 pt-6 flex items-baseline justify-between">
+              <span class="t-meta text-slate-400">Energía recuperada</span>
+              <span class="text-3xl md:text-4xl font-extrabold text-[#FFB800] mono">+18,400 <span class="text-sm font-normal text-slate-400">kWh</span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTO 9 — EL CICLO SE CIERRA -->
+      <section id="sec-9" data-reveal class="min-h-screen flex items-center px-6 py-24 bg-white text-[#1A1A2E]">
+        <div class="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center">
+          <div class="thread">
+            <p class="t-meta mb-6 text-[#0066CC]">/ 09 &nbsp; El ciclo se cierra</p>
+            <h2 class="t-head mb-6">
+              Los resultados alimentan a SENTINEL.
+            </h2>
+            <p class="t-lede text-slate-600">
+              Cada ODS conforme se vuelve un ejemplo etiquetado. <strong class="text-[#1A1A2E]">El modelo se reentrena cada mes</strong> y la siguiente detección es más precisa que la última.
+            </p>
+
+            <ul class="mt-10 space-y-4 text-slate-600">
+              <li class="flex gap-5">
+                <span class="t-meta text-[#0066CC] w-20 shrink-0 pt-1">mensual</span>
+                <span>El modelo se reentrena con las ODS conformes del mes y valida A/B contra el anterior.</span>
+              </li>
+              <li class="flex gap-5">
+                <span class="t-meta text-[#FFB800] w-20 shrink-0 pt-1">métrica</span>
+                <span>Precision@top20 sube mes a mes a medida que el dataset crece.</span>
+              </li>
+            </ul>
+            <div class="mt-10">
+              <button data-modal-target="act9" class="ghost-link text-[#0066CC]">
+                detalles técnicos <i class="fa-solid fa-arrow-right-long"></i>
+              </button>
+            </div>
+          </div>
+
+          <div data-reveal data-delay="1" class="flex justify-center">
+            <!-- Circular cycle diagram -->
+            <div class="relative w-[320px] h-[320px] md:w-[380px] md:h-[380px]">
+              <!-- Ring -->
+              <div class="absolute inset-0 rounded-full border-[3px] border-dashed border-[#0066CC]/40 cycle-spin"></div>
+              <div class="absolute inset-4 rounded-full border-[2px] border-[#0066CC]/20"></div>
+
+              <!-- Center -->
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="rounded-full bg-[#1A1A2E] text-white w-32 h-32 md:w-36 md:h-36 flex flex-col items-center justify-center shadow-xl">
+                  <p class="text-[10px] uppercase tracking-[0.2em] text-[#FFB800]">Core</p>
+                  <p class="text-xl md:text-2xl font-extrabold">SENTINEL</p>
+                </div>
+              </div>
+
+              <!-- Nodes at 0°, 90°, 180°, 270° -->
+              <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0066CC] text-white w-20 h-20 flex flex-col items-center justify-center shadow-lg">
+                <i class="fa-solid fa-magnifying-glass text-sm mb-0.5"></i>
+                <p class="text-[10px] font-bold">Detecta</p>
+              </div>
+              <div class="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FFB800] text-[#1A1A2E] w-20 h-20 flex flex-col items-center justify-center shadow-lg">
+                <i class="fa-solid fa-list-ol text-sm mb-0.5"></i>
+                <p class="text-[10px] font-bold">Ordena</p>
+              </div>
+              <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-full bg-[#0066CC] text-white w-20 h-20 flex flex-col items-center justify-center shadow-lg">
+                <i class="fa-solid fa-person-digging text-sm mb-0.5"></i>
+                <p class="text-[10px] font-bold">Inspecciona</p>
+              </div>
+              <div class="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FFB800] text-[#1A1A2E] w-20 h-20 flex flex-col items-center justify-center shadow-lg">
+                <i class="fa-solid fa-brain text-sm mb-0.5"></i>
+                <p class="text-[10px] font-bold">Aprende</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTO 10 — CENTRO DE CONTROL -->
+      <section id="sec-10" data-reveal class="min-h-screen flex items-center px-6 py-24 bg-[#1A1A2E] text-white relative overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+          <div class="absolute top-0 right-0 h-96 w-96 rounded-full bg-[#0066CC]/15 blur-3xl"></div>
+          <div class="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-[#FFB800]/10 blur-3xl"></div>
+        </div>
+
+        <div class="relative max-w-6xl mx-auto w-full grid lg:grid-cols-[0.85fr_1.15fr] gap-12 items-center">
+          <div class="thread">
+            <p class="t-meta mb-6 text-[#FFB800]">/ 10 &nbsp; Centro de control</p>
+            <h2 class="t-head mb-6">
+              Toda la operación, en un solo sistema.
+            </h2>
+            <p class="t-lede text-slate-300">
+              Un <strong class="text-white">centro de control sobre big data</strong> con <strong class="text-white">ERP integrado</strong>. Trazabilidad end-to-end de órdenes, técnicos, clientes, energía y auditoría. En vivo: el estado de sincronización de cada app en campo, el avance de cada ODS y el impacto en afloramiento.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mt-10">
+              <span class="inline-flex items-center gap-2 rounded-full border border-white/15 px-3.5 py-1.5 text-xs text-slate-200"><i class="fa-solid fa-database text-[#0066CC]"></i> Big Data · tiempo real</span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-[#FFB800]/40 px-3.5 py-1.5 text-xs text-[#FFB800]"><i class="fa-solid fa-sitemap"></i> ERP integrado</span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-white/15 px-3.5 py-1.5 text-xs text-slate-200"><i class="fa-solid fa-tower-broadcast text-[#0066CC]"></i> Monitoreo sync</span>
+            </div>
+
+            <div class="mt-10">
+              <button data-modal-target="act10" class="ghost-link text-[#FFB800]">
+                detalles técnicos <i class="fa-solid fa-arrow-right-long"></i>
+              </button>
+            </div>
+          </div>
+
+          <div data-reveal data-delay="1">
+            <!-- Web dashboard mockup -->
+            <div class="rounded-2xl bg-[#0b0b14] ring-1 ring-[#0066CC]/40 overflow-hidden shadow-[0_30px_80px_rgba(0,102,204,0.25)]">
+              <!-- Top bar -->
+              <div class="flex items-center justify-between px-4 py-2.5 bg-slate-900/80 border-b border-slate-800">
+                <div class="flex items-center gap-2">
+                  <div class="flex gap-1">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-400"></span>
+                  </div>
+                  <span class="mono text-[10px] text-slate-400 ml-2">control.sentinel.enee · live</span>
+                </div>
+                <div class="flex items-center gap-1.5 text-[9px] text-green-400 mono">
+                  <span class="inline-block w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+                  REAL-TIME
+                </div>
+              </div>
+
+              <div class="flex">
+                <!-- Sidebar -->
+                <aside class="hidden md:flex flex-col w-28 py-3 border-r border-slate-800 bg-black/30 text-[10px]">
+                  <p class="px-3 py-1 text-slate-500 uppercase tracking-wide text-[8px]">ERP</p>
+                  <a class="px-3 py-1.5 text-white bg-[#0066CC]/20 border-l-2 border-[#FFB800] font-semibold">ODS</a>
+                  <a class="px-3 py-1.5 text-slate-400">Técnicos</a>
+                  <a class="px-3 py-1.5 text-slate-400">Clientes</a>
+                  <a class="px-3 py-1.5 text-slate-400">Energía</a>
+                  <a class="px-3 py-1.5 text-slate-400">Auditoría</a>
+                  <p class="px-3 py-1 mt-2 text-slate-500 uppercase tracking-wide text-[8px]">Analítica</p>
+                  <a class="px-3 py-1.5 text-slate-400">Dashboard</a>
+                  <a class="px-3 py-1.5 text-slate-400">Reportes</a>
+                </aside>
+
+                <!-- Main area -->
+                <div class="flex-1 p-4 md:p-5 space-y-4">
+                  <!-- KPI row · 2 KPIs -->
+                  <div class="grid grid-cols-2 gap-3">
+                    <div class="rounded-lg border border-white/10 p-4">
+                      <p class="t-meta text-slate-500 mb-1">ODS activas</p>
+                      <p class="text-2xl font-extrabold text-[#FFB800] mono">247</p>
+                    </div>
+                    <div class="rounded-lg border border-white/10 p-4">
+                      <p class="t-meta text-slate-500 mb-1">kWh recuperados</p>
+                      <p class="text-2xl font-extrabold text-[#0066CC] mono">+18.4k</p>
+                    </div>
+                  </div>
+
+                  <!-- Sync widget · full width (el insight del acto) -->
+                  <div class="rounded-lg border border-white/10 p-4">
+                    <p class="t-meta text-slate-500 mb-3">Sincronización · apps en campo</p>
+                    <div class="space-y-2">
+                      <div class="flex items-center justify-between text-xs">
+                        <span class="text-slate-200">J. MARTÍNEZ</span>
+                        <span class="text-[#34d399] mono flex items-center gap-1.5 shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-[#34d399]"></span>live</span>
+                      </div>
+                      <div class="flex items-center justify-between text-xs">
+                        <span class="text-slate-200">L. CASTILLO</span>
+                        <span class="text-[#FFB800] mono flex items-center gap-1.5 shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-[#FFB800]"></span>offline · 3 pendientes</span>
+                      </div>
+                      <div class="flex items-center justify-between text-xs">
+                        <span class="text-slate-200">R. HERNÁNDEZ</span>
+                        <span class="text-[#34d399] mono flex items-center gap-1.5 shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-[#34d399]"></span>live</span>
+                      </div>
+                      <div class="flex items-center justify-between text-xs">
+                        <span class="text-slate-200">M. FLORES</span>
+                        <span class="text-slate-500 mono flex items-center gap-1.5 shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span>sync…</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ERP trace timeline -->
+                  <div class="rounded-lg border border-white/10 p-4">
+                    <p class="t-meta text-slate-500 mb-3">ERP · trazabilidad ODS #4821</p>
+                    <div class="flex items-center gap-1.5 text-[10px] mono flex-wrap">
+                      <span class="px-2 py-1 rounded text-[#34d399] border border-[#34d399]/30">creada</span>
+                      <i class="fa-solid fa-chevron-right text-[8px] text-slate-600"></i>
+                      <span class="px-2 py-1 rounded text-[#34d399] border border-[#34d399]/30">asignada</span>
+                      <i class="fa-solid fa-chevron-right text-[8px] text-slate-600"></i>
+                      <span class="px-2 py-1 rounded text-[#34d399] border border-[#34d399]/30">en_campo</span>
+                      <i class="fa-solid fa-chevron-right text-[8px] text-slate-600"></i>
+                      <span class="px-2 py-1 rounded text-[#0066CC] border border-[#0066CC]/50">qa_ok</span>
+                      <i class="fa-solid fa-chevron-right text-[8px] text-slate-600"></i>
+                      <span class="px-2 py-1 rounded text-slate-500 border border-white/10">en_centro_tecnico</span>
+                      <i class="fa-solid fa-chevron-right text-[8px] text-slate-600"></i>
+                      <span class="px-2 py-1 rounded text-slate-500 border border-white/10">conforme</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CIERRE — SENTINEL -->
+      <section id="sec-11" data-reveal class="relative min-h-screen flex items-center justify-center px-6 py-24 bg-[#1A1A2E] text-white overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+          <div class="absolute top-1/4 left-1/4 h-[500px] w-[500px] rounded-full bg-[#0066CC]/20 blur-3xl"></div>
+          <div class="absolute bottom-1/4 right-1/4 h-[500px] w-[500px] rounded-full bg-[#FFB800]/15 blur-3xl"></div>
+          <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 24px 24px;"></div>
+        </div>
+
+        <div class="relative max-w-5xl mx-auto w-full text-center">
+          <p class="t-meta text-slate-500 mb-10">/ cierre</p>
+
+          <h2 class="text-6xl md:text-8xl lg:text-9xl font-extrabold mb-8 leading-none">
+            SENT<span class="mark-yellow">I</span>NEL
+          </h2>
+
+          <p class="t-lede text-slate-300 font-light max-w-2xl mx-auto mb-4">
+            De la detección al afloramiento.
+          </p>
+          <p class="text-base md:text-lg text-slate-500 max-w-2xl mx-auto mb-16">
+            Un ciclo inteligente, trazable y auditable.
+          </p>
+
+          <!-- Editorial sign-off -->
+          <div data-reveal data-delay="1" class="mt-14 mb-10 flex flex-col items-center gap-4">
+            <div class="h-px w-24 bg-[#FFB800]"></div>
+            <p class="t-meta text-slate-500">/ ENEE · HONDURAS · SENTINEL</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- MODALS · tras bambalinas por acto -->
+    <div data-modal-id="act1">
+      <div data-modal-backdrop class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+      <div class="relative w-full max-w-2xl rounded-2xl bg-[#1A1A2E] border border-[#0066CC]/30 shadow-2xl p-7 md:p-8 max-h-[85vh] overflow-y-auto">
+        <button data-modal-close aria-label="Cerrar" class="absolute top-4 right-4 text-slate-400 hover:text-white transition">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+        <p class="t-meta text-[#FFB800] mb-3">/ 01 &nbsp; tras bambalinas</p>
+        <h3 class="text-2xl font-extrabold text-white mb-4">Dos cuellos de botella analíticos</h3>
+        <div class="space-y-4 text-slate-300 text-base leading-relaxed">
+          <p>Hoy las ODS se generan cargando un <strong class="text-white">Excel al SOE</strong>. Mañana podrá ser una API —ese cambio es plomería, no estrategia—. <strong class="text-white">Ese no es el problema.</strong></p>
+          <p><strong class="text-white">Paso 1 · ¿a quién investigar?</strong> Dentro de un universo de más de <strong class="text-white">2 millones de clientes</strong>, el analista arma el lote a ojo: cruza consumos en Excel, marca medidores "raros" por intuición y genera la ODS en SOE. Sin modelo de scoring, sin priorización por riesgo, sin feedback de lo que pasó en campo la semana pasada.</p>
+          <p><strong class="text-white">Paso 2 · ¿qué cuadrilla la atiende?</strong> La ODS, una vez creada, se asigna a la cuadrilla regional <strong class="text-white">también a ciegas</strong>: sin ruteo geográfico, sin balanceo de carga por técnico, sin considerar el historial de cumplimiento del operativo ni los sectores que ya tiene cubiertos esa semana.</p>
+          <p>Resultado: <strong class="text-white">cuadrillas despachadas casi a ciegas en los dos extremos</strong> —ni el qué ni el quién—, baja tasa de hallazgo y un criterio que nunca aprende. La ODS está bien tipeada; lo que está mal es <em>a quién</em> se la mandamos y <em>quién</em> la ejecuta.</p>
+          <p class="text-[#FFB800] italic">Cambiar Excel por API no encuentra un solo fraude más. Cambiar los dos criterios sí.</p>
+        </div>
+      </div>
+    </div>
+
+    <div data-modal-id="act2">
+      <div data-modal-backdrop class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+      <div class="relative w-full max-w-2xl rounded-2xl bg-[#1A1A2E] border border-[#0066CC]/30 shadow-2xl p-7 md:p-8 max-h-[85vh] overflow-y-auto">
+        <button data-modal-close aria-label="Cerrar" class="absolute top-4 right-4 text-slate-400 hover:text-white transition">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+        <p class="t-meta text-[#FFB800] mb-3">/ 02 &nbsp; tras bambalinas</p>
+        <h3 class="text-2xl font-extrabold text-white mb-4">Cómo detecta SENTINEL</h3>
+        <div class="space-y-4 text-slate-300 text-base leading-relaxed">
+          <p><strong class="text-white">Dos modos de input</strong> según el equipo del cliente:</p>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li><strong class="text-white">Convencional</strong>: serie de consumos mensuales + ODS históricas de la cuenta.</li>
+            <li><strong class="text-white">Telegestionado</strong>: lo anterior + <strong class="text-white">alarmas en texto</strong> emitidas por el equipo (manipulación, inversión de fase, pérdida de neutro, etc.) que entran al pipeline como features textuales y se embeben para RAG.</li>
+          </ul>
+          <p>Pero el consumo por sí solo es ruido. <strong class="text-white">El verdadero diferencial es el contexto</strong> que el agente cruza con cada serie:</p>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li><strong class="text-white">Histórico de la cuenta</strong>: comportamiento previo, ODS anteriores, hallazgos pasados, tipologías de fraude ya confirmadas en ese NIS.</li>
+            <li><strong class="text-white">Metadatos del medidor</strong> como features de primera clase: <span class="mono text-[#FFB800]">geohash</span> (vecindario espacial barato de comparar), <strong class="text-white">región</strong>, <strong class="text-white">circuito</strong> y <strong class="text-white">temporada del año</strong>. Una caída de 40 % en febrero en zona costera no significa lo mismo que en agosto en altiplano.</li>
+          </ul>
+          <p>Sobre ese conjunto, el agente combina el stack:</p>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li><strong class="text-white">Autoencoder</strong> sobre la serie de consumos: residuo de reconstrucción alto = anomalía.</li>
+            <li><strong class="text-white">Gradient Boosting (XGBoost)</strong> para scoring de probabilidad de fraude, usando features categóricas y temporales (geohash, circuito, mes, alarmas).</li>
+            <li><strong class="text-white">RAG sobre histórico</strong>: vector store de actas previas, alarmas textuales y tipologías. El agente recupera los <em>vecinos</em> más parecidos —por geohash, circuito y temporada— antes de razonar.</li>
+            <li><strong class="text-white">MCP tool <span class="mono text-[#FFB800]">sentinel.query_meters</span></strong>: wrapper auditado sobre PostgreSQL con authn, rate limit y logging estructurado.</li>
+          </ul>
+          <p>Así el agente no solo dice "este medidor está raro": dice <em>"está raro <strong class="text-white">comparado con sus vecinos del mismo circuito en la misma temporada</strong>, y se parece a tres fraudes confirmados en el último año a 200 m de distancia"</em>. Eso es criterio, no intuición.</p>
+          <p class="text-slate-400 text-sm">El agente vive en CLI primero porque es <strong class="text-white">reversible, debuggeable</strong> y deja un audit trail por prompt.</p>
+        </div>
+      </div>
+    </div>
+
+    <div data-modal-id="act3">
+      <div data-modal-backdrop class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+      <div class="relative w-full max-w-2xl rounded-2xl bg-[#1A1A2E] border border-[#0066CC]/30 shadow-2xl p-7 md:p-8 max-h-[85vh] overflow-y-auto">
+        <button data-modal-close aria-label="Cerrar" class="absolute top-4 right-4 text-slate-400 hover:text-white transition">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+        <p class="t-meta text-[#FFB800] mb-3">/ 03 &nbsp; tras bambalinas</p>
+        <h3 class="text-2xl font-extrabold text-white mb-4">Asignación óptima vía MCP</h3>
+        <div class="space-y-4 text-slate-300 text-base leading-relaxed">
+          <p>La tool MCP <span class="mono text-[#FFB800]">sentinel.assign_ods</span> recibe el lote y calcula el emparejamiento óptimo:</p>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li>Distancias <strong class="text-white">Haversine</strong> entre cada ODS y la base del técnico.</li>
+            <li>Restricciones: tope diario por técnico, sectores habilitados, historial de cumplimiento.</li>
+            <li>Heurística <strong class="text-white">greedy con balanceo</strong>; para lotes pequeños se usa <strong class="text-white">ILP</strong> (programación lineal entera).</li>
+          </ul>
+          <p>Persiste la asignación en PostgreSQL y dispara la precarga a la app móvil: cliente, dirección, coordenadas, datos del medidor y 12 meses de histórico. <strong class="text-white">Por eso el técnico no vuelve a capturar nada</strong> que ya existe en los sistemas.</p>
+          <p>La asignación se dispara <strong class="text-white">al momento del despacho</strong>, no con anticipación. Reduce la variabilidad entre el plan y el operativo, y minimiza la ventana entre la decisión del sistema y la visita al cliente — un requisito de integridad operativa más que un detalle técnico.</p>
+        </div>
+      </div>
+    </div>
+
+    <div data-modal-id="act4">
+      <div data-modal-backdrop class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+      <div class="relative w-full max-w-2xl rounded-2xl bg-[#1A1A2E] border border-[#0066CC]/30 shadow-2xl p-7 md:p-8 max-h-[85vh] overflow-y-auto">
+        <button data-modal-close aria-label="Cerrar" class="absolute top-4 right-4 text-slate-400 hover:text-white transition">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+        <p class="t-meta text-[#FFB800] mb-3">/ 04 &nbsp; tras bambalinas</p>
+        <h3 class="text-2xl font-extrabold text-white mb-4">La app móvil offline-first</h3>
+        <div class="space-y-4 text-slate-300 text-base leading-relaxed">
+          <p>La app del técnico funciona sin red:</p>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li>Almacenamiento local (IndexedDB o SQLite). Al recibir la ODS precargada, cachea todo lo necesario para trabajar offline.</li>
+            <li><strong class="text-white">Precargado</strong>: datos del cliente, NIS, dirección, coordenadas, 12 meses de histórico y plantilla del acta.</li>
+            <li><strong class="text-white">Lo que captura el técnico</strong>: fotos con EXIF/GPS, checklist, observaciones y firma.</li>
+            <li>El <strong class="text-white">acta PDF</strong> se firma y genera server-side en Cloud Run al confirmar.</li>
+            <li><strong class="text-white">ODS ad-hoc desde campo</strong>: si el técnico observa una conexión irregular en un cliente vecino al operativo en curso, levanta una ODS nueva desde la misma app — con foto geolocalizada, observaciones y el NIS o dirección del vecino. Entra al pipeline como cualquier otra ODS y se audita con el mismo cruce posterior.</li>
+          </ul>
+          <p>Cuando vuelve la red, sincroniza las fotos a Cloud Storage y confirma la ODS contra la API.</p>
+        </div>
+      </div>
+    </div>
+
+    <div data-modal-id="act5">
+      <div data-modal-backdrop class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+      <div class="relative w-full max-w-2xl rounded-2xl bg-[#1A1A2E] border border-[#0066CC]/30 shadow-2xl p-7 md:p-8 max-h-[85vh] overflow-y-auto">
+        <button data-modal-close aria-label="Cerrar" class="absolute top-4 right-4 text-slate-400 hover:text-white transition">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+        <p class="t-meta text-[#FFB800] mb-3">/ 05 &nbsp; tras bambalinas</p>
+        <h3 class="text-2xl font-extrabold text-white mb-4">Escalamiento horizontal: el pilar invisible</h3>
+        <div class="space-y-4 text-slate-300 text-base leading-relaxed">
+          <p>El técnico cierra la ODS en campo y se la pasa a su <strong class="text-white">supervisor regional</strong>. Cuando el supervisor aprueba el trabajo del técnico, esa aprobación es la que <strong class="text-white">dispara el pipeline</strong>: <strong class="text-white">Cloud Tasks</strong> encola la ODS como una task individual y <strong class="text-white">Cloud Run</strong> consume la cola con autoscaling. Cada task levanta una instancia worker, y la concurrencia crece <strong class="text-white">linealmente con la demanda</strong>. Si llegan 5 aprobaciones o 500, el pipeline procesa todas en paralelo —no en serie, no por lotes nocturnos—.</p>
+          <p>Esto es lo que habilita la <strong class="text-white">auditoría casi en tiempo real</strong>: a los segundos de la aprobación del supervisor, el expediente ya está armado, validado y en la bandeja del centro técnico. No esperamos a que termine el día.</p>
+          <p>Cada worker, independientemente, ejecuta sobre la ODS:</p>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li><strong class="text-white">Ensamble del PDF unificado</strong>: acta + fotos + metadatos del medidor + lectura del display + firma del técnico.</li>
+            <li><strong class="text-white">OCR sobre el acta escaneada</strong> y sobre la foto del display, con cruce contra la lectura precargada del SOE.</li>
+            <li><strong class="text-white">Detección de borrosidad</strong> en fotos: varianza de Laplaciano &lt; umbral → rechazo.</li>
+            <li><strong class="text-white">Coherencia temporal y geográfica</strong>: timestamps y GPS de las fotos contra la dirección del cliente.</li>
+            <li><strong class="text-white">Completitud</strong> del checklist y observaciones mínimas.</li>
+          </ul>
+          <p>Rechazo del QA → la ODS vuelve al supervisor con motivo estructurado para que la devuelva al técnico. Aprobación del QA → el expediente pasa al <strong class="text-white">centro técnico</strong>, donde un <strong class="text-white">ingeniero eléctrico</strong> decide conforme o no conforme.</p>
+          <p class="text-[#FFB800] italic">El escalamiento horizontal no es un detalle de infraestructura. Es lo que convierte el QA en un proceso continuo en lugar de un cuello de botella humano.</p>
+        </div>
+      </div>
+    </div>
+
+    <div data-modal-id="act6">
+      <div data-modal-backdrop class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+      <div class="relative w-full max-w-2xl rounded-2xl bg-[#1A1A2E] border border-[#0066CC]/30 shadow-2xl p-7 md:p-8 max-h-[85vh] overflow-y-auto">
+        <button data-modal-close aria-label="Cerrar" class="absolute top-4 right-4 text-slate-400 hover:text-white transition">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+        <p class="t-meta text-[#FFB800] mb-3">/ 06 &nbsp; tras bambalinas</p>
+        <h3 class="text-2xl font-extrabold text-white mb-4">Máquina de estados auditable</h3>
+        <div class="space-y-4 text-slate-300 text-base leading-relaxed">
+          <p>La ODS transita por una máquina de estados explícita:</p>
+          <p class="mono text-xs text-[#FFB800] bg-black/30 border border-[#0066CC]/20 rounded p-3">creada → asignada → en_campo → cerrada_por_tecnico → aprobada_por_supervisor → qa_ok → en_centro_tecnico → conforme | no_conforme</p>
+          <p>Cada transición queda registrada en SOE con actor, timestamp y motivo. La <strong class="text-white">aprobación del supervisor regional</strong> es la transición que dispara el pipeline automatizado; ningún expediente entra al QA sin pasar antes por ese gate humano.</p>
+          <p>Cuando llega al <strong class="text-white">centro técnico</strong>, el ingeniero eléctrico encuentra el expediente completamente armado: PDF unificado, OCR del acta, fotos validadas, lecturas cruzadas con SOE y trazabilidad de quién hizo qué. Su único trabajo es <strong class="text-white">aplicar criterio técnico</strong> y marcar <em>conforme</em> o <em>no conforme</em>, con justificación.</p>
+          <p>No conforme → vuelve al supervisor con motivo estructurado. Conforme → la orden cierra y se contabiliza para el afloramiento. <strong class="text-white">Trazabilidad de punta a punta</strong>, sin reingreso de datos en ninguna etapa.</p>
+        </div>
+      </div>
+    </div>
+
+    <div data-modal-id="act7">
+      <div data-modal-backdrop class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+      <div class="relative w-full max-w-2xl rounded-2xl bg-[#1A1A2E] border border-[#0066CC]/30 shadow-2xl p-7 md:p-8 max-h-[85vh] overflow-y-auto">
+        <button data-modal-close aria-label="Cerrar" class="absolute top-4 right-4 text-slate-400 hover:text-white transition">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+        <p class="t-meta text-[#FFB800] mb-3">/ 07 &nbsp; tras bambalinas</p>
+        <h3 class="text-2xl font-extrabold text-white mb-4">Aseguramiento de integridad del operador</h3>
+        <div class="space-y-4 text-slate-300 text-base leading-relaxed">
+          <p>SENTINEL no toma el reporte de campo como verdad absoluta. Una <strong class="text-white">fracción calibrada</strong> de las ODS marcadas como <em>"sin hallazgo"</em> se vuelven a generar como <strong class="text-white">re-inspecciones</strong> y se despachan a una cuadrilla distinta, sin que el nuevo operativo sepa que es un control.</p>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li><strong class="text-white">Muestreo estratificado</strong> por sector, tipo de medidor y cuadrilla: se garantiza cobertura sobre la flota operativa.</li>
+            <li><strong class="text-white">Asignación ciega</strong>: el segundo operativo se agenda con las mismas reglas JIT del Acto 3. La cuadrilla no sabe que está trabajando sobre una muestra.</li>
+            <li><strong class="text-white">Cruce estructurado</strong>: estado del sello, lectura del display, fotos, checklist y hallazgo se comparan campo por campo contra el primer reporte.</li>
+            <li><strong class="text-white">Escalamiento</strong>: cualquier divergencia material se flagea al centro técnico y al módulo de auditoría, con trazabilidad sobre el medidor y las cuadrillas involucradas.</li>
+          </ul>
+          <p><strong class="text-white">Las discrepancias alimentan indicadores de confiabilidad por cuadrilla</strong> que entran al dataset del ciclo. El modelo aprende no solo a detectar pérdidas — aprende a identificar dónde el reporte de campo es más o menos confiable.</p>
+          <p class="text-[#FFB800] italic">No es un gesto de desconfianza. Es lo que hace posible confiar en los indicadores del afloramiento.</p>
+        </div>
+      </div>
+    </div>
+
+    <div data-modal-id="act8">
+      <div data-modal-backdrop class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+      <div class="relative w-full max-w-2xl rounded-2xl bg-[#1A1A2E] border border-[#0066CC]/30 shadow-2xl p-7 md:p-8 max-h-[85vh] overflow-y-auto">
+        <button data-modal-close aria-label="Cerrar" class="absolute top-4 right-4 text-slate-400 hover:text-white transition">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+        <p class="t-meta text-[#FFB800] mb-3">/ 08 &nbsp; tras bambalinas</p>
+        <h3 class="text-2xl font-extrabold text-white mb-4">Cálculo del afloramiento</h3>
+        <div class="space-y-4 text-slate-300 text-base leading-relaxed">
+          <p>Cálculo bajo la metodología <strong class="text-white">ISO 50001</strong>:</p>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li><strong class="text-white">Línea base (EnB)</strong>: promedio normalizado del consumo histórico del medidor en una ventana ajustada por estacionalidad, clima y tarifa.</li>
+            <li><strong class="text-white">Indicador de desempeño (EnPI)</strong>: consumo medido después de la intervención, sobre una ventana comparable.</li>
+            <li><strong class="text-white">Afloramiento</strong> = <span class="mono text-[#FFB800]">EnPI − EnB</span>, agregado por cada ODS conforme.</li>
+          </ul>
+          <p>La metodología y los cálculos quedan documentados en el reporte de energía, trazables a cada ODS. <strong class="text-white">Auditable por tercero.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div data-modal-id="act9">
+      <div data-modal-backdrop class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+      <div class="relative w-full max-w-2xl rounded-2xl bg-[#1A1A2E] border border-[#0066CC]/30 shadow-2xl p-7 md:p-8 max-h-[85vh] overflow-y-auto">
+        <button data-modal-close aria-label="Cerrar" class="absolute top-4 right-4 text-slate-400 hover:text-white transition">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+        <p class="t-meta text-[#FFB800] mb-3">/ 09 &nbsp; tras bambalinas</p>
+        <h3 class="text-2xl font-extrabold text-white mb-4">El modelo aprende</h3>
+        <div class="space-y-4 text-slate-300 text-base leading-relaxed">
+          <p>Cada ODS conforme se vuelve un <strong class="text-white">ejemplo etiquetado</strong> (features + verdadero/falso positivo) y entra al dataset de entrenamiento.</p>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li><strong class="text-white">Reentrenamiento mensual</strong> del autoencoder y del gradient boosting.</li>
+            <li><strong class="text-white">Métricas</strong>: precision@top20, recall histórico, tasa de conformidad por sector.</li>
+            <li><strong class="text-white">Validación A/B</strong>: antes de reemplazar al modelo en producción, el nuevo compite contra el actual.</li>
+          </ul>
+          <p>Todo el pipeline de aprendizaje se orquesta desde el centro de control.</p>
+        </div>
+      </div>
+    </div>
+
+    <div data-modal-id="act10">
+      <div data-modal-backdrop class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+      <div class="relative w-full max-w-2xl rounded-2xl bg-[#1A1A2E] border border-[#0066CC]/30 shadow-2xl p-7 md:p-8 max-h-[85vh] overflow-y-auto">
+        <button data-modal-close aria-label="Cerrar" class="absolute top-4 right-4 text-slate-400 hover:text-white transition">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+        <p class="t-meta text-[#FFB800] mb-3">/ 10 &nbsp; tras bambalinas</p>
+        <h3 class="text-2xl font-extrabold text-white mb-4">Arquitectura del centro de control</h3>
+        <div class="space-y-4 text-slate-300 text-base leading-relaxed">
+          <p>Sistema web sobre <strong class="text-white">PostgreSQL</strong> (transaccional) más un <strong class="text-white">warehouse analítico</strong> para big data (ej. ClickHouse o BigQuery). Autenticación con <strong class="text-white">RBAC por rol</strong>: analista, supervisor, auditor, administrador.</p>
+          <p><strong class="text-white">ERP integrado</strong> con módulos de ODS, Técnicos, Clientes, Energía y Auditoría. Cada cambio de estado queda persistido con actor, timestamp y motivo, y aparece en la UI como timeline.</p>
+          <p><strong class="text-white">Monitoreo de sincronización</strong> para las apps offline-first: cada dispositivo reporta heartbeat, cola pendiente y última sync exitosa. Un técnico sin red aparece como <span class="mono text-[#FFB800]">offline · N pendientes</span> y pasa a <span class="mono text-[#34d399]">live</span> al reconectar.</p>
+          <p>Dashboard en tiempo real vía <strong class="text-white">Server-Sent Events</strong> (PostgreSQL LISTEN/NOTIFY). Reportería a demanda desde un catálogo de queries guardadas, accesible por el equipo de operación.</p>
+        </div>
+      </div>
+    </div>
+
+    <script is:inline>
+      (function () {
+        if (typeof window === 'undefined') return;
+
+        // --- 1. Reveal on scroll ---
+        var reveals = document.querySelectorAll('[data-reveal]');
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+          reveals.forEach(function (el) { io.observe(el); });
+        } else {
+          reveals.forEach(function (el) { el.classList.add('is-visible'); });
+        }
+
+        // --- 2. Side nav · section tracking ---
+        var sections = Array.prototype.slice.call(document.querySelectorAll('section[id^="sec-"]'));
+        var counter = document.querySelector('[data-nav-counter]');
+        var prevBtn = document.querySelector('[data-nav="prev"]');
+        var nextBtn = document.querySelector('[data-nav="next"]');
+        var dots = document.querySelectorAll('[data-nav-dot]');
+        var current = 0;
+
+        function updateNavUI() {
+          if (counter) {
+            counter.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(sections.length).padStart(2, '0');
+          }
+          if (prevBtn) prevBtn.toggleAttribute('disabled', current === 0);
+          if (nextBtn) nextBtn.toggleAttribute('disabled', current === sections.length - 1);
+          dots.forEach(function (d, i) {
+            d.classList.toggle('active', i === current);
+          });
+        }
+
+        if ('IntersectionObserver' in window && sections.length) {
+          var trackIo = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                var idx = sections.indexOf(entry.target);
+                if (idx >= 0) {
+                  current = idx;
+                  updateNavUI();
+                }
+              }
+            });
+          }, { threshold: 0.5 });
+          sections.forEach(function (s) { trackIo.observe(s); });
+        }
+
+        function goTo(i) {
+          if (i < 0 || i >= sections.length) return;
+          sections[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); });
+        if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+        updateNavUI();
+
+        // --- 3. Modals ---
+        function closeAnyModal() {
+          var open = document.querySelectorAll('[data-modal-id].is-open');
+          open.forEach(function (m) { m.classList.remove('is-open'); });
+          if (open.length) document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('[data-modal-target]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var id = btn.getAttribute('data-modal-target');
+            var modal = document.querySelector('[data-modal-id="' + id + '"]');
+            if (!modal) return;
+            closeAnyModal();
+            modal.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+          });
+        });
+
+        document.querySelectorAll('[data-modal-close]').forEach(function (el) {
+          el.addEventListener('click', function () { closeAnyModal(); });
+        });
+        document.querySelectorAll('[data-modal-backdrop]').forEach(function (el) {
+          el.addEventListener('click', function () { closeAnyModal(); });
+        });
+
+        // --- 4. Keyboard ---
+        document.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Escape') {
+            closeAnyModal();
+            return;
+          }
+          // No navegar con flechas si hay modal abierto
+          if (document.querySelector('[data-modal-id].is-open')) return;
+          if (ev.key === 'ArrowDown' || ev.key === 'PageDown') {
+            ev.preventDefault();
+            goTo(current + 1);
+          }
+          if (ev.key === 'ArrowUp' || ev.key === 'PageUp') {
+            ev.preventDefault();
+            goTo(current - 1);
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
