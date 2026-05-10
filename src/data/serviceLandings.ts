@@ -3,68 +3,108 @@ import { agenticAutomationTheme, fieldOperationsTheme, processAutomationTheme } 
 import { fieldOperationsFaqs } from './faqs';
 
 export const agenticAutomationLanding: ServiceLandingConfig = {
-  seoTitle: 'Automatización con IA para WhatsApp, Excel y procesos manuales',
-  seoDescription: 'Deja de perder clientes entre WhatsApp, Excel y seguimientos manuales. Automatización con IA para pymes hondureñas con control humano y diagnóstico gratuito.',
+  seoTitle: 'Automatización práctica para pymes — Deja de perder clientes por desorganización',
+  seoDescription: 'Solución práctica para pymes que operan con WhatsApp, Excel y procesos manuales. Orden, seguimiento y control sin complejidad técnica. Diagnóstico gratuito.',
   seoImage: '/og-agentic-automation.png',
   path: '/automatizacion-con-ia-agentica',
   theme: agenticAutomationTheme,
-  badge: 'Para pymes que trabajan con WhatsApp, Excel y procesos manuales',
+  badge: 'Automatización práctica para pymes que operan con WhatsApp, Excel y procesos manuales',
   title: 'Deja de perder clientes, tiempo y control entre WhatsApp, Excel y seguimientos manuales.',
   subtitle:
-    'Te ayudo a convertir procesos repetitivos —ventas, citas, cotizaciones, reportes, documentos o atención por WhatsApp— en flujos más claros, medibles y automatizados, con revisión humana donde sea necesario.',
+    'Te ayudo a ordenar y automatizar procesos repetitivos de tu negocio —ventas, citas, cotizaciones, reportes, documentos o atención por WhatsApp— para que tu equipo dé seguimiento a tiempo, tenga trazabilidad y no dependa de una sola persona.',
   benefits: [
-    'Menos seguimiento manual y menos clientes perdidos',
-    'Más visibilidad de lo que ocurre en tu operación',
-    'Sin reemplazar a tu equipo: herramientas que le dan soporte'
+    'Menos clientes perdidos por falta de seguimiento',
+    'Tu equipo enfocado en vender, no en tareas repetitivas',
+    'Visibilidad real de lo que pasa en tu operación'
   ],
   metrics: [
-    { value: '+10 años', label: 'diseñando operaciones digitales y automatización para empresas reales' },
-    { value: '+5M', label: 'registros procesados en implementaciones en producción' },
-    { value: 'Por etapas', label: 'empezamos con algo pequeño que funcione, luego escalamos' },
-    { value: 'Con control', label: 'siempre hay revisión humana en decisiones importantes' }
+    { value: '+10 años', label: 'ordenando operaciones y reduciendo trabajo manual' },
+    { value: 'Por etapas', label: 'empezamos con algo pequeño que funcione' },
+    { value: 'Con control', label: 'vos decidís qué requiere tu aprobación' }
   ],
   primaryCtaLabel: 'Solicitar diagnóstico gratis por WhatsApp',
-  primaryCtaHref: 'https://wa.me/50432045265?text=Hola+H%C3%A9ctor%2C+vi+tu+p%C3%A1gina+de+automatizaci%C3%B3n+y+quiero+solicitar+un+diagn%C3%B3stico+gratis.+Mi+empresa+usa+WhatsApp%2C+Excel+y+seguimiento+manual+y+quiero+saber+si+se+puede+mejorar+con+automatizaci%C3%B3n.',
+  primaryCtaHref: 'https://wa.me/50432045265?text=Hola+H%C3%A9ctor%2C+vi+tu+p%C3%A1gina+y+quiero+solicitar+un+diagn%C3%B3stico+gratis.+Trabajamos+con+WhatsApp+y+Excel+y+necesitamos+ordenar+nuestros+procesos.',
   secondaryCtaLabel: 'Ver qué puedo automatizar',
-  secondaryCtaHref: '#capacidades',
+  secondaryCtaHref: '#oferta',
   problemTitle: '¿Tu empresa todavía depende de WhatsApp, Excel y recordatorios manuales?',
   problemSubtitle:
-    'Si te sientes identificado con alguno de estos problemas, no estás solo. Es el día a día de muchas pymes hondureñas que crecieron organizándose con herramientas simples, pero ahora esas mismas herramientas se convirtieron en un cuello de botella.',
+    'Si te sentís identificado con alguno de estos problemas, no estás solo. Es el día a día de muchas pymes hondureñas.',
   problemCards: [
     {
       icon: 'fa-comments',
-      title: 'Los clientes escriben y se pierden entre los chats',
-      description: 'Entre WhatsApp, llamadas y correos, una consulta importante puede quedar enterrada y nunca ser atendida.'
+      title: 'Los clientes escriben y nadie les da seguimiento a tiempo',
+      description: 'Entre WhatsApp, llamadas y correos, una consulta importante queda enterrada y nunca se atiende.'
     },
     {
       icon: 'fa-file-excel',
-      title: 'La información vive en Excel, libretas y la memoria de alguien',
-      description: 'El gerente no ve el estado completo del negocio sin pedir reportes o revisar mensajes uno por uno.'
+      title: 'La información queda regada entre chats, hojas de cálculo y libretas',
+      description: 'El gerente no sabe qué está pendiente, qué se atrasó o quién debe responder.'
     },
     {
       icon: 'fa-user-clock',
-      title: 'Tu equipo pierde tiempo en tareas repetitivas en vez de vender',
+      title: 'El equipo repite tareas manuales todos los días',
       description: 'Muchas horas se van en copiar datos, responder lo mismo o recordar qué cliente hay que llamar.'
     },
     {
       icon: 'fa-user-gear',
-      title: 'Una sola persona sabe cómo funciona todo',
-      description: 'Si esa persona se enferma, se va de vacaciones o renuncia, el proceso se frena o se cae.'
+      title: 'Si una persona falta, el proceso se detiene',
+      description: 'Una sola persona sabe cómo funciona todo. Si se enferma o se va, todo se frena.'
     },
     {
-      icon: 'fa-robot',
-      title: 'Ya intentaron usar IA, pero no funcionó en el día a día',
-      description: 'Un chat suelto no sirve si no está conectado a tus procesos reales de ventas, citas o cobros.'
+      icon: 'fa-chart-line',
+      title: 'Los gerentes toman decisiones sin datos claros',
+      description: 'No hay visibilidad de qué está pasando en la operación. Todo depende de preguntar uno por uno.'
     },
     {
-      icon: 'fa-shield-halved',
-      title: 'Te da miedo automatizar porque no quieres perder el control',
-      description: 'Es una preocupación válida. Por eso diseño flujos con límites claros, aprobaciones humanas y revisión donde importa.'
+      icon: 'fa-bell',
+      title: 'Citas, pedidos y cotizaciones se olvidan',
+      description: 'Sin recordatorios automáticos, muchas oportunidades se pierden porque alguien se olvidó de llamar.'
     }
   ],
-  riskTitle: 'La consecuencia del desorden operativo',
-  riskDescription:
-    'Cuando el seguimiento vive en la memoria de una persona o en hojas de cálculo desconectadas, perder clientes es cuestión de tiempo. La automatización no es magia: es darle orden y visibilidad a procesos que ya existen.',
+  consequencesTitle: 'Ese desorden no solo quita tiempo: también cuesta dinero',
+  consequencesDescription: 'Cuando el seguimiento vive en la memoria de una persona o en hojas de cálculo desconectadas, esto es lo que pasa:',
+  consequences: [
+    {
+      icon: 'fa-user-xmark',
+      title: 'Clientes que se enfrían',
+      description: 'Un cliente interesado que no recibe seguimiento a tiempo pasa a la competencia.'
+    },
+    {
+      icon: 'fa-file-invoice-dollar',
+      title: 'Cotizaciones que no se contestan',
+      description: 'El tiempo de respuesta es dinero. Si tardás, el cliente ya compró en otro lado.'
+    },
+    {
+      icon: 'fa-calendar-xmark',
+      title: 'Citas y pedidos olvidados',
+      description: 'Sin recordatorios, las citas se pierden y los pedidos se acumulan sin entregar.'
+    },
+    {
+      icon: 'fa-file-pen',
+      title: 'Reportes hechos a mano',
+      description: 'Alguien pierde horas armando reportes en Excel en vez de analizar qué mejorar.'
+    },
+    {
+      icon: 'fa-question',
+      title: 'Decisiones a ciegas',
+      description: 'El gerente no sabe cuántos clientes están esperando ni qué vendedor tiene la prioridad.'
+    },
+    {
+      icon: 'fa-user-slash',
+      title: 'Dependencia de una persona clave',
+      description: 'Si esa persona falta, nadie sabe qué hacer. El negocio queda paralizado.'
+    }
+  ],
+  offerTitle: 'Primero ordenamos el proceso. Después automatizamos lo que sí conviene.',
+  offerDescription: 'No se trata de meter tecnología por moda. Primero revisamos cómo trabaja tu negocio, dónde se pierde tiempo, dónde hay errores y qué tareas se repiten. Luego definimos una automatización pequeña, útil y medible para empezar sin complicar toda la operación.',
+  offerPoints: [
+    'Diagnóstico inicial para detectar qué automatizar primero',
+    'Empezamos por etapas: algo pequeño que funcione, luego escalamos',
+    'Siempre hay control humano: vos decidís qué requiere tu aprobación',
+    'Buscamos retorno práctico: menos trabajo manual, más clientes atendidos'
+  ],
+  riskTitle: '',
+  riskDescription: '',
   capabilitiesTitle: 'Según tu problema, elegimos la herramienta correcta',
   capabilitiesSubtitle:
     'No vendo IA por moda. Primero reviso tu proceso, luego propongo la solución más simple que resuelva tu dolor específico.',
@@ -289,63 +329,55 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     ctaHref:
       'https://wa.me/50432045265?text=Hola+H%C3%A9ctor%2C+tengo+un+proceso+que+podr%C3%ADa+automatizarse.+Quiero+revisar+si+conviene+empezar+con+algo+sencillo+y+luego+seguir+mejorando.'
   },
-  beforeAfterTitle: 'Así cambia tu operación con automatización',
-  beforeAfterSubtitle: 'Ejemplos reales de cómo se transforman los procesos cuando dejas de depender solo de la memoria y el Excel.',
+  beforeAfterTitle: 'Cómo se ve una automatización útil en una pyme',
+  beforeAfterSubtitle: 'Ejemplos concretos de cómo cambia el día a día cuando ordenás y automatizás tus procesos.',
   beforeAfterCases: [
     {
-      icon: 'fa-house',
-      industry: 'Inmobiliarias',
-      title: 'Seguimiento a prospectos',
-      before: 'Los leads llegan por WhatsApp y se pierden entre chats. Nadie sabe cuál prospecto está en qué etapa.',
-      after: 'Cada lead queda registrado, clasificado por prioridad, con recordatorio automático y responsable asignado.'
+      icon: 'fa-users',
+      industry: 'Seguimiento de clientes',
+      title: 'De leads perdidos a prospectos atendidos',
+      before: 'Los clientes escriben por WhatsApp, alguien responde cuando puede y el seguimiento queda perdido entre chats.',
+      after: 'Cada solicitud queda registrada, clasificada, con responsable, recordatorio y estado visible para el gerente.'
     },
     {
-      icon: 'fa-stethoscope',
-      industry: 'Clínicas y consultorios',
-      title: 'Citas y recordatorios',
-      before: 'La recepción pasa horas confirmando citas por teléfono. Muchas citas se pierden por olvidos.',
-      after: 'Recordatorios automáticos por WhatsApp. Los pacientes confirman solos y la recepción atiende solo casos especiales.'
+      icon: 'fa-file-invoice-dollar',
+      industry: 'Cotizaciones',
+      title: 'De demoras a respuestas rápidas',
+      before: 'Las cotizaciones se preparan copiando datos entre mensajes, Excel y sistemas. Tardan días y se pierden oportunidades.',
+      after: 'El flujo ordena la solicitud, pide datos faltantes, prepara la base de la cotización y avisa cuando necesita revisión humana.'
     },
     {
-      icon: 'fa-hammer',
-      industry: 'Ferreterías',
-      title: 'Cotizaciones y pedidos',
-      before: 'Los clientes preguntan por WhatsApp por precios y disponibilidad. Las cotizaciones se pierden o tardan días.',
-      after: 'Solicitudes ordenadas automáticamente, datos completos desde el primer mensaje, seguimiento sin olvidos.'
+      icon: 'fa-calendar-check',
+      industry: 'Citas y pedidos',
+      title: 'De olvidos a recordatorios automáticos',
+      before: 'Las citas, pedidos o visitas dependen de que alguien se acuerde. Se pierden oportunidades por falta de seguimiento.',
+      after: 'El sistema registra pendientes, envía recordatorios automáticos y muestra qué casos están atrasados.'
     },
     {
-      icon: 'fa-car',
-      industry: 'Talleres mecánicos',
-      title: 'Citas y repuestos',
-      before: 'Las citas se agendan en libretas o WhatsApp. Cuando llega el cliente, no hay repuesto o no está listo.',
-      after: 'Citas coordinadas con disponibilidad real de repuestos. El cliente sabe exactamente cuándo puede pasar.'
-    },
-    {
-      icon: 'fa-landmark',
-      industry: 'Cooperativas y servicios',
-      title: 'Documentos y estados',
-      before: 'Clientes llaman todos los días preguntando por estados de trámites. El personal repite lo mismo constantemente.',
-      after: 'Consulta de estado automática. El cliente ve su avance sin llamar, y tu equipo atiende solo casos que requieren atención.'
+      icon: 'fa-chart-line',
+      industry: 'Gerencia',
+      title: 'De preguntar a saber',
+      before: 'El gerente debe preguntar por WhatsApp para saber qué pasó con cada cliente, cita o pedido. No hay visibilidad real.',
+      after: 'Un tablero muestra pendientes, responsables, atrasos y oportunidades que necesitan atención. Decisiones con datos.'
     }
   ],
   idealForSection: {
-    title: '¿Esto es para tu empresa?',
+    title: '¿Esto es para vos?',
     yesTitle: 'Este servicio es para vos si...',
     yesItems: [
-      'Recibís solicitudes por WhatsApp y se te pierden los seguimientos',
+      'Recibís solicitudes por WhatsApp y se te pierden seguimientos',
       'Usás Excel para controlar ventas, citas, pedidos o reportes',
-      'Tu equipo repite muchas tareas manuales que podrían automatizarse',
-      'Dependés de una sola persona que sabe cómo funciona todo',
-      'Querés más orden sin tener que comprar un sistema enorme desde el inicio',
-      'Estás dispuesto a revisar cómo trabaja tu equipo antes de automatizar'
+      'Tu equipo repite tareas manuales todos los días',
+      'Dependés de una persona que sabe cómo funciona todo',
+      'Querés más orden sin comprar un sistema enorme desde el inicio',
+      'Querés empezar con una automatización pequeña y medible'
     ],
     noTitle: 'No es para vos si...',
     noItems: [
       'Querés automatizar sin ordenar primero el proceso',
-      'Buscás una IA mágica que trabaje sola sin supervisión',
-      'No estás dispuesto a dedicar tiempo a revisar cómo trabaja tu equipo hoy',
-      'Esperás resultados garantizados sin medir ni ajustar el proceso',
-      'Preferís un sistema listo para usar sin personalización a tu operación'
+      'Buscás una IA mágica que trabaje sin supervisión',
+      'No estás dispuesto a revisar cómo trabaja tu equipo hoy',
+      'Querés reemplazar criterio humano en decisiones sensibles'
     ]
   },
   proofTitle: 'Cómo trabajo: primero el proceso, después la tecnología',
@@ -409,48 +441,60 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
       }
     ]
   },
-  stackTitle: 'Las herramientas dependen de tu caso',
+  stackTitle: 'Elegimos la herramienta correcta según tu proceso',
   stackSubtitle:
-    'No hace falta que entiendas de IA para saber si te sirve. Según tu problema específico, elijo la combinación de herramientas que resuelva tu dolor con el menor costo y riesgo posible.',
+    'No todo necesita IA. A veces basta con ordenar el flujo, conectar formularios, automatizar recordatorios, crear un tablero o integrar datos. Si la IA aporta valor, se usa con límites de seguridad, revisión humana y trazabilidad.',
   stackGroups: [
     {
-      icon: 'fa-robot',
-      title: 'IA que entiende y responde',
-      description: 'Ayuda a interpretar mensajes, clasificar solicitudes y dar los siguientes pasos.',
+      icon: 'fa-gears',
+      title: 'Automatización de tareas repetitivas',
+      description: 'Para liberar a tu equipo de trabajo manual diario.',
       items: [
-        'Clasificación automática de solicitudes',
-        'Respuestas sugeridas o automáticas según reglas',
-        'Escalamiento a humanos cuando hay dudas'
+        'Recordatorios y seguimientos automáticos',
+        'Clasificación de solicitudes entrantes',
+        'Respuestas a preguntas frecuentes',
+        'Coordinación automática de tareas'
+      ]
+    },
+    {
+      icon: 'fa-brain',
+      title: 'IA que ayuda a ejecutar, clasificar y dar seguimiento',
+      description: 'Para interpretar mensajes, priorizar casos y tomar decisiones simples.',
+      items: [
+        'Clasificación de mensajes por urgencia y tipo',
+        'Resumen de información importante',
+        'Sugerencias de próximos pasos',
+        'Escalamiento cuando hay dudas'
       ]
     },
     {
       icon: 'fa-link',
-      title: 'Conexión con tus herramientas',
-      description: 'Conectamos con lo que ya usás: WhatsApp, Excel, formularios o tu sistema.',
+      title: 'Integraciones para conectar sistemas',
+      description: 'Para que WhatsApp, Excel y tus sistemas hablen entre sí.',
       items: [
         'WhatsApp, correo y formularios web',
         'Excel, Google Sheets o bases de datos',
-        'CRM, sistemas internos o APIs existentes'
+        'CRM, sistemas internos o herramientas existentes'
       ]
     },
     {
-      icon: 'fa-shield-halved',
-      title: 'Límites de seguridad',
-      description: 'Definimos qué puede hacer la IA sola y qué requiere tu aprobación.',
+      icon: 'fa-chart-bar',
+      title: 'Tableros para ver pendientes y resultados',
+      description: 'Para que sepas qué está pasando sin tener que preguntar.',
       items: [
-        'Acciones que puede hacer automáticamente',
-        'Decisiones que siempre requieren tu OK',
-        'Qué pasa cuando hay casos especiales'
+        'Visibilidad de casos pendientes y atrasados',
+        'Indicadores simples de tu operación',
+        'Alertas cuando algo requiere atención'
       ]
     },
     {
-      icon: 'fa-file-lines',
-      title: 'Registro de todo lo importante',
-      description: 'Cada acción queda registrada para que puedas revisar y mejorar.',
+      icon: 'fa-user-shield',
+      title: 'Revisión humana para decisiones sensibles',
+      description: 'Para mantener el control donde realmente importa.',
       items: [
-        'Historial de estados y acciones',
-        'Registro de aprobaciones y decisiones',
-        'Alertas cuando algo sale de lo normal'
+        'Límites de seguridad y aprobación humana',
+        'Vos decidís qué requiere tu OK',
+        'Registro de decisiones importantes'
       ]
     }
   ],
