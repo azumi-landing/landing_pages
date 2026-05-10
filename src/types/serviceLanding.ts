@@ -85,6 +85,22 @@ export interface DifferentiatorCard {
   highlight: string;
 }
 
+export interface BeforeAfterCase {
+  icon: IconName;
+  industry: string;
+  title: string;
+  before: string;
+  after: string;
+}
+
+export interface IdealForSection {
+  title: string;
+  yesTitle: string;
+  yesItems: string[];
+  noTitle: string;
+  noItems: string[];
+}
+
 export interface FaqItem {
   question: string;
   answer: string;
@@ -159,6 +175,10 @@ export interface ServiceLandingConfig {
   casesSubtitle: string;
   cases: CaseStudyCard[];
   casesCta?: ServiceCasesCta;
+  beforeAfterTitle?: string;
+  beforeAfterSubtitle?: string;
+  beforeAfterCases?: BeforeAfterCase[];
+  idealForSection?: IdealForSection;
   proofTitle: string;
   proofSubtitle: string;
   proofMetrics: ProofMetric[];
