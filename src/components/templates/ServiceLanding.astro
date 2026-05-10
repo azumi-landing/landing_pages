@@ -2,7 +2,7 @@
 import FlowLevel from '../molecules/FlowLevel.astro';
 import Icon from '../atoms/Icon.astro';
 import Contact from '../sections/Contact/index.astro';
-import RelatedServices from '../sections/RelatedServices.astro';
+
 import TrustBand from '../sections/TrustBand.astro';
 import type { ServiceLandingConfig } from '../../types/serviceLanding';
 
@@ -84,13 +84,15 @@ const heroPatternClass = {
     </div>
   </section>
 
-  <TrustBand
-    eyebrow={config.trustBand.eyebrow}
-    title={config.trustBand.title}
-    description={config.trustBand.description}
-    items={config.trustBand.items}
-    tone="muted"
-  />
+  {config.trustBand.items.length > 0 && (
+    <TrustBand
+      eyebrow={config.trustBand.eyebrow}
+      title={config.trustBand.title}
+      description={config.trustBand.description}
+      items={config.trustBand.items}
+      tone="muted"
+    />
+  )}
 
   <section id="problema" class="section-shell section-light">
     <div class="page-container-wide">
@@ -180,24 +182,66 @@ const heroPatternClass = {
     </div>
   </section>
 
-  <section id="como-funciona" class="section-shell section-muted">
-    <div class="page-container">
-      <div class="section-intro section-intro-center">
-        <h2 class="section-title text-slate-950">
-          {config.workflowTitle}
-        </h2>
-        <p class="section-copy text-slate-600">
-          {config.workflowSubtitle}
-        </p>
-      </div>
+  {config.methodologySteps && config.methodologySteps.length > 0 && (
+    <section id="metodologia" class="section-shell section-light">
+      <div class="page-container">
+        <div class="section-intro section-intro-center">
+          <h2 class="section-title text-[#1E293B]">
+            {config.methodologyTitle}
+          </h2>
+          <p class="section-copy text-[#475569]">
+            {config.methodologySubtitle}
+          </p>
+        </div>
 
-      <div class="space-y-6">
-        {config.workflow.map((level) => (
-          <FlowLevel level={level} surface="light" />
-        ))}
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {config.methodologySteps.map((step) => (
+            <div class="surface-card surface-panel p-6 flex flex-col h-full">
+              <div class="flex items-center gap-4 mb-4">
+                <span class="service-methodology-number w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold shrink-0">
+                  {step.step}
+                </span>
+                <div class="service-icon-badge w-12 h-12 rounded-xl flex items-center justify-center shadow-lg">
+                  <Icon name={step.icon} size="lg" class="text-white" />
+                </div>
+              </div>
+              <h3 class="text-lg font-bold text-[#1E293B] mb-2">{step.title}</h3>
+              <p class="text-sm text-[#475569] leading-relaxed mb-4 flex-1">{step.description}</p>
+              <ul class="space-y-2">
+                {step.items.map((item) => (
+                  <li class="text-sm text-[#475569] flex items-start gap-2">
+                    <span class="service-accent-text shrink-0 mt-0.5">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  )}
+
+  {config.workflow.length > 0 && (
+    <section id="como-funciona" class="section-shell section-muted">
+      <div class="page-container">
+        <div class="section-intro section-intro-center">
+          <h2 class="section-title text-slate-950">
+            {config.workflowTitle}
+          </h2>
+          <p class="section-copy text-slate-600">
+            {config.workflowSubtitle}
+          </p>
+        </div>
+
+        <div class="space-y-6">
+          {config.workflow.map((level) => (
+            <FlowLevel level={level} surface="light" />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <section id="casos-aplicaciones" class="section-shell section-light">
     <div class="page-container">
@@ -260,77 +304,81 @@ const heroPatternClass = {
     </div>
   </section>
 
-  <section id="prueba" class="section-shell section-light">
-    <div class="page-container">
-      <div class="section-intro section-intro-center">
-        <h2 class="section-title text-slate-950">
-          {config.proofTitle}
-        </h2>
-        <p class="section-copy text-slate-600">
-          {config.proofSubtitle}
-        </p>
-      </div>
-
-      <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] items-start">
-        <div class="grid gap-4 md:grid-cols-3">
-          {config.proofMetrics.map((metric) => (
-            <article class="surface-card p-6 h-full">
-              <p class="service-accent-text text-2xl font-bold mb-3">{metric.value}</p>
-              <p class="text-sm font-semibold text-slate-950 mb-2">{metric.label}</p>
-              <p class="text-sm text-slate-600 leading-relaxed">{metric.detail}</p>
-            </article>
-          ))}
+  {config.proofMetrics.length > 0 && (
+    <section id="prueba" class="section-shell section-light">
+      <div class="page-container">
+        <div class="section-intro section-intro-center">
+          <h2 class="section-title text-slate-950">
+            {config.proofTitle}
+          </h2>
+          <p class="section-copy text-slate-600">
+            {config.proofSubtitle}
+          </p>
         </div>
 
-        <div class="space-y-4">
-          {config.proofPoints.map((point) => (
-            <article class="surface-card p-6 flex items-start gap-4">
-              <div class="service-icon-soft w-12 h-12 rounded-xl flex items-center justify-center shrink-0">
-                <Icon name={point.icon} size="lg" class="service-accent-text" />
-              </div>
-              <div>
-                <h3 class="text-lg font-bold text-slate-950 mb-2">{point.title}</h3>
-                <p class="text-sm text-slate-600 leading-relaxed">{point.description}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="stack" class="section-shell section-dark">
-    <div class="page-container">
-      <div class="section-intro section-intro-center">
-        <h2 class="section-title text-white">
-          {config.stackTitle}
-        </h2>
-        <p class="section-copy text-slate-300">
-          {config.stackSubtitle}
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {config.stackGroups.map((group) => (
-          <div class="service-card surface-card-dark p-6 backdrop-blur-sm">
-            <div class="service-icon-soft w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-              <Icon name={group.icon} size="lg" class="service-accent-text" />
-            </div>
-            <h3 class="text-xl font-bold text-white mb-2">{group.title}</h3>
-            <p class="text-sm text-slate-300 leading-relaxed mb-4">{group.description}</p>
-            <ul class="space-y-2">
-              {group.items.map((item) => (
-                <li class="text-sm text-slate-400 flex items-start gap-2">
-                  <span class="service-accent-text shrink-0">•</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+        <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] items-start">
+          <div class="grid gap-4 md:grid-cols-3">
+            {config.proofMetrics.map((metric) => (
+              <article class="surface-card p-6 h-full">
+                <p class="service-accent-text text-2xl font-bold mb-3">{metric.value}</p>
+                <p class="text-sm font-semibold text-slate-950 mb-2">{metric.label}</p>
+                <p class="text-sm text-slate-600 leading-relaxed">{metric.detail}</p>
+              </article>
+            ))}
           </div>
-        ))}
+
+          <div class="space-y-4">
+            {config.proofPoints.map((point) => (
+              <article class="surface-card p-6 flex items-start gap-4">
+                <div class="service-icon-soft w-12 h-12 rounded-xl flex items-center justify-center shrink-0">
+                  <Icon name={point.icon} size="lg" class="service-accent-text" />
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-950 mb-2">{point.title}</h3>
+                  <p class="text-sm text-slate-600 leading-relaxed">{point.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  )}
+
+  {config.stackGroups.length > 0 && (
+    <section id="stack" class="section-shell section-dark">
+      <div class="page-container">
+        <div class="section-intro section-intro-center">
+          <h2 class="section-title text-white">
+            {config.stackTitle}
+          </h2>
+          <p class="section-copy text-slate-300">
+            {config.stackSubtitle}
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {config.stackGroups.map((group) => (
+            <div class="service-card surface-card-dark p-6 backdrop-blur-sm">
+              <div class="service-icon-soft w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                <Icon name={group.icon} size="lg" class="service-accent-text" />
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">{group.title}</h3>
+              <p class="text-sm text-slate-300 leading-relaxed mb-4">{group.description}</p>
+              <ul class="space-y-2">
+                {group.items.map((item) => (
+                  <li class="text-sm text-slate-400 flex items-start gap-2">
+                    <span class="service-accent-text shrink-0">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <section id="diferenciacion" class="section-shell section-dark">
     <div class="page-container">
@@ -384,41 +432,42 @@ const heroPatternClass = {
     </div>
   </section>
 
-  <section class="section-shell section-light">
-    <div class="page-container-wide grid gap-8 lg:grid-cols-[1.1fr_0.9fr] items-start">
-      <div>
-        <p class="section-eyebrow text-slate-500">{config.execution.eyebrow ?? 'Quién ejecuta'}</p>
-        <h2 class="section-title text-slate-950">
-          {config.execution.title}
-        </h2>
-        <p class="section-copy text-slate-600">
-          {config.execution.description}
-        </p>
+  {config.execution.bullets.length > 0 && (
+    <section class="section-shell section-light">
+      <div class="page-container-wide grid gap-8 lg:grid-cols-[1.1fr_0.9fr] items-start">
+        <div>
+          <p class="section-eyebrow text-slate-500">{config.execution.eyebrow ?? 'Quién ejecuta'}</p>
+          <h2 class="section-title text-slate-950">
+            {config.execution.title}
+          </h2>
+          <p class="section-copy text-slate-600">
+            {config.execution.description}
+          </p>
+        </div>
+
+        <aside class="surface-card surface-panel p-8">
+          <p class="section-eyebrow text-slate-500">Señales de confianza</p>
+          <ul class="space-y-3 text-slate-600">
+            {config.execution.bullets.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-1 text-slate-950">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href="/sobre-mi"
+            class="action-primary mt-6"
+          >
+            {config.execution.ctaLabel ?? 'Ver experiencia y enfoque'}
+            <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </aside>
       </div>
+    </section>
+  )}
 
-      <aside class="surface-card surface-panel p-8">
-        <p class="section-eyebrow text-slate-500">Señales de confianza</p>
-        <ul class="space-y-3 text-slate-600">
-          {config.execution.bullets.map((item) => (
-            <li class="flex items-start gap-3">
-              <span class="mt-1 text-slate-950">•</span>
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-
-        <a
-          href="/sobre-mi"
-          class="action-primary mt-6"
-        >
-          {config.execution.ctaLabel ?? 'Ver experiencia y enfoque'}
-          <i class="fas fa-arrow-right text-xs"></i>
-        </a>
-      </aside>
-    </div>
-  </section>
-
-  <RelatedServices currentPath={config.path} />
 
   <section id="faq" class="section-shell section-light">
     <div class="page-container-text">
@@ -573,6 +622,12 @@ const heroPatternClass = {
     color: var(--service-accent);
     border: 1px solid var(--service-accent-soft);
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), var(--service-accent-soft));
+  }
+
+  .service-methodology-number {
+    color: var(--service-accent);
+    border: 1px solid var(--service-accent-soft);
+    background: linear-gradient(135deg, var(--service-accent-soft), rgba(255, 255, 255, 0.06));
   }
 
   details > summary::-webkit-details-marker {

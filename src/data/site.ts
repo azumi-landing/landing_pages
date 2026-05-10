@@ -18,15 +18,9 @@ export const serviceLinks = [
   },
   {
     href: '/automatizacion-con-ia-agentica',
-    label: 'Automatización con IA Agéntica',
-    shortLabel: 'IA agéntica',
-    description: 'Agentes, orquestación e integración para automatizar decisiones con control.'
-  },
-  {
-    href: '/automatizacion-de-procesos',
-    label: 'Automatización de Procesos',
-    shortLabel: 'Procesos',
-    description: 'Pipelines, integraciones y automatización de flujos críticos con datos confiables.'
+    label: 'Automatización Inteligente de Procesos',
+    shortLabel: 'Automatización',
+    description: 'Consultoría integral: IA agéntica, RPA y automatización de procesos con control humano.'
   }
 ] as const;
 
@@ -42,8 +36,7 @@ export const footerLinks = [
 export const publicSiteRoutes = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },
   { path: '/gestion-de-operaciones-de-campo', priority: '0.9', changefreq: 'weekly' },
-  { path: '/automatizacion-con-ia-agentica', priority: '0.8', changefreq: 'weekly' },
-  { path: '/automatizacion-de-procesos', priority: '0.8', changefreq: 'weekly' },
+  { path: '/automatizacion-con-ia-agentica', priority: '0.9', changefreq: 'weekly' },
   { path: '/contacto', priority: '0.7', changefreq: 'weekly' },
   { path: '/sobre-mi', priority: '0.7', changefreq: 'monthly' },
   { path: '/privacidad', priority: '0.3', changefreq: 'yearly' },

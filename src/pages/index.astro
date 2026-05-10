@@ -225,14 +225,14 @@ import { buildFAQSchema } from '../data/site';
         <div class="section-intro section-intro-center">
           <p class="section-eyebrow justify-center text-slate-500">Líneas de servicio</p>
           <h2 class="section-title text-slate-950">
-            Tres rutas según el tipo de problema que necesitas ordenar
+            Dos rutas según el tipo de problema que necesitas ordenar
           </h2>
           <p class="section-copy text-slate-600">
             Si tu problema es de campo, de datos o de decisiones repetitivas, una de estas rutas aplica. Si no estás seguro, el diagnóstico gratuito lo define.
           </p>
         </div>
 
-        <div class="grid lg:grid-cols-3 gap-8">
+        <div class="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <ServiceStatusCard
             title="Gestión de Operaciones de Campo"
             description="Operarios sin papel, asignaciones en tiempo real, trazabilidad con GPS y fotos. Ya con +5M registros procesados. Implementación típica: 3 semanas."
@@ -244,21 +244,13 @@ import { buildFAQSchema } from '../data/site';
             surface="light"
           />
           <ServiceStatusCard
-            title="Automatización con IA Agéntica"
-            description="Automatiza decisiones repetitivas — clasificación, triage, aprobaciones — con IA que tiene guardrails, human-in-the-loop y observabilidad. De cero a producción en semanas."
+            title="Automatización Inteligente de Procesos"
+            description="IA agéntica para seguimiento y decisiones, RPA para tareas repetitivas, pipelines de datos con Airflow. Del diagnóstico a la operación con guardrails, trazabilidad y control humano."
             href="/automatizacion-con-ia-agentica"
             cta="Entender si aplica a tu caso"
             icon="fa-robot"
             status="available"
-            surface="light"
-          />
-          <ServiceStatusCard
-            title="Automatización de Procesos"
-            description="Integra Excels, SAP, CRM y APIs en un flujo único con Airflow, validación de datos y monitoreo. Deja de depender del que 'sabe cómo funciona el script'."
-            href="/automatizacion-de-procesos"
-            cta="Revisar un caso similar"
-            icon="fa-gears"
-            status="available"
+            highlight={true}
             surface="light"
           />
         </div>

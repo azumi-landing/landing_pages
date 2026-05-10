@@ -17,11 +17,7 @@ export const contactServices = [
   },
   {
     value: 'automatizacion-con-ia-agentica',
-    label: 'Automatización con IA por etapas'
-  },
-  {
-    value: 'automatizacion-de-procesos',
-    label: 'Automatización de Procesos'
+    label: 'Automatización Inteligente de Procesos (IA + RPA + Pipelines)'
   },
   {
     value: 'otro',
@@ -49,11 +45,7 @@ export const contactContextByPath = {
   },
   '/automatizacion-con-ia-agentica': {
     service: 'automatizacion-con-ia-agentica',
-    originLabel: 'Automatización con IA por etapas'
-  },
-  '/automatizacion-de-procesos': {
-    service: 'automatizacion-de-procesos',
-    originLabel: 'Automatización de Procesos'
+    originLabel: 'Automatización Inteligente de Procesos'
   }
 } as const satisfies Record<string, { service: ContactServiceValue; originLabel: string }>;
 
@@ -73,16 +65,16 @@ export const contactServiceGuidance: Partial<Record<ContactServiceValue, {
   expectationItems: string[];
 }>> = {
   'automatizacion-con-ia-agentica': {
-    originLabel: 'Automatización con IA por etapas',
+    originLabel: 'Automatización Inteligente de Procesos',
     contextMessage:
-      'Vienes por automatización con IA. Para responder mejor, cuéntame el proceso completo aunque todavía esté general: energía, mantenimiento, monitoreo, atención, aprobaciones o cualquier flujo operativo. La idea es detectar por dónde conviene empezar simple y cómo aumentar la complejidad con control.',
+      'Vienes por automatización de procesos. Para responder mejor, cuéntame el proceso completo aunque todavía esté general: seguimiento, atención, integración de datos, aprobaciones o cualquier flujo operativo. La idea es detectar si conviene IA agéntica, RPA, pipelines de datos o una combinación, y por dónde conviene empezar con control.',
     detailPlaceholder:
-      'Ejemplo: “Tenemos un proceso de energía/mantenimiento/operación que hoy depende de reportes, WhatsApp, Excel o revisión manual. Quiero saber qué primer flujo sencillo se podría automatizar y cómo escalarlo por etapas.”',
+      'Ejemplo: "Tenemos un proceso de seguimiento/integración/operación que hoy depende de WhatsApp, Excel, scripts sueltos o revisión manual. Quiero saber qué tecnología encaja mejor y cómo empezar con bajo riesgo."',
     expectationTitle: 'Primero buscamos el punto de entrada correcto',
     expectationItems: [
       'Identificamos un primer flujo sencillo dentro del proceso complejo.',
-      'Definimos qué puede automatizarse con bajo riesgo y qué requiere revisión humana.',
-      'Si el primer flujo tiene sentido, planteamos cómo subir la complejidad por etapas.'
+      'Definimos si conviene IA agéntica, RPA, pipelines o una combinación.',
+      'Si el primer flujo tiene sentido, planteamos cómo escalar por etapas con control.'
     ]
   }
 };

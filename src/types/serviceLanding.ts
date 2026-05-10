@@ -90,6 +90,14 @@ export interface FaqItem {
   answer: string;
 }
 
+export interface MethodologyStep {
+  step: number;
+  title: string;
+  description: string;
+  icon: IconName;
+  items: string[];
+}
+
 export interface ContactTopic {
   value: string;
   label: string;
@@ -162,6 +170,9 @@ export interface ServiceLandingConfig {
   differentiationTitle: string;
   differentiationSubtitle: string;
   differentiators: DifferentiatorCard[];
+  methodologyTitle?: string;
+  methodologySubtitle?: string;
+  methodologySteps?: MethodologyStep[];
   notIdealTitle: string;
   notIdealIntro: string;
   notIdealItems: string[];
