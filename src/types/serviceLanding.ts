@@ -12,6 +12,12 @@ export interface ProblemCard {
   description: string;
 }
 
+export interface ConsequenceCard {
+  icon: IconName;
+  title: string;
+  description: string;
+}
+
 export interface CapabilityCard {
   icon: IconName;
   title: string;
@@ -163,6 +169,12 @@ export interface ServiceLandingConfig {
   problemTitle: string;
   problemSubtitle: string;
   problemCards: ProblemCard[];
+  consequencesTitle?: string;
+  consequencesDescription?: string;
+  consequences?: ConsequenceCard[];
+  offerTitle?: string;
+  offerDescription?: string;
+  offerPoints?: string[];
   riskTitle: string;
   riskDescription: string;
   capabilitiesTitle: string;
