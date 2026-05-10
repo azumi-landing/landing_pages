@@ -3,19 +3,19 @@ import { agenticAutomationTheme, fieldOperationsTheme, processAutomationTheme } 
 import { fieldOperationsFaqs } from './faqs';
 
 export const agenticAutomationLanding: ServiceLandingConfig = {
-  seoTitle: 'Automatización práctica para pymes — Deja de perder clientes por desorganización',
-  seoDescription: 'Solución práctica para pymes que operan con WhatsApp, Excel y procesos manuales. Orden, seguimiento y control sin complejidad técnica. Diagnóstico gratuito.',
+  seoTitle: 'Automatización práctica para pymes — Procesos manuales, datos dispersos y tareas repetitivas',
+  seoDescription: 'Automatizamos procesos manuales y repetitivos de tu negocio: ventas, administración, documentos, reportes, integraciones y más. Diagnóstico gratuito para pymes.',
   seoImage: '/og-agentic-automation.png',
   path: '/automatizacion-con-ia-agentica',
   theme: agenticAutomationTheme,
-  badge: 'Automatización práctica para pymes que operan con WhatsApp, Excel y procesos manuales',
+  badge: 'Automatización práctica para pymes con procesos manuales, datos dispersos y tareas repetitivas',
   title: 'Deja de perder clientes, tiempo y control entre WhatsApp, Excel y seguimientos manuales.',
   subtitle:
-    'Te ayudo a ordenar y automatizar procesos repetitivos de tu negocio —ventas, citas, cotizaciones, reportes, documentos o atención por WhatsApp— para que tu equipo dé seguimiento a tiempo, tenga trazabilidad y no dependa de una sola persona.',
+    'Te ayudo a ordenar y automatizar procesos repetitivos de tu negocio —ventas, citas, cotizaciones, reportes, documentos, tareas administrativas, atención al cliente o flujos internos— aunque hoy dependan de WhatsApp, Excel, correos, formularios, CRM, ERP o sistemas internos.',
   benefits: [
-    'Menos clientes perdidos por falta de seguimiento',
-    'Tu equipo enfocado en vender, no en tareas repetitivas',
-    'Visibilidad real de lo que pasa en tu operación'
+    'Menos tiempo en tareas repetitivas y manuales',
+    'Tu equipo enfocado en lo importante, no en copiar datos',
+    'Visibilidad real de procesos comerciales e internos'
   ],
   metrics: [
     { value: '+10 años', label: 'ordenando operaciones y reduciendo trabajo manual' },
@@ -24,11 +24,11 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
   ],
   primaryCtaLabel: 'Solicitar diagnóstico gratis por WhatsApp',
   primaryCtaHref: 'https://wa.me/50432045265?text=Hola+H%C3%A9ctor%2C+vi+tu+p%C3%A1gina+y+quiero+solicitar+un+diagn%C3%B3stico+gratis.+Trabajamos+con+WhatsApp+y+Excel+y+necesitamos+ordenar+nuestros+procesos.',
-  secondaryCtaLabel: 'Ver qué puedo automatizar',
+  secondaryCtaLabel: 'Revisar qué proceso puedo automatizar',
   secondaryCtaHref: '#oferta',
-  problemTitle: '¿Tu empresa todavía depende de WhatsApp, Excel y recordatorios manuales?',
+  problemTitle: '¿Tu empresa todavía depende de procesos manuales, datos dispersos y recordatorios humanos?',
   problemSubtitle:
-    'Si te sentís identificado con alguno de estos problemas, no estás solo. Es el día a día de muchas pymes hondureñas.',
+    'Si te sentís identificado con alguno de estos problemas, no estás solo. Muchas pymes trabajan con WhatsApp, Excel, correos, formularios, CRM, ERP o sistemas internos que no se comunican entre sí.',
   problemCards: [
     {
       icon: 'fa-comments',
@@ -62,7 +62,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     }
   ],
   consequencesTitle: 'Ese desorden no solo quita tiempo: también cuesta dinero',
-  consequencesDescription: 'Cuando el seguimiento vive en la memoria de una persona o en hojas de cálculo desconectadas, esto es lo que pasa:',
+  consequencesDescription: 'Cuando los procesos dependen de personas, archivos sueltos o sistemas que no se comunican, esto es lo que pasa:',
   consequences: [
     {
       icon: 'fa-user-xmark',
@@ -82,12 +82,27 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     {
       icon: 'fa-file-pen',
       title: 'Reportes hechos a mano',
-      description: 'Alguien pierde horas armando reportes en Excel en vez de analizar qué mejorar.'
+      description: 'Alguien pierde horas descargando datos, copiando información y armando reportes en vez de analizar qué mejorar.'
     },
     {
-      icon: 'fa-question',
-      title: 'Decisiones a ciegas',
-      description: 'El gerente no sabe cuántos clientes están esperando ni qué vendedor tiene la prioridad.'
+      icon: 'fa-copy',
+      title: 'Información duplicada entre sistemas',
+      description: 'El mismo dato se carga en WhatsApp, Excel, CRM y documentos, generando errores y pérdida de tiempo.'
+    },
+    {
+      icon: 'fa-clock',
+      title: 'Tareas administrativas repetitivas',
+      description: 'El equipo pierde horas copiando y pegando datos entre correos, formularios, documentos y sistemas internos.'
+    },
+    {
+      icon: 'fa-triangle-exclamation',
+      title: 'Aprobaciones que se atrasan',
+      description: 'Los documentos pendientes o trámites por aprobar quedan estancados porque nadie revisa a tiempo.'
+    },
+    {
+      icon: 'fa-bug',
+      title: 'Errores por traspaso manual',
+      description: 'Copiar datos manualmente entre aplicaciones genera errores que cuestan tiempo y dinero corregir.'
     },
     {
       icon: 'fa-user-slash',
@@ -96,12 +111,12 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     }
   ],
   offerTitle: 'Primero ordenamos el proceso. Después automatizamos lo que sí conviene.',
-  offerDescription: 'No se trata de meter tecnología por moda. Primero revisamos cómo trabaja tu negocio, dónde se pierde tiempo, dónde hay errores y qué tareas se repiten. Luego definimos una automatización pequeña, útil y medible para empezar sin complicar toda la operación.',
+  offerDescription: 'No se trata de meter IA por moda ni de limitar todo a un chatbot. Primero revisamos cómo trabaja tu negocio, dónde se repiten tareas, dónde se duplican datos, qué sistemas ya usás y qué decisiones necesitan revisión humana. Luego definimos una automatización pequeña, útil y medible: puede ser con RPA, integraciones, formularios, reportes, IA agéntica o una combinación simple de herramientas.',
   offerPoints: [
-    'Diagnóstico inicial para detectar qué automatizar primero',
+    'Diagnóstico inicial para detectar qué procesos automatizar primero',
     'Empezamos por etapas: algo pequeño que funcione, luego escalamos',
     'Siempre hay control humano: vos decidís qué requiere tu aprobación',
-    'Buscamos retorno práctico: menos trabajo manual, más clientes atendidos'
+    'Buscamos retorno práctico: menos trabajo manual, más eficiencia operativa'
   ],
   riskTitle: '',
   riskDescription: '',
@@ -186,6 +201,19 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
         'Alertas cuando algo se desvía',
         'Visibilidad para mejorar continuamente'
       ]
+    },
+    {
+      icon: 'fa-file-lines',
+      title: 'Procesar documentos y reportes automáticamente',
+      pain: 'Alguien pierde horas descargando datos, armando reportes en Excel o revisando documentos manualmente.',
+      solution: 'El flujo extrae información de documentos, reúne datos de diferentes fuentes y arma reportes automáticamente.',
+      outcome: 'Reportes listos sin trabajo manual, más tiempo para analizar y menos errores por copiar y pegar.',
+      bullets: [
+        'Extracción de datos de documentos y formularios',
+        'Generación automática de reportes periódicos',
+        'Revisión y aprobación de documentos pendientes',
+        'Integración entre Excel, bases de datos y sistemas'
+      ]
     }
   ],
   workflowTitle: 'Cómo trabajo: de lo simple a lo que funciona',
@@ -264,7 +292,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
   ],
   casesTitle: 'Casos de uso comunes en Honduras',
   casesSubtitle:
-    'Estos son algunos de los casos donde la IA puede apoyar procesos reales con bajo riesgo. Si tu rubro no aparece, igual podemos revisar si hay un flujo que valga la pena automatizar.',
+    'Estos son algunos ejemplos de procesos que podemos automatizar. Si tu caso no aparece, igual podemos revisarlo.',
   cases: [
     {
       icon: 'fa-house',
@@ -319,13 +347,40 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
       approach: 'Pedir datos necesarios, ordenar cotizaciones, recordar citas y registrar estado del caso.',
       result: 'Menos mensajes perdidos y mejor seguimiento al cliente.',
       stack: 'WhatsApp + agenda + inventario o hoja de pedidos'
+    },
+    {
+      icon: 'fa-file-invoice',
+      label: 'Administración',
+      title: 'Generación de reportes automáticos',
+      challenge: 'Alguien pierde horas cada semana descargando datos de sistemas, copiando a Excel y armando reportes.',
+      approach: 'El flujo extrae datos de diferentes fuentes, arma el reporte y avisa si hay valores que revisar.',
+      result: 'Reportes listos sin trabajo manual y más tiempo para analizar en vez de compilar.',
+      stack: 'Excel + bases de datos + APIs de sistemas internos'
+    },
+    {
+      icon: 'fa-copy',
+      label: 'Operaciones',
+      title: 'Integración entre sistemas internos',
+      challenge: 'El mismo dato se carga manualmente en CRM, ERP, Excel y documentos, generando errores.',
+      approach: 'La automatización extrae, transforma y sincroniza datos entre sistemas según reglas definidas.',
+      result: 'Una sola carga que se replica donde corresponda, sin errores ni duplicación.',
+      stack: 'CRM + ERP + bases de datos + APIs'
+    },
+    {
+      icon: 'fa-file-signature',
+      label: 'Documentos',
+      title: 'Revisión y aprobación de documentos',
+      challenge: 'Documentos pendientes de firma o revisión se acumulan porque nadie avisa que están listos.',
+      approach: 'El sistema detecta documentos listos, deriva a quien corresponde y escala si se atrasa.',
+      result: 'Aprobaciones más rápidas y nada queda olvidado en bandejas de entrada.',
+      stack: 'Formularios + email + notificaciones + revisión humana'
     }
   ],
   casesCta: {
-    title: '¿Tienes otro tipo de negocio?',
+    title: '¿Tu proceso no aparece aquí?',
     description:
-      'No importa el rubro: si hay un proceso repetitivo que consume tiempo o hace que se pierdan clientes, vale la pena revisarlo. Empezamos con algo pequeño que funcione, y si da resultado, seguimos automatizando.',
-    ctaLabel: 'Consultar mi proceso por WhatsApp',
+      'No importa si es comercial, administrativo, documental o técnico: si hay tareas repetitivas, datos que se mueven entre sistemas, reportes manuales o procesos que se detienen si alguien falta, vale la pena revisarlo. Empezamos con algo pequeño que funcione.',
+    ctaLabel: 'Quiero automatizar un proceso interno',
     ctaHref:
       'https://wa.me/50432045265?text=Hola+H%C3%A9ctor%2C+tengo+un+proceso+que+podr%C3%ADa+automatizarse.+Quiero+revisar+si+conviene+empezar+con+algo+sencillo+y+luego+seguir+mejorando.'
   },
@@ -359,6 +414,20 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
       title: 'De preguntar a saber',
       before: 'El gerente debe preguntar por WhatsApp para saber qué pasó con cada cliente, cita o pedido. No hay visibilidad real.',
       after: 'Un tablero muestra pendientes, responsables, atrasos y oportunidades que necesitan atención. Decisiones con datos.'
+    },
+    {
+      icon: 'fa-file-waveform',
+      industry: 'Reportes internos',
+      title: 'De horas de trabajo a un clic',
+      before: 'Alguien descarga datos, copia información en Excel y arma reportes manualmente cada semana.',
+      after: 'El flujo reúne los datos de diferentes fuentes, actualiza el reporte y avisa si hay valores que necesitan revisión.'
+    },
+    {
+      icon: 'fa-robot',
+      industry: 'Tareas administrativas repetitivas',
+      title: 'De copiar y pegar a automatizar',
+      before: 'El equipo copia datos entre correos, formularios, documentos y sistemas internos todos los días.',
+      after: 'La automatización extrae, clasifica, registra y deriva la información según reglas claras y revisión humana cuando aplica.'
     }
   ],
   idealForSection: {
@@ -421,11 +490,11 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     eyebrow: 'Por qué trabajar conmigo',
     title: 'Primero entiendo tu proceso. Después propongo solución.',
     description:
-      'No vendo tecnología por moda. Primero reviso cómo trabaja tu equipo, dónde se pierden clientes o tiempo, y qué parte conviene automatizar para que realmente veas resultados.',
+      'No vendo tecnología por moda. Primero reviso cómo trabaja tu equipo, dónde se pierde tiempo en tareas repetitivas, qué datos se mueven entre sistemas y qué parte conviene automatizar para que realmente veas resultados.',
     items: [
       {
         value: 'Cercano',
-        label: 'pensado para pymes que usan WhatsApp, Excel y procesos manuales.'
+        label: 'pensado para pymes con procesos manuales que quieren crecer sin complejidad.'
       },
       {
         value: 'Con control',
@@ -433,7 +502,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
       },
       {
         value: 'Real',
-        label: 'se conecta a tus herramientas actuales, no es una demo que se queda en el aire.'
+        label: 'se conecta a tus sistemas actuales: CRM, ERP, Excel, WhatsApp o lo que ya uses.'
       },
       {
         value: 'Directo',
@@ -441,30 +510,30 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
       }
     ]
   },
-  stackTitle: 'Elegimos la herramienta correcta según tu proceso',
+  stackTitle: 'Tecnología que se adapta a tu proceso, no al revés',
   stackSubtitle:
-    'No todo necesita IA. A veces basta con ordenar el flujo, conectar formularios, automatizar recordatorios, crear un tablero o integrar datos. Si la IA aporta valor, se usa con límites de seguridad, revisión humana y trazabilidad.',
+    'Usamos lo que ya tenés: WhatsApp, Excel, CRM, ERP, formularios, correos o sistemas internos. Luego agregamos RPA para tareas repetitivas entre aplicaciones, IA agéntica para coordinar pasos y clasificar información, integraciones para conectar sistemas, y siempre con revisión humana donde importa.',
   stackGroups: [
     {
       icon: 'fa-gears',
-      title: 'Automatización de tareas repetitivas',
-      description: 'Para liberar a tu equipo de trabajo manual diario.',
+      title: 'RPA: Automatización de tareas repetitivas',
+      description: 'Para liberar a tu equipo de copiar y pegar datos entre aplicaciones todos los días.',
       items: [
-        'Recordatorios y seguimientos automáticos',
-        'Clasificación de solicitudes entrantes',
-        'Respuestas a preguntas frecuentes',
-        'Coordinación automática de tareas'
+        'Extracción y registro automático de datos',
+        'Clasificación de solicitudes y documentos',
+        'Coordinación de tareas entre sistemas',
+        'Respuestas a preguntas frecuentes'
       ]
     },
     {
       icon: 'fa-brain',
-      title: 'IA que ayuda a ejecutar, clasificar y dar seguimiento',
-      description: 'Para interpretar mensajes, priorizar casos y tomar decisiones simples.',
+      title: 'IA Agéntica: inteligencia que coordina',
+      description: 'Para interpretar información, priorizar casos y asistir decisiones operativas.',
       items: [
-        'Clasificación de mensajes por urgencia y tipo',
-        'Resumen de información importante',
-        'Sugerencias de próximos pasos',
-        'Escalamiento cuando hay dudas'
+        'Clasificación inteligente por urgencia y tipo',
+        'Resumen y extracción de información clave',
+        'Sugerencias de próximos pasos basadas en reglas',
+        'Coordinación de flujos complejos entre sistemas'
       ]
     },
     {
