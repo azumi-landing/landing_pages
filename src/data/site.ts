@@ -20,7 +20,7 @@ export const serviceLinks = [
     href: '/automatizacion-con-ia-agentica',
     label: 'Automatización Inteligente de Procesos',
     shortLabel: 'Automatización',
-    description: 'Consultoría integral: IA agéntica, RPA y automatización de procesos con control humano.'
+    description: 'Automatización para pymes con WhatsApp, Excel, IA y control humano.'
   }
 ] as const;
 
