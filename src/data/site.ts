@@ -20,7 +20,7 @@ export const serviceLinks = [
     href: '/automatizacion-con-ia-agentica',
     label: 'Automatización Inteligente de Procesos',
     shortLabel: 'Automatización',
-    description: 'Automatización para pymes con WhatsApp, Excel, IA y control humano.'
+    description: 'Automatización de procesos manuales para pymes en Honduras: WhatsApp, Excel, CRM, RPA e IA agéntica con diagnóstico gratuito.'
   }
 ] as const;
 
@@ -176,13 +176,26 @@ export function buildContactPageSchema({
 export function buildServiceSchema({
   name,
   description,
-  path
+  path,
+  areaServed,
+  category,
+  audience,
+  offers
 }: {
   name: string;
   description: string;
   path: string;
+  areaServed?: string;
+  category?: string;
+  audience?: string;
+  offers?: {
+    name: string;
+    description: string;
+    price: string;
+    priceCurrency: string;
+  };
 }) {
-  return {
+  const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Service',
     '@id': `${getSiteUrl(path)}#service`,
@@ -194,6 +207,36 @@ export function buildServiceSchema({
       '@id': getSiteUrl('/#organization')
     }
   };
+
+  if (areaServed) {
+    schema.areaServed = {
+      '@type': 'Country',
+      name: areaServed
+    };
+  }
+
+  if (category) {
+    schema.category = category;
+  }
+
+  if (audience) {
+    schema.audience = {
+      '@type': audience
+    };
+  }
+
+  if (offers) {
+    schema.offers = {
+      '@type': 'Offer',
+      name: offers.name,
+      description: offers.description,
+      price: offers.price,
+      priceCurrency: offers.priceCurrency,
+      url: getSiteUrl(path)
+    };
+  }
+
+  return schema;
 }
 
 export function buildBreadcrumbSchema(
