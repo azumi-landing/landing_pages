@@ -260,6 +260,97 @@ const heroPatternClass = {
     </div>
   </section>
 
+  {config.beforeAfterCases && config.beforeAfterCases.length > 0 && (
+    <section id="antes-despues" class="section-shell section-muted">
+      <div class="page-container">
+        <div class="section-intro section-intro-center">
+          <h2 class="section-title text-slate-950">
+            {config.beforeAfterTitle ?? 'Así cambia tu operación'}
+          </h2>
+          <p class="section-copy text-slate-600">
+            {config.beforeAfterSubtitle ?? 'Ejemplos reales de cómo se transforman los procesos con automatización inteligente.'}
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {config.beforeAfterCases.map((item) => (
+            <article class="surface-card p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="service-icon-soft w-12 h-12 rounded-xl flex items-center justify-center">
+                  <Icon name={item.icon} size="lg" class="service-accent-text" />
+                </div>
+                <div>
+                  <span class="text-xs uppercase tracking-wider text-slate-500 font-semibold">{item.industry}</span>
+                  <h3 class="text-lg font-bold text-slate-950">{item.title}</h3>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <div class="bg-red-50 border-l-4 border-red-400 p-4 rounded-r-lg">
+                  <p class="text-xs uppercase tracking-wider text-red-600 font-semibold mb-1">Antes</p>
+                  <p class="text-sm text-slate-700">{item.before}</p>
+                </div>
+
+                <div class="flex justify-center">
+                  <Icon name="fa-arrow-down" size="lg" class="service-accent-text" />
+                </div>
+
+                <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
+                  <p class="text-xs uppercase tracking-wider text-green-600 font-semibold mb-1">Después</p>
+                  <p class="text-sm text-slate-700">{item.after}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {config.idealForSection && (
+    <section id="para-quien" class="section-shell section-light">
+      <div class="page-container">
+        <div class="section-intro section-intro-center mb-12">
+          <h2 class="section-title text-slate-950">
+            {config.idealForSection.title}
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="surface-card p-8 border-l-4 border-green-500">
+            <h3 class="text-xl font-bold text-slate-950 mb-6 flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white text-sm">✓</span>
+              {config.idealForSection.yesTitle}
+            </h3>
+            <ul class="space-y-4">
+              {config.idealForSection.yesItems.map((item) => (
+                <li class="flex items-start gap-3">
+                  <span class="text-green-500 mt-1 shrink-0">✓</span>
+                  <span class="text-slate-600">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="surface-card p-8 border-l-4 border-red-400">
+            <h3 class="text-xl font-bold text-slate-950 mb-6 flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-red-400 flex items-center justify-center text-white text-sm">×</span>
+              {config.idealForSection.noTitle}
+            </h3>
+            <ul class="space-y-4">
+              {config.idealForSection.noItems.map((item) => (
+                <li class="flex items-start gap-3">
+                  <span class="text-red-400 mt-1 shrink-0">×</span>
+                  <span class="text-slate-600">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
   <section id="prueba" class="section-shell section-light">
     <div class="page-container">
       <div class="section-intro section-intro-center">

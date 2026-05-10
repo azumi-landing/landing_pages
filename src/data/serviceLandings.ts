@@ -4,158 +4,158 @@ import { fieldOperationsFaqs } from './faqs';
 
 export const agenticAutomationLanding: ServiceLandingConfig = {
   seoTitle: 'Automatización con IA para WhatsApp, Excel y procesos manuales',
-  seoDescription: 'Automatización con IA aplicada a procesos reales en Honduras: WhatsApp, Excel, seguimiento manual, recordatorios, integración con sistemas y control humano.',
+  seoDescription: 'Deja de perder clientes entre WhatsApp, Excel y seguimientos manuales. Automatización con IA para pymes hondureñas con control humano y diagnóstico gratuito.',
   seoImage: '/og-agentic-automation.png',
   path: '/automatizacion-con-ia-agentica',
   theme: agenticAutomationTheme,
-  badge: 'IA aplicada a procesos reales, no demos aisladas',
-  title: 'Automatiza seguimiento, respuestas y tareas repetitivas sin perder control humano.',
+  badge: 'Para pymes que trabajan con WhatsApp, Excel y procesos manuales',
+  title: 'Deja de perder clientes, tiempo y control entre WhatsApp, Excel y seguimientos manuales.',
   subtitle:
-    'Diseño agentes de IA e integraciones para empresas que hoy trabajan entre WhatsApp, Excel, correos y seguimiento manual. La idea no es reemplazar a tu equipo: es darle más orden, velocidad y trazabilidad a procesos que ya existen.',
+    'Te ayudo a convertir procesos repetitivos —ventas, citas, cotizaciones, reportes, documentos o atención por WhatsApp— en flujos más claros, medibles y automatizados, con revisión humana donde sea necesario.',
   benefits: [
-    'Menos seguimiento manual y menos mensajes perdidos',
-    'Atención más rápida con aprobaciones humanas cuando hace falta',
-    'Más orden en WhatsApp, Excel y sistemas reales'
+    'Menos seguimiento manual y menos clientes perdidos',
+    'Más visibilidad de lo que ocurre en tu operación',
+    'Sin reemplazar a tu equipo: herramientas que le dan soporte'
   ],
   metrics: [
-    { value: '+10 años', label: 'diseñando operaciones digitales y automatización' },
-    { value: '+5M', label: 'registros procesados en implementaciones reales' },
-    { value: 'Por etapas', label: 'empezamos simple y subimos complejidad con control' },
-    { value: 'Control humano', label: 'guardrails, aprobaciones y trazabilidad por defecto' }
+    { value: '+10 años', label: 'diseñando operaciones digitales y automatización para empresas reales' },
+    { value: '+5M', label: 'registros procesados en implementaciones en producción' },
+    { value: 'Por etapas', label: 'empezamos con algo pequeño que funcione, luego escalamos' },
+    { value: 'Con control', label: 'siempre hay revisión humana en decisiones importantes' }
   ],
-  primaryCtaLabel: 'Escribir por WhatsApp',
-  primaryCtaHref: 'https://wa.me/50432045265?text=Hola+H%C3%A9ctor%2C+quiero+revisar+un+proceso+de+mi+empresa+que+hoy+manejamos+con+WhatsApp%2C+Excel+o+seguimiento+manual.+Me+interesa+saber+si+se+puede+automatizar+con+IA+y+control+humano.',
-  secondaryCtaLabel: 'Agendar diagnóstico de 30 min',
-  secondaryCtaHref: '#como-funciona',
+  primaryCtaLabel: 'Solicitar diagnóstico gratis por WhatsApp',
+  primaryCtaHref: 'https://wa.me/50432045265?text=Hola+H%C3%A9ctor%2C+vi+tu+p%C3%A1gina+de+automatizaci%C3%B3n+y+quiero+solicitar+un+diagn%C3%B3stico+gratis.+Mi+empresa+usa+WhatsApp%2C+Excel+y+seguimiento+manual+y+quiero+saber+si+se+puede+mejorar+con+automatizaci%C3%B3n.',
+  secondaryCtaLabel: 'Ver qué puedo automatizar',
+  secondaryCtaHref: '#capacidades',
   problemTitle: '¿Tu empresa todavía depende de WhatsApp, Excel y recordatorios manuales?',
   problemSubtitle:
-    'En muchas empresas hondureñas el problema no es falta de tecnología. Es que el seguimiento vive regado entre chats, hojas de cálculo, llamadas y personas que tienen que acordarse de todo.',
+    'Si te sientes identificado con alguno de estos problemas, no estás solo. Es el día a día de muchas pymes hondureñas que crecieron organizándose con herramientas simples, pero ahora esas mismas herramientas se convirtieron en un cuello de botella.',
   problemCards: [
     {
       icon: 'fa-comments',
-      title: 'Los clientes escriben y nadie les da seguimiento a tiempo',
-      description: 'Entre WhatsApp, llamadas y correos, una consulta importante puede quedar enterrada.'
+      title: 'Los clientes escriben y se pierden entre los chats',
+      description: 'Entre WhatsApp, llamadas y correos, una consulta importante puede quedar enterrada y nunca ser atendida.'
     },
     {
       icon: 'fa-file-excel',
-      title: 'La información queda en Excel, chats y libretas',
-      description: 'El gerente no ve el estado completo del proceso sin pedir reportes o revisar mensajes.'
+      title: 'La información vive en Excel, libretas y la memoria de alguien',
+      description: 'El gerente no ve el estado completo del negocio sin pedir reportes o revisar mensajes uno por uno.'
     },
     {
       icon: 'fa-user-clock',
-      title: 'Demasiado tiempo se va en copiar, responder y recordar',
-      description: 'El equipo termina haciendo seguimiento manual en vez de atender mejor al cliente.'
+      title: 'Tu equipo pierde tiempo en tareas repetitivas en vez de vender',
+      description: 'Muchas horas se van en copiar datos, responder lo mismo o recordar qué cliente hay que llamar.'
     },
     {
       icon: 'fa-user-gear',
-      title: 'Una persona clave sabe cómo funciona todo',
-      description: 'Si esa persona se atrasa, se enferma o se va, el proceso queda frágil.'
+      title: 'Una sola persona sabe cómo funciona todo',
+      description: 'Si esa persona se enferma, se va de vacaciones o renuncia, el proceso se frena o se cae.'
     },
     {
       icon: 'fa-robot',
-      title: 'Ya probaron IA, pero no quedó en operación',
-      description: 'Usar un chat suelto ayuda poco si no está conectado al flujo real de trabajo.'
+      title: 'Ya intentaron usar IA, pero no funcionó en el día a día',
+      description: 'Un chat suelto no sirve si no está conectado a tus procesos reales de ventas, citas o cobros.'
     },
     {
       icon: 'fa-shield-halved',
-      title: 'Hay desconfianza hacia automatizar demasiado',
-      description: 'Es una preocupación válida. Por eso los flujos se diseñan con límites, aprobaciones y revisión humana.'
+      title: 'Te da miedo automatizar porque no quieres perder el control',
+      description: 'Es una preocupación válida. Por eso diseño flujos con límites claros, aprobaciones humanas y revisión donde importa.'
     }
   ],
-  riskTitle: 'La IA no debe operar a ciegas',
+  riskTitle: 'La consecuencia del desorden operativo',
   riskDescription:
-    'La oportunidad no está en conectar un chatbot y esperar milagros. Está en definir qué puede automatizarse, qué debe aprobar una persona y cómo dejar registro de cada paso importante.',
-  capabilitiesTitle: 'Qué puede hacer una automatización con IA bien diseñada',
+    'Cuando el seguimiento vive en la memoria de una persona o en hojas de cálculo desconectadas, perder clientes es cuestión de tiempo. La automatización no es magia: es darle orden y visibilidad a procesos que ya existen.',
+  capabilitiesTitle: 'Según tu problema, elegimos la herramienta correcta',
   capabilitiesSubtitle:
-    'La solución depende del caso, pero el objetivo es simple: menos seguimiento manual, atención más rápida y procesos con control humano.',
+    'No vendo IA por moda. Primero reviso tu proceso, luego propongo la solución más simple que resuelva tu dolor específico.',
   capabilities: [
     {
       icon: 'fa-comments',
       title: 'Ordenar mensajes y solicitudes',
-      pain: 'Las solicitudes llegan por WhatsApp, correo o formularios y se mezclan con conversaciones normales.',
-      solution: 'El agente lee, clasifica y ordena cada solicitud según tipo, urgencia o cliente.',
-      outcome: 'El equipo sabe qué atender primero y reduce mensajes perdidos.',
+      pain: 'Los clientes escriben por WhatsApp, correo o formularios y todo se mezcla. Nadie sabe qué atender primero.',
+      solution: 'La IA lee, clasifica y ordena cada solicitud según tipo, urgencia o cliente. Lo urgente se prioriza, lo rutinario se automatiza.',
+      outcome: 'Tu equipo sabe exactamente qué atender primero y nada se pierde entre los chats.',
       bullets: [
-        'Clasificación de mensajes entrantes',
-        'Registro de datos importantes',
-        'Asignación o escalamiento interno',
+        'Clasificación automática de mensajes entrantes',
+        'Registro de datos importantes sin teclear',
+        'Asignación al responsable correcto',
         'Seguimiento por estado del caso'
       ]
     },
     {
       icon: 'fa-bell',
-      title: 'Recordatorios automáticos',
+      title: 'Recordatorios automáticos que funcionan',
       pain: 'Muchas ventas, citas o cobros se pierden porque alguien tenía que acordarse de escribir o llamar.',
-      solution: 'El flujo crea recordatorios y avisos según fechas, estados o documentos pendientes.',
-      outcome: 'Hay menos seguimiento manual y más continuidad en la atención.',
+      solution: 'El sistema crea recordatorios y avisos automáticos según fechas, estados o documentos pendientes.',
+      outcome: 'Menos seguimiento manual, más clientes atendidos y menos citas perdidas.',
       bullets: [
-        'Confirmaciones de citas o reservas',
+        'Confirmaciones de citas y reservas',
         'Avisos de documentos pendientes',
-        'Seguimiento a cotizaciones',
-        'Alertas para tareas vencidas'
+        'Seguimiento a cotizaciones sin olvidos',
+        'Alertas cuando algo requiere atención'
       ]
     },
     {
       icon: 'fa-paper-plane',
-      title: 'Respuestas más rápidas',
-      pain: 'Responder lo mismo todos los días consume tiempo y aumenta el riesgo de dejar clientes sin respuesta.',
-      solution: 'La IA propone o envía respuestas para preguntas frecuentes, siempre con reglas y límites claros.',
-      outcome: 'El cliente recibe orientación más rápido y el equipo se enfoca en casos especiales.',
+      title: 'Responder más rápido sin perder calidad',
+      pain: 'Tu equipo responde lo mismo todos los días, consume tiempo y hay riesgo de dejar clientes sin respuesta.',
+      solution: 'La IA puede responder automáticamente las preguntas frecuentes, siempre dentro de reglas claras que tú defines.',
+      outcome: 'El cliente recibe respuesta inmediata y tu equipo se enfoca solo en los casos que realmente requieren atención humana.',
       bullets: [
-        'Preguntas frecuentes',
-        'Información de requisitos o pasos',
-        'Mensajes de seguimiento',
-        'Escalamiento cuando no hay certeza'
+        'Respuestas automáticas a preguntas frecuentes',
+        'Información de requisitos y pasos sin demora',
+        'Mensajes de seguimiento programados',
+        'Escalamiento a humanos cuando no hay certeza'
       ]
     },
     {
       icon: 'fa-database',
-      title: 'Consulta de datos reales',
-      pain: 'Un asistente sin contexto puede dar respuestas incompletas o pedir información que la empresa ya tiene.',
-      solution: 'Conecto el flujo a hojas, bases de datos, documentos, CRM o sistemas internos cuando el caso lo permite.',
-      outcome: 'La automatización trabaja con información del negocio, no solo con texto genérico.',
+      title: 'Conectar con tus datos reales',
+      pain: 'Una IA sin contexto da respuestas genéricas o pide información que tú ya tienes en Excel o en tu sistema.',
+      solution: 'Conecto la automatización con tus hojas de cálculo, documentos o sistemas para que trabaje con datos reales.',
+      outcome: 'La IA consulta información actualizada de tu negocio y da respuestas precisas, no genéricas.',
       bullets: [
-        'Consulta de estado de casos',
-        'Lectura de documentos o registros',
-        'Búsqueda de historial por cliente',
-        'Validación contra reglas del negocio'
+        'Consulta del estado real de casos y clientes',
+        'Lectura de documentos y registros actuales',
+        'Acceso al historial por cliente',
+        'Respuestas basadas en reglas de tu negocio'
       ]
     },
     {
       icon: 'fa-user-check',
-      title: 'Aprobaciones humanas',
-      pain: 'No todo debe ejecutarse automáticamente, especialmente si afecta dinero, reputación o decisiones sensibles.',
-      solution: 'Diseño puntos donde una persona revisa, aprueba o corrige antes de continuar.',
-      outcome: 'La empresa gana velocidad sin perder responsabilidad ni criterio humano.',
+      title: 'Control humano donde importa',
+      pain: 'No quieres que una máquina apruebe descuentos, cambios o decisiones importantes sin supervisión.',
+      solution: 'Diseño puntos de control donde una persona revisa y aprueba antes de ejecutar acciones sensibles.',
+      outcome: 'Ganas velocidad en lo rutinario sin perder el control en lo importante. Tú decides qué puede automatizarse y qué requiere aprobación.',
       bullets: [
-        'Aprobaciones antes de ejecutar acciones sensibles',
-        'Revisión de excepciones',
-        'Escalamiento a analista o supervisor',
-        'Reglas claras para intervenir'
+        'Aprobaciones humanas antes de acciones importantes',
+        'Revisión de casos excepcionales',
+        'Escalamiento a supervisor cuando aplica',
+        'Reglas claras de cuándo intervenir'
       ]
     },
     {
       icon: 'fa-eye',
-      title: 'Trazabilidad del proceso',
-      pain: 'Cuando todo pasa por chat o memoria, después cuesta saber qué ocurrió y por qué.',
-      solution: 'Cada acción importante queda registrada para seguimiento, auditoría y mejora.',
-      outcome: 'El gerente tiene más visibilidad sin pedir reportes manuales todo el tiempo.',
+      title: 'Ver todo lo que pasa sin pedir reportes',
+      pain: 'Cuando todo pasa por chat o memoria, nadie sabe realmente qué está pasando hasta que pide reportes uno por uno.',
+      solution: 'Cada acción importante queda registrada automáticamente: quién hizo qué, cuándo y qué pasó después.',
+      outcome: 'Ves el estado de tu operación en tiempo real sin depender de que alguien te mande un Excel.',
       bullets: [
-        'Registro de acciones y estados',
-        'Historial de aprobaciones',
-        'Excepciones visibles',
-        'Mejora continua del flujo'
+        'Registro automático de acciones y estados',
+        'Historial de aprobaciones y decisiones',
+        'Alertas cuando algo se desvía',
+        'Visibilidad para mejorar continuamente'
       ]
     }
   ],
-  workflowTitle: 'Cómo lo aterrizo en un proceso real',
+  workflowTitle: 'Cómo trabajo: de lo simple a lo que funciona',
   workflowSubtitle:
-    'Si el proceso es complejo, no empezamos automatizando todo. Tomamos un primer flujo manejable, validamos que funcione con control y luego aumentamos la complejidad por etapas.',
+    'No transformo toda tu empresa de golpe. Empezamos con un proceso pequeño que funcione bien, lo usamos, medimos resultados y luego seguimos mejorando.',
   workflow: [
     {
       id: 'evento',
-      title: '1. REVISAMOS EL FLUJO',
-      description: 'Identificamos dónde se pierde tiempo o seguimiento',
+      title: '1. REVISAMOS TU PROCESO ACTUAL',
+      description: 'Vemos dónde se pierde tiempo, clientes o información',
       level: 1,
       highlight: 'blue',
       icon: 'fa-inbox',
@@ -168,57 +168,57 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     {
       id: 'contexto',
       title: '2. DEFINIMOS QUÉ AUTOMATIZAR',
-      description: 'Separamos tareas repetitivas de decisiones que requieren criterio humano',
+      description: 'Separamos tareas repetitivas de decisiones que necesitan tu criterio',
       level: 2,
       highlight: 'green',
       icon: 'fa-database',
       items: [
         { icon: 'fa-list-check', text: 'Clasificación de solicitudes' },
-        { icon: 'fa-bell', text: 'Recordatorios' },
+        { icon: 'fa-bell', text: 'Recordatorios automáticos' },
         { icon: 'fa-paper-plane', text: 'Respuestas y seguimiento' },
-        { icon: 'fa-user-check', text: 'Aprobaciones necesarias' }
+        { icon: 'fa-user-check', text: 'Dónde necesitás aprobar vos' }
       ]
     },
     {
       id: 'decision',
-      title: '3. DISEÑAMOS CONTROLES',
-      description: 'Definimos límites, guardrails y rutas de escalamiento',
+      title: '3. PONEMOS LÍMITES DE SEGURIDAD',
+      description: 'Definimos qué puede hacer la IA sola y qué requiere tu aprobación',
       level: 3,
       highlight: 'yellow',
       icon: 'fa-shield-halved',
       items: [
-        { icon: 'fa-shield-halved', text: 'Acciones permitidas' },
-        { icon: 'fa-user-check', text: 'Revisión humana' },
-        { icon: 'fa-route', text: 'Rutas de excepción' },
-        { icon: 'fa-eye', text: 'Trazabilidad' }
+        { icon: 'fa-shield-halved', text: 'Acciones que puede hacer sola' },
+        { icon: 'fa-user-check', text: 'Qué decisiones necesitan tu OK' },
+        { icon: 'fa-route', text: 'Qué pasa cuando hay dudas' },
+        { icon: 'fa-eye', text: 'Registro de todo lo importante' }
       ]
     },
     {
       id: 'ejecucion',
-      title: '4. INTEGRAMOS HERRAMIENTAS',
-      description: 'Conectamos el flujo a las herramientas que ya usa la empresa',
+      title: '4. CONECTAMOS CON TUS HERRAMIENTAS',
+      description: 'Usamos lo que ya tenés: WhatsApp, Excel, correo o tu sistema',
       level: 4,
       highlight: 'purple',
       icon: 'fa-gears',
       items: [
         { icon: 'fa-comments', text: 'WhatsApp o formularios' },
         { icon: 'fa-file-excel', text: 'Excel o Google Sheets' },
-        { icon: 'fa-envelope', text: 'Correo' },
-        { icon: 'fa-plug', text: 'CRM, APIs o sistemas internos' }
+        { icon: 'fa-envelope', text: 'Correo electrónico' },
+        { icon: 'fa-plug', text: 'Tu CRM o sistema actual' }
       ]
     },
     {
       id: 'auditoria',
-      title: '5. MEDIMOS Y AJUSTAMOS',
-      description: 'El flujo queda visible para revisar errores, excepciones y mejoras',
+      title: '5. MEDIMOS Y MEJORAMOS',
+      description: 'Vemos qué funciona, qué no, y ajustamos para que sea cada vez mejor',
       level: 5,
       highlight: 'orange',
       icon: 'fa-chart-line',
       items: [
-        { icon: 'fa-file-lines', text: 'Registro de acciones' },
-        { icon: 'fa-magnifying-glass', text: 'Revisión de excepciones' },
+        { icon: 'fa-file-lines', text: 'Registro de qué pasó' },
+        { icon: 'fa-magnifying-glass', text: 'Revisión de casos especiales' },
         { icon: 'fa-chart-column', text: 'Indicadores simples' },
-        { icon: 'fa-repeat', text: 'Ajustes por uso real' }
+        { icon: 'fa-repeat', text: 'Mejoras basadas en uso real' }
       ]
     }
   ],
@@ -282,116 +282,175 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     }
   ],
   casesCta: {
-    title: '¿Tienes otro tipo de negocio o un proceso más complejo?',
+    title: '¿Tienes otro tipo de negocio?',
     description:
-      'También se pueden revisar procesos de energía, operación técnica, mantenimiento, monitoreo, aprobaciones internas o flujos con varios sistemas. La forma prudente no es automatizar todo de golpe: empezamos con una parte sencilla y bien controlada, medimos si aporta valor y luego avanzamos hacia procesos más complejos.',
+      'No importa el rubro: si hay un proceso repetitivo que consume tiempo o hace que se pierdan clientes, vale la pena revisarlo. Empezamos con algo pequeño que funcione, y si da resultado, seguimos automatizando.',
     ctaLabel: 'Consultar mi proceso por WhatsApp',
     ctaHref:
-      'https://wa.me/50432045265?text=Hola+H%C3%A9ctor%2C+tengo+un+proceso+operativo+que+podr%C3%ADa+automatizarse+con+IA+ag%C3%A9ntica.+Quiero+revisar+si+conviene+empezar+con+un+flujo+sencillo+y+luego+aumentar+la+complejidad+por+etapas.'
+      'https://wa.me/50432045265?text=Hola+H%C3%A9ctor%2C+tengo+un+proceso+que+podr%C3%ADa+automatizarse.+Quiero+revisar+si+conviene+empezar+con+algo+sencillo+y+luego+seguir+mejorando.'
   },
-  proofTitle: 'Control, trazabilidad y límites claros',
-  proofSubtitle:
-    'La IA puede equivocarse. Por eso una solución seria no promete magia: define controles, registra acciones y deja intervención humana donde importa.',
-  proofMetrics: [
+  beforeAfterTitle: 'Así cambia tu operación con automatización',
+  beforeAfterSubtitle: 'Ejemplos reales de cómo se transforman los procesos cuando dejas de depender solo de la memoria y el Excel.',
+  beforeAfterCases: [
     {
-      value: 'Controlado',
-      label: 'acciones con guardrails y revisión humana',
-      detail: 'La automatización trabaja dentro de límites definidos y escala cuando no debe decidir sola.'
+      icon: 'fa-house',
+      industry: 'Inmobiliarias',
+      title: 'Seguimiento a prospectos',
+      before: 'Los leads llegan por WhatsApp y se pierden entre chats. Nadie sabe cuál prospecto está en qué etapa.',
+      after: 'Cada lead queda registrado, clasificado por prioridad, con recordatorio automático y responsable asignado.'
     },
     {
-      value: 'Trazable',
-      label: 'registro de acciones, estados y excepciones',
-      detail: 'Cada paso importante puede revisarse para entender qué pasó y qué debe mejorarse.'
+      icon: 'fa-stethoscope',
+      industry: 'Clínicas y consultorios',
+      title: 'Citas y recordatorios',
+      before: 'La recepción pasa horas confirmando citas por teléfono. Muchas citas se pierden por olvidos.',
+      after: 'Recordatorios automáticos por WhatsApp. Los pacientes confirman solos y la recepción atiende solo casos especiales.'
+    },
+    {
+      icon: 'fa-hammer',
+      industry: 'Ferreterías',
+      title: 'Cotizaciones y pedidos',
+      before: 'Los clientes preguntan por WhatsApp por precios y disponibilidad. Las cotizaciones se pierden o tardan días.',
+      after: 'Solicitudes ordenadas automáticamente, datos completos desde el primer mensaje, seguimiento sin olvidos.'
+    },
+    {
+      icon: 'fa-car',
+      industry: 'Talleres mecánicos',
+      title: 'Citas y repuestos',
+      before: 'Las citas se agendan en libretas o WhatsApp. Cuando llega el cliente, no hay repuesto o no está listo.',
+      after: 'Citas coordinadas con disponibilidad real de repuestos. El cliente sabe exactamente cuándo puede pasar.'
+    },
+    {
+      icon: 'fa-landmark',
+      industry: 'Cooperativas y servicios',
+      title: 'Documentos y estados',
+      before: 'Clientes llaman todos los días preguntando por estados de trámites. El personal repite lo mismo constantemente.',
+      after: 'Consulta de estado automática. El cliente ve su avance sin llamar, y tu equipo atiende solo casos que requieren atención.'
+    }
+  ],
+  idealForSection: {
+    title: '¿Esto es para tu empresa?',
+    yesTitle: 'Este servicio es para vos si...',
+    yesItems: [
+      'Recibís solicitudes por WhatsApp y se te pierden los seguimientos',
+      'Usás Excel para controlar ventas, citas, pedidos o reportes',
+      'Tu equipo repite muchas tareas manuales que podrían automatizarse',
+      'Dependés de una sola persona que sabe cómo funciona todo',
+      'Querés más orden sin tener que comprar un sistema enorme desde el inicio',
+      'Estás dispuesto a revisar cómo trabaja tu equipo antes de automatizar'
+    ],
+    noTitle: 'No es para vos si...',
+    noItems: [
+      'Querés automatizar sin ordenar primero el proceso',
+      'Buscás una IA mágica que trabaje sola sin supervisión',
+      'No estás dispuesto a dedicar tiempo a revisar cómo trabaja tu equipo hoy',
+      'Esperás resultados garantizados sin medir ni ajustar el proceso',
+      'Preferís un sistema listo para usar sin personalización a tu operación'
+    ]
+  },
+  proofTitle: 'Cómo trabajo: primero el proceso, después la tecnología',
+  proofSubtitle:
+    'No se trata de meter IA por moda. Primero revisamos si el proceso tiene sentido, si hay retorno de inversión y si conviene empezar con algo pequeño.',
+  proofMetrics: [
+    {
+      value: 'Con control',
+      label: 'siempre hay revisión humana en decisiones importantes',
+      detail: 'Tú decides qué puede automatizarse y qué requiere tu aprobación. Nada se ejecuta solo si afecta dinero o reputación.'
+    },
+    {
+      value: 'Visible',
+      label: 'sabés qué pasa en tu operación sin pedir reportes',
+      detail: 'Cada acción queda registrada para que puedas ver el estado real de tu negocio en cualquier momento.'
     },
     {
       value: 'Conectado',
-      label: 'integración con herramientas reales',
-      detail: 'El agente puede leer y activar flujos sobre WhatsApp, hojas, formularios, correos o sistemas internos.'
+      label: 'funciona con tus herramientas actuales',
+      detail: 'WhatsApp, Excel, formularios o tu sistema actual. No necesitás cambiar todo para empezar a mejorar.'
     }
   ],
   proofPoints: [
     {
       icon: 'fa-eye',
-      title: 'Visibilidad para gerencia',
-      description: 'El objetivo es que el proceso sea más visible sin pedir reportes manuales todo el tiempo.'
+      title: 'Visibilidad real para gerencia',
+      description: 'Sabés qué pasa en tu negocio sin depender de que alguien te mande un Excel o te cuente lo que pasó ayer.'
     },
     {
       icon: 'fa-user-shield',
-      title: 'Criterio humano donde sí importa',
-      description: 'Las aprobaciones y excepciones se diseñan desde el inicio para acelerar sin ceder control.'
+      title: 'Vos decidís dónde hay control humano',
+      description: 'Las aprobaciones se diseñan desde el inicio: acelerás lo rutinario sin perder el control en lo importante.'
     },
     {
       icon: 'fa-link',
-      title: 'Integración útil, no solo chat',
-      description: 'La IA debe ayudar a cerrar tareas reales: responder, registrar, recordar, escalar o crear seguimiento.'
+      title: 'Soluciones que realmente se usan',
+      description: 'No demos que se quedan en el aire. Automatización que responde, registra, recuerda y ayuda a cerrar ventas.'
     }
   ],
   trustBand: {
-    eyebrow: 'Enfoque de trabajo',
-    title: 'Primero el proceso. Después la IA.',
+    eyebrow: 'Por qué trabajar conmigo',
+    title: 'Primero entiendo tu proceso. Después propongo solución.',
     description:
-      'No empiezo vendiendo una herramienta. Primero entiendo cómo trabaja tu equipo, dónde se pierden clientes o tiempo, y qué parte conviene automatizar con bajo riesgo.',
+      'No vendo tecnología por moda. Primero reviso cómo trabaja tu equipo, dónde se pierden clientes o tiempo, y qué parte conviene automatizar para que realmente veas resultados.',
     items: [
       {
         value: 'Cercano',
-        label: 'pensado para empresas que ya usan WhatsApp, Excel y procesos manuales.'
+        label: 'pensado para pymes que usan WhatsApp, Excel y procesos manuales.'
       },
       {
         value: 'Con control',
-        label: 'la IA apoya, pero no toma decisiones sensibles sin supervisión.'
+        label: 'siempre hay revisión humana en decisiones importantes. Vos decidís los límites.'
       },
       {
-        value: 'Integrado',
-        label: 'la automatización se conecta a herramientas reales, no solo a una demo.'
+        value: 'Real',
+        label: 'se conecta a tus herramientas actuales, no es una demo que se queda en el aire.'
       },
       {
         value: 'Directo',
-        label: 'diagnóstico, diseño e implementación se trabajan conmigo.'
+        label: 'hablás conmigo desde el diagnóstico hasta la implementación. Sin intermediarios.'
       }
     ]
   },
-  stackTitle: 'Tecnología en segundo plano',
+  stackTitle: 'Las herramientas dependen de tu caso',
   stackSubtitle:
-    'El cliente no necesita aprender IA agéntica para saber si le sirve. La tecnología se define según el flujo, las herramientas disponibles y el nivel de control requerido.',
+    'No hace falta que entiendas de IA para saber si te sirve. Según tu problema específico, elijo la combinación de herramientas que resuelva tu dolor con el menor costo y riesgo posible.',
   stackGroups: [
     {
       icon: 'fa-robot',
-      title: 'Agentes de IA',
-      description: 'Ayudan a interpretar mensajes, contexto y próximos pasos.',
+      title: 'IA que entiende y responde',
+      description: 'Ayuda a interpretar mensajes, clasificar solicitudes y dar los siguientes pasos.',
       items: [
-        'Clasificación de solicitudes',
-        'Respuestas sugeridas o controladas',
-        'Escalamiento cuando hay duda'
+        'Clasificación automática de solicitudes',
+        'Respuestas sugeridas o automáticas según reglas',
+        'Escalamiento a humanos cuando hay dudas'
       ]
     },
     {
       icon: 'fa-link',
-      title: 'Integraciones',
-      description: 'Conectan la IA con las herramientas que ya usa la empresa.',
+      title: 'Conexión con tus herramientas',
+      description: 'Conectamos con lo que ya usás: WhatsApp, Excel, formularios o tu sistema.',
       items: [
-        'WhatsApp, correo y formularios',
-        'Excel o Google Sheets',
-        'CRM, ERP, APIs o sistemas internos'
+        'WhatsApp, correo y formularios web',
+        'Excel, Google Sheets o bases de datos',
+        'CRM, sistemas internos o APIs existentes'
       ]
     },
     {
       icon: 'fa-shield-halved',
-      title: 'Guardrails',
-      description: 'Definen límites de acción y cuándo debe intervenir una persona.',
+      title: 'Límites de seguridad',
+      description: 'Definimos qué puede hacer la IA sola y qué requiere tu aprobación.',
       items: [
-        'Acciones permitidas',
-        'Aprobaciones humanas',
-        'Rutas de excepción'
+        'Acciones que puede hacer automáticamente',
+        'Decisiones que siempre requieren tu OK',
+        'Qué pasa cuando hay casos especiales'
       ]
     },
     {
       icon: 'fa-file-lines',
-      title: 'Trazabilidad',
-      description: 'Deja evidencia para revisar y mejorar el flujo.',
+      title: 'Registro de todo lo importante',
+      description: 'Cada acción queda registrada para que puedas revisar y mejorar.',
       items: [
-        'Estados y registros',
-        'Historial de aprobaciones',
-        'Errores y excepciones visibles'
+        'Historial de estados y acciones',
+        'Registro de aprobaciones y decisiones',
+        'Alertas cuando algo sale de lo normal'
       ]
     }
   ],
@@ -438,57 +497,57 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     'Buscas una promesa de resultados garantizados sin revisar datos, equipo ni operación.'
   ],
   execution: {
-    eyebrow: 'Quién implementa',
-    title: 'Trabajas directo conmigo, del diagnóstico a la implementación',
+    eyebrow: 'Quién hace el trabajo',
+    title: 'Hablas conmigo desde el diagnóstico hasta que todo funciona',
     description:
-      'Si el caso avanza, no pasas de una capa comercial a otra técnica. La misma persona que entiende el flujo define la solución, los límites, la integración y la forma de operación.',
+      'No hay equipos de ventas ni técnicos a los que tengas que repetir todo. Yo entiendo tu proceso, defino la solución y la implemento. Una sola persona de principio a fin.',
     bullets: [
-      'Diagnóstico práctico del flujo y sus cuellos de botella.',
-      'Criterio para separar IA, reglas simples, integración y revisión humana.',
-      'Implementación pensada para uso real, no solo para mostrar una demo.'
+      'Diagnóstico práctico: revisamos juntos dónde se pierde tiempo o clientes.',
+      'Propuesta honesta: si una regla simple resuelve el problema, no te vendo IA.',
+      'Implementación real: funciona con tus herramientas actuales, no es una demo.'
     ],
-    ctaLabel: 'Ver experiencia y enfoque'
+    ctaLabel: 'Solicitar diagnóstico gratis'
   },
   faqTitle: 'Preguntas frecuentes',
-  faqSubtitle: 'Respuestas directas para gerentes y dueños antes de automatizar con IA.',
+  faqSubtitle: 'Lo que normalmente preguntan dueños y gerentes antes de automatizar.',
   faqs: [
     {
       question: '¿La IA va a reemplazar a mi equipo?',
       answer:
-        'No es el enfoque. La IA se usa como apoyo operativo para tareas repetitivas: clasificar, responder preguntas frecuentes, recordar pendientes, registrar datos o escalar casos. Las decisiones sensibles pueden quedar bajo revisión humana.'
+        'No. La idea es darles herramientas para que dejen de perder tiempo en tareas repetitivas y se enfoquen en atender mejor a los clientes. Las decisiones importantes siempre pueden quedar bajo tu revisión.'
     },
     {
-      question: '¿Necesito tener sistemas modernos para empezar?',
+      question: '¿Necesito tener sistemas modernos o comprar software caro?',
       answer:
-        'No necesariamente. Muchas empresas empiezan con WhatsApp, Excel, formularios o correo. Primero se ordena el flujo y luego se decide qué integración conviene.'
+        'No. Muchas empresas empiezan con lo que ya tienen: WhatsApp, Excel, formularios o correo. Primero ordenamos el flujo y luego vemos si hace falta alguna herramienta adicional.'
     },
     {
-      question: '¿Esto sirve para empresas pequeñas?',
+      question: '¿Esto sirve para empresas pequeñas o solo para grandes empresas?',
       answer:
-        'Sí, si existe un proceso repetitivo que consume tiempo o causa pérdida de clientes. La recomendación es empezar con un flujo pequeño, claro y de bajo riesgo.'
+        'Sirve para cualquier empresa que tenga procesos repetitivos que consuman tiempo o hagan perder clientes. Lo importante es empezar con algo pequeño que funcione, no con una solución enorme.'
     },
     {
-      question: '¿Qué pasa si la IA se equivoca?',
+      question: '¿Qué pasa si el sistema se equivoca?',
       answer:
-        'Por eso se diseñan guardrails, aprobaciones y rutas de escalamiento. La automatización no debe ejecutar acciones sensibles sin control cuando el caso requiere revisión humana.'
+        'Por eso diseño límites claros desde el inicio. Tú decides qué puede hacerse automático y qué requiere tu aprobación. Nada se ejecuta solo si afecta dinero o reputación.'
     },
     {
-      question: '¿Cuánto cuesta?',
+      question: '¿Cuánto cuesta y cuánto tiempo toma?',
       answer:
-        'Depende del flujo, las integraciones y el nivel de control requerido. Por eso conviene empezar con un diagnóstico breve antes de cotizar.'
+        'Depende de qué tan complejo sea tu proceso y qué herramientas ya tengas. Por eso empezamos con un diagnóstico gratuito: para entender tu caso y darte una propuesta realista antes de que gastes un centavo.'
     }
   ],
   contact: {
-    eyebrow: 'Diagnóstico breve de automatización',
-    title: 'Cuéntame qué proceso quieres ordenar. Te digo si conviene usar IA o algo más simple.',
+    eyebrow: 'Diagnóstico gratuito de 30 minutos',
+    title: 'Contame qué proceso querés ordenar. Te digo si conviene automatizar o hay una solución más simple.',
     description:
-      'En una llamada de 30 minutos revisamos el flujo, detectamos dónde hay seguimiento manual y vemos si conviene empezar con una automatización sencilla antes de avanzar a IA agéntica más compleja.',
-    detailsTitle: 'En esta conversación revisamos:',
+      'En una llamada gratuita revisamos tu operación, detectamos dónde se pierde tiempo o clientes, y vemos si tiene sentido empezar con algo pequeño. Si no es para vos, te lo digo honestamente.',
+    detailsTitle: 'En esta conversación vamos a ver:',
     detailsItems: [
-      'Qué parte del flujo depende hoy de WhatsApp, Excel o seguimiento manual',
-      'Dónde se pierden clientes, tiempo o información',
-      'Qué se puede automatizar con bajo riesgo y qué debe revisar una persona',
-      'Cómo empezar simple y aumentar complejidad por etapas si el caso lo amerita'
+      'Qué partes de tu proceso hoy dependen de WhatsApp, Excel o memoria',
+      'Dónde se te están perdiendo clientes, tiempo o información',
+      'Qué se puede mejorar con bajo riesgo y qué necesita tu supervisión',
+      'Cómo empezar con algo pequeño que funcione y luego ir creciendo'
     ],
     topics: [
       { value: '', label: 'Selecciona el tipo de proceso', disabled: true, selected: true },
