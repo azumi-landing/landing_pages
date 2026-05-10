@@ -3,8 +3,8 @@ import { agenticAutomationTheme, fieldOperationsTheme, processAutomationTheme } 
 import { fieldOperationsFaqs } from './faqs';
 
 export const agenticAutomationLanding: ServiceLandingConfig = {
-  seoTitle: 'Automatización práctica para pymes — Procesos manuales, datos dispersos y tareas repetitivas',
-  seoDescription: 'Automatizamos procesos manuales y repetitivos de tu negocio: ventas, administración, documentos, reportes, integraciones y más. Diagnóstico gratuito para pymes.',
+  seoTitle: 'Automatización pymes Honduras — WhatsApp, Excel, RPA e IA',
+  seoDescription: 'Automatizá procesos manuales en tu pyme: integración WhatsApp, Excel, CRM, tareas administrativas y documentos. RPA e IA agéntica para Honduras. Diagnóstico gratuito.',
   seoImage: '/og-agentic-automation.png',
   path: '/automatizacion-con-ia-agentica',
   theme: agenticAutomationTheme,

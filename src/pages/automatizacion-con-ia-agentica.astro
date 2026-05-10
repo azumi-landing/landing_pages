@@ -36,7 +36,16 @@ const sectionNavItems = [
     buildServiceSchema({
       name: agenticAutomationLanding.title,
       description: agenticAutomationLanding.seoDescription,
-      path: agenticAutomationLanding.path
+      path: agenticAutomationLanding.path,
+      areaServed: 'Honduras',
+      category: 'Automatización de procesos para pymes',
+      audience: 'SmallBusiness',
+      offers: {
+        name: 'Diagnóstico gratuito de automatización',
+        description: 'Evaluación sin costo de procesos manuales identificando oportunidades de automatización con RPA e IA para tu pyme',
+        price: '0',
+        priceCurrency: 'HNL'
+      }
     }),
     buildBreadcrumbSchema([
       { name: 'Inicio', path: '/' },
