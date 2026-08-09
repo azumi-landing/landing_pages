@@ -41,9 +41,9 @@ export const aboutCards: AboutCard[] = [
     id: 'atencion-personalizada',
     icon: 'fa-user-tie',
     title: 'Atención personalizada de un especialista',
-    description: 'Trabajas directamente conmigo, sin intermediarios',
+    description: 'Trabajás directamente conmigo, sin intermediarios',
     bullets: [
-      'Comerciante individual: Trabajas directamente conmigo, sin intermediarios',
+      'Comerciante individual: Trabajás directamente conmigo, sin intermediarios',
       '+10 años de experiencia en operaciones de campo en sectores críticos',
       '+5M registros procesados en implementaciones reales',
       'Respuesta directa y compromiso total con tu proyecto'

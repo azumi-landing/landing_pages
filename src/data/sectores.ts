@@ -541,5 +541,5 @@ export const sectores: Sector[] = [
 export const otrosSectores: OtherSector = {
   icon: 'fa-ellipsis-h',
   title: 'Otros sectores',
-  description: '¿Tienes operarios en campo que usan papel, WhatsApp o no tienes visibilidad de su trabajo? Adaptamos la plataforma a tu flujo específico.'
+  description: '¿Tenés operarios en campo que usan papel, WhatsApp o no tenés visibilidad de su trabajo? Adaptamos la plataforma a tu flujo específico.'
 };

@@ -23,7 +23,7 @@ export const servicios: Servicio[] = [
     title: 'Órdenes de servicio y asignaciones automatizadas',
     description: 'Alarmas de series de tiempo, anomalías o eventos que generan trabajo de campo, pero la asignación es manual, lenta y sin seguimiento.',
     pain: 'Alarmas de series de tiempo, anomalías o eventos que generan trabajo de campo, pero la asignación es manual, lenta y sin seguimiento.',
-    promise: 'Las órdenes se generan automáticamente desde alarmas/series de tiempo, o manualmente según criterios de tu negocio. El sistema asigna inteligentemente al operario más cercano/disponible o puedes asignar manualmente.',
+    promise: 'Las órdenes se generan automáticamente desde alarmas/series de tiempo, o manualmente según criterios de tu negocio. El sistema asigna inteligentemente al operario más cercano/disponible o podés asignar manualmente.',
     proof: 'Tiempo de respuesta de horas a minutos. Cero órdenes perdidas. Ruta optimizada automáticamente.',
     features: [
       'Generación automática de órdenes desde alarmas/series de tiempo',
