@@ -4,7 +4,7 @@ export const siteConfig = {
   name: 'HGuerra',
   url: 'https://hguerra.com',
   description:
-    'Consultoría e implementación para convertir problemas operativos complejos en soluciones claras, adoptables y útiles para equipos reales.',
+    'Héctor Guerra es consultor e implementador de operaciones, datos y automatización aplicada. Especialidades en gestión de operaciones de campo y automatización inteligente de procesos.',
   defaultImage: '/og-home.png',
   locale: 'es_HN'
 } as const;
@@ -14,13 +14,13 @@ export const serviceLinks = [
     href: '/gestion-de-operaciones-de-campo',
     label: 'Gestión de Operaciones de Campo',
     shortLabel: 'Operaciones de campo',
-    description: 'App móvil offline, dashboard web y trazabilidad para operación en terreno.'
+    description: 'Coordinación, captura offline, evidencia y trazabilidad para equipos que trabajan en terreno.'
   },
   {
     href: '/automatizacion-con-ia-agentica',
     label: 'Automatización Inteligente de Procesos',
     shortLabel: 'Automatización',
-    description: 'Automatización de procesos manuales para pymes en Honduras: WhatsApp, Excel, CRM, RPA e IA agéntica con diagnóstico gratuito.'
+    description: 'Orden e integración de procesos internos con automatización, RPA e IA bajo control humano.'
   }
 ] as const;
 

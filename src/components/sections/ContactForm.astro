@@ -25,7 +25,7 @@ const normalizedService = isValidContactService(defaultService) ? defaultService
 const resolvedOriginLabel = originLabel || getContactServiceLabel(normalizedService);
 const serviceGuidance = getContactServiceGuidance(normalizedService);
 const detailPlaceholder = serviceGuidance?.detailPlaceholder
-  ?? '¿Qué proceso quieres mejorar? ¿Qué equipo usa hoy el flujo? ¿Qué sistemas ya existen?';
+  ?? 'Proceso por mejorar, equipo que usa hoy el flujo y sistemas existentes.';
 const isLight = tone === 'light';
 const labelClass = isLight ? 'text-slate-700' : 'text-slate-300';
 const inputClass = isLight
@@ -69,7 +69,7 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
   </div>
 
   <div>
-    <label for="contact-service" class={`block text-sm font-medium mb-2 ${labelClass}`}>¿Qué necesitas? *</label>
+    <label for="contact-service" class={`block text-sm font-medium mb-2 ${labelClass}`}>Motivo de consulta *</label>
     <select
       id="contact-service"
       name="interes"
@@ -108,10 +108,11 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
 
   <p class={`text-xs leading-relaxed ${legalTextClass}`}>
     Al enviar este formulario aceptas el tratamiento básico de tus datos para responder tu consulta.
-    Puedes revisar la
+    La
     <a href="/privacidad" class={`transition-colors ${legalLinkClass}`}>política de privacidad</a>
     y los
-    <a href="/terminos" class={`transition-colors ${legalLinkClass}`}>términos de uso</a>.
+    <a href="/terminos" class={`transition-colors ${legalLinkClass}`}>términos de uso</a>
+    aplicables están disponibles.
   </p>
 </form>
 
