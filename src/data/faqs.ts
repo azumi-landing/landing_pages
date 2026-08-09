@@ -20,7 +20,7 @@ export const fieldOperationsFaqs = [
       'Los datos se sincronizan al cloud tan pronto hay conexión, y el acceso a la app puede controlarse con credenciales corporativas y desactivación remota de dispositivos.'
   },
   {
-    question: '¿Cómo garantizan la trazabilidad y evidencia para auditorías?',
+    question: '¿Cómo garantizás la trazabilidad y evidencia para auditorías?',
     answer:
       'Cada registro puede incluir timestamp, GPS, fotos obligatorias y firma digital, todo dentro de un historial trazable desde la asignación hasta el cierre operativo.'
   },
