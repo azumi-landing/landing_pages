@@ -105,7 +105,7 @@ export const homeWorkflowSteps = [
 
 export const homeFaqs = [
   {
-    question: '¿Eres una sola persona? ¿Qué pasa si te pasa algo?',
+    question: '¿Sos una sola persona? ¿Qué pasa si te pasa algo?',
     answer:
       'Trabajo con arquitectura documentada y stack estándar (GCP, PostgreSQL, Cloud Run, LangGraph, n8n, Airflow). El código y los procesos quedan operables por cualquier equipo técnico competente. Prefiero ser honesto sobre el alcance antes que inflar un equipo para aparentar.'
   },

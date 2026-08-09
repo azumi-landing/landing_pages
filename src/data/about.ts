@@ -19,7 +19,7 @@ export const aboutCards: AboutCard[] = [
     title: 'Visibilidad total y procesos documentados',
     description: 'Dashboard en tiempo real para controlar operaciones',
     bullets: [
-      'Dashboard en tiempo real: Mira qué pasa en campo sin llamar a nadie',
+      'Dashboard en tiempo real: Mirá qué pasa en campo sin llamar a nadie',
       'Procesos estandarizados: Flujos documentados de asignación→ejecución→cierre',
       'Auditoría completa: GPS, fotos, timestamp de cada registro para trazabilidad',
       'Base para certificaciones de calidad y mejora continua'
@@ -54,7 +54,7 @@ export const aboutCards: AboutCard[] = [
 export const aboutFilter: AboutFilter = {
   icon: 'fa-exclamation-triangle',
   title: 'Para quién NO trabajo',
-  intro: 'Si buscas lo siguiente, no soy la persona indicada:',
+  intro: 'Si buscás lo siguiente, no soy la persona indicada:',
   exclusions: [
     'Una solución genérica sin personalización',
     'Software que no funciona sin internet en zonas remotas',

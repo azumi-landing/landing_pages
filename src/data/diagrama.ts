@@ -4,13 +4,13 @@ export const flowLevels: FlowLevel[] = [
   {
     id: 'asignacion',
     title: '1. ASIGNACIÓN DESDE LA WEB',
-    description: 'Programas tareas y rutas desde la plataforma web',
+    description: 'Programás tareas y rutas desde la plataforma web',
     level: 1,
     highlight: 'blue',
     icon: 'fa-tasks',
     items: [
-      { icon: 'fa-calendar-alt', text: 'Programas tareas y rutas' },
-      { icon: 'fa-user-plus', text: 'Asignas a operarios' },
+      { icon: 'fa-calendar-alt', text: 'Programás tareas y rutas' },
+      { icon: 'fa-user-plus', text: 'Asignás a operarios' },
       { icon: 'fa-bell', text: 'Notificación push al móvil' }
     ]
   },
@@ -22,8 +22,8 @@ export const flowLevels: FlowLevel[] = [
     highlight: 'green',
     icon: 'fa-mobile-alt',
     items: [
-      { icon: 'fa-eye', text: 'Ve asignaciones pendientes' },
-      { icon: 'fa-edit', text: 'Captura datos estructurados', small: 'formularios con validación' },
+      { icon: 'fa-eye', text: 'Mirá asignaciones pendientes' },
+      { icon: 'fa-edit', text: 'Capturá datos estructurados', small: 'formularios con validación' },
       { icon: 'fa-camera', text: 'Fotos + GPS obligatorios' },
       { icon: 'fa-signature', text: 'Firma digital' }
     ]
@@ -38,7 +38,7 @@ export const flowLevels: FlowLevel[] = [
     items: [
       { icon: 'fa-wifi', text: 'Enviado en tiempo real (con internet)' },
       { icon: 'fa-download', text: 'Almacenado localmente (modo offline)' },
-      { icon: 'fa-upload', text: 'Sincroniza automático al recuperar señal' },
+      { icon: 'fa-upload', text: 'Sincronizá automáticamente al recuperar señal' },
       { icon: 'fa-check-circle', text: 'Confirmación de recepción en web' }
     ]
   },
@@ -59,7 +59,7 @@ export const flowLevels: FlowLevel[] = [
   {
     id: 'integracion',
     title: '5. INTEGRACIÓN CON TUS SISTEMAS',
-    description: 'Conecta con tu ecosistema existente',
+    description: 'Conectá con tu ecosistema existente',
     level: 5,
     highlight: 'orange',
     icon: 'fa-plug',

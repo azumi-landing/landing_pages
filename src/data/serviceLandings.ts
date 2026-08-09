@@ -461,7 +461,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     {
       value: 'Visible',
       label: 'sabés qué pasa en tu operación sin pedir reportes',
-      detail: 'Cada acción queda registrada para que puedas ver el estado real de tu negocio en cualquier momento.'
+      detail: 'Cada acción queda registrada para que podás ver el estado real de tu negocio en cualquier momento.'
     },
     {
       value: 'Conectado',
@@ -549,7 +549,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     {
       icon: 'fa-chart-bar',
       title: 'Tableros para ver pendientes y resultados',
-      description: 'Para que sepas qué está pasando sin tener que preguntar.',
+      description: 'Para que sepás qué está pasando sin tener que preguntar.',
       items: [
         'Visibilidad de casos pendientes y atrasados',
         'Indicadores simples de tu operación',
@@ -630,7 +630,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
         'No. La idea es darles herramientas para que dejen de perder tiempo en tareas repetitivas y se enfoquen en atender mejor a los clientes. Las decisiones importantes siempre pueden quedar bajo tu revisión.'
     },
     {
-      question: '¿Necesito tener sistemas modernos o comprar software caro?',
+      question: '¿Necesitás tener sistemas modernos o comprar software caro?',
       answer:
         'No. Muchas empresas empiezan con lo que ya tienen: WhatsApp, Excel, formularios o correo. Primero ordenamos el flujo y luego vemos si hace falta alguna herramienta adicional.'
     },
@@ -647,7 +647,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     {
       question: '¿Cuánto cuesta y cuánto tiempo toma?',
       answer:
-        'Depende de qué tan complejo sea tu proceso y qué herramientas ya tengas. Por eso empezamos con un diagnóstico gratuito: para entender tu caso y darte una propuesta realista antes de que gastes un centavo.'
+        'Depende de qué tan complejo sea tu proceso y qué herramientas ya tengás. Por eso empezamos con un diagnóstico gratuito: para entender tu caso y darte una propuesta realista antes de que gastés un centavo.'
     }
   ],
   contact: {
