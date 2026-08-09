@@ -28,7 +28,7 @@ export const contactServices = [
 export type ContactServiceValue = (typeof contactServices)[number]['value'];
 
 export const formTopics = [
-  { value: '', label: 'Selecciona tu línea de servicio o necesidad', disabled: true },
+  { value: '', label: 'Seleccioná tu línea de servicio o necesidad', disabled: true },
   ...contactServices
 ];
 
