@@ -490,7 +490,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     eyebrow: 'Por qué trabajar conmigo',
     title: 'Primero entiendo tu proceso. Después propongo solución.',
     description:
-      'No vendo tecnología por moda. Primero reviso cómo trabaja tu equipo, dónde se pierde tiempo en tareas repetitivas, qué datos se mueven entre sistemas y qué parte conviene automatizar para que realmente veas resultados.',
+      'No vendo tecnología por moda. Primero reviso cómo trabaja tu equipo, dónde se pierde tiempo en tareas repetitivas, qué datos se mueven entre sistemas y qué parte conviene automatizar para que realmente veás resultados.',
     items: [
       {
         value: 'Cercano',
@@ -502,7 +502,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
       },
       {
         value: 'Real',
-        label: 'se conecta a tus sistemas actuales: CRM, ERP, Excel, WhatsApp o lo que ya uses.'
+        label: 'se conecta a tus sistemas actuales: CRM, ERP, Excel, WhatsApp o lo que ya usés.'
       },
       {
         value: 'Directo',
