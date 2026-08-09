@@ -15,8 +15,8 @@ import { buildFAQSchema } from '../data/site';
 ---
 
 <PageLayout
-  title="Consultoría en operaciones de campo, IA agéntica y automatización de procesos"
-  description="Saco tu operación del papel, los Excels sueltos y el WhatsApp. Diagnóstico, diseño e implementación directa — en semanas, no en meses."
+  title="Héctor Guerra | Operaciones, datos y automatización aplicada"
+  description="Consultor e implementador para ordenar operaciones, conectar datos y automatizar procesos. Especialidades en operaciones de campo y automatización inteligente para pymes de Honduras y LatAm."
   path="/"
   image="/og-home.png"
   bodyVariant="mixed"
@@ -32,13 +32,13 @@ import { buildFAQSchema } from '../data/site';
       <div class="page-container relative grid gap-16 lg:grid-cols-[1.15fr_0.85fr] items-center">
         <div>
           <span class="inline-flex items-center rounded-full border border-blue-400/30 bg-blue-400/10 px-4 py-2 text-sm font-semibold text-blue-200 mb-6">
-            Consultoría + implementación directa · Honduras y LatAm
+            Héctor Guerra · Consultor e implementador · Honduras y LatAm
           </span>
           <h1 class="max-w-4xl text-4xl md:text-6xl font-bold text-white leading-[1.05] mb-6">
-            Saca tu operación del papel, los Excels sueltos y el WhatsApp. En semanas, no en meses.
+            Convierto operaciones complejas en sistemas que tu equipo sí usa.
           </h1>
           <p class="text-xl text-slate-300 leading-relaxed max-w-3xl mb-8">
-            Diagnóstico, diseño e implementación directa — misma persona, sin intermediarios. Entro cuando ya probaste lo genérico y no funcionó.
+            Combino lectura operativa, datos y automatización para llevar procesos críticos del desorden a una operación visible, trazable y sostenible.
           </p>
 
           <div class="mb-10 space-y-3">
@@ -52,15 +52,18 @@ import { buildFAQSchema } from '../data/site';
 
           <div class="flex flex-col sm:flex-row gap-4">
             <a
-              href="#contacto-general"
+              href="#enfoque"
               class="action-primary text-lg"
             >
-              Agendar diagnóstico gratuito (30 min)
+              Conocé mi enfoque
+            </a>
+            <a
+              href="#servicios"
+              class="action-secondary text-lg"
+            >
+              Ver especialidades
             </a>
           </div>
-          <p class="mt-4 text-sm text-slate-400">
-            Agenda abierta esta semana · Respondo personalmente en menos de 24 h
-          </p>
         </div>
 
         <aside class="surface-card-dark surface-panel p-8 backdrop-blur-md">
@@ -102,16 +105,15 @@ import { buildFAQSchema } from '../data/site';
       </div>
     </section>
 
-    <!-- SECCIÓN: PROBLEMA (nueva) -->
-    <section id="el-problema" class="section-shell section-light">
+    <section id="enfoque" class="section-shell section-light">
       <div class="page-container">
         <div class="section-intro section-intro-center">
-          <p class="section-eyebrow justify-center text-slate-500">El dolor que escucho una y otra vez</p>
+          <p class="section-eyebrow justify-center text-slate-500">Cómo trabajo</p>
           <h2 class="section-title text-slate-950">
-            Tu operación funciona a pesar de Excel, no gracias a Excel
+            Entiendo la operación, diseño el sistema y acompaño la ejecución.
           </h2>
           <p class="section-copy text-slate-600">
-            Si algo de esto te suena, no estás solo — y no es un problema de disciplina del equipo. Es un problema de arquitectura.
+            La herramienta es una consecuencia. El trabajo empieza por el flujo que hoy depende de personas, archivos, mensajes o decisiones sin visibilidad.
           </p>
         </div>
 
@@ -126,16 +128,46 @@ import { buildFAQSchema } from '../data/site';
             </article>
           ))}
         </div>
+      </div>
+    </section>
 
-        <div class="mt-12 max-w-3xl mx-auto text-center">
-          <p class="text-lg text-slate-700 leading-relaxed">
-            Los tres servicios que ofrezco resuelven exactamente esto: <strong class="text-slate-950">primero ordeno los datos y el flujo, después automatizo con control.</strong>
+    <section id="servicios" class="section-shell section-light">
+      <div class="page-container">
+        <div class="section-intro section-intro-center">
+          <p class="section-eyebrow justify-center text-slate-500">Dos especialidades</p>
+          <h2 class="section-title text-slate-950">
+            Dos rutas para ordenar y mejorar tu operación.
+          </h2>
+          <p class="section-copy text-slate-600">
+            Podés necesitar una especialidad o combinarlas: la captura y coordinación en terreno, y los procesos internos que convierten datos en acciones.
           </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <ServiceStatusCard
+            title="Gestión de Operaciones de Campo"
+            description="Digitalizo captura, coordinación y evidencia de equipos en terreno para que supervisores y gerencia vean una operación trazable de punta a punta."
+            href="/gestion-de-operaciones-de-campo"
+            cta="Ver operación de campo"
+            icon="fa-map-marked-alt"
+            status="available"
+            highlight={true}
+            surface="light"
+          />
+          <ServiceStatusCard
+            title="Automatización Inteligente de Procesos"
+            description="Ordeno procesos internos, conecto herramientas y automatizo tareas repetitivas con reglas claras, RPA o IA bajo control humano."
+            href="/automatizacion-con-ia-agentica"
+            cta="Ver automatización de procesos"
+            icon="fa-robot"
+            status="available"
+            highlight={true}
+            surface="light"
+          />
         </div>
       </div>
     </section>
 
-    <!-- SECCIÓN: CASO DE REFERENCIA (nueva) -->
     <section id="caso" class="section-shell section-dark">
       <div class="page-container">
         <div class="section-intro section-intro-center">
@@ -149,8 +181,7 @@ import { buildFAQSchema } from '../data/site';
         </div>
 
         <div class="grid gap-6 lg:grid-cols-3">
-          <!-- Antes -->
-          <article class="rounded-2xl border border-red-400/20 bg-red-500/5 p-8">
+        <article class="rounded-2xl border border-red-400/20 bg-red-500/5 p-8">
             <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-red-500/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-red-300">
               <i class="fas fa-exclamation-circle"></i>
               {homeCaseStudy.before.title}
@@ -165,8 +196,7 @@ import { buildFAQSchema } from '../data/site';
             </ul>
           </article>
 
-          <!-- Solución -->
-          <article class="rounded-2xl border border-blue-400/30 bg-blue-500/10 p-8">
+        <article class="rounded-2xl border border-blue-400/30 bg-blue-500/10 p-8">
             <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-blue-500/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-200">
               <i class="fas fa-cogs"></i>
               {homeCaseStudy.solution.title}
@@ -181,8 +211,7 @@ import { buildFAQSchema } from '../data/site';
             </ul>
           </article>
 
-          <!-- Resultado -->
-          <article class="rounded-2xl border border-emerald-400/25 bg-emerald-500/5 p-8">
+        <article class="rounded-2xl border border-emerald-400/25 bg-emerald-500/5 p-8">
             <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-300">
               <i class="fas fa-check-circle"></i>
               {homeCaseStudy.result.title}
@@ -198,16 +227,6 @@ import { buildFAQSchema } from '../data/site';
           </article>
         </div>
 
-        <!-- Testimonio (reconstrucción) -->
-        <figure class="mt-12 mx-auto max-w-3xl rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
-          <i class="fas fa-quote-left text-cyan-300 text-2xl mb-4"></i>
-          <blockquote class="text-lg italic leading-relaxed text-slate-100">
-            "Antes cada orden vivía en un Excel distinto, las fotos en WhatsApp y los PDFs en correos. Ahora todo está integrado y dejamos de perder tiempo manejando ficheros — el dato llega solo desde el campo hasta la auditoría."
-          </blockquote>
-          <figcaption class="mt-4 text-sm text-slate-400">
-            Reconstrucción del feedback recibido durante la implementación · Equipo del programa
-          </figcaption>
-        </figure>
       </div>
     </section>
 
@@ -219,45 +238,6 @@ import { buildFAQSchema } from '../data/site';
       tone="muted"
     />
 
-    <!-- SECCIÓN: SERVICIOS -->
-    <section id="servicios" class="section-shell section-light">
-      <div class="page-container">
-        <div class="section-intro section-intro-center">
-          <p class="section-eyebrow justify-center text-slate-500">Líneas de servicio</p>
-          <h2 class="section-title text-slate-950">
-            Dos rutas según el tipo de problema que necesitas ordenar
-          </h2>
-          <p class="section-copy text-slate-600">
-            Si tu problema es de campo, de datos o de decisiones repetitivas, una de estas rutas aplica. Si no estás seguro, el diagnóstico gratuito lo define.
-          </p>
-        </div>
-
-        <div class="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <ServiceStatusCard
-            title="Gestión de Operaciones de Campo"
-            description="Operarios sin papel, asignaciones en tiempo real, trazabilidad con GPS y fotos. Ya con +5M registros procesados. Implementación típica: 3 semanas."
-            href="/gestion-de-operaciones-de-campo"
-            cta="Ver cómo funciona (caso real)"
-            icon="fa-map-marked-alt"
-            status="available"
-            highlight={true}
-            surface="light"
-          />
-          <ServiceStatusCard
-            title="Automatización Inteligente de Procesos"
-            description="IA agéntica para seguimiento y decisiones, RPA para tareas repetitivas, pipelines de datos con Airflow. Del diagnóstico a la operación con guardrails, trazabilidad y control humano."
-            href="/automatizacion-con-ia-agentica"
-            cta="Entender si aplica a tu caso"
-            icon="fa-robot"
-            status="available"
-            highlight={true}
-            surface="light"
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- SECCIÓN: MÉTODO (movida después de servicios) -->
     <section id="como-trabajo" class="section-shell section-muted">
       <div class="page-container">
         <div class="section-intro">

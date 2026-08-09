@@ -1,7 +1,7 @@
 export const homeHeroBullets = [
-  'Unifico tus datos operativos hoy dispersos en Excels, correos y WhatsApp',
-  'Te doy visibilidad en tiempo real del flujo campo → gestión → auditoría',
-  'Automatizo procesos repetidos con IA agéntica y trazabilidad, no con IA a ciegas'
+  'Leo tu operación completa para encontrar el cuello de botella real',
+  'Diseño datos, integraciones y automatizaciones que tu equipo puede usar',
+  'Implemento y acompaño el cambio hasta que entra en operación'
 ];
 
 export const homeProofPoints = [
@@ -19,40 +19,25 @@ export const homeTrustPoints = [
 
 export const homeProblemPoints = [
   {
-    icon: 'fa-file-excel',
-    title: 'Datos atrapados en Excels distintos',
-    quote: '"Me cuesta cruzar datos y crear analítica desde tantos Excels distintos."'
+    icon: 'fa-route',
+    title: 'Operación antes que herramienta',
+    quote: 'Mapeo flujo, decisiones, datos y restricciones antes de proponer tecnología.'
   },
   {
-    icon: 'fa-mobile-alt',
-    title: 'Operación en papel y WhatsApp',
-    quote: '"Los operarios todavía usan papel y las fotos se pierden en WhatsApp."'
+    icon: 'fa-diagram-project',
+    title: 'Sistemas útiles y conectados',
+    quote: 'Diseño captura, datos, integraciones y automatizaciones como un solo sistema operable.'
   },
   {
-    icon: 'fa-database',
-    title: 'Sin gobernanza ni datos unificados',
-    quote: '"No tengo políticas de gobernanza ni datos unificados para hacer mejores análisis."'
-  },
-  {
-    icon: 'fa-user-lock',
-    title: 'Proceso atado a una persona clave',
-    quote: '"Dependemos demasiado de una persona que conoce el proceso de memoria."'
-  },
-  {
-    icon: 'fa-robot',
-    title: 'IA que no baja del notebook',
-    quote: '"Si pudiera tener un agente de IA, muchos de estos procesos se harían solos."'
-  },
-  {
-    icon: 'fa-exclamation-triangle',
-    title: 'Errores silenciosos que se descubren tarde',
-    quote: '"Un porcentaje de las órdenes sale con problemas por la manipulación manual de archivos."'
+    icon: 'fa-people-group',
+    title: 'Implementación con adopción',
+    quote: 'La entrega termina cuando el equipo incorpora el cambio a su trabajo diario.'
   }
 ];
 
 export const homeCaseStudy = {
-  eyebrow: 'Caso de referencia',
-  client: 'Programa gubernamental de regularización predial — Honduras',
+  eyebrow: 'Experiencia aplicada',
+  client: 'Proyecto de operación crítica en Honduras',
   before: {
     title: 'Antes',
     points: [
@@ -85,9 +70,9 @@ export const homeCaseStudy = {
 export const homeWorkflowSteps = [
   {
     step: '01',
-    title: 'Entiendo tu operación y el problema que hoy te frena',
+    title: 'Entiendo tu operación antes de hablar de tecnología',
     description:
-      'La conversación empieza por tu contexto: qué está fallando, dónde se atasca el equipo y qué impacto tiene en tiempo, errores o visibilidad.',
+      'Parto del flujo real: personas, decisiones, datos, herramientas y restricciones. Así identificamos el primer cambio que vale la pena implementar.',
     points: [
       'Mapeo del flujo actual y de los cuellos de botella',
       'Lectura de restricciones reales: personas, datos, herramientas y tiempos',
