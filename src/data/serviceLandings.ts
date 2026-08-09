@@ -663,7 +663,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
       'Cómo empezar con algo pequeño que funcione y luego ir creciendo'
     ],
     topics: [
-      { value: '', label: 'Selecciona el tipo de proceso', disabled: true, selected: true },
+      { value: '', label: 'Seleccioná el tipo de proceso', disabled: true, selected: true },
       { value: 'whatsapp-seguimiento', label: 'WhatsApp y seguimiento a clientes' },
       { value: 'recordatorios', label: 'Recordatorios automáticos' },
       { value: 'cotizaciones-pedidos', label: 'Cotizaciones, pedidos o reservas' },
@@ -1138,7 +1138,7 @@ export const processAutomationLanding: ServiceLandingConfig = {
       'Si mi enfoque encaja o no — si no encaja, te lo digo en esa misma llamada'
     ],
     topics: [
-      { value: '', label: 'Selecciona el proceso o necesidad', disabled: true, selected: true },
+      { value: '', label: 'Seleccioná el proceso o necesidad', disabled: true, selected: true },
       { value: 'etl-elt', label: 'Pipelines ETL / ELT y calidad de datos' },
       { value: 'airflow-orquestacion', label: 'Orquestación de workflows con Airflow' },
       { value: 'integracion-sistemas', label: 'Integración entre sistemas y fuentes' },
@@ -1588,7 +1588,7 @@ export const fieldOperationsLanding: ServiceLandingConfig = {
       'Si mi enfoque encaja o no — si no encaja, te lo digo en esa misma llamada'
     ],
     topics: [
-      { value: '', label: 'Selecciona el tipo de operación o necesidad', disabled: true, selected: true },
+      { value: '', label: 'Seleccioná el tipo de operación o necesidad', disabled: true, selected: true },
       { value: 'app-movil-offline', label: 'App móvil offline para equipo de campo' },
       { value: 'ordenes-automaticas', label: 'Órdenes de servicio desde alarmas o series de tiempo' },
       { value: 'dashboard-kpis', label: 'Dashboard web con KPIs operativos' },
