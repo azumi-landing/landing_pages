@@ -8,10 +8,6 @@ export const contactConfig = {
 
 export const contactServices = [
   {
-    value: 'arquitectura-producto-y-automatizacion',
-    label: 'Arquitectura de producto y automatización aplicada'
-  },
-  {
     value: 'gestion-operaciones-de-campo',
     label: 'Gestión de Operaciones de Campo'
   },
@@ -36,7 +32,7 @@ const validContactServiceValues = new Set<string>(contactServices.map((service) 
 
 export const contactContextByPath = {
   '/': {
-    service: 'arquitectura-producto-y-automatizacion',
+    service: 'otro',
     originLabel: 'Inicio'
   },
   '/gestion-de-operaciones-de-campo': {
