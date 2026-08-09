@@ -3,15 +3,15 @@ import { agenticAutomationTheme, fieldOperationsTheme, processAutomationTheme } 
 import { fieldOperationsFaqs } from './faqs';
 
 export const agenticAutomationLanding: ServiceLandingConfig = {
-  seoTitle: 'Automatización pymes Honduras — WhatsApp, Excel, RPA e IA',
-  seoDescription: 'Automatizá procesos manuales en tu pyme: integración WhatsApp, Excel, CRM, tareas administrativas y documentos. RPA e IA agéntica para Honduras. Diagnóstico gratuito.',
+  seoTitle: 'Automatización de procesos para pymes | RPA e IA con control',
+  seoDescription: 'Ordená procesos internos, conectá WhatsApp, Excel, CRM y sistemas actuales. Automatización con RPA e IA agéntica bajo control humano para pymes de Honduras y LatAm.',
   seoImage: '/og-agentic-automation.png',
   path: '/automatizacion-con-ia-agentica',
   theme: agenticAutomationTheme,
-  badge: 'Automatización práctica para pymes con procesos manuales, datos dispersos y tareas repetitivas',
-  title: 'Deja de perder clientes, tiempo y control entre WhatsApp, Excel y seguimientos manuales.',
+  badge: 'Procesos internos ordenados + automatización con control humano',
+  title: 'Ordená tus procesos internos antes de automatizar lo que sí conviene.',
   subtitle:
-    'Te ayudo a ordenar y automatizar procesos repetitivos de tu negocio —ventas, citas, cotizaciones, reportes, documentos, tareas administrativas, atención al cliente o flujos internos— aunque hoy dependan de WhatsApp, Excel, correos, formularios, CRM, ERP o sistemas internos.',
+    'Trabajo con vos para entender cómo fluye la información entre WhatsApp, Excel, correo, formularios y sistemas internos. Después implemento el cambio más simple que reduzca trabajo repetitivo, mejore el seguimiento y mantenga control humano donde importa.',
   benefits: [
     'Menos tiempo en tareas repetitivas y manuales',
     'Tu equipo enfocado en lo importante, no en copiar datos',
@@ -122,7 +122,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
   riskDescription: '',
   capabilitiesTitle: 'Según tu problema, elegimos la herramienta correcta',
   capabilitiesSubtitle:
-    'No vendo IA por moda. Primero reviso tu proceso, luego propongo la solución más simple que resuelva tu dolor específico.',
+    'No vendo IA por moda. RPA resuelve tareas repetitivas y deterministas; la IA agéntica ayuda a interpretar información, priorizar casos y coordinar pasos. Primero reviso tu proceso y después propongo la alternativa más simple que resuelva tu problema.',
   capabilities: [
     {
       icon: 'fa-comments',
@@ -154,7 +154,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
       icon: 'fa-paper-plane',
       title: 'Responder más rápido sin perder calidad',
       pain: 'Tu equipo responde lo mismo todos los días, consume tiempo y hay riesgo de dejar clientes sin respuesta.',
-      solution: 'La IA puede responder automáticamente las preguntas frecuentes, siempre dentro de reglas claras que tú defines.',
+      solution: 'La IA puede responder automáticamente las preguntas frecuentes, siempre dentro de reglas claras que vos definís.',
       outcome: 'El cliente recibe respuesta inmediata y tu equipo se enfoca solo en los casos que realmente requieren atención humana.',
       bullets: [
         'Respuestas automáticas a preguntas frecuentes',
@@ -166,7 +166,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     {
       icon: 'fa-database',
       title: 'Conectar con tus datos reales',
-      pain: 'Una IA sin contexto da respuestas genéricas o pide información que tú ya tienes en Excel o en tu sistema.',
+      pain: 'Una IA sin contexto da respuestas genéricas o pide información que vos ya tenés en Excel o en tu sistema.',
       solution: 'Conecto la automatización con tus hojas de cálculo, documentos o sistemas para que trabaje con datos reales.',
       outcome: 'La IA consulta información actualizada de tu negocio y da respuestas precisas, no genéricas.',
       bullets: [
@@ -179,9 +179,9 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     {
       icon: 'fa-user-check',
       title: 'Control humano donde importa',
-      pain: 'No quieres que una máquina apruebe descuentos, cambios o decisiones importantes sin supervisión.',
+      pain: 'No querés que una máquina apruebe descuentos, cambios o decisiones importantes sin supervisión.',
       solution: 'Diseño puntos de control donde una persona revisa y aprueba antes de ejecutar acciones sensibles.',
-      outcome: 'Ganas velocidad en lo rutinario sin perder el control en lo importante. Tú decides qué puede automatizarse y qué requiere aprobación.',
+      outcome: 'Ganás velocidad en lo rutinario sin perder el control en lo importante. Vos decidís qué puede automatizarse y qué requiere aprobación.',
       bullets: [
         'Aprobaciones humanas antes de acciones importantes',
         'Revisión de casos excepcionales',
@@ -456,7 +456,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     {
       value: 'Con control',
       label: 'siempre hay revisión humana en decisiones importantes',
-      detail: 'Tú decides qué puede automatizarse y qué requiere tu aprobación. Nada se ejecuta solo si afecta dinero o reputación.'
+      detail: 'Vos decidís qué puede automatizarse y qué requiere tu aprobación. Nada se ejecuta solo si afecta dinero o reputación.'
     },
     {
       value: 'Visible',
@@ -603,21 +603,21 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
   notIdealTitle: 'Cuándo NO soy tu mejor opción',
   notIdealIntro: 'Prefiero filtrar esto temprano. Si tu caso encaja en alguno de estos puntos, probablemente conviene otro enfoque:',
   notIdealItems: [
-    'Solo quieres un chatbot genérico sin revisar el proceso.',
-    'Quieres automatizar decisiones sensibles sin revisión humana.',
-    'No tienes claro qué flujo quieres mejorar.',
+    'Solo querés un chatbot genérico sin revisar el proceso.',
+    'Querés automatizar decisiones sensibles sin revisión humana.',
+    'No tenés claro qué flujo querés mejorar.',
     'El problema se resuelve mejor con una regla simple y no hace falta IA.',
-    'Buscas una promesa de resultados garantizados sin revisar datos, equipo ni operación.'
+    'Buscás una promesa de resultados garantizados sin revisar datos, equipo ni operación.'
   ],
   execution: {
     eyebrow: 'Quién hace el trabajo',
-    title: 'Hablas conmigo desde el diagnóstico hasta que todo funciona',
+    title: 'Trabajás directo con un ingeniero que lleva datos y automatización a producción',
     description:
-      'No hay equipos de ventas ni técnicos a los que tengas que repetir todo. Yo entiendo tu proceso, defino la solución y la implemento. Una sola persona de principio a fin.',
+      'Combino lectura de proceso con experiencia en pipelines de datos, integraciones y sistemas multiagente. No propongo IA por moda: elijo la alternativa más simple que podés operar.',
     bullets: [
-      'Diagnóstico práctico: revisamos juntos dónde se pierde tiempo o clientes.',
-      'Propuesta honesta: si una regla simple resuelve el problema, no te vendo IA.',
-      'Implementación real: funciona con tus herramientas actuales, no es una demo.'
+      'Experiencia en automatización y pipelines operativos sobre volúmenes reales.',
+      'IA, RPA e integraciones se usan solo cuando aportan una mejora concreta.',
+      'Reglas, aprobaciones y trazabilidad quedan definidas antes de automatizar acciones sensibles.'
     ],
     ctaLabel: 'Solicitar diagnóstico gratis'
   },
@@ -642,7 +642,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     {
       question: '¿Qué pasa si el sistema se equivoca?',
       answer:
-        'Por eso diseño límites claros desde el inicio. Tú decides qué puede hacerse automático y qué requiere tu aprobación. Nada se ejecuta solo si afecta dinero o reputación.'
+        'Por eso diseño límites claros desde el inicio. Vos decidís qué puede hacerse automático y qué requiere tu aprobación. Nada se ejecuta solo si afecta dinero o reputación.'
     },
     {
       question: '¿Cuánto cuesta y cuánto tiempo toma?',
@@ -671,7 +671,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
       { value: 'integracion-excel-sistemas', label: 'Excel, formularios o sistemas internos' },
       { value: 'otro', label: 'Otro / Aún no lo tengo claro' }
     ],
-    formTitle: 'Cuéntame el proceso que quieres ordenar',
+    formTitle: 'Contame el proceso que querés ordenar',
     detailPlaceholder: '¿Qué proceso manejan hoy con WhatsApp, Excel o seguimiento manual? ¿Dónde se pierde tiempo o clientes?',
     source: 'automatizacion-con-ia-agentica'
   }
@@ -1064,24 +1064,24 @@ export const processAutomationLanding: ServiceLandingConfig = {
       icon: 'fa-chart-line',
       title: 'Preparado para analítica y ML posterior',
       subtitle: 'No se queda en mover datos',
-      description: 'La automatización deja una base sobre la que luego puedes activar alertas, scoring, predicción o agentes.',
+      description: 'La automatización deja una base sobre la que luego podés activar alertas, scoring, predicción o agentes.',
       highlight: 'El proceso mejora hoy y habilita capacidades mañana'
     },
     {
       icon: 'fa-handshake',
-      title: 'Trabajas directo conmigo — sin intermediarios',
+      title: 'Trabajás directo conmigo — sin intermediarios',
       subtitle: 'Stack estándar, código operable',
-      description: 'Una sola persona del diagnóstico al deploy. El código queda documentado sobre `Airflow`, `BigQuery`, `Cloud Run` — operable por cualquier equipo técnico si decides continuar sin mí.',
+      description: 'Una sola persona del diagnóstico al deploy. El código queda documentado sobre `Airflow`, `BigQuery`, `Cloud Run` — operable por cualquier equipo técnico si decidís continuar sin mí.',
       highlight: '+10 años y +5M registros en implementaciones reales'
     }
   ],
   notIdealTitle: 'Cuándo NO soy tu mejor opción',
   notIdealIntro: 'Prefiero filtrar esto en cinco minutos y no en el mes dos del proyecto. Si tu caso encaja en alguno de estos puntos, te lo digo directo:',
   notIdealItems: [
-    'Buscas un script rápido sin intención de mantenimiento, monitoreo ni documentación.',
-    'Quieres mover datos entre dos puntos sin revisar calidad ni reglas de negocio.',
+    'Buscás un script rápido sin intención de mantenimiento, monitoreo ni documentación.',
+    'Querés mover datos entre dos puntos sin revisar calidad ni reglas de negocio.',
     'La prioridad es centralizar todo en una sola tecnología por comodidad, aunque no encaje.',
-    'El problema es de producto o adopción y crees que solo con backend y pipelines se resuelve.',
+    'El problema es de producto o adopción y creés que solo con backend y pipelines se resuelve.',
     'El driver principal de la compra es el logo de una marca grande, no que la automatización funcione.'
   ],
   execution: {
@@ -1105,7 +1105,7 @@ export const processAutomationLanding: ServiceLandingConfig = {
         'Cuando el proceso tiene dependencias claras, varias etapas, reintentos, programación o necesidad de monitoreo operativo. Si el flujo es muy simple, puede resolverse con una alternativa más ligera.'
     },
     {
-      question: '¿Cómo decides entre SQL y NoSQL?',
+      question: '¿Cómo decidís entre SQL y NoSQL?',
       answer:
         'Depende del tipo de dato y del comportamiento esperado del proceso. Uso SQL cuando la integridad y las relaciones son críticas; uso NoSQL cuando el flujo necesita flexibilidad estructural, documentos o estados event-driven.'
     },
@@ -1127,7 +1127,7 @@ export const processAutomationLanding: ServiceLandingConfig = {
   ],
   contact: {
     eyebrow: 'Diagnóstico de automatización de procesos',
-    title: 'Cuéntame qué proceso te tiene frenado. Te digo si puedo ayudarte antes de cobrarte nada.',
+    title: 'Contame qué proceso te tiene frenado. Te digo si puedo ayudarte antes de cobrarte nada.',
     description:
       'En la primera conversación (30 minutos, sin costo) mapeamos el flujo actual, detectamos el cuello de botella y validamos si encaja con lo que hago. Si no encaja, te lo digo en esa misma llamada.',
     detailsTitle: 'En esta conversación revisamos:',
@@ -1146,7 +1146,7 @@ export const processAutomationLanding: ServiceLandingConfig = {
       { value: 'ml-alertas', label: 'ML para clasificación, alertas o anomalías' },
       { value: 'otro', label: 'Otro / Aún no lo tengo claro' }
     ],
-    formTitle: 'Cuéntame de tu proceso crítico',
+    formTitle: 'Contame de tu proceso crítico',
     detailPlaceholder: '¿Qué proceso hoy depende de tareas manuales, archivos, correos o integraciones frágiles?',
     source: 'automatizacion-de-procesos'
   }
@@ -1158,10 +1158,10 @@ export const fieldOperationsLanding: ServiceLandingConfig = {
   seoImage: '/og-field-operations.png',
   path: '/gestion-de-operaciones-de-campo',
   theme: fieldOperationsTheme,
-  badge: 'Operaciones de campo + Offline real + Trazabilidad auditable',
-  title: 'Tus operarios capturan en papel, las fotos se pierden en WhatsApp y los reportes llegan días tarde. La operación es una caja negra.',
+  badge: 'Coordinación de campo + evidencia confiable + trazabilidad operativa',
+  title: 'Hacé visible y trazable el trabajo que hoy ocurre fuera de la oficina.',
   subtitle:
-    'Diseño e implemento app móvil offline + dashboard web + trazabilidad con GPS, fotos y firma digital para que sepas qué pasa en campo en tiempo real. Trabajas directo conmigo — sin intermediarios, en producción en 2-3 semanas.',
+    'Diseño e implemento sistemas para coordinar equipos en terreno, capturar evidencia confiable y conectar cada visita con supervisión, auditoría y decisiones. Funciona incluso cuando la conectividad es limitada.',
   benefits: [
     '-60% errores de captura con validaciones y evidencia obligatoria',
     'Visibilidad de la operación en vivo, no cuando alguien manda el reporte',
@@ -1214,7 +1214,7 @@ export const fieldOperationsLanding: ServiceLandingConfig = {
   ],
   riskTitle: 'El riesgo de no actuar',
   riskDescription:
-    'Una auditoría externa, un incidente de seguridad o un reclamo legal puede exponer que tu trazabilidad no existe cuando más la necesitas. Mientras tanto, cada foto que se pierde, cada reporte que llega tarde y cada decisión con datos viejos te cuesta dinero real.',
+    'Una auditoría externa, un incidente de seguridad o un reclamo legal puede exponer que tu trazabilidad no existe cuando más la necesitás. Mientras tanto, cada foto que se pierde, cada reporte que llega tarde y cada decisión con datos viejos te cuesta dinero real.',
   capabilitiesTitle: 'Qué incluyo en una solución de operaciones de campo',
   capabilitiesSubtitle:
     'No entrego una app genérica. Diseño la solución completa: captura, sincronización, trazabilidad, integración, dashboard y acompañamiento hasta que tu equipo la use de verdad.',
@@ -1446,7 +1446,7 @@ export const fieldOperationsLanding: ServiceLandingConfig = {
     {
       icon: 'fa-handshake',
       title: 'Implementación directa, sin intermediarios',
-      description: 'Trabajas conmigo desde el diagnóstico hasta que el equipo en campo lo está usando. Sin capas comerciales ni rotación de consultores.'
+      description: 'Trabajás conmigo desde el diagnóstico hasta que el equipo en campo lo está usando. Sin capas comerciales ni rotación de consultores.'
     }
   ],
   trustBand: {
@@ -1545,7 +1545,7 @@ export const fieldOperationsLanding: ServiceLandingConfig = {
     },
     {
       icon: 'fa-handshake',
-      title: 'Trabajas directo conmigo — sin intermediarios',
+      title: 'Trabajás directo conmigo — sin intermediarios',
       subtitle: '+10 años en operaciones de campo',
       description: 'La misma persona que entiende tu problema diseña la solución, la implementa y te acompaña. Sin capas de consultora ni rotación de equipo.',
       highlight: '+5M registros procesados en implementaciones reales'
@@ -1554,21 +1554,21 @@ export const fieldOperationsLanding: ServiceLandingConfig = {
   notIdealTitle: 'Cuándo NO soy tu mejor opción',
   notIdealIntro: 'Prefiero filtrar esto en cinco minutos y no en el mes dos del proyecto. Si tu caso encaja en alguno de estos puntos, te lo digo directo:',
   notIdealItems: [
-    'Buscas una plataforma genérica de formularios sin personalización para tu flujo operativo.',
+    'Buscás una plataforma genérica de formularios sin personalización para tu flujo operativo.',
     'Tu operación es 100% indoor, sin necesidad de offline, GPS ni trazabilidad con evidencia.',
     'El driver principal de la compra es el logo de una marca grande por tema de compliance — no que la herramienta funcione.',
-    'Quieres una demo rápida para mostrar en una reunión, no una solución que entre a producción.',
+    'Querés una demo rápida para mostrar en una reunión, no una solución que entre a producción.',
     'No hay interés en adopción real: si el equipo de campo no la va a usar, la tecnología no resuelve el problema.'
   ],
   execution: {
     eyebrow: 'Quién ejecuta',
-    title: 'La lectura de tu operación, el diseño de la solución y la implementación se trabajan directo conmigo',
+    title: 'Trabajás directo con quien entiende la operación de campo y construye el sistema',
     description:
-      'Si el caso avanza, no pasas de una capa comercial a otra técnica. La misma persona que entiende tu problema en campo define app, backend, integración y acompañamiento.',
+      'Integro lectura de equipos y restricciones en terreno con diseño de app, datos, integraciones y puesta en marcha. No entrego una app aislada: acompaño el flujo completo.',
     bullets: [
-      'Diagnóstico de la operación, diseño de la solución y decisiones de integración conectados.',
-      'Criterio para separar lo que necesita app móvil, lo que necesita dashboard y lo que necesita automatización.',
-      'Implementación pensada para adopción real, no solo para demo o piloto corto.'
+      'Experiencia en captura, evidencia, auditoría y flujos operativos de extremo a extremo.',
+      'Diseño offline, trazabilidad y adopción para condiciones reales del equipo en terreno.',
+      'Implementación directa desde diagnóstico hasta estabilización inicial.'
     ],
     ctaLabel: 'Ver experiencia y enfoque'
   },
@@ -1577,7 +1577,7 @@ export const fieldOperationsLanding: ServiceLandingConfig = {
   faqs: [...fieldOperationsFaqs],
   contact: {
     eyebrow: 'Diagnóstico de operaciones de campo',
-    title: 'Cuéntame el cuello de botella de tu operación. Te digo si puedo ayudarte antes de cobrarte nada.',
+    title: 'Contame el cuello de botella de tu operación. Te digo si puedo ayudarte antes de cobrarte nada.',
     description:
       'En la primera conversación (30 minutos, sin costo) mapeamos el problema, validamos si encaja con lo que hago, y si encaja te propongo cómo lo abordaría. Si no encaja, te lo digo en esa misma llamada.',
     detailsTitle: 'En esta conversación revisamos:',
@@ -1596,7 +1596,7 @@ export const fieldOperationsLanding: ServiceLandingConfig = {
       { value: 'integracion-erp-sap', label: 'Integración con ERP, SAP u otros sistemas' },
       { value: 'otro', label: 'Otro / Aún no lo tengo claro' }
     ],
-    formTitle: 'Cuéntame de tu operación de campo',
+    formTitle: 'Contame de tu operación de campo',
     detailPlaceholder: '¿Qué operación hoy depende de papel, WhatsApp o herramientas genéricas? ¿Dónde se pierde la información? ¿Qué intentaron antes?',
     source: 'gestion-operaciones-de-campo'
   }

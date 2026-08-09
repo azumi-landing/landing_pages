@@ -2,6 +2,7 @@
 import FlowLevel from '../molecules/FlowLevel.astro';
 import Icon from '../atoms/Icon.astro';
 import Contact from '../sections/Contact/index.astro';
+import RelatedServices from '../sections/RelatedServices.astro';
 
 import TrustBand from '../sections/TrustBand.astro';
 import type { ServiceLandingConfig } from '../../types/serviceLanding';
@@ -673,6 +674,8 @@ const heroPatternClass = {
       </div>
     </div>
   </section>
+
+  <RelatedServices currentPath={config.path} />
 
   <Contact content={config.contact} theme={config.theme} />
 </main>
