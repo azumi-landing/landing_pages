@@ -63,11 +63,11 @@ export const coreService: CommercialService = {
   name: 'Automatización de Procesos e IA',
   shortName: 'Automatización de procesos e IA',
   description:
-    'Digitalización, integración y automatización de procesos manuales, repetitivos o difíciles de controlar.',
+    'Automatización a la medida para procesos administrativos, comerciales y operativos: datos, documentos, ventas, inventario, reportes, aprobaciones, seguimiento e integraciones.',
   path: '/automatizacion-con-ia-agentica',
   contactService: 'automatizacion-con-ia-agentica',
   cta: commercialCtas.fitCall,
-  cardCta: 'Explorar automatización',
+  cardCta: 'Ver Automatización',
   icon: 'fa-robot',
   capabilities: [
     'Ventas, inventario, solicitudes y documentos',
@@ -89,13 +89,13 @@ export const solutions: readonly SpecializedSolution[] = [
     name: 'Digitalización de Operaciones de Campo',
     shortName: 'Operaciones de campo',
     description:
-      'Coordinación, captura, evidencia y trazabilidad para equipos que trabajan en terreno.',
+      'Sistemas para controlar órdenes, personal, evidencia y supervisión cuando el trabajo ocurre fuera de la oficina.',
     path: '/gestion-de-operaciones-de-campo',
     slug: 'gestion-de-operaciones-de-campo',
     status: 'active',
     contactService: 'gestion-operaciones-de-campo',
     cta: commercialCtas.fitCall,
-    cardCta: 'Explorar operaciones de campo',
+    cardCta: 'Ver Operaciones de Campo',
     icon: 'fa-map-marked-alt',
     capabilities: [
       'Captura y coordinación de equipos en terreno',

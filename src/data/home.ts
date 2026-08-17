@@ -1,134 +1,80 @@
-import { coreService, funnelOffers } from './commercial';
-
-const sprint = coreService.entryOffer;
-const sprintPrice = sprint.price
-  ? `${sprint.price.qualifier.toLowerCase()} L ${sprint.price.amount.toLocaleString('en-US')}`
-  : '';
-
 export const homeHeroBullets = [
-  'Leo tu operación completa para encontrar el cuello de botella real',
-  'Diseño datos, integraciones y automatizaciones que tu equipo puede usar',
-  'Implemento y acompaño el cambio hasta que entra en operación'
-];
-
-export const homeProofPoints = [
-  { value: '+10 años', label: 'diseñando productos y operaciones digitales' },
-  { value: '+5M', label: 'registros procesados en implementaciones reales' },
-  { value: 'Semanas', label: 'para aterrizar una solución útil, no meses de indefinición' }
-];
-
-export const homeTrustPoints = [
-  { value: '2-3 semanas', label: 'del primer contacto a operación productiva — no proyectos de 6 meses' },
-  { value: '-60%', label: 'errores de captura en las primeras 3 semanas de implementación' },
-  { value: '< 1 hora', label: 'de respuesta personal a tu primer mensaje — yo mismo, sin chatbot' },
-  { value: '0 intermediarios', label: 'diagnóstico, diseño e implementación con la misma persona de principio a fin' }
+  'Procesos administrativos, comerciales y operativos que hoy dependen de seguimiento manual',
+  'Información dispersa entre hojas, mensajes, sistemas y personas',
+  'Operaciones que necesitan más visibilidad, control y capacidad de respuesta'
 ];
 
 export const homeProblemPoints = [
   {
-    icon: 'fa-route',
-    title: 'Operación antes que herramienta',
-    quote: 'Mapeo flujo, decisiones, datos y restricciones antes de proponer tecnología.'
+    icon: 'fa-folder-open',
+    title: 'Información dispersa',
+    description: 'Datos, documentos y conversaciones repartidos entre herramientas sin una fuente clara para decidir.'
   },
   {
-    icon: 'fa-diagram-project',
-    title: 'Sistemas útiles y conectados',
-    quote: 'Diseño captura, datos, integraciones y automatizaciones como un solo sistema operable.'
+    icon: 'fa-arrow-right-arrow-left',
+    title: 'Procesos manuales',
+    description: 'Tareas repetitivas, seguimiento por mensaje y aprobaciones que dependen de memoria y esfuerzo individual.'
   },
   {
-    icon: 'fa-people-group',
-    title: 'Implementación con adopción',
-    quote: 'La entrega termina cuando el equipo incorpora el cambio a su trabajo diario.'
+    icon: 'fa-eye',
+    title: 'Operaciones difíciles de controlar',
+    description: 'Equipos, órdenes y evidencias que requieren visibilidad para coordinar mejor el trabajo diario.'
   }
 ];
-
-export const homeCaseStudy = {
-  eyebrow: 'Experiencia aplicada',
-  client: 'Proyecto de operación crítica en Honduras',
-  before: {
-    title: 'Antes',
-    points: [
-      'Miles de órdenes de servicio semanales gestionadas en hojas Excel distintas',
-      'Fotos y PDFs procesados manualmente, sin trazabilidad entre campo, gestión y auditoría',
-      '≈5% de las órdenes presentaban problemas derivados de la manipulación manual de archivos',
-      'Especialistas de asignación, procesamiento y revisión consumiendo horas en consolidación manual'
-    ]
-  },
-  solution: {
-    title: 'Lo que implementé',
-    points: [
-      'App móvil para la operativa de campo conectada a backend con APIs y PostgreSQL',
-      'Flujo unificado: captura en campo → gestión de la medida → auditoría en centro técnico',
-      'Pipeline en Cloud Run para procesar fotos y PDFs automáticamente',
-      'Datos operativos integrados en una sola fuente confiable'
-    ]
-  },
-  result: {
-    title: 'Resultado',
-    points: [
-      'Ciclo completo trazable de extremo a extremo, sin consolidación manual',
-      'Reducción significativa de órdenes con errores por manipulación de archivos',
-      'Horas liberadas para los especialistas de asignación, procesamiento y revisión',
-      'Base de datos unificada lista para analítica y futura automatización con IA'
-    ]
-  }
-};
 
 export const homeWorkflowSteps = [
   {
     step: '01',
-    title: 'Entiendo tu operación antes de hablar de tecnología',
+    title: 'Entendemos el flujo real',
     description:
-      'Parto del flujo real: personas, decisiones, datos, herramientas y restricciones. Así identificamos el primer cambio que vale la pena implementar.',
+      'Partimos de las personas, decisiones, datos y restricciones que ya existen para identificar el primer cambio útil.',
     points: [
-      'Mapeo del flujo actual y de los cuellos de botella',
-      'Lectura de restricciones reales: personas, datos, herramientas y tiempos',
-      'Priorización del problema que más conviene resolver primero'
+      'Mapeo del proceso actual y sus puntos de fricción',
+      'Lectura de datos, herramientas y responsabilidades',
+      'Priorización del problema que conviene resolver primero'
     ]
   },
   {
     step: '02',
-    title: 'Defino contigo una solución que sí calza con tu realidad',
+    title: 'Diseñamos un sistema que calza',
     description:
-      'No parto de una demo cerrada. Bajo la complejidad a una propuesta clara: proceso, experiencia, automatizaciones y nivel de implementación necesario.',
+      'Traducimos el problema a una solución clara: captura, reglas, integraciones, experiencia de uso y forma de operar.',
     points: [
-      'Alcance aterrizado a tu operación actual',
-      'Decisiones de producto y automatización con criterio de negocio',
-      'Ruta de implementación con foco en adopción y velocidad'
+      'Alcance adaptado a la operación actual',
+      'Decisiones de automatización con criterio de negocio',
+      'Ruta de implementación entendible para el equipo'
     ]
   },
   {
     step: '03',
-    title: 'Implemento y acompaño hasta que el equipo lo use de verdad',
+    title: 'Implementamos y ajustamos con el equipo',
     description:
-      'La entrega no termina en una pantalla bonita. Te acompaño en el despliegue para que la solución entre en operación con seguimiento y ajustes tempranos.',
+      'La puesta en marcha considera el uso real. Acompaño los ajustes iniciales para que el sistema entre en operación.',
     points: [
-      'Implementación directa sin intermediarios innecesarios',
-      'Ajustes de detalle según el uso real del equipo',
-      'Seguimiento inicial para estabilizar adopción y resultados'
+      'Implementación directa y documentada',
+      'Ajustes a partir del uso real',
+      'Seguimiento inicial para estabilizar el cambio'
     ]
   }
 ];
 
-export const homeFaqs = [
+export const homeTechnicalCapabilities = [
   {
-    question: '¿Sos una sola persona? ¿Qué pasa si te pasa algo?',
-    answer:
-      'Trabajo con arquitectura documentada y stack estándar (GCP, PostgreSQL, Cloud Run, LangGraph, n8n, Airflow). El código y los procesos quedan operables por cualquier equipo técnico competente. Prefiero ser honesto sobre el alcance antes que inflar un equipo para aparentar.'
+    title: 'Datos y automatización',
+    items: ['Python', 'SQL', 'APIs', 'IA aplicada a procesos']
   },
   {
-    question: '¿Cuánto tiempo toma una implementación?',
-    answer:
-      `El ${sprint.name} tiene un plazo orientativo de ${sprint.duration}. Si el alcance es mayor, lo dividimos en fases útiles.`
+    title: 'Sistemas y operación',
+    items: ['Aplicaciones web y móviles', 'Integraciones', 'Linux', 'Docker']
   },
   {
-    question: '¿Y si automatizamos algo crítico con IA y se equivoca?',
-    answer:
-      'Todo flujo agéntico se diseña con guardrails, aprobaciones human-in-the-loop, rutas de fallback y observabilidad end-to-end. La IA no ejecuta acciones sensibles sin supervisión cuando el caso lo requiere. El objetivo es control, no reemplazo ciego.'
-  },
-  {
-    question: '¿Cuánto cuesta?',
-    answer:
-      `El ${sprint.name} parte ${sprintPrice}. Si necesitás revisar el alcance antes, el ${funnelOffers.operationalDiagnosis.name.toLowerCase()} parte ${funnelOffers.operationalDiagnosis.price.qualifier.toLowerCase()} L ${funnelOffers.operationalDiagnosis.price.amount.toLocaleString('en-US')}.`
+    title: 'Infraestructura',
+    items: ['GCP', 'Servicios cloud', 'Despliegues operables', 'Documentación técnica']
   }
+];
+
+export const homeProfilePoints = [
+  'Trabajo desde el diagnóstico operativo hasta la implementación y los ajustes iniciales.',
+  'Combino criterio de proceso, diseño de datos y construcción de sistemas en una misma conversación.',
+  'Priorizo soluciones que el equipo pueda entender, usar y mantener.'
 ];
