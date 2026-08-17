@@ -1,0 +1,5 @@
+schema: spec-driven
+skip_specs: true
+created: 2026-08-17
+goal: Documentar stack, arquitectura, rutas, QA, integraciones, SEO, analytics,
+  formulario, claims, métricas, inconsistencias, riesgos y archivos afectados.
