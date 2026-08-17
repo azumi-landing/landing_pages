@@ -1,27 +1,34 @@
 import { CONTACT_PAGE_PATH, contactConfig } from './contact';
+import { activeSolutions, coreService } from './commercial';
 
 export const siteConfig = {
   name: 'HGuerra',
   url: 'https://hguerra.com',
   description:
-    'Héctor Guerra es consultor e implementador de operaciones, datos y automatización aplicada. Especialidades en gestión de operaciones de campo y automatización inteligente de procesos.',
+    'Héctor Guerra es consultor e implementador de automatización de procesos, datos y soluciones operativas especializadas.',
   defaultImage: '/og-home.png',
   locale: 'es_HN'
 } as const;
 
 export const serviceLinks = [
   {
-    href: '/gestion-de-operaciones-de-campo',
-    label: 'Gestión de Operaciones de Campo',
-    shortLabel: 'Operaciones de campo',
-    description: 'Coordinación, captura offline, evidencia y trazabilidad para equipos que trabajan en terreno.'
+    href: coreService.path,
+    label: coreService.name,
+    shortLabel: coreService.shortName,
+    description: coreService.description,
+    cta: coreService.cardCta,
+    icon: coreService.icon,
+    kind: 'core'
   },
-  {
-    href: '/automatizacion-con-ia-agentica',
-    label: 'Automatización Inteligente de Procesos',
-    shortLabel: 'Automatización',
-    description: 'Orden e integración de procesos internos con automatización, RPA e IA bajo control humano.'
-  }
+  ...activeSolutions.map((solution) => ({
+    href: solution.path,
+    label: solution.name,
+    shortLabel: solution.shortName,
+    description: solution.description,
+    cta: solution.cardCta,
+    icon: solution.icon,
+    kind: 'solution'
+  }))
 ] as const;
 
 export const footerLinks = [

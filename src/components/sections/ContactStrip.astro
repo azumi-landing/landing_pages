@@ -4,6 +4,7 @@ import {
   getWhatsAppHref,
   getContactContextByPath
 } from '../../data/contact';
+import { commercialCtas, funnelOffers } from '../../data/commercial';
 
 interface Props {
   eyebrow?: string;
@@ -17,11 +18,11 @@ interface Props {
 }
 
 const {
-  eyebrow = 'Conversación inicial',
+  eyebrow = funnelOffers.fitCall.name,
   title = '¿Querés definir la mejor línea de servicio para tu operación?',
   description = 'Revisamos tu contexto, priorizamos la ruta correcta y aterrizamos un alcance inicial sin vender una solución genérica.',
   ctaHref,
-  ctaLabel = 'Abrir formulario',
+  ctaLabel = commercialCtas.contact.label,
   service,
   originPath = '/',
   originLabel
@@ -63,7 +64,7 @@ const whatsappHref = getWhatsAppHref();
           href={whatsappHref}
           class="action-secondary action-secondary-dark w-full"
         >
-          <span>WhatsApp</span>
+          <span>{commercialCtas.whatsapp.label}</span>
           <i class="fab fa-whatsapp text-green-400 text-sm"></i>
         </a>
         <p class="text-sm text-slate-400">

@@ -1,19 +1,33 @@
-export const CONTACT_PAGE_PATH = '/contacto';
+import {
+  activeSolutions,
+  commercialCtas,
+  commercialDestinations,
+  coreService
+} from './commercial';
+
+const fieldOperationsSolution = activeSolutions.find(
+  (solution) => solution.id === 'operaciones-de-campo'
+);
+
+if (!fieldOperationsSolution) {
+  throw new Error('The field operations solution must remain active.');
+}
+
+export const CONTACT_PAGE_PATH = commercialDestinations.contactPath;
 
 export const contactConfig = {
   whatsappNumber: import.meta.env.PUBLIC_WHATSAPP_NUMBER ?? '',
-  responseTime: 'menos de 1 hora',
-  whatsappMessage: 'Hola HGuerra, quiero contarte un desafío operativo para evaluar una posible solución.'
+  whatsappMessage: commercialCtas.whatsapp.message
 };
 
 export const contactServices = [
   {
-    value: 'gestion-operaciones-de-campo',
-    label: 'Gestión de Operaciones de Campo'
+    value: fieldOperationsSolution.contactService,
+    label: fieldOperationsSolution.name
   },
   {
-    value: 'automatizacion-con-ia-agentica',
-    label: 'Automatización Inteligente de Procesos (IA + RPA + Pipelines)'
+    value: coreService.contactService,
+    label: coreService.name
   },
   {
     value: 'otro',
@@ -35,13 +49,13 @@ export const contactContextByPath = {
     service: 'otro',
     originLabel: 'Inicio'
   },
-  '/gestion-de-operaciones-de-campo': {
-    service: 'gestion-operaciones-de-campo',
-    originLabel: 'Gestión de Operaciones de Campo'
+  [fieldOperationsSolution.path]: {
+    service: fieldOperationsSolution.contactService,
+    originLabel: fieldOperationsSolution.name
   },
-  '/automatizacion-con-ia-agentica': {
-    service: 'automatizacion-con-ia-agentica',
-    originLabel: 'Automatización Inteligente de Procesos'
+  [coreService.path]: {
+    service: coreService.contactService,
+    originLabel: coreService.name
   }
 } as const satisfies Record<string, { service: ContactServiceValue; originLabel: string }>;
 
@@ -60,8 +74,8 @@ export const contactServiceGuidance: Partial<Record<ContactServiceValue, {
   expectationTitle: string;
   expectationItems: string[];
 }>> = {
-  'automatizacion-con-ia-agentica': {
-    originLabel: 'Automatización Inteligente de Procesos',
+  [coreService.contactService]: {
+    originLabel: coreService.name,
     contextMessage:
       'Venís por automatización de procesos. Para responder mejor, contame el proceso completo aunque todavía esté general: seguimiento, atención, integración de datos, aprobaciones o cualquier flujo operativo. La idea es detectar si conviene IA agéntica, RPA, pipelines de datos o una combinación, y por dónde conviene empezar con control.',
     detailPlaceholder:

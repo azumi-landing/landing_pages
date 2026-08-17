@@ -1,12 +1,34 @@
 import type { ServiceLandingConfig } from '../types/serviceLanding';
 import { agenticAutomationTheme, fieldOperationsTheme, processAutomationTheme } from './serviceThemes';
 import { fieldOperationsFaqs } from './faqs';
+import { buildContactHref } from './contact';
+import { activeSolutions, coreService, funnelOffers } from './commercial';
+
+const fieldOperationsSolution = activeSolutions.find(
+  (solution) => solution.id === 'operaciones-de-campo'
+);
+
+if (!fieldOperationsSolution) {
+  throw new Error('The field operations solution must remain active.');
+}
+
+const coreServiceContactHref = buildContactHref({
+  service: coreService.contactService,
+  originPath: coreService.path,
+  originLabel: coreService.name
+});
+
+const fieldOperationsContactHref = buildContactHref({
+  service: fieldOperationsSolution.contactService,
+  originPath: fieldOperationsSolution.path,
+  originLabel: fieldOperationsSolution.name
+});
 
 export const agenticAutomationLanding: ServiceLandingConfig = {
-  seoTitle: 'Automatización de procesos para pymes | RPA e IA con control',
+  seoTitle: 'Automatización de Procesos e IA para empresas',
   seoDescription: 'Ordená procesos internos, conectá WhatsApp, Excel, CRM y sistemas actuales. Automatización con RPA e IA agéntica bajo control humano para pymes de Honduras y LatAm.',
   seoImage: '/og-agentic-automation.png',
-  path: '/automatizacion-con-ia-agentica',
+  path: coreService.path,
   theme: agenticAutomationTheme,
   badge: 'Procesos internos ordenados + automatización con control humano',
   title: 'Ordená tus procesos internos antes de automatizar lo que sí conviene.',
@@ -17,13 +39,9 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     'Tu equipo enfocado en lo importante, no en copiar datos',
     'Visibilidad real de procesos comerciales e internos'
   ],
-  metrics: [
-    { value: '+10 años', label: 'ordenando operaciones y reduciendo trabajo manual' },
-    { value: 'Por etapas', label: 'empezamos con algo pequeño que funcione' },
-    { value: 'Con control', label: 'vos decidís qué requiere tu aprobación' }
-  ],
-  primaryCtaLabel: 'Solicitar diagnóstico gratis por WhatsApp',
-  primaryCtaHref: 'https://wa.me/50432045265?text=Hola+H%C3%A9ctor%2C+vi+tu+p%C3%A1gina+y+quiero+solicitar+un+diagn%C3%B3stico+gratis.+Trabajamos+con+WhatsApp+y+Excel+y+necesitamos+ordenar+nuestros+procesos.',
+  metrics: [],
+  primaryCtaLabel: coreService.cta.label,
+  primaryCtaHref: coreServiceContactHref,
   secondaryCtaLabel: 'Revisar qué proceso puedo automatizar',
   secondaryCtaHref: '#oferta',
   problemTitle: '¿Tu empresa todavía depende de procesos manuales, datos dispersos y recordatorios humanos?',
@@ -380,9 +398,8 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     title: '¿Tu proceso no aparece aquí?',
     description:
       'No importa si es comercial, administrativo, documental o técnico: si hay tareas repetitivas, datos que se mueven entre sistemas, reportes manuales o procesos que se detienen si alguien falta, vale la pena revisarlo. Empezamos con algo pequeño que funcione.',
-    ctaLabel: 'Quiero automatizar un proceso interno',
-    ctaHref:
-      'https://wa.me/50432045265?text=Hola+H%C3%A9ctor%2C+tengo+un+proceso+que+podr%C3%ADa+automatizarse.+Quiero+revisar+si+conviene+empezar+con+algo+sencillo+y+luego+seguir+mejorando.'
+    ctaLabel: coreService.cta.label,
+    ctaHref: coreServiceContactHref
   },
   beforeAfterTitle: 'Cómo se ve una automatización útil en una pyme',
   beforeAfterSubtitle: 'Ejemplos concretos de cómo cambia el día a día cuando ordenás y automatizás tus procesos.',
@@ -651,7 +668,7 @@ export const agenticAutomationLanding: ServiceLandingConfig = {
     }
   ],
   contact: {
-    eyebrow: 'Diagnóstico gratuito de 30 minutos',
+    eyebrow: `${funnelOffers.fitCall.name} gratuita · ${funnelOffers.fitCall.duration}`,
     title: 'Contame qué proceso querés ordenar. Te digo si conviene automatizar o hay una solución más simple.',
     description:
       'En una llamada gratuita revisamos tu operación, detectamos dónde se pierde tiempo o clientes, y vemos si tiene sentido empezar con algo pequeño. Si no es para vos, te lo digo honestamente.',
@@ -1154,27 +1171,22 @@ export const processAutomationLanding: ServiceLandingConfig = {
 
 export const fieldOperationsLanding: ServiceLandingConfig = {
   seoTitle: 'Gestión de Operaciones de Campo — App offline, dashboard y trazabilidad',
-  seoDescription: 'App móvil offline + dashboard web + trazabilidad auditable con GPS y fotos. Implementación directa en 2-3 semanas. +5M registros procesados en producción.',
+  seoDescription: 'Digitalización de operaciones de campo con captura, coordinación, evidencia y seguimiento para equipos en terreno.',
   seoImage: '/og-field-operations.png',
-  path: '/gestion-de-operaciones-de-campo',
+  path: fieldOperationsSolution.path,
   theme: fieldOperationsTheme,
   badge: 'Coordinación de campo + evidencia confiable + trazabilidad operativa',
   title: 'Hacé visible y trazable el trabajo que hoy ocurre fuera de la oficina.',
   subtitle:
     'Diseño e implemento sistemas para coordinar equipos en terreno, capturar evidencia confiable y conectar cada visita con supervisión, auditoría y decisiones. Funciona incluso cuando la conectividad es limitada.',
   benefits: [
-    '-60% errores de captura con validaciones y evidencia obligatoria',
+    'Menos errores de captura con validaciones y evidencia obligatoria',
     'Visibilidad de la operación en vivo, no cuando alguien manda el reporte',
     'Auditorías sin hallazgos: GPS + foto + timestamp + firma en cada registro'
   ],
-  metrics: [
-    { value: '+5M', label: 'registros procesados en implementaciones reales' },
-    { value: '-60%', label: 'errores de captura en las primeras 3 semanas' },
-    { value: '2-3 sem', label: 'del primer contacto a operación productiva' },
-    { value: '+10 años', label: 'diseñando operaciones digitales en campo' }
-  ],
-  primaryCtaLabel: 'Revisar mi operación en 30 min',
-  primaryCtaHref: '#contacto',
+  metrics: [],
+  primaryCtaLabel: fieldOperationsSolution.cta.label,
+  primaryCtaHref: fieldOperationsContactHref,
   secondaryCtaLabel: 'Ver cómo funciona',
   secondaryCtaHref: '#como-funciona',
   problemTitle: '¿Tu operación de campo sigue siendo una caja negra?',
@@ -1194,7 +1206,7 @@ export const fieldOperationsLanding: ServiceLandingConfig = {
     {
       icon: 'fa-phone-slash',
       title: 'Los supervisores viven al teléfono',
-      description: 'El 30% de su tiempo se va en llamadas de seguimiento que no deberían existir. Eso no es supervisión — es apagar fuegos.'
+      description: 'Demasiado tiempo se va en llamadas de seguimiento que no deberían existir. Eso no es supervisión — es apagar fuegos.'
     },
     {
       icon: 'fa-user-gear',
@@ -1224,7 +1236,7 @@ export const fieldOperationsLanding: ServiceLandingConfig = {
       title: 'App móvil offline-first para tu equipo en terreno',
       pain: 'Operarios con planillas de papel, fotos perdidas en WhatsApp y datos incompletos que llegan días después.',
       solution: 'App intuitiva donde reciben asignaciones, capturan datos estructurados, toman fotos con GPS y firman digitalmente — todo sin internet.',
-      outcome: '-60% errores de captura y evidencia completa desde el momento del registro en campo.',
+      outcome: 'Menos errores de captura y mejor evidencia desde el momento del registro en campo.',
       bullets: [
         'Captura offline completa: fotos, formularios, firmas',
         'Sincronización automática al detectar red',
@@ -1237,7 +1249,7 @@ export const fieldOperationsLanding: ServiceLandingConfig = {
       title: 'Órdenes de servicio desde alarmas y series de tiempo',
       pain: 'Las alarmas generan trabajo de campo, pero la asignación es manual, lenta y sin seguimiento.',
       solution: 'Las órdenes se crean automáticamente desde alarmas SCADA/IoT o manualmente. Se asignan al operario más cercano o disponible.',
-      outcome: 'Tiempo de respuesta de horas a minutos. Cero órdenes perdidas. Ruta optimizada.',
+      outcome: 'Respuestas más ágiles, seguimiento claro y mejor coordinación de las órdenes.',
       bullets: [
         'Generación automática desde alarmas y series de tiempo',
         'Asignación por proximidad, habilidad y carga de trabajo',
@@ -1381,7 +1393,7 @@ export const fieldOperationsLanding: ServiceLandingConfig = {
       title: 'Procesamiento masivo de evidencias sin intervención manual',
       challenge: 'Revisión manual de millones de archivos con riesgo de error y tiempos de días.',
       approach: 'App móvil para registro en campo (fotos, GPS) + plataforma web para supervisión. Validaciones automáticas y auditoría completa.',
-      result: '+5,000,000 archivos procesados con validaciones automáticas. Revisión baja de días a minutos.',
+      result: 'Procesamiento de evidencias con validaciones automáticas y revisión más ágil.',
       stack: 'AppSheet → Cloud Run → Eventarc → Cloud SQL'
     },
     {
@@ -1390,7 +1402,7 @@ export const fieldOperationsLanding: ServiceLandingConfig = {
       title: 'Inspecciones sin errores con captura obligatoria y trazabilidad',
       challenge: 'Datos incompletos y errores en inspecciones manuales sin trazabilidad por activo.',
       approach: 'App móvil con formularios inteligentes, fotos y GPS obligatorios. Sync offline/online. Dashboard con métricas en tiempo real.',
-      result: '-60% errores de captura en 3 semanas. Trazabilidad completa por activo.',
+      result: 'Menos errores de captura y trazabilidad por activo.',
       stack: 'Flutter + Firebase/GCP + Serverless sync'
     },
     {
@@ -1399,7 +1411,7 @@ export const fieldOperationsLanding: ServiceLandingConfig = {
       title: 'Inspecciones de seguridad con evidencia completa y alertas automáticas',
       challenge: 'Inspecciones de seguridad en zonas remotas sin evidencia confiable y reportes que tardan días.',
       approach: 'App móvil offline-first para zonas sin cobertura, checklist de seguridad, fotos georreferenciadas y alertas automáticas al sincronizar.',
-      result: '100% inspecciones con evidencia georreferenciada. Alertas críticas en minutos, no días.',
+      result: 'Inspecciones con evidencia georreferenciada y alertas más oportunas.',
       stack: 'Flutter + Cloud Functions + Pub/Sub + BigQuery'
     },
     {
@@ -1419,7 +1431,7 @@ export const fieldOperationsLanding: ServiceLandingConfig = {
     {
       value: 'Offline real',
       label: 'captura completa sin red, sin pérdida ni duplicados',
-      detail: 'No es un "modo offline" parcial. La app está construida desde cero para operar 100% sin internet.'
+      detail: 'La solución se diseña para capturar datos sin conexión y sincronizarlos cuando existe red.'
     },
     {
       value: 'Trazable',
@@ -1527,13 +1539,13 @@ export const fieldOperationsLanding: ServiceLandingConfig = {
       title: 'No soy un software genérico — soy un especialista que implementa',
       subtitle: 'La solución se diseña para tu flujo, no al revés',
       description: 'No vendo licencias y desaparezco. Diseño tu operación específica y acompaño la adopción con tu equipo de campo hasta que funcione.',
-      highlight: 'Implementación en 2-3 semanas, no 6+ meses'
+      highlight: 'Implementación guiada según el alcance'
     },
     {
       icon: 'fa-wifi',
       title: 'Offline-first de verdad, no un feature añadido',
       subtitle: 'Diseñado para minas, bosques y fincas remotas',
-      description: 'La app está construida desde cero para operar 100% sin internet, con sincronización inteligente. No es un modo degradado.',
+      description: 'La solución se diseña para operar sin conexión y sincronizar información cuando existe red.',
       highlight: 'Captura completa sin red, sin pérdida ni duplicados'
     },
     {
@@ -1546,16 +1558,16 @@ export const fieldOperationsLanding: ServiceLandingConfig = {
     {
       icon: 'fa-handshake',
       title: 'Trabajás directo conmigo — sin intermediarios',
-      subtitle: '+10 años en operaciones de campo',
+      subtitle: 'Experiencia aplicada a operaciones de campo',
       description: 'La misma persona que entiende tu problema diseña la solución, la implementa y te acompaña. Sin capas de consultora ni rotación de equipo.',
-      highlight: '+5M registros procesados en implementaciones reales'
+      highlight: 'Acompañamiento directo de principio a fin'
     }
   ],
   notIdealTitle: 'Cuándo NO soy tu mejor opción',
   notIdealIntro: 'Prefiero filtrar esto en cinco minutos y no en el mes dos del proyecto. Si tu caso encaja en alguno de estos puntos, te lo digo directo:',
   notIdealItems: [
     'Buscás una plataforma genérica de formularios sin personalización para tu flujo operativo.',
-    'Tu operación es 100% indoor, sin necesidad de offline, GPS ni trazabilidad con evidencia.',
+    'Tu operación ocurre solo bajo techo y no necesita offline, GPS ni trazabilidad con evidencia.',
     'El driver principal de la compra es el logo de una marca grande por tema de compliance — no que la herramienta funcione.',
     'Querés una demo rápida para mostrar en una reunión, no una solución que entre a producción.',
     'No hay interés en adopción real: si el equipo de campo no la va a usar, la tecnología no resuelve el problema.'
@@ -1579,7 +1591,7 @@ export const fieldOperationsLanding: ServiceLandingConfig = {
     eyebrow: 'Diagnóstico de operaciones de campo',
     title: 'Contame el cuello de botella de tu operación. Te digo si puedo ayudarte antes de cobrarte nada.',
     description:
-      'En la primera conversación (30 minutos, sin costo) mapeamos el problema, validamos si encaja con lo que hago, y si encaja te propongo cómo lo abordaría. Si no encaja, te lo digo en esa misma llamada.',
+      `En una ${funnelOffers.fitCall.name.toLowerCase()} de ${funnelOffers.fitCall.duration} revisamos el problema y validamos si este enfoque encaja con tu operación.`,
     detailsTitle: 'En esta conversación revisamos:',
     detailsItems: [
       'Cómo se captura hoy la información en campo y qué se pierde en el proceso',

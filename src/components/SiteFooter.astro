@@ -1,6 +1,7 @@
 ---
 import LogoHG from './LogoHG.astro';
 import { CONTACT_PAGE_PATH, getWhatsAppHref } from '../data/contact';
+import { commercialCtas } from '../data/commercial';
 import { footerLinks, serviceLinks } from '../data/site';
 
 const whatsappHref = getWhatsAppHref();
@@ -23,7 +24,7 @@ const legalLinks = footerLinks.filter((link) => ['/privacidad', '/terminos'].inc
           Criterio operativo, diseño de solución e implementación en una misma relación de trabajo.
         </h2>
         <p class="text-sm leading-relaxed text-slate-400 max-w-md">
-          Dos especialidades: gestión de operaciones de campo y automatización inteligente de procesos.
+          Automatización de Procesos e IA como capacidad core, con soluciones especializadas cuando el contexto lo requiere.
         </p>
       </div>
 
@@ -53,10 +54,10 @@ const legalLinks = footerLinks.filter((link) => ['/privacidad', '/terminos'].inc
         <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500 mb-4">Contacto y legal</h2>
         <ul class="space-y-3 text-sm text-slate-400">
           <li>
-            <a href={CONTACT_PAGE_PATH} class="hover:text-white transition-colors">Formulario</a>
+            <a href={CONTACT_PAGE_PATH} class="hover:text-white transition-colors">{commercialCtas.contact.label}</a>
           </li>
           <li>
-            <a href={whatsappHref} class="hover:text-white transition-colors">WhatsApp</a>
+            <a href={whatsappHref} class="hover:text-white transition-colors">{commercialCtas.whatsapp.label}</a>
           </li>
           {legalLinks.map((link) => (
             <li>

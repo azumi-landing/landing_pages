@@ -1,10 +1,10 @@
 ---
 import {
   buildContactHref,
-  contactConfig,
   getWhatsAppHref,
   getContactContextByPath
 } from '../../../data/contact';
+import { commercialCtas, funnelOffers } from '../../../data/commercial';
 import { fieldOperationsTheme } from '../../../data/serviceThemes';
 import Button from '../../atoms/Button.astro';
 import type { ServiceLandingContactContent, ServiceLandingTheme } from '../../../types/serviceLanding';
@@ -78,7 +78,7 @@ const themeVars = `--service-accent: ${theme.accent}; --service-accent-alt: ${th
 
         <div class="flex flex-col sm:flex-row gap-4">
           <Button href={contactHref} variant="primary" size="lg" class="service-contact-submit">
-            Abrir formulario
+            {commercialCtas.contact.label}
           </Button>
         </div>
       </div>
@@ -91,7 +91,7 @@ const themeVars = `--service-accent: ${theme.accent}; --service-accent-alt: ${th
               <i class="fab fa-whatsapp text-green-500 text-xl"></i>
             </div>
             <div>
-              <p class="text-white font-medium">WhatsApp</p>
+              <p class="text-white font-medium">{commercialCtas.whatsapp.label}</p>
               <a href={whatsappHref} class="service-contact-link text-slate-300 transition-colors">
                 Abrir conversación
               </a>
@@ -103,8 +103,8 @@ const themeVars = `--service-accent: ${theme.accent}; --service-accent-alt: ${th
               <i class="fas fa-clock text-purple-400 text-xl"></i>
             </div>
             <div>
-              <p class="text-white font-medium">Tiempo de respuesta</p>
-              <p class="text-slate-300">Normalmente {contactConfig.responseTime}</p>
+              <p class="text-white font-medium">{funnelOffers.fitCall.name}</p>
+              <p class="text-slate-300">{funnelOffers.fitCall.duration} · gratuita</p>
             </div>
           </div>
         </div>

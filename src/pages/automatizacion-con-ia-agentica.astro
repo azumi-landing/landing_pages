@@ -7,6 +7,13 @@ import {
   buildFAQSchema,
   buildServiceSchema
 } from '../data/site';
+import { coreService } from '../data/commercial';
+
+const sprint = coreService.entryOffer;
+
+if (!sprint.price) {
+  throw new Error('The automation sprint must have a configured price.');
+}
 
 const sectionNavItems = [
   { id: 'inicio', label: 'Inicio' },
@@ -34,22 +41,22 @@ const sectionNavItems = [
   sectionNavItems={sectionNavItems}
   schemas={[
     buildServiceSchema({
-      name: agenticAutomationLanding.title,
+      name: coreService.name,
       description: agenticAutomationLanding.seoDescription,
       path: agenticAutomationLanding.path,
       areaServed: 'Honduras',
-      category: 'Automatización de procesos para pymes',
+      category: coreService.name,
       audience: 'SmallBusiness',
       offers: {
-        name: 'Diagnóstico gratuito de automatización',
-        description: 'Evaluación sin costo de procesos manuales identificando oportunidades de automatización con RPA e IA para tu pyme',
-        price: '0',
-        priceCurrency: 'HNL'
+        name: sprint.name,
+        description: `${sprint.duration} para abordar un alcance de automatización definido.`,
+        price: String(sprint.price.amount),
+        priceCurrency: sprint.price.currency
       }
     }),
     buildBreadcrumbSchema([
       { name: 'Inicio', path: '/' },
-      { name: 'Automatización con IA Agéntica', path: agenticAutomationLanding.path }
+      { name: coreService.name, path: agenticAutomationLanding.path }
     ]),
     buildFAQSchema(agenticAutomationLanding.faqs)
   ]}

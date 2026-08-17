@@ -11,6 +11,7 @@ import {
   isValidContactService,
   contactConfig
 } from '../data/contact';
+import { funnelOffers } from '../data/commercial';
 import { buildBreadcrumbSchema, buildContactPageSchema } from '../data/site';
 
 const serviceParam = Astro.url.searchParams.get('service');
@@ -28,27 +29,32 @@ const originLabel = serviceGuidance?.originLabel
   : '');
 const serviceLabel = defaultService ? getContactServiceLabel(defaultService) : 'Por definir';
 const contextMessage = serviceGuidance?.contextMessage;
+const fitCall = funnelOffers.fitCall;
+const operationalDiagnosis = funnelOffers.operationalDiagnosis;
+const diagnosisPrice = operationalDiagnosis.price
+  ? `${operationalDiagnosis.price.qualifier} L ${operationalDiagnosis.price.amount.toLocaleString('en-US')}`
+  : '';
 const expectationTitle = serviceGuidance?.expectationTitle
   ?? 'Una respuesta que reconozca tu problema, no una respuesta de catálogo';
 const expectationItems = serviceGuidance?.expectationItems ?? [
-  'Respuesta en menos de 1 hora (horario laboral) — yo mismo, sin chatbot ni asistente.',
-  'En 15 minutos, te digo si lo tuyo es diagnóstico (30 min gratis), implementación directa, o si no es un fit.',
+  `${fitCall.name} gratuita de ${fitCall.duration} para entender tu caso.`,
+  `${operationalDiagnosis.name} ${diagnosisPrice.toLowerCase()}${operationalDiagnosis.condition ? ` · ${operationalDiagnosis.condition}.` : '.'}`,
   'Una conversación centrada en el flujo real de tu operación, no en una presentación genérica.'
 ];
 const whatsappHref = getWhatsAppHref();
 ---
 
 <PageLayout
-  title="Diagnóstico gratuito de 30 min para tu operación — HGuerra"
-  description="Contame el cuello de botella de tu operación. Respuesta en menos de 1 hora. Diagnóstico de 30 min sin costo. Sin presión, sin chatbot."
+  title={`${fitCall.name} gratuita de ${fitCall.duration} — HGuerra`}
+  description="Contame el cuello de botella de tu operación. Revisamos si conviene avanzar con diagnóstico, piloto o implementación."
   path="/contacto"
   image="/og-contact.png"
   bodyVariant="mixed"
   schemas={[
     buildContactPageSchema({
       path: '/contacto',
-      title: 'Diagnóstico gratuito de 30 min para tu operación — HGuerra',
-      description: 'Contame el cuello de botella de tu operación. Respuesta en menos de 1 hora. Diagnóstico de 30 min sin costo. Sin presión, sin chatbot.'
+      title: `${fitCall.name} gratuita de ${fitCall.duration} — HGuerra`,
+      description: 'Contame el cuello de botella de tu operación. Revisamos si conviene avanzar con diagnóstico, piloto o implementación.'
     }),
     buildBreadcrumbSchema([
       { name: 'Inicio', path: '/' },
@@ -68,10 +74,10 @@ const whatsappHref = getWhatsAppHref();
             Contacto
           </span>
           <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
-            Tu operación sigue en Excel, WhatsApp y papel — contame el cuello de botella y te digo cómo sacarlo en semanas
+            Tu operación sigue en Excel, WhatsApp y papel — contame el cuello de botella y definimos el siguiente paso
           </h1>
           <p class="text-xl text-slate-300 leading-relaxed max-w-3xl">
-            Si venís de una página específica, ya tengo tu contexto — así respondemos sin empezar de cero. Si no, contame el problema en 3 preguntas y te respondo en menos de 1 hora.
+            Si venís de una página específica, ya tengo tu contexto — así respondemos sin empezar de cero. Si no, contame el problema y revisamos qué camino tiene más sentido.
           </p>
         </div>
       </div>
@@ -97,7 +103,7 @@ const whatsappHref = getWhatsAppHref();
             </p>
           ) : (
             <p class="text-slate-600 leading-relaxed mb-6">
-              Completá el formulario. En menos de 1 hora te cuento si lo tuyo es diagnóstico gratuito, implementación directa, o si honestamente no es un fit.
+              Completá el formulario. Revisamos si lo tuyo es llamada de encaje, diagnóstico operativo, piloto o implementación directa.
             </p>
           )}
 
@@ -126,7 +132,7 @@ const whatsappHref = getWhatsAppHref();
           <div class="rounded-2xl border border-yellow-200 bg-yellow-50 p-6">
             <p class="text-sm font-semibold text-slate-800 mb-2">Sin presión. Sin compromiso.</p>
             <p class="text-sm text-slate-600 leading-relaxed">
-              Si después de 30 minutos no es un fit, lo digo directo en la misma llamada. No intento vender soluciones innecesarias.
+              Si no es un fit, lo digo directo en la misma llamada. No intento vender soluciones innecesarias.
             </p>
           </div>
 

@@ -73,14 +73,16 @@ const heroPatternClass = {
           </a>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
-          {config.metrics.map((metric) => (
-            <div class="service-metric-card surface-card-dark p-6">
-              <p class="service-accent-text text-2xl font-bold mb-2">{metric.value}</p>
-              <p class="text-sm text-slate-300">{metric.label}</p>
-            </div>
-          ))}
-        </div>
+        {config.metrics.length > 0 && (
+          <div class="grid md:grid-cols-3 gap-6">
+            {config.metrics.map((metric) => (
+              <div class="service-metric-card surface-card-dark p-6">
+                <p class="service-accent-text text-2xl font-bold mb-2">{metric.value}</p>
+                <p class="text-sm text-slate-300">{metric.label}</p>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   </section>
@@ -164,7 +166,7 @@ const heroPatternClass = {
 
         <div class="text-center">
           <a href={config.primaryCtaHref} class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold px-6 py-3 rounded-lg transition-colors">
-            Solicitar diagnóstico gratis por WhatsApp
+            {config.primaryCtaLabel}
             <Icon name="fa-arrow-right" size="sm" />
           </a>
         </div>
@@ -474,6 +476,7 @@ const heroPatternClass = {
     </section>
   )}
 
+  {(config.proofMetrics.length > 0 || config.proofPoints.length > 0) && (
   <section id="prueba" class="section-shell section-light">
     <div class="page-container">
       <div class="section-intro section-intro-center">
@@ -485,16 +488,18 @@ const heroPatternClass = {
         </p>
       </div>
 
-      <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] items-start">
-        <div class="grid gap-4 md:grid-cols-3">
-          {config.proofMetrics.map((metric) => (
-            <article class="surface-card p-6 h-full">
-              <p class="service-accent-text text-2xl font-bold mb-3">{metric.value}</p>
-              <p class="text-sm font-semibold text-slate-950 mb-2">{metric.label}</p>
-              <p class="text-sm text-slate-600 leading-relaxed">{metric.detail}</p>
-            </article>
-          ))}
-        </div>
+        <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] items-start">
+          {config.proofMetrics.length > 0 && (
+            <div class="grid gap-4 md:grid-cols-3">
+              {config.proofMetrics.map((metric) => (
+                <article class="surface-card p-6 h-full">
+                  <p class="service-accent-text text-2xl font-bold mb-3">{metric.value}</p>
+                  <p class="text-sm font-semibold text-slate-950 mb-2">{metric.label}</p>
+                  <p class="text-sm text-slate-600 leading-relaxed">{metric.detail}</p>
+                </article>
+              ))}
+            </div>
+          )}
 
         <div class="space-y-4">
           {config.proofPoints.map((point) => (
@@ -600,6 +605,7 @@ const heroPatternClass = {
       </div>
     </div>
   </section>
+  )}
 
   {config.execution.bullets.length > 0 && (
     <section class="section-shell section-light">

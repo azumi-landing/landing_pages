@@ -8,35 +8,18 @@ interface Props {
 const { currentPath } = Astro.props;
 const relatedServices = serviceLinks
   .filter((service) => service.href !== currentPath)
-  .map((service) => {
-    const normalizedContent = {
-      '/gestion-de-operaciones-de-campo': {
-        title: 'Gestión de Operaciones de Campo',
-        description: 'Coordinación, captura offline, evidencia y trazabilidad para equipos que trabajan en terreno.'
-      },
-      '/automatizacion-con-ia-agentica': {
-        title: 'Automatización Inteligente de Procesos',
-        description: 'Procesos internos ordenados con integraciones, RPA e IA bajo control humano.'
-      }
-    }[service.href];
-
-    return {
-      ...service,
-      title: normalizedContent?.title ?? service.shortLabel,
-      description: normalizedContent?.description ?? service.description
-    };
-  });
+  .map((service) => ({ ...service, title: service.label }));
 ---
 
 <section class="section-shell section-light">
   <div class="page-container">
     <div class="section-intro">
-      <p class="section-eyebrow text-slate-500">Servicios relacionados</p>
+      <p class="section-eyebrow text-slate-500">Capacidad y soluciones relacionadas</p>
       <h2 class="section-title text-slate-950">
-        Puede que tu cuello de botella esté en la otra parte de tu operación.
+        Puede que tu cuello de botella necesite otra parte de la oferta.
       </h2>
       <p class="section-copy text-slate-600">
-        Gestión de campo organiza lo que ocurre en terreno. Automatización inteligente ordena procesos internos que reciben, transforman o activan esos datos. Revisá la otra especialidad o conocé mi enfoque antes de decidir.
+        Automatización de Procesos e IA es la capacidad core. Operaciones de campo es una solución especializada para el trabajo en terreno.
       </p>
     </div>
 
@@ -44,7 +27,7 @@ const relatedServices = serviceLinks
       {relatedServices.map((service) => (
         <article class="surface-card surface-panel h-full p-8 flex flex-col gap-5">
           <div>
-            <p class="section-eyebrow text-slate-500 mb-3">Ruta alternativa</p>
+            <p class="section-eyebrow text-slate-500 mb-3">{service.kind === 'core' ? 'Capacidad core' : 'Solución especializada'}</p>
             <h3 class="text-2xl font-bold text-slate-950 mb-3">{service.title}</h3>
             <p class="text-slate-600 leading-relaxed">{service.description}</p>
           </div>
@@ -63,7 +46,7 @@ const relatedServices = serviceLinks
           <p class="section-eyebrow text-slate-500 mb-3">Perfil profesional</p>
           <h3 class="text-2xl font-bold mb-4">Experiencia y enfoque</h3>
           <p class="text-slate-600 leading-relaxed">
-            Conocé la experiencia, el criterio técnico y la forma de trabajo detrás de las dos especialidades.
+            Conocé la experiencia, el criterio técnico y la forma de trabajo detrás de la oferta.
           </p>
         </div>
 

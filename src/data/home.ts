@@ -1,3 +1,10 @@
+import { coreService, funnelOffers } from './commercial';
+
+const sprint = coreService.entryOffer;
+const sprintPrice = sprint.price
+  ? `${sprint.price.qualifier.toLowerCase()} L ${sprint.price.amount.toLocaleString('en-US')}`
+  : '';
+
 export const homeHeroBullets = [
   'Leo tu operación completa para encontrar el cuello de botella real',
   'Diseño datos, integraciones y automatizaciones que tu equipo puede usar',
@@ -112,7 +119,7 @@ export const homeFaqs = [
   {
     question: '¿Cuánto tiempo toma una implementación?',
     answer:
-      'Típicamente 2 a 3 semanas desde el primer contacto hasta operación productiva, incluyendo configuración, capacitación y acompañamiento durante las primeras operaciones en vivo. Si el alcance es mayor, lo partimos en fases útiles en lugar de un proyecto de 6 meses.'
+      `El ${sprint.name} tiene un plazo orientativo de ${sprint.duration}. Si el alcance es mayor, lo dividimos en fases útiles.`
   },
   {
     question: '¿Y si automatizamos algo crítico con IA y se equivoca?',
@@ -122,6 +129,6 @@ export const homeFaqs = [
   {
     question: '¿Cuánto cuesta?',
     answer:
-      'El precio se define según el tamaño real del problema — no manejo tarifa fija ni paquetes empaquetados. En el diagnóstico inicial (gratuito, 30 minutos) revisamos alcance y definimos un rango de inversión realista antes de avanzar.'
+      `El ${sprint.name} parte ${sprintPrice}. Si necesitás revisar el alcance antes, el ${funnelOffers.operationalDiagnosis.name.toLowerCase()} parte ${funnelOffers.operationalDiagnosis.price.qualifier.toLowerCase()} L ${funnelOffers.operationalDiagnosis.price.amount.toLocaleString('en-US')}.`
   }
 ];

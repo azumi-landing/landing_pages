@@ -6,6 +6,7 @@ import {
   getContactServiceLabel,
   isValidContactService
 } from '../../data/contact';
+import { commercialCtas, funnelOffers } from '../../data/commercial';
 
 interface Props {
   defaultService?: string | null;
@@ -101,7 +102,7 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
   </div>
 
   <Button type="submit" variant="primary" size="lg" class="w-full justify-center">
-    Agendar diagnóstico gratuito (30 min)
+    {commercialCtas.fitCall.label} ({funnelOffers.fitCall.duration})
   </Button>
 
   <div data-form-feedback class="hidden text-center py-4 rounded-lg text-sm"></div>

@@ -2,7 +2,7 @@ export const fieldOperationsFaqs = [
   {
     question: '¿Cuánto tiempo toma implementar la plataforma?',
     answer:
-      'La implementación típica toma 2-3 semanas desde el primer contacto hasta operación productiva. Esto incluye configuración personalizada de formularios y flujos, instalación de la app en dispositivos, capacitación práctica y acompañamiento en las primeras operaciones en vivo.'
+      'El plazo se define según el alcance, los flujos prioritarios y las integraciones necesarias. La llamada de encaje permite decidir si conviene un piloto y qué pasos tendría.'
   },
   {
     question: '¿Funciona sin internet en zonas remotas?',
@@ -27,7 +27,7 @@ export const fieldOperationsFaqs = [
   {
     question: '¿Para qué tipo de operaciones no sirve esta plataforma?',
     answer:
-      'No es la opción ideal para equipos que buscan una solución genérica sin personalización, operaciones 100% indoor sin necesidad offline o procesos largos de implementación con consultoras grandes.'
+      'No es la opción ideal para equipos que buscan una solución genérica sin personalización, operaciones sin necesidad offline o procesos largos de implementación con consultoras grandes.'
   },
   {
     question: '¿Cómo se compara con otras plataformas de formularios móviles?',
