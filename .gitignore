@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Project-local RAG database, progress and logs
+.haiku-rag/

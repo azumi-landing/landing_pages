@@ -1,5 +1,13 @@
 # HGuerra personal web
 
+## Brand Center
+
+La identidad visual y el nuevo posicionamiento de datos e IA están documentados en [`docs/brandcenter/index.html`](docs/brandcenter/index.html); el sitio todavía conserva su contenido anterior. Ábrelo directamente en el navegador; no necesita compilación ni conexión. Incluye logotipos SVG, paleta, tipografía, ejemplos y tokens CSS. Instrucciones en [`docs/brandcenter/README.md`](docs/brandcenter/README.md).
+
+## Biblioteca RAG
+
+El MCP de haiku.rag y su base son exclusivos de este proyecto. Consulta [`docs/biblioteca-rag.md`](docs/biblioteca-rag.md) para indexar y monitorear cada archivo de `biblioteca/`.
+
 ## Commands
 
 - `npm install`: instala dependencias.

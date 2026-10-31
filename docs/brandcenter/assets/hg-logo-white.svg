@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="48" viewBox="0 0 200 48" fill="none">
+  <title>HGuerra · Nombre blanco</title>
+  <defs>
+    <linearGradient id="hg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="55%" stop-color="#1D4ED8"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+  <circle cx="24" cy="24" r="22" fill="url(#hg-gradient)"/>
+  <text x="9" y="34" fill="white" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="22">H</text>
+  <text x="25" y="34" fill="white" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="22">G</text>
+  <text x="62" y="32" fill="#FFFFFF" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="600" font-size="24">HGuerra</text>
+</svg>

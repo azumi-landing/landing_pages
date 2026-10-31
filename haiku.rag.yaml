@@ -1,0 +1,26 @@
+# Exclusivo de este repositorio. El MCP solo lee esta base.
+lancedb:
+  databases:
+    biblioteca: ${HAIKU_RAG_CONFIG_DIR}/.haiku-rag/biblioteca.lancedb
+  read_consistency_interval_seconds: 0
+
+embeddings:
+  model:
+    provider: sentence-transformers
+    name: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+    vector_dim: 384
+  batch_size: 32
+
+processing:
+  chunking_tokenizer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+  split_pages: 10
+  conversion_timeout: 1800
+  auto_title: false
+  pictures: none
+  conversion_options:
+    do_ocr: true
+    generate_page_images: false
+    fetch_remote_images: false
+
+prompts:
+  domain_preamble: "Biblioteca de documentos del proyecto HGuerra. Usa las fuentes para fundamentar las respuestas y cita documento y página cuando estén disponibles."

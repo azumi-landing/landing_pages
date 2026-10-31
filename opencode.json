@@ -1,4 +1,17 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "permission": "allow"
+  "permission": "allow",
+  "mcp": {
+    "servers": {
+      "biblioteca": {
+        "type": "local",
+        "command": ["uvx", "--from", "haiku-rag==0.104.0", "haiku-rag", "--config", "haiku.rag.yaml", "mcp", "--stdio"],
+        "cwd": ".",
+        "environment": {
+          "TOKENIZERS_PARALLELISM": "false"
+        },
+        "timeout": { "startup": 120000 }
+      }
+    }
+  }
 }
