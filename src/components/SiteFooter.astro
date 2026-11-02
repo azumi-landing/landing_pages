@@ -5,7 +5,7 @@ import { commercialCtas } from '../data/commercial';
 import { footerLinks, serviceLinks } from '../data/site';
 
 const whatsappHref = getWhatsAppHref();
-const primaryLinks = footerLinks.filter((link) => ['/', '/sobre-mi', '/contacto'].includes(link.href));
+const primaryLinks = footerLinks.filter((link) => ['/', '/tecnologia', '/sobre-mi', '/contacto'].includes(link.href));
 const legalLinks = footerLinks.filter((link) => ['/privacidad', '/terminos'].includes(link.href));
 ---
 
@@ -17,14 +17,14 @@ const legalLinks = footerLinks.filter((link) => ['/privacidad', '/terminos'].inc
           <LogoHG />
           <div>
             <p class="text-sm font-semibold text-white">HGuerra</p>
-            <p class="text-sm text-slate-400">Consultoría e implementación de operaciones, datos y automatización aplicada</p>
+            <p class="text-sm text-slate-400">Héctor Guerra · Consultor independiente</p>
           </div>
         </div>
         <h2 class="text-2xl font-bold text-white max-w-sm leading-tight mb-4">
-          Criterio operativo, diseño de solución e implementación en una misma relación de trabajo.
+          Inteligencia aplicada a desafíos reales.
         </h2>
         <p class="text-sm leading-relaxed text-slate-400 max-w-md">
-          Automatización de Procesos e IA como capacidad core, con soluciones especializadas cuando el contexto lo requiere.
+          Comprender tu empresa, definir una ruta y construir soluciones de datos e inteligencia artificial. Acompañamiento de principio a evolución.
         </p>
       </div>
 
@@ -40,7 +40,7 @@ const legalLinks = footerLinks.filter((link) => ['/privacidad', '/terminos'].inc
       </div>
 
       <div>
-        <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500 mb-4">Servicios</h2>
+        <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-400 mb-4">Cómo puedo ayudarte</h2>
         <ul class="space-y-3 text-sm text-slate-400">
           {serviceLinks.map((link) => (
             <li>

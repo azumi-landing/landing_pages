@@ -92,7 +92,7 @@ export const solutions: readonly SpecializedSolution[] = [
       'Sistemas para controlar órdenes, personal, evidencia y supervisión cuando el trabajo ocurre fuera de la oficina.',
     path: '/gestion-de-operaciones-de-campo',
     slug: 'gestion-de-operaciones-de-campo',
-    status: 'active',
+    status: 'hidden',
     contactService: 'gestion-operaciones-de-campo',
     cta: commercialCtas.fitCall,
     cardCta: 'Ver Operaciones de Campo',
@@ -152,3 +152,34 @@ export const funnelOffers = {
 
 // TODO: Promote only claims with validated evidence and a traceable reference.
 export const VERIFIED_METRICS: readonly VerifiedMetric[] = [];
+
+export const businessServices = [
+  {
+    id: 'madurez', group: 'consultoria', title: 'Madurez y hoja de ruta', icon: 'fa-route',
+    need: 'Querés avanzar con datos e IA, pero no está claro por dónde empezar ni qué preparar primero.',
+    work: 'Evaluamos objetivos, procesos, personas, datos y controles. Definimos el estado que necesitás alcanzar y priorizamos las brechas que importan.',
+    deliverables: ['Diagnóstico con evidencia y alcance acordado', 'Hoja de ruta con prioridades, dependencias y responsables'],
+    success: 'Claridad para decidir qué abordar primero y cómo evaluar el avance.'
+  },
+  {
+    id: 'acompanamiento', group: 'consultoria', title: 'Adopción y acompañamiento', icon: 'fa-handshake',
+    need: 'Las iniciativas existen, pero falta alineación, responsables o una forma de sostener el cambio.',
+    work: 'Acompaño las decisiones, la adopción del equipo y la definición de responsabilidades. Revisamos resultados y ajustamos la ruta con criterio de negocio.',
+    deliverables: ['Acuerdos de gobierno, uso y responsabilidades', 'Sesiones de seguimiento y prioridades de evolución'],
+    success: 'Un equipo que entiende el cambio, lo incorpora y sabe cuándo corregir el rumbo.'
+  },
+  {
+    id: 'datos', group: 'ingenieria', title: 'Datos confiables para decidir', icon: 'fa-database',
+    need: 'Cada área tiene una versión del dato y preparar información sigue consumiendo tiempo que debería dedicarse a analizar.',
+    work: 'Diseño e implemento integraciones, flujos de datos, controles de calidad e indicadores conectados con tus decisiones.',
+    deliverables: ['Flujos de datos integrados y documentados', 'Indicadores, validaciones y seguimiento de fallos'],
+    success: 'Evaluamos calidad, disponibilidad y utilidad de la información frente al punto de partida.'
+  },
+  {
+    id: 'ia', group: 'ingenieria', title: 'Inteligencia artificial aplicada', icon: 'fa-brain',
+    need: 'Hay documentos, conocimiento o tareas que podrían aprovecharse mejor, pero una demostración aislada no resuelve el trabajo real.',
+    work: 'Construyo soluciones para consultar conocimiento, procesar documentos y asistir procesos. Integro los sistemas existentes y defino evaluación, límites y revisión humana.',
+    deliverables: ['Solución integrada al flujo de trabajo acordado', 'Evaluación, controles, documentación y transferencia'],
+    success: 'Medimos utilidad, calidad y riesgos antes de ampliar el alcance; no todo necesita IA.'
+  }
+] as const;

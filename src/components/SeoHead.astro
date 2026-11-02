@@ -1,6 +1,6 @@
 ---
 import {
-  buildOrganizationSchema,
+  buildBrandPersonSchema,
   buildWebsiteSchema,
   buildWebPageSchema,
   getSiteUrl,
@@ -31,7 +31,7 @@ const pageUrl = getSiteUrl(path);
 const imageUrl = getSiteUrl(image);
 const robots = noindex ? 'noindex,nofollow' : 'index,follow';
 const jsonLd = [
-  buildOrganizationSchema(),
+  buildBrandPersonSchema(),
   buildWebsiteSchema(),
   buildWebPageSchema({ path, title, description }),
   ...schemas
@@ -41,7 +41,7 @@ const jsonLd = [
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{title}</title>
-<meta name="author" content={siteConfig.name} />
+<meta name="author" content="Héctor Guerra" />
 <meta name="description" content={description} />
 <meta name="robots" content={robots} />
 <link rel="canonical" href={pageUrl} />
@@ -69,5 +69,5 @@ const jsonLd = [
 <link rel="icon" type="image/svg+xml" href="/hg-favicon.svg" />
 
 {jsonLd.map((schema) => (
-  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
 ))}

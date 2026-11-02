@@ -4,7 +4,7 @@ import {
   getWhatsAppHref,
   getContactContextByPath
 } from '../../data/contact';
-import { commercialCtas, funnelOffers } from '../../data/commercial';
+import { commercialCtas } from '../../data/commercial';
 
 interface Props {
   eyebrow?: string;
@@ -18,11 +18,11 @@ interface Props {
 }
 
 const {
-  eyebrow = funnelOffers.fitCall.name,
-  title = '¿Querés definir la mejor línea de servicio para tu operación?',
-  description = 'Revisamos tu contexto, priorizamos la ruta correcta y aterrizamos un alcance inicial sin vender una solución genérica.',
+  eyebrow = 'El siguiente paso',
+  title = 'No necesitás tener la solución. Empecemos por tu desafío.',
+  description = 'Contame qué querés mejorar y qué está dificultando avanzar. Conversamos para definir si puedo ayudarte y por dónde tiene sentido empezar.',
   ctaHref,
-  ctaLabel = commercialCtas.contact.label,
+  ctaLabel = 'Conversemos sobre tu desafío',
   service,
   originPath = '/',
   originLabel
@@ -68,7 +68,7 @@ const whatsappHref = getWhatsAppHref();
           <i class="fab fa-whatsapp text-green-400 text-sm"></i>
         </a>
         <p class="text-sm text-slate-400">
-          Respuesta inicial breve para definir si conviene diagnóstico, alcance o implementación.
+          Trabajás directamente conmigo. El alcance y las condiciones se acuerdan antes de empezar.
         </p>
       </div>
     </div>

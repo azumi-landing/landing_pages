@@ -54,7 +54,7 @@ const bodyClass = {
   <body class={bodyClass}>
     <MainNav currentPath={path} />
     {showSectionNav && sectionNavItems.length > 0 && <SectionNav items={sectionNavItems} />}
-    <slot />
+    <div id="contenido" tabindex="-1"><slot /></div>
     <SiteFooter />
     <WhatsAppFloatingButton />
   </body>

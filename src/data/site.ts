@@ -1,49 +1,46 @@
 import { CONTACT_PAGE_PATH, contactConfig } from './contact';
-import { activeSolutions, coreService } from './commercial';
 
 export const siteConfig = {
   name: 'HGuerra',
   url: 'https://hguerra.com',
   description:
-    'Héctor Guerra es consultor e implementador de automatización de procesos, datos y soluciones operativas especializadas.',
-  defaultImage: '/og-home.png',
+    'Héctor Guerra: consultoría independiente en madurez, datos e inteligencia artificial. Del diagnóstico y la hoja de ruta a la implementación y la mejora continua.',
+  defaultImage: '/og-consultoria.png',
   locale: 'es_HN'
 } as const;
 
 export const serviceLinks = [
   {
-    href: coreService.path,
-    label: coreService.name,
-    shortLabel: coreService.shortName,
-    description: coreService.description,
-    cta: coreService.cardCta,
-    icon: coreService.icon,
-    kind: 'core'
+    href: '/metodologia', label: 'Metodología', shortLabel: 'Metodología',
+    description: 'Evaluar capacidades, priorizar y construir el siguiente paso.',
+    cta: 'Explorar cómo trabajo', icon: 'fa-route', kind: 'consultoria'
   },
-  ...activeSolutions.map((solution) => ({
-    href: solution.path,
-    label: solution.name,
-    shortLabel: solution.shortName,
-    description: solution.description,
-    cta: solution.cardCta,
-    icon: solution.icon,
-    kind: 'solution'
-  }))
+  {
+    href: '/soluciones', label: 'Soluciones', shortLabel: 'Soluciones',
+    description: 'Consultoría y acompañamiento junto con ingeniería de datos e IA.',
+    cta: 'Explorar soluciones', icon: 'fa-database', kind: 'ingenieria'
+  }
+] as const;
+
+export const mainNavLinks = [
+  { href: '/', label: 'Inicio' },
+  ...serviceLinks.map(({ href, label }) => ({ href, label })),
+  { href: '/tecnologia', label: 'Tecnología' },
+  { href: '/sobre-mi', label: 'Sobre mí' },
+  { href: '/contacto', label: 'Contacto' }
 ] as const;
 
 export const footerLinks = [
-  { href: '/', label: 'Inicio' },
-  { href: '/sobre-mi', label: 'Sobre HGuerra' },
-  ...serviceLinks.map(({ href, label }) => ({ href, label })),
-  { href: '/contacto', label: 'Contacto' },
+  ...mainNavLinks,
   { href: '/privacidad', label: 'Privacidad' },
   { href: '/terminos', label: 'Términos' }
 ] as const;
 
 export const publicSiteRoutes = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },
-  { path: '/gestion-de-operaciones-de-campo', priority: '0.9', changefreq: 'weekly' },
-  { path: '/automatizacion-con-ia-agentica', priority: '0.9', changefreq: 'weekly' },
+  { path: '/metodologia', priority: '0.9', changefreq: 'monthly' },
+  { path: '/soluciones', priority: '0.9', changefreq: 'monthly' },
+  { path: '/tecnologia', priority: '0.7', changefreq: 'monthly' },
   { path: '/contacto', priority: '0.7', changefreq: 'weekly' },
   { path: '/sobre-mi', priority: '0.7', changefreq: 'monthly' },
   { path: '/privacidad', priority: '0.3', changefreq: 'yearly' },
@@ -64,21 +61,19 @@ function getWhatsappTelephone() {
   return normalizedNumber.startsWith('+') ? normalizedNumber : `+${normalizedNumber}`;
 }
 
-export function buildOrganizationSchema() {
+export function buildBrandPersonSchema() {
   const telephone = getWhatsappTelephone();
 
   return {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
-    '@id': getSiteUrl('/#organization'),
-    name: siteConfig.name,
+    '@type': 'Person',
+    '@id': getSiteUrl('/sobre-mi#person'),
+    name: 'Héctor Guerra',
+    alternateName: siteConfig.name,
+    jobTitle: 'Consultor independiente en madurez, datos e inteligencia artificial',
     url: siteConfig.url,
     description: siteConfig.description,
-    logo: getSiteUrl('/logo.png'),
     image: getSiteUrl('/mi_foto_pro.jpeg'),
-    founder: {
-      '@id': getSiteUrl('/sobre-mi#person')
-    },
     contactPoint: telephone
       ? [
           {
@@ -126,15 +121,15 @@ export function buildWebsiteSchema() {
     description: siteConfig.description,
     inLanguage: 'es',
     publisher: {
-      '@id': getSiteUrl('/#organization')
+      '@id': getSiteUrl('/sobre-mi#person')
     }
   };
 }
 
 export function buildPersonSchema({
   path = '/sobre-mi',
-  name = siteConfig.name,
-  description = 'Consultor e implementador para operación, automatización y diseño de soluciones digitales aplicadas.'
+  name = 'Héctor Guerra',
+  description = siteConfig.description
 }: {
   path?: string;
   name?: string;
@@ -148,9 +143,6 @@ export function buildPersonSchema({
     url: getSiteUrl(path),
     image: getSiteUrl('/mi_foto_pro.jpeg'),
     description,
-    worksFor: {
-      '@id': getSiteUrl('/#organization')
-    }
   };
 }
 
@@ -175,7 +167,7 @@ export function buildContactPageSchema({
       '@id': getSiteUrl('/#website')
     },
     mainEntity: {
-      '@id': getSiteUrl('/#organization')
+      '@id': getSiteUrl('/sobre-mi#person')
     }
   };
 }
@@ -211,7 +203,7 @@ export function buildServiceSchema({
     description,
     url: getSiteUrl(path),
     provider: {
-      '@id': getSiteUrl('/#organization')
+      '@id': getSiteUrl('/sobre-mi#person')
     }
   };
 

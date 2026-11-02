@@ -1,6 +1,6 @@
 # Biblioteca RAG de este proyecto
 
-Haiku.rag indexa `biblioteca/` en `.haiku-rag/biblioteca.lancedb`. El MCP `biblioteca` está configurado únicamente en el `opencode.json` de este repositorio y expone esa base en modo lectura. No es una configuración global ni una función del sitio web.
+Haiku.rag indexa `biblioteca/` en `.haiku-rag/biblioteca.lancedb`. El MCP `hg-rag-mcp` está configurado únicamente en el `opencode.json` de este repositorio y expone esa base en modo lectura. No es una configuración global ni una función del sitio web.
 
 ## Indexar y monitorear
 

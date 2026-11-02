@@ -8,6 +8,7 @@ interface Props {
   onclick?: string;
   class?: string;
   type?: 'button' | 'submit';
+  disabled?: boolean;
 }
 
 const { 
@@ -16,7 +17,8 @@ const {
   href, 
   onclick,
   class: className = '',
-  type = 'button'
+  type = 'button',
+  disabled = false
 } = Astro.props;
 
 const baseClasses = 'inline-flex items-center gap-2 rounded-full font-semibold transition-all duration-200';
@@ -43,7 +45,7 @@ const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} 
     <slot />
   </a>
 ) : (
-  <button type={type} class={classes} onclick={onclick}>
+  <button type={type} class={classes} onclick={onclick} disabled={disabled}>
     <slot />
   </button>
 )}

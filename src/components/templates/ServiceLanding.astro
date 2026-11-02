@@ -5,6 +5,7 @@ import Contact from '../sections/Contact/index.astro';
 import RelatedServices from '../sections/RelatedServices.astro';
 
 import TrustBand from '../sections/TrustBand.astro';
+import FaqSection from '../sections/FaqSection.astro';
 import type { ServiceLandingConfig } from '../../types/serviceLanding';
 
 interface Props {
@@ -554,7 +555,7 @@ const heroPatternClass = {
     </section>
   )}
 
-  <section id="diferenciacion" class="section-shell section-dark">
+  {config.differentiators.length > 0 && (<section id="diferenciacion" class="section-shell section-dark">
     <div class="page-container">
       <div class="section-intro section-intro-center">
         <h2 class="section-title text-white">
@@ -644,42 +645,7 @@ const heroPatternClass = {
   )}
 
 
-  <section id="faq" class="section-shell section-light">
-    <div class="page-container-text">
-      <div class="section-intro section-intro-center">
-        <h2 class="section-title text-[#1E293B]">
-          {config.faqTitle}
-        </h2>
-        <p class="section-copy text-[#475569]">
-          {config.faqSubtitle}
-        </p>
-      </div>
-
-      <div class="space-y-4">
-        {config.faqs.map((faq, index) => (
-          <details class="surface-card overflow-hidden group">
-            <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-slate-50 transition-colors">
-              <div class="flex items-center gap-4">
-                <span class="service-faq-badge w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm shrink-0">
-                  {index + 1}
-                </span>
-                <h3 class="text-lg font-semibold text-[#1E293B]">{faq.question}</h3>
-              </div>
-              <Icon
-                name="fa-chevron-down"
-                class="text-slate-400 transition-transform duration-300 group-open:rotate-180"
-              />
-            </summary>
-            <div class="px-6 pb-6 pt-2">
-              <div class="pl-12">
-                <p class="text-[#475569] leading-relaxed whitespace-pre-line">{faq.answer}</p>
-              </div>
-            </div>
-          </details>
-        ))}
-      </div>
-    </div>
-  </section>
+  <FaqSection title={config.faqTitle} description={config.faqSubtitle} items={config.faqs} />
 
   <RelatedServices currentPath={config.path} />
 

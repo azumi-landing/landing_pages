@@ -1,0 +1,37 @@
+---
+import { businessServices } from '../../data/commercial';
+import { buildContactHref } from '../../data/contact';
+interface Props { detailed?: boolean }
+const { detailed = false } = Astro.props;
+const technologyLinks: Partial<Record<string, { href: string; label: string }>> = {
+  datos: { href: '/tecnologia#datos', label: 'Explorar capacidades de datos' },
+  ia: { href: '/tecnologia#ia', label: 'Explorar capacidades de inteligencia artificial' }
+};
+const groups = [
+  { id: 'consultoria', label: 'Consultoría y acompañamiento', title: 'Claridad para orientar.', description: 'Entender el punto de partida, alinear al equipo y decidir qué cambio vale la pena.' },
+  { id: 'ingenieria', label: 'Ingeniería e implementación', title: 'Capacidad para construir.', description: 'Convertir las prioridades en soluciones integradas, evaluables y sostenibles.' }
+];
+---
+<div class="grid gap-8 lg:grid-cols-2">
+  {groups.map((group) => <section aria-labelledby={`pillar-${group.id}`} class="surface-card surface-panel p-6 md:p-9 flex flex-col">
+    <p class="section-eyebrow text-blue-700">{group.label}</p>
+    <h3 id={`pillar-${group.id}`} class="text-3xl font-bold text-slate-950 mb-4">{group.title}</h3>
+    <p class="text-slate-600 leading-relaxed mb-8">{group.description}</p>
+    <div class="space-y-8 flex-1">
+      {businessServices.filter(({ group: id }) => id === group.id).map((service) => <article id={service.id} class="border-t border-slate-200 pt-6">
+        <h4 class="text-xl font-bold text-slate-950 mb-3"><i class={`fas ${service.icon} text-blue-700 mr-3`} aria-hidden="true"></i>{service.title}</h4>
+        <p class="text-slate-600 leading-relaxed">{service.need}</p>
+        {detailed && <>
+          <p class="mt-4 text-slate-700 leading-relaxed">{service.work}</p>
+          <p class="mt-5 text-sm font-bold text-slate-950">Qué puede incluir el trabajo</p>
+          <ul class="mt-3 space-y-2 text-slate-600">{service.deliverables.map((item) => <li class="flex gap-3"><span class="text-blue-700" aria-hidden="true">→</span>{item}</li>)}</ul>
+          <p class="mt-5 text-sm leading-relaxed text-slate-700"><strong>Para qué:</strong> {service.success}</p>
+          <a class="action-link mt-5" href={buildContactHref({ service: service.id, originPath: '/soluciones' })}>Consultar sobre {service.title.toLowerCase()} <span aria-hidden="true">↗</span></a>
+          {technologyLinks[service.id] && <p class="mt-4 text-sm"><a class="text-slate-600 underline underline-offset-4 hover:text-blue-700" href={technologyLinks[service.id]?.href}>{technologyLinks[service.id]?.label} <span aria-hidden="true">↗</span></a></p>}
+        </>}
+      </article>)}
+    </div>
+    {!detailed && <a class="action-link mt-8" href={`/soluciones#${group.id === 'consultoria' ? 'madurez' : 'datos'}`}>Explorar soluciones <span aria-hidden="true">↗</span></a>}
+    {!detailed && group.id === 'ingenieria' && <a class="mt-4 text-sm text-slate-600 underline underline-offset-4 hover:text-blue-700" href="/tecnologia">Conocé la tecnología detrás de las soluciones <span aria-hidden="true">↗</span></a>}
+  </section>)}
+</div>

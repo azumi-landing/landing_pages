@@ -2,14 +2,14 @@ import type { ServiceLandingConfig } from '../types/serviceLanding';
 import { agenticAutomationTheme, fieldOperationsTheme, processAutomationTheme } from './serviceThemes';
 import { fieldOperationsFaqs } from './faqs';
 import { buildContactHref } from './contact';
-import { activeSolutions, coreService, funnelOffers } from './commercial';
+import { solutions, coreService, funnelOffers } from './commercial';
 
-const fieldOperationsSolution = activeSolutions.find(
+const fieldOperationsSolution = solutions.find(
   (solution) => solution.id === 'operaciones-de-campo'
 );
 
 if (!fieldOperationsSolution) {
-  throw new Error('The field operations solution must remain active.');
+  throw new Error('Missing preserved field operations configuration.');
 }
 
 const coreServiceContactHref = buildContactHref({

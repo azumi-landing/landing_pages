@@ -1,0 +1,11 @@
+---
+import { methodologyStages } from '../../data/methodology';
+---
+<ol class="grid gap-6 lg:grid-cols-3">
+  {methodologyStages.map((step) => <li class="surface-card surface-panel p-7 md:p-8">
+    <span class="text-sm font-semibold tracking-widest text-blue-700">{step.number} /</span>
+    <h3 class="mt-6 mb-4 text-2xl font-bold text-slate-950">{step.title}</h3>
+    <p class="text-slate-600 leading-relaxed">{step.description}</p>
+    <ul class="mt-6 border-t border-slate-200 pt-5 space-y-3">{step.items.map((item) => <li class="text-sm text-slate-700 flex gap-3"><span class="text-blue-700" aria-hidden="true">✓</span>{item}</li>)}</ul>
+  </li>)}
+</ol>

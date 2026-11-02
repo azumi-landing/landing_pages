@@ -1,0 +1,14 @@
+---
+import type { FaqItem } from '../../types/serviceLanding';
+interface Props { title?: string; description?: string; items: FaqItem[] }
+const { title = 'Antes de dar el siguiente paso', description = 'Respuestas claras para decidir con contexto.', items } = Astro.props;
+---
+<section id="faq" class="section-shell section-light" aria-labelledby="faq-title">
+  <div class="page-container-text">
+    <div class="section-intro"><p class="section-eyebrow text-slate-500">Preguntas frecuentes</p><h2 id="faq-title" class="section-title">{title}</h2><p class="section-copy text-slate-600">{description}</p></div>
+    <div class="space-y-4">{items.map((faq) => <details class="surface-card group">
+      <summary class="p-6 cursor-pointer font-semibold text-lg text-slate-950">{faq.question}</summary>
+      <p class="px-6 pb-6 text-slate-600 leading-relaxed whitespace-pre-line">{faq.answer}</p>
+    </details>)}</div>
+  </div>
+</section>

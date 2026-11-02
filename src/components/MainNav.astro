@@ -1,318 +1,46 @@
 ---
 import LogoHG from './LogoHG.astro';
-import { CONTACT_PAGE_PATH } from '../data/contact';
-import { serviceLinks } from '../data/site';
-
-interface Props {
-  currentPath?: string;
-}
-
+import { mainNavLinks as links } from '../data/site';
+interface Props { currentPath?: string }
 const { currentPath = '/' } = Astro.props;
-
-const homeLink = { href: '/', label: 'Inicio' };
-const aboutLink = { href: '/sobre-mi', label: 'Sobre mí' };
-const contactLink = {
-  href: currentPath === '/' ? '#contacto-general' : CONTACT_PAGE_PATH,
-  label: 'Contacto'
-};
-const isActive = (href: string) => currentPath === href;
-const isServicesActive = serviceLinks.some((link) => link.href === currentPath);
 ---
-
-<nav class="main-nav sticky top-0 left-0 right-0 z-50 border-b border-slate-800/80 bg-slate-950/88 backdrop-blur-xl">
-  <div class="main-nav-shell page-container px-0">
-    <div class="flex items-center justify-between gap-4 py-4">
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<nav aria-label="Navegación principal" class="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/95 backdrop-blur-xl">
+  <div class="page-container">
+    <div class="flex items-center justify-between gap-5 py-4">
       <div class="flex items-center gap-3 min-w-0">
         <LogoHG />
-        <div class="hidden sm:block min-w-0">
-          <a href="/" class="block text-sm font-semibold text-white leading-none truncate">HGuerra</a>
-          <p class="text-xs text-slate-400 truncate">Operación, automatización y sistemas útiles</p>
-        </div>
+        <a href="/" class="min-w-0 text-white"><span class="block font-semibold">HGuerra <span class="hidden sm:inline text-slate-400 font-normal">/ Héctor Guerra</span></span><span class="block text-xs text-slate-400">Madurez · Datos · Inteligencia artificial</span></a>
       </div>
-
       <div class="hidden lg:flex items-center gap-2">
-        <a
-          href={homeLink.href}
-          aria-current={isActive(homeLink.href) ? 'page' : undefined}
-          class:list={[
-            'nav-link',
-            isActive(homeLink.href) && 'nav-link-active'
-          ]}
-        >
-          {homeLink.label}
-        </a>
-
-        <a
-          href={aboutLink.href}
-          aria-current={isActive(aboutLink.href) ? 'page' : undefined}
-          class:list={[
-            'nav-link',
-            isActive(aboutLink.href) && 'nav-link-active'
-          ]}
-        >
-          {aboutLink.label}
-        </a>
-
-        <details class="services-menu group relative">
-          <summary
-            class:list={[
-              'nav-link nav-summary',
-              isServicesActive && 'nav-link-active'
-            ]}
-            aria-label="Ver servicios"
-          >
-            <span>Servicios</span>
-            <i class="fas fa-chevron-down text-[11px] transition-transform duration-200 group-open:rotate-180"></i>
-          </summary>
-
-          <div class="services-popover absolute right-0 top-[calc(100%+0.9rem)] w-[22rem] rounded-2xl border border-white/10 bg-slate-950/96 p-3 shadow-2xl shadow-black/40">
-            <div class="px-3 pb-2">
-              <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">Servicios</p>
-            </div>
-
-            <div class="space-y-1">
-              {serviceLinks.map((link) => (
-                <a
-                  href={link.href}
-                  aria-current={isActive(link.href) ? 'page' : undefined}
-                  class:list={[
-                    'service-option block rounded-xl px-3 py-3 transition-colors',
-                    isActive(link.href) && 'service-option-active'
-                  ]}
-                >
-                  <span class="block text-sm font-semibold text-white">{link.shortLabel}</span>
-                  <span class="mt-1 block text-sm leading-relaxed text-slate-400">{link.description}</span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </details>
-
-        <a href={contactLink.href} class="nav-cta">
-          {contactLink.label}
-        </a>
+        {links.map((link) => <a href={link.href} aria-current={currentPath === link.href ? 'page' : undefined} class:list={['nav-link', link.href === '/contacto' && 'nav-contact']}>{link.label}</a>)}
       </div>
-
-      <div class="flex items-center gap-2">
-        <button
-          id="main-nav-toggle"
-          type="button"
-          class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-200 transition-colors hover:bg-white/10 lg:hidden"
-          aria-label="Abrir navegación"
-          aria-expanded="false"
-          aria-controls="main-nav-mobile"
-        >
-          <i class="fas fa-bars text-base"></i>
-        </button>
-      </div>
+      <button id="main-nav-toggle" type="button" hidden class="lg:hidden h-12 w-12 shrink-0 rounded-full border border-slate-600 text-white" aria-label="Abrir navegación" aria-expanded="false" aria-controls="main-nav-mobile"><i class="fas fa-bars" aria-hidden="true"></i></button>
     </div>
-
-    <div
-      id="main-nav-mobile"
-      class="mobile-panel hidden border-t border-white/10 pb-4 pt-3 lg:hidden"
-    >
-      <div class="space-y-2">
-        <a
-          href={homeLink.href}
-          aria-current={isActive(homeLink.href) ? 'page' : undefined}
-          class:list={[
-            'mobile-link',
-            isActive(homeLink.href) && 'mobile-link-active'
-          ]}
-        >
-          {homeLink.label}
-        </a>
-
-        <a
-          href={aboutLink.href}
-          aria-current={isActive(aboutLink.href) ? 'page' : undefined}
-          class:list={[
-            'mobile-link',
-            isActive(aboutLink.href) && 'mobile-link-active'
-          ]}
-        >
-          {aboutLink.label}
-        </a>
-
-        <details class="mobile-services rounded-2xl border border-white/10 bg-white/5">
-          <summary class="mobile-link flex items-center justify-between list-none cursor-pointer">
-            <span>Servicios</span>
-            <i class="fas fa-chevron-down text-xs text-slate-400 transition-transform duration-200"></i>
-          </summary>
-
-          <div class="space-y-1 px-2 pb-2">
-            {serviceLinks.map((link) => (
-              <a
-                href={link.href}
-                aria-current={isActive(link.href) ? 'page' : undefined}
-                class:list={[
-                  'mobile-service-link block rounded-xl px-3 py-3 transition-colors',
-                  isActive(link.href) && 'mobile-service-link-active'
-                ]}
-              >
-                <span class="block text-sm font-semibold text-white">{link.shortLabel}</span>
-                <span class="mt-1 block text-sm leading-relaxed text-slate-400">{link.description}</span>
-              </a>
-            ))}
-          </div>
-        </details>
-
-        <a href={contactLink.href} class="mobile-cta">
-          {contactLink.label}
-        </a>
-      </div>
+    <div id="main-nav-mobile" class="lg:hidden border-t border-slate-700 pb-4 pt-3">
+      {links.map((link) => <a href={link.href} aria-current={currentPath === link.href ? 'page' : undefined} class="nav-link block">{link.label}</a>)}
     </div>
   </div>
 </nav>
-
 <script>
   const toggle = document.getElementById('main-nav-toggle');
-  const mobilePanel = document.getElementById('main-nav-mobile');
-  const servicesMenu = document.querySelector('.services-menu');
-
-  const closeMobilePanel = () => {
-    if (!(toggle instanceof HTMLButtonElement) || !(mobilePanel instanceof HTMLElement)) return;
-
-    mobilePanel.classList.add('hidden');
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.innerHTML = '<i class="fas fa-bars text-base"></i>';
-  };
-
-  if (toggle instanceof HTMLButtonElement && mobilePanel instanceof HTMLElement) {
+  const panel = document.getElementById('main-nav-mobile');
+  if (toggle instanceof HTMLButtonElement && panel instanceof HTMLElement) {
+    toggle.hidden = false;
+    panel.classList.add('hidden');
+    const close = () => { panel.classList.add('hidden'); toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Abrir navegación'); };
     toggle.addEventListener('click', () => {
-      const isHidden = mobilePanel.classList.toggle('hidden');
-      toggle.setAttribute('aria-expanded', String(!isHidden));
-      toggle.innerHTML = isHidden
-        ? '<i class="fas fa-bars text-base"></i>'
-        : '<i class="fas fa-xmark text-base"></i>';
+      const open = panel.classList.toggle('hidden') === false;
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Cerrar navegación' : 'Abrir navegación');
     });
-
-    mobilePanel.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', closeMobilePanel);
-    });
+    panel.querySelectorAll('a').forEach((link) => link.addEventListener('click', close));
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && !panel.classList.contains('hidden')) { close(); toggle.focus(); } });
   }
-
-  document.addEventListener('click', (event) => {
-    if (!(servicesMenu instanceof HTMLDetailsElement)) return;
-
-    const target = event.target;
-    if (target instanceof Node && !servicesMenu.contains(target)) {
-      servicesMenu.removeAttribute('open');
-    }
-  });
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      closeMobilePanel();
-
-      if (servicesMenu instanceof HTMLDetailsElement) {
-        servicesMenu.removeAttribute('open');
-      }
-    }
-  });
 </script>
-
 <style>
-  .nav-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border-radius: 9999px;
-    padding: 0.65rem 0.95rem;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: rgb(203 213 225);
-    transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
-  }
-
-  .nav-link:hover {
-    background: rgba(255, 255, 255, 0.06);
-    color: white;
-  }
-
-  .nav-link-active {
-    background: rgba(59, 130, 246, 0.14);
-    color: rgb(191 219 254);
-  }
-
-  .nav-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9999px;
-    padding: 0.8rem 1.15rem;
-    background: white;
-    color: rgb(15 23 42);
-    font-size: 0.95rem;
-    font-weight: 700;
-    box-shadow: 0 18px 40px -26px rgba(255, 255, 255, 0.75);
-    transition: transform 160ms ease, background-color 160ms ease;
-  }
-
-  .nav-cta:hover {
-    transform: translateY(-1px);
-    background: rgb(248 250 252);
-  }
-
-  .nav-summary {
-    list-style: none;
-    cursor: pointer;
-  }
-
-  .nav-summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .services-popover::before {
-    content: '';
-    position: absolute;
-    inset: -0.6rem 0 auto;
-    height: 0.6rem;
-  }
-
-  .service-option:hover,
-  .service-option-active {
-    background: rgba(255, 255, 255, 0.06);
-  }
-
-  .mobile-link {
-    display: block;
-    border-radius: 1rem;
-    padding: 0.9rem 1rem;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: rgb(226 232 240);
-    transition: background-color 160ms ease, color 160ms ease;
-  }
-
-  .mobile-link:hover,
-  .mobile-link-active {
-    background: rgba(255, 255, 255, 0.08);
-    color: white;
-  }
-
-  .mobile-cta {
-    display: block;
-    border-radius: 1rem;
-    padding: 0.95rem 1rem;
-    background: white;
-    color: rgb(15 23 42);
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-align: center;
-  }
-
-  .mobile-services[open] summary i {
-    transform: rotate(180deg);
-  }
-
-  .mobile-service-link:hover,
-  .mobile-service-link-active {
-    background: rgba(255, 255, 255, 0.06);
-  }
-
-  .mobile-cta {
-    background: linear-gradient(135deg, rgb(59 130 246), rgb(14 165 233));
-    box-shadow: 0 20px 45px -28px rgba(59, 130, 246, 0.48);
-  }
+  .nav-link { padding: .8rem 1rem; border-radius: 999px; color: #cbd5e1; font-weight: 600; font-size: .9rem; }
+  .nav-link:hover, .nav-link[aria-current="page"] { color: white; background: #1e293b; }
+  .nav-contact { background: white; color: #0f172a; }
+  .nav-contact:hover, .nav-contact[aria-current="page"] { background: #cbd5e1; color: #0f172a; }
 </style>

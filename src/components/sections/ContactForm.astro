@@ -4,9 +4,12 @@ import {
   formTopics,
   getContactServiceGuidance,
   getContactServiceLabel,
-  isValidContactService
+  normalizeContactService,
+  normalizeContactOrigin,
+  getContactContextByPath,
+  getWhatsAppHref,
+  contactServices
 } from '../../data/contact';
-import { commercialCtas, funnelOffers } from '../../data/commercial';
 
 interface Props {
   defaultService?: string | null;
@@ -18,15 +21,16 @@ interface Props {
 const {
   defaultService = '',
   originPath = '',
-  originLabel = '',
   tone = 'dark'
 } = Astro.props;
 
-const normalizedService = isValidContactService(defaultService) ? defaultService : '';
-const resolvedOriginLabel = originLabel || getContactServiceLabel(normalizedService);
+const normalizedService = normalizeContactService(defaultService);
+const normalizedOrigin = normalizeContactOrigin(originPath ?? '');
+const resolvedOriginLabel = getContactContextByPath(normalizedOrigin).originLabel;
 const serviceGuidance = getContactServiceGuidance(normalizedService);
-const detailPlaceholder = serviceGuidance?.detailPlaceholder
-  ?? 'Proceso por mejorar, equipo que usa hoy el flujo y sistemas existentes.';
+const genericDetailPlaceholder = '¿Qué querés mejorar? ¿Qué está frenando el avance? Contame el contexto, el equipo involucrado y el cambio que esperás conseguir.';
+const detailPlaceholder = serviceGuidance?.detailPlaceholder ?? genericDetailPlaceholder;
+const guidance = Object.fromEntries(contactServices.map(({ value }) => [value, getContactServiceGuidance(value)?.detailPlaceholder ?? genericDetailPlaceholder]));
 const isLight = tone === 'light';
 const labelClass = isLight ? 'text-slate-700' : 'text-slate-300';
 const inputClass = isLight
@@ -37,13 +41,16 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
 ---
 
 <form
+  method="post"
+  action="/contacto"
   class="space-y-6"
   data-emailjs-form
   data-emailjs-service-id={import.meta.env.PUBLIC_EMAILJS_SERVICE_ID ?? ''}
   data-emailjs-template-id={import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID ?? ''}
   data-emailjs-public-key={import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY ?? ''}
+  data-guidance={JSON.stringify(guidance)}
 >
-  <input type="hidden" name="origin_path" value={originPath} />
+  <input type="hidden" name="origin_path" value={normalizedOrigin} />
   <input type="hidden" name="origin_label" value={resolvedOriginLabel} />
   <input type="hidden" name="page_url" value={Astro.url.pathname} />
   <input type="hidden" name="reply_to" value="" />
@@ -66,6 +73,9 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
       class={`w-full px-4 py-3 rounded-2xl focus:outline-none transition-colors ${inputClass}`}
       placeholder="tu@empresa.com"
       autocomplete="email"
+      maxlength="254"
+      autocapitalize="none"
+      spellcheck="false"
     />
   </div>
 
@@ -90,22 +100,26 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
   </div>
 
   <div>
-    <label for="contact-detail" class={`block text-sm font-medium mb-2 ${labelClass}`}>Detalle breve *</label>
+    <label for="contact-detail" class={`block text-sm font-medium mb-2 ${labelClass}`}>Contame tu desafío *</label>
     <textarea
       id="contact-detail"
       name="detalle"
       rows={5}
       required
+      maxlength="5000"
+      aria-describedby="contact-detail-help"
       class={`w-full px-4 py-3 rounded-2xl focus:outline-none transition-colors resize-y ${inputClass}`}
       placeholder={detailPlaceholder}
     ></textarea>
+    <p id="contact-detail-help" class={`mt-2 text-sm ${legalTextClass}`}>No incluyás contraseñas, datos personales de terceros ni información confidencial.</p>
   </div>
 
-  <Button type="submit" variant="primary" size="lg" class="w-full justify-center">
-    {commercialCtas.fitCall.label} ({funnelOffers.fitCall.duration})
+  <Button type="submit" variant="primary" size="lg" class="w-full justify-center" disabled>
+    Enviar consulta
   </Button>
 
-  <div data-form-feedback class="hidden text-center py-4 rounded-lg text-sm"></div>
+  <div data-form-feedback role="status" aria-live="polite" aria-atomic="true" class="text-center text-sm"></div>
+  <noscript><p class={labelClass}>El envío del formulario requiere JavaScript. Habilitalo para enviar tu consulta.{getWhatsAppHref() !== '/contacto' && <> También podés <a class="underline" href={getWhatsAppHref()}>escribirme por WhatsApp</a>.</>}</p></noscript>
 
   <p class={`text-xs leading-relaxed ${legalTextClass}`}>
     Al enviar este formulario aceptás el tratamiento básico de tus datos para responder tu consulta.
@@ -137,6 +151,18 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
     const originPathField = form.querySelector('input[name="origin_path"]');
     const originLabelField = form.querySelector('input[name="origin_label"]');
     const pageUrlField = form.querySelector('input[name="page_url"]');
+    const initialSubmitLabel = submitBtn?.textContent?.trim() || 'Enviar consulta';
+    const placeholders: Record<string, string> = JSON.parse(form.dataset.guidance ?? '{}');
+    if (submitBtn instanceof HTMLButtonElement) submitBtn.disabled = false;
+    const syncGuidance = () => {
+      if (detailField instanceof HTMLTextAreaElement && serviceField instanceof HTMLSelectElement) {
+        detailField.placeholder = placeholders[serviceField.value] ?? '';
+      }
+    };
+    serviceField?.addEventListener('change', syncGuidance);
+    detailField?.addEventListener('input', () => {
+      if (detailField instanceof HTMLTextAreaElement) detailField.setCustomValidity('');
+    });
 
     const setFeedback = (type, message) => {
       if (!(feedback instanceof HTMLElement)) {
@@ -145,8 +171,8 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
 
       const baseClasses = 'block text-center py-4 rounded-lg text-sm border';
       const toneClasses = {
-        success: 'bg-green-500/20 text-green-400 border-green-500/30',
-        error: 'bg-red-500/20 text-red-400 border-red-500/30'
+        success: 'bg-emerald-50 text-emerald-900 border-emerald-300',
+        error: 'bg-red-50 text-red-900 border-red-300'
       };
 
       feedback.className = `${baseClasses} ${toneClasses[type] ?? toneClasses.error}`;
@@ -211,12 +237,20 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
       if (!(submitBtn instanceof HTMLButtonElement)) {
         return;
       }
+      if (submitBtn.disabled) return;
+      if (detailField instanceof HTMLTextAreaElement && !detailField.value.trim()) {
+        detailField.setCustomValidity('Contame brevemente qué necesitás mejorar.');
+        detailField.reportValidity();
+        return;
+      }
 
       submitBtn.disabled = true;
       submitBtn.textContent = 'Enviando...';
+      form.setAttribute('aria-busy', 'true');
+      if (feedback instanceof HTMLElement) feedback.textContent = 'Enviando tu consulta…';
 
       if (pageUrlField instanceof HTMLInputElement) {
-        pageUrlField.value = window.location.href;
+        pageUrlField.value = `${window.location.origin}${window.location.pathname}`;
       }
 
       syncEmailJsFields();
@@ -248,6 +282,7 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
           pageUrlField.value = pageUrlField.defaultValue;
         }
 
+        syncGuidance();
         syncEmailJsFields();
       } catch (error) {
         console.error('EmailJS submit failed', error);
@@ -260,7 +295,8 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
         setFeedback('error', 'No pude enviar el mensaje. Escribime por WhatsApp mientras reviso el formulario.');
       } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Enviar mensaje';
+        submitBtn.textContent = initialSubmitLabel;
+        form.removeAttribute('aria-busy');
       }
     });
   });

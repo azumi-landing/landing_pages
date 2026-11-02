@@ -3,7 +3,7 @@
   "permission": "allow",
   "mcp": {
     "servers": {
-      "biblioteca": {
+      "hg-rag-mcp": {
         "type": "local",
         "command": ["uvx", "--from", "haiku-rag==0.104.0", "haiku-rag", "--config", "haiku.rag.yaml", "mcp", "--stdio"],
         "cwd": ".",
