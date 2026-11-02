@@ -263,6 +263,8 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
         await emailjs.sendForm(serviceId, templateId, form, { publicKey });
 
         setFeedback('success', 'Mensaje enviado. Te responderé pronto.');
+        // No form fields are exposed to analytics; an absent/blocked tag is harmless.
+        document.dispatchEvent(new Event('hg:lead-generated'));
         form.reset();
 
         if (serviceField instanceof HTMLSelectElement) {

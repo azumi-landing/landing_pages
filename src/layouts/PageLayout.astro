@@ -5,6 +5,7 @@ import SectionNav from '../components/SectionNav.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import WhatsAppFloatingButton from '../components/atoms/WhatsAppFloatingButton.astro';
 import SeoHead from '../components/SeoHead.astro';
+import AnalyticsConsent from '../components/AnalyticsConsent.astro';
 import { siteConfig } from '../data/site';
 
 interface Props {
@@ -56,6 +57,7 @@ const bodyClass = {
     {showSectionNav && sectionNavItems.length > 0 && <SectionNav items={sectionNavItems} />}
     <div id="contenido" tabindex="-1"><slot /></div>
     <SiteFooter />
+    <AnalyticsConsent enabled={!noindex} />
     <WhatsAppFloatingButton />
   </body>
 </html>

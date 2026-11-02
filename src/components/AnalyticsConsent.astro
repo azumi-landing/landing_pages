@@ -1,0 +1,32 @@
+---
+import { publicSiteRoutes, siteConfig } from '../data/site';
+
+interface Props { enabled: boolean }
+const measurementId = (import.meta.env.PUBLIC_GA4_MEASUREMENT_ID ?? '').trim();
+const paths: string[] = publicSiteRoutes.map(({ path }) => path);
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const enabled = Astro.props.enabled && import.meta.env.PROD
+  && /^G-[A-Z0-9]+$/.test(measurementId) && paths.includes(path);
+---
+
+{enabled && <div id="analytics-consent" data-measurement-id={measurementId} data-site-origin={new URL(siteConfig.url).origin}>
+  <div class="bg-slate-950 px-6 pb-6 text-center">
+    <button type="button" data-analytics-preferences hidden class="text-sm text-slate-300 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-cyan-300">Preferencias de analítica</button>
+  </div>
+  <section data-analytics-banner hidden aria-label="Preferencias de analítica" class="fixed bottom-0 inset-x-0 z-50 max-h-[70vh] overflow-y-auto border-t border-slate-600 bg-slate-950 p-6 text-white shadow-xl">
+    <div class="page-container flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+      <div class="max-w-2xl">
+        <h2 class="text-lg font-semibold mb-2">¿Permitís la analítica de visitas?</h2>
+        <p class="text-sm text-slate-300">Con tu permiso, uso Google Analytics para entender las visitas y los contactos recibidos. Podés rechazarlo y usar el sitio igualmente, o cambiar tu decisión desde el pie. <a href="/privacidad" class="underline underline-offset-4">Política de privacidad</a>.</p>
+      </div>
+      <div class="flex flex-wrap gap-3 shrink-0">
+        <button type="button" data-analytics-reject class="rounded-xl border border-slate-400 px-5 py-3 font-semibold hover:bg-slate-800 focus-visible:outline-2 focus-visible:outline-cyan-300">Rechazar</button>
+        <button type="button" data-analytics-accept class="rounded-xl border border-slate-400 px-5 py-3 font-semibold hover:bg-slate-800 focus-visible:outline-2 focus-visible:outline-cyan-300">Aceptar analítica</button>
+      </div>
+    </div>
+  </section>
+</div>}
+
+<script>
+  import '../scripts/analytics';
+</script>
