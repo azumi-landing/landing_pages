@@ -3,6 +3,11 @@ scripts:
   runCommand: npm run start
 
 env:
+  - variable: PUBLIC_GA4_MEASUREMENT_ID
+    value: "G-HGXKWR00FG"
+    availability:
+      - BUILD
+      - RUNTIME
   - variable: PUBLIC_EMAILJS_SERVICE_ID
     value: service_tyrkren
     availability:

@@ -48,6 +48,8 @@ PUBLIC_GA4_MEASUREMENT_ID=G-HGXKWR00FG
 
 No subas `.env` a Git. Configurá la misma variable en el hosting **antes del build**: Astro la incorpora al compilar. Vacía o inválida desactiva la integración. `npm run dev`, hosts de preview/locales, páginas `noindex` y rutas fuera del sitemap no cargan GA4. La comprobación en navegador exige el origen de producción `https://hguerra.com`; no se habilita telemetría local para probar por rutina.
 
+En Firebase App Hosting, `apphosting.yaml` declara el ID público para BUILD y RUNTIME. Publicar ese cambio requiere un nuevo build/despliegue; el `.env` local no configura Firebase. Si existe una variable del mismo nombre en la consola de Firebase, revisá su valor: tiene prioridad sobre el archivo.
+
 La etiqueta solo se descarga tras aceptar analítica, o con un permiso vigente guardado en ese navegador. La elección dura hasta 180 días. «Preferencias de analítica» permite rechazar o retirar el permiso sin recargar ni perder el formulario. Sin consentimiento no se encolan visitas o contactos para enviarlos después. El rechazo mantiene disponibles todas las funciones del sitio.
 
 ### Antes de pulsar «Probar instalación» en Google
