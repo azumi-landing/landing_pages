@@ -71,7 +71,10 @@ export function buildBrandPersonSchema() {
     name: 'Héctor Guerra',
     alternateName: siteConfig.name,
     jobTitle: 'Consultor independiente en madurez, datos e inteligencia artificial',
-    url: siteConfig.url,
+    url: getSiteUrl('/sobre-mi'),
+    mainEntityOfPage: {
+      '@id': getSiteUrl('/sobre-mi#webpage')
+    },
     description: siteConfig.description,
     image: getSiteUrl('/mi_foto_pro.jpeg'),
     contactPoint: telephone
@@ -116,7 +119,7 @@ export function buildWebsiteSchema() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     '@id': getSiteUrl('/#website'),
-    url: siteConfig.url,
+    url: getSiteUrl('/'),
     name: siteConfig.name,
     description: siteConfig.description,
     inLanguage: 'es',
@@ -158,7 +161,7 @@ export function buildContactPageSchema({
   return {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
-    '@id': `${getSiteUrl(path)}#contactpage`,
+    '@id': `${getSiteUrl(path)}#webpage`,
     url: getSiteUrl(path),
     name: title,
     description,
@@ -194,10 +197,13 @@ export function buildServiceSchema({
     priceCurrency: string;
   };
 }) {
+  const serviceId = new URL(getSiteUrl(path));
+  serviceId.hash = serviceId.hash ? `${serviceId.hash.slice(1)}-service` : 'service';
+
   const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    '@id': `${getSiteUrl(path)}#service`,
+    '@id': serviceId.toString(),
     serviceType: name,
     name,
     description,
