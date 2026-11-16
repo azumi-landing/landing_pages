@@ -1,100 +1,131 @@
-export const ispAreas = [
+export const ispChallenges = [
   {
-    number: '01', name: 'Comercial', title: 'De la consulta al cliente activo.',
-    pain: 'Una venta se queda entre WhatsApp, la cotización y una instalación que nadie confirma.',
-    solution: 'Conecto ventas, altas, facturación y pagos para dar seguimiento a cada oportunidad hasta la activación.',
-    examples: ['Seguimiento de prospectos y activaciones', 'Portales de abonados y gestión de solicitudes', 'Cobranza y conciliación entre sistemas'],
-    outcome: 'Para dar seguimiento a las oportunidades y entender dónde se detienen los ingresos.',
-    kpis: ['Conversión de prospectos a altas activadas', 'Bajas de clientes — churn', 'Ingreso promedio por abonado — ARPU', 'Cartera vencida'],
-    kpiDecision: '¿Dónde se pierden oportunidades o ingresos y qué clientes requieren seguimiento?'
+    id: 'comercial', area: 'Comercial', title: 'Ganar y conservar clientes sin perder de vista el negocio.',
+    pains: [
+      { id: 'retencion', title: 'Competir no puede ser solo bajar el precio.', text: 'La presión por descontar exige equilibrar captación, retención y valor por cliente.' },
+      { id: 'facturacion', title: 'Planes, tarifas y facturación necesitan coherencia.', text: 'Al cambiar ofertas o crecer, ventas, activación y cobros deben compartir las mismas reglas.' }
+    ],
+    solution: 'Construyo o integro seguimiento comercial, módulos de planes y altas y conciliaciones. Relaciono ingresos y bajas para analizar la retención por plan o segmento.',
+    sources: 'CRM · Facturación · Pagos · Atención',
+    decision: 'Identificar dónde se pierden oportunidades y qué clientes requieren seguimiento.',
+    kpis: 'Conversión a altas · Churn · ARPU · Cartera vencida',
+    measurementNote: 'ARPU no equivale a margen: evaluar rentabilidad requiere relacionar también los costos.'
   },
   {
-    number: '02', name: 'Operación', title: 'Del reclamo a una solución trazable.',
-    pain: 'El cliente vuelve a llamar. Soporte no sabe qué hizo el técnico y la orden sigue abierta.',
-    solution: 'Integro atención, órdenes, técnicos e inventario para que cada equipo trabaje con el contexto que necesita.',
-    examples: ['Tickets con responsables y escalamiento', 'Aplicaciones para instalaciones y visitas', 'Equipos, materiales y evidencia de cierre'],
-    outcome: 'Para coordinar el trabajo, reducir tareas repetidas y seguir cada caso hasta su cierre.',
-    kpis: ['Tiempo de instalación', 'Tiempo de resolución de reclamos', 'Visitas repetidas por el mismo problema'],
-    kpiDecision: '¿Qué está retrasando la atención y dónde hay que ajustar el proceso o los recursos?'
+    id: 'operativa', area: 'Operativa', title: 'Que el servicio avance sin perseguir cada traspaso.',
+    pains: [
+      { id: 'coordinacion', title: 'Una instalación no debería depender de perseguir mensajes.', text: 'Citas, técnicos, materiales y responsables necesitan avanzar con el mismo contexto.' },
+      { id: 'recurrencias', title: 'Cerrar el ticket no alcanza si la falla vuelve.', text: 'Relacionar antecedentes, equipos y cambios ayuda a investigar causas, no solo a cerrar casos.' }
+    ],
+    solution: 'Desarrollo apps de órdenes y campo. Integro atención, agenda, inventario e historial de incidentes; automatizo traspasos y facilito la consulta de procedimientos.',
+    sources: 'Tickets · Órdenes · Cuadrillas · Inventario',
+    decision: 'Coordinar cada caso y distinguir una resolución efectiva de un cierre administrativo.',
+    kpis: 'Tiempo de instalación · Tiempo de resolución · Visitas repetidas',
+    measurementNote: 'Acordamos fechas de inicio y cierre, pausas, reaperturas y seguimiento de pendientes.'
   },
   {
-    number: '03', name: 'Técnica', title: 'De la alarma al impacto en el cliente.',
-    pain: 'El monitoreo muestra eventos, pero cuesta relacionarlos con abonados, reclamos y prioridades.',
-    solution: 'Relaciono monitoreo, red y datos de servicio para apoyar el diagnóstico y planificar capacidad.',
-    examples: ['Incidencias relacionadas con clientes y zonas', 'Calidad, disponibilidad y capacidad', 'Gestión de cambios y mantenimientos'],
-    outcome: 'Para priorizar fallas e inversiones con una visión del servicio, no solo de los equipos.',
-    kpis: ['Disponibilidad del servicio', 'Latencia y pérdida de paquetes', 'Utilización de capacidad en hora pico'],
-    kpiDecision: '¿Qué servicios necesitan atención y dónde conviene priorizar mantenimiento o ampliaciones?'
+    id: 'tecnica', area: 'Técnica', title: 'Entender el impacto antes de decidir dónde intervenir.',
+    pains: [
+      { id: 'continuidad', title: 'La alarma no siempre explica quién está afectado.', text: 'Necesitás relacionar eventos y métricas con servicios, abonados y zonas para orientar la atención.' },
+      { id: 'capacidad', title: 'Ampliar tarde afecta al servicio. Ampliar sin criterio también cuesta.', text: 'La utilización y la demanda deben orientar dónde mantener, ampliar o reasignar capacidad.' }
+    ],
+    solution: 'Conecto monitoreo, inventario, eventos y reclamos. Construyo alertas contextualizadas y análisis de utilización; evalúo modelos de demanda o capacidad si hay historia suficiente.',
+    sources: 'Monitoreo · Logs · Inventario · Telemetría',
+    decision: 'Priorizar atención, mantenimiento y ampliaciones según el impacto en el servicio.',
+    kpis: 'Disponibilidad · Latencia y pérdida de paquetes · Utilización en hora pico',
+    measurementNote: 'Definimos puntos de medición, ventanas y cómo reportar brechas de monitoreo.'
   }
 ];
 
-export const ispServices = [
+export const ispFoundations = [
   {
-    id: 'ruta', title: 'Diagnóstico y hoja de ruta',
-    description: 'Acordamos el problema y los KPIs que permitirán evaluar el avance, revisamos los sistemas y priorizamos por valor, esfuerzo, riesgo y dependencias. Si ya tenés una necesidad definida, podemos partir de ella.',
-    delivery: 'Una primera intervención con alcance, responsables, entregables y KPIs de partida y metas acordadas.'
+    id: 'datos', title: 'Que cada área no tenga una versión distinta del negocio.',
+    pain: 'Clientes, servicios, ingresos y calidad deben poder relacionarse sin reconstruir la información a mano.',
+    solution: 'Instrumento el software, integro y valido datos y construyo un modelo compartido con KPIs trazables para las decisiones de tu ISP.'
   },
   {
-    id: 'software', title: 'Desarrollo y modernización de software',
-    description: 'Construyo aplicaciones, módulos e interfaces que te faltan, o mejoro los existentes. Desde el diseño, registro los eventos necesarios para medir tus KPIs y conecto los datos al ETL mediante APIs, eventos o extracciones autorizadas.',
-    delivery: 'Software útil para tu operación, integrado al ciclo de datos; no otra aplicación aislada.'
+    id: 'proteccion', title: 'Que una integración no abra accesos innecesarios.',
+    pain: 'Un acceso indebido puede comprometer información de clientes y continuidad operativa.',
+    solution: 'Diseño permisos, registro de acciones y recuperación de los componentes entregados, con responsabilidades acordadas. No es seguridad integral ni una promesa de invulnerabilidad.'
+  }
+];
+
+export const ispScenarioSteps = [
+  { title: 'Técnica entiende el impacto', description: 'Cruza eventos y utilización con servicios, abonados y zonas.', decision: 'Qué servicios requieren atención y qué información falta.' },
+  { title: 'Operación atiende con contexto', description: 'Conecta tickets, antecedentes, cambios y responsables de la intervención.', decision: 'Quién interviene y qué antecedentes debe revisar.' },
+  { title: 'Comercial da seguimiento', description: 'Dispone del contexto del caso y puede contrastar reclamos con bajas.', decision: 'Qué clientes necesitan contacto y seguimiento, sin asumir causas.' },
+  { title: 'Gerencia elige la siguiente acción', description: 'Revisa disponibilidad, recurrencia, resolución y utilización de capacidad.', decision: 'Si priorizar una corrección, un cambio o una ampliación.' }
+];
+
+export const ispActivationSteps = [
+  { title: 'Consulta comercial', description: 'Prospecto y solicitud registrados.', record: 'Origen y fecha de la oportunidad' },
+  { title: 'Orden de instalación', description: 'Agenda, responsable y recursos.', record: 'Asignación y cambios de estado' },
+  { title: 'Activación', description: 'Cierre técnico conectado con facturación.', record: 'Fecha y servicio activado' },
+  { title: 'Servicio en operación', description: 'Monitoreo y atención relacionados con el abonado.', record: 'Eventos, incidencias y seguimiento' }
+];
+
+export const ispEngineeringCapabilities = [
+  {
+    id: 'objetivos', title: 'Objetivos, KPIs y hoja de ruta',
+    description: 'Definimos la decisión, la medición y una primera intervención según valor, esfuerzo y dependencias.',
+    problem: 'Prioridades sin criterios para decidir qué resolver primero.',
+    delivery: 'Alcance, ficha de KPIs, línea base y metas acordadas.'
   },
   {
-    id: 'etl', title: 'ETL por lotes o en tiempo real',
-    description: 'Extraigo, transformo, valido y cargo datos de tus sistemas. Programo procesos para cierres y conciliaciones o flujos continuos cuando el caso y las fuentes lo permiten.',
-    delivery: 'Información con la frecuencia acordada, controles de calidad y seguimiento de fallos.'
+    id: 'software', title: 'Desarrollo y modernización',
+    description: 'Construyo aplicaciones, módulos e interfaces, registrando desde el diseño los eventos que necesitan tus indicadores.',
+    problem: 'Procesos que tus sistemas actuales no cubren.',
+    delivery: 'Software integrado, documentación y transferencia.'
   },
   {
-    id: 'dwh', title: 'Almacén de datos empresarial — DWH',
-    description: 'Relaciono clientes, servicios, facturas, pagos, órdenes e indicadores técnicos en una base histórica con definiciones compartidas y accesos por responsabilidad.',
-    delivery: 'Una base confiable para comparar períodos y conectar las decisiones de distintas áreas.'
+    id: 'integracion', title: 'Integración y ETL/ELT',
+    description: 'Diseño extracción, carga, transformación y validación, con orden ETL o ELT y frecuencia por lotes o continua según las fuentes.',
+    problem: 'Traspasos manuales y fuentes que no concilian.',
+    delivery: 'Flujos supervisados, reglas de calidad y manejo de fallos.'
   },
   {
-    id: 'algoritmos', title: 'Algoritmos, predicción y optimización',
-    description: 'Desarrollo análisis y modelos para estudiar bajas, proyectar demanda o capacidad y apoyar la asignación de recursos, según el historial y las restricciones disponibles.',
-    delivery: 'Recomendaciones evaluadas frente al punto de partida, no predicciones presentadas como certezas.'
+    id: 'dwh', title: 'DWH y modelo compartido',
+    description: 'Relaciono históricos con granularidad y definiciones consistentes de abonado, servicio, zona y tiempo.',
+    problem: 'Áreas que calculan clientes, ingresos o calidad de forma distinta.',
+    delivery: 'Modelo integrado y vistas por área, sin crear silos por defecto.'
   },
   {
-    id: 'ia', title: 'IA para documentos y conocimiento',
-    description: 'Integro procesamiento documental y asistentes que consultan procedimientos, manuales y fuentes autorizadas del ISP, con evaluación y escalamiento humano.',
-    delivery: 'Conocimiento más accesible para soporte y administración, sin depender de respuestas genéricas.'
+    id: 'modelos', title: 'Algoritmos, predicción y optimización',
+    description: 'Evalúo reglas y modelos frente a una referencia; su utilidad depende de los datos y las restricciones.',
+    problem: 'Decisiones de retención, capacidad o recursos que no aprovechan el historial.',
+    delivery: 'Análisis y recomendaciones evaluados, con límites explícitos.'
   },
   {
-    id: 'agentes', title: 'Agentes conectados con tus procesos',
-    description: 'Conecto agentes con herramientas para consultar información, clasificar solicitudes, enriquecer tickets o preparar acciones. Los permisos y las aprobaciones se definen según el riesgo.',
-    delivery: 'Menos coordinación manual, con límites y trazabilidad sobre lo que se consulta y ejecuta.'
+    id: 'conocimiento', title: 'IA para documentos y conocimiento',
+    description: 'Integro búsqueda y asistentes con recuperación de fuentes autorizadas —RAG— y evaluación de sus respuestas.',
+    problem: 'Soporte que depende de buscar manuales o consultar a pocas personas.',
+    delivery: 'Conocimiento consultable con fuentes y escalamiento humano.'
   },
   {
-    id: 'bi', title: 'KPIs, tableros e inteligencia de negocio',
-    description: 'Defino con tu equipo los indicadores clave de desempeño: objetivo, fórmula, fuentes, período, responsable, línea base, meta y acción ante desviaciones. Los conecto con datos validados y vistas para cada área.',
-    delivery: 'KPIs trazables para dirigir ingresos, cartera, instalaciones, reclamos y calidad. No solo gráficos: criterios para decidir y evaluar mejoras.'
+    id: 'agentes', title: 'Automatización y agentes',
+    description: 'Conecto herramientas para tareas delimitadas, con permisos, trazabilidad y aprobaciones según sus consecuencias.',
+    problem: 'Consultas y traspasos que requieren coordinación manual constante.',
+    delivery: 'Flujos controlados; reglas deterministas cuando bastan.'
   },
   {
-    id: 'evolucion', title: 'Operación y mejora continua',
-    description: 'Acompaño el uso y la evolución de software, ETL, modelos y agentes. Revisamos los KPIs frente a la línea base y las metas, junto con fallos, costos y calidad, para priorizar mejoras con evidencia.',
-    delivery: 'Una solución que pueda sostenerse y mejorar, con condiciones de mantenimiento acordadas.'
+    id: 'evolucion', title: 'Visualización y mejora continua',
+    description: 'Construyo tableros por rol y acompaño la revisión de uso, KPIs, fallos y costos para priorizar mejoras.',
+    problem: 'Reportes sin responsables, seguimiento ni acciones de mejora.',
+    delivery: 'Vistas para decidir y evolución con condiciones acordadas.'
   }
 ];
 
 export const ispFaqs = [
   {
-    question: '¿Los KPIs vienen definidos o los construimos para mi ISP?',
-    answer: 'Los definimos con vos: objetivo, fórmula, fuente, período, responsable, línea base y meta. Acordamos qué hacer ante desviaciones y conectamos su medición con software, ETL y DWH. Los ejemplos no son metas universales.'
+    question: '¿Tengo que reemplazar los sistemas de mi ISP?',
+    answer: 'No por defecto. Revisamos qué funciona y cómo integrarlo. Podemos agregar una herramienta o modernizar una parte; la viabilidad depende de los accesos e interfaces disponibles.'
   },
   {
-    question: '¿Tengo que reemplazar la facturación o el software de mi ISP?',
-    answer: 'No por defecto. Primero reviso lo que funciona. Podemos integrarlo, agregar un módulo o modernizar una parte. La viabilidad depende de los accesos e interfaces de tus sistemas.'
+    question: '¿Puedo empezar por una sola necesidad?',
+    answer: 'Sí. Podemos partir de ventas, cobranza, instalaciones, soporte o una necesidad técnica. Acordamos una primera entrega y los KPIs para evaluarla. No hace falta contratar todo el ciclo ni incorporar IA si no aporta valor.'
   },
   {
-    question: '¿Puedo empezar por un solo problema?',
-    answer: 'Sí: ventas, cobranza, órdenes, soporte o una necesidad técnica. Acordamos una primera entrega y su conexión con los datos. No necesitás contratar todo el ciclo.'
-  },
-  {
-    question: '¿Cuánto cuesta y cuándo estaría en producción?',
-    answer: 'Depende del alcance y de tus sistemas. Acordamos entregables, inversión y plazos antes de iniciar. Priorizo reutilización y entregas pequeñas para contener costos y avanzar con control, sin un precio o plazo universal.'
-  },
-  {
-    question: '¿Quién dirige el trabajo y qué pasa después de la entrega?',
-    answer: 'Trabajás directamente conmigo, Héctor Guerra. Acordamos documentación, transferencia y acompañamiento para sostener lo implementado. No se ofrece operación NOC 24/7 ni certificación de cumplimiento regulatorio.'
+    question: '¿Cómo definimos inversión y plazos?',
+    answer: 'Después de entender la necesidad y sus dependencias, acordamos alcance, entregables, inversión, plazos y acompañamiento antes de iniciar. No hay un precio o una duración universal; la consulta inicial no incluye un diagnóstico completo gratuito.'
   }
 ];

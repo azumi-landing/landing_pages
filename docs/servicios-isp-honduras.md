@@ -10,13 +10,53 @@
 
 Una solución que conecta negocio, software y ciclo completo de datos. HGuerra combina consultoría, implementación y acompañamiento. No ofrece un SaaS listo, conectividad, instalación física de redes ni NOC 24/7.
 
-**Explicación breve:** «Aprovecho lo que ya funciona en tu ISP, desarrollo o modernizo el software que hace falta y conecto sus datos para mejorar el seguimiento comercial, la coordinación operativa y las decisiones técnicas».
+**Explicación breve:** «Ayudo a tu ISP a proteger ingresos, coordinar el servicio y decidir con evidencia. Desarrollo o modernizo el software que necesita, lo integro con sus sistemas y conecto todo el ciclo de datos para abordar una prioridad concreta».
 
 El software nuevo o modernizado se diseña para alimentar el ETL mediante interfaces, eventos o extracciones autorizadas. No es una aplicación aislada. Los servicios son frentes de trabajo contratables por alcance; no todos requieren IA, streaming ni todos los componentes del esquema.
 
 **Los KPIs son un pilar transversal, no un agregado del tablero.** Se definen desde los objetivos y decisiones del negocio; determinan qué eventos debe registrar el software, qué valida el ETL, cómo se relaciona la información en el DWH y cómo se evalúan los resultados. Se acompañan con responsables y acciones de mejora.
 
-**Uso comercial de esta guía:** el detalle sirve para preparar la conversación, no para exigir su lectura antes de contactar. La landing presenta primero el problema, los KPIs y el encaje de la solución; el catálogo se consulta bajo «Explorar el alcance técnico». El CTA lleva al formulario con motivo inicial «No estoy seguro / Otra necesidad». Se identifica la campaña sin exigir al interesado que elija una tecnología.
+**Uso comercial de esta guía:** el detalle sirve para preparar la conversación, no para exigir su lectura antes de contactar. El catálogo original de nueve servicios se conserva aquí, con sus diagramas y referencias. La landing vende una primera intervención contratable, no tecnologías independientes ni una conversación sin propósito. Su recorrido es beneficio → problemas reconocibles y cómo ayuda HGuerra → ejemplo transversal de reclamos en una zona → ingeniería que respalda la oferta → confianza, entregables y contratación → consulta → dudas finales. El formulario de campaña sigue pidiendo solo correo y necesidad; el motivo interno es `otro` y conserva el origen ISP. El formulario general mantiene su selector.
+
+### Criterio de la landing comercial
+
+- **Promesa:** «Protegé ingresos. Coordiná mejor. Decidí con evidencia».
+- **Una acción principal:** «Evaluar una mejora para mi ISP», que abre la consulta dentro de la misma página. No reserva una cita ni entrega automáticamente un diagnóstico.
+- **Demostración principal:** una zona acumula reclamos; técnica relaciona eventos y servicios, operación dispone de antecedentes y responsables, comercial da seguimiento y gerencia evalúa la siguiente intervención. Relacionar reclamos y bajas no demuestra por sí solo una causa. El ejemplo de prospecto → orden → activación → servicio se conserva como aplicación complementaria desplegable. Ninguno es un caso propio ni una captura de producto existente.
+- **Confianza:** perfil y experiencia de Héctor, atención directa, alcance acordado y transferencia. No se sustituyen casos inexistentes por testimonios o logotipos ficticios.
+- **Referencia comercial del plan aprobado:** [CXL, How to Build a High-Converting Landing Page](https://cxl.com/blog/how-to-build-a-high-converting-landing-page/) y [HubSpot, Estructura de una landing page que convierte](https://blog.hubspot.es/website/estructura-landing-page-que-convierte). Se aplican foco, beneficios, secuencia, demostración y menor fricción; sus estadísticas no son resultados de HGuerra.
+- **Evaluación comercial pendiente:** contar consultas reales de ISPs con una necesidad y encaje identificables, después oportunidades y contrataciones. El evento de envío aceptado por EmailJS no acredita entrega en bandeja, consulta calificada ni venta. La instrumentación existente no clasifica oportunidades automáticamente.
+
+### Ocho problemas como fundamento del argumento de compra
+
+El propietario aprobó partir de los puntos de dolor recuperados del RAG, no del catálogo de capacidades. La biblioteca mezcla experiencias de operadores internacionales, buenas prácticas y regulación; **no es un ranking estadístico de problemas de ISPs hondureños**. Las formulaciones comerciales son situaciones propuestas para reconocer y validar, no testimonios ni un diagnóstico previo del visitante.
+
+| Frente | Qué puede abordar HGuerra con software y datos | Sustento y límite de la inferencia |
+| --- | --- | --- |
+| Competencia, pérdida de clientes y presión sobre el margen | Seguimiento comercial, integración de altas/facturación y análisis de ingresos y bajas por plan o segmento. La rentabilidad requiere costos; ARPU no mide margen. | [R5], p. PDF 29: competencia, descuentos, ARPU, churn y margen. No extrapolar cifras o resultados al mercado hondureño. |
+| Complejidad de planes, tarifas y facturación | Módulos e integraciones con reglas compartidas y conciliación. | [R5], §«Our Strengths», desde p. PDF 13: plataforma unificada de facturación. No prueba errores de cobro o morosidad en todos los ISPs. |
+| Coordinación de atención, citas y trabajo técnico | Apps de órdenes/campo e integración de agenda, atención, inventario y responsables. | [R5], §«Our Strengths»: coordinación de citas y asistencia a técnicos. |
+| Incidentes que vuelven a ocurrir | Relacionar tickets, configuración, cambios y errores conocidos para investigar y priorizar. | [R6], pp. PDF 29–32: incidentes y gestión de problemas. Es una necesidad de gestión, no evidencia de prevalencia local. |
+| Disponibilidad y continuidad | Contextualizar monitoreo y apoyar priorización según servicios afectados. | [R6], p. PDF 19. El software no sustituye mantenimiento ni intervenciones físicas de red. |
+| Capacidad y degradación del rendimiento | Análisis de utilización/demanda y modelos evaluados cuando haya historia suficiente. | [R6], p. PDF 21, y [R5], §«Our Strengths». Sin prometer predicción cierta o evitar todas las fallas. |
+| Datos desconectados e indicadores inconsistentes | Instrumentación, ETL/ELT validado, modelo compartido y KPIs trazables. | Inferencia de diseño apoyada en [R3], `Kimball_DWH.pdf`, pp. PDF 4 y 13–14; no frecuencia medida en ISPs. |
+| Seguridad de información y continuidad | Permisos, registro de acciones y recuperación acordada de los componentes entregados. | [R5], p. PDF 33: riesgos de seguridad. No se ofrece seguridad integral, SOC, invulnerabilidad o cumplimiento garantizado. |
+
+En la landing, `ispChallenges` agrupa los seis primeros en tres argumentos (comercial, operativo y técnico), cada uno con situación, intervención, decisión y KPIs. `ispFoundations` presenta los dos transversales. No se duplican en la sección de ingeniería: esta conserva arquitectura y capacidades, ahora con «Qué aborda» y «Entregable».
+
+### Profundidad para un gerente técnico con conocimiento del negocio
+
+El propietario precisó que la landing también debe permitir evaluar la ingeniería. Los principios comerciales de CXL y HubSpot siguen vigentes: ordenar el argumento y facilitar la acción no significa esconder capacidades relevantes. El póster «Un ISP en tres capas» orienta la separación comercial, operativa y técnica; no acredita resultados, compatibilidad o servicios de instalación de redes.
+
+La sección pública `/isp-honduras#ingenieria`, implementada en `src/components/sections/IspEngineering.astro`, incorpora:
+
+1. **Arquitectura no lineal:** `IspArchitecture.astro` muestra tres carriles sobre fondo claro: sistemas → ETL/ELT → DWH → KPIs o modelos; documentos → ingesta/índice → RAG → soporte; contexto → reglas/agentes → control/aprobación → sistemas. Calidad, permisos, trazabilidad y seguimiento son transversales.
+2. **Ocho grupos de capacidades con problema y entregable visibles:** objetivos/KPIs/hoja de ruta; software; integración; DWH; algoritmos; conocimiento; automatización/agentes; visualización/mejora continua. El último reúne tableros y evolución sin eliminar el desarrollo de ambas disciplinas en esta guía.
+3. **Límites complementarios bajo demanda:** dependencias de integración, evaluación de modelos, permisos y acompañamiento. Lo esencial no queda oculto detrás de desplegables.
+
+El modelo de datos debe integrar las áreas mediante definiciones compartidas, no imponer tres DWH aislados: [R2], p. PDF 6, y [R3], `Kimball_DWH.pdf`, pp. PDF 13–14. La finalidad y frecuencia de reportes, disponibilidad y capacidad se apoyan en [R6], pp. PDF 17, 19 y 21, recuperadas durante la planificación. Los ejemplos de KPIs siguen siendo propuestas a validar, no fórmulas normativas.
+
+El esquema anterior de cinco pasos, que agrupaba algoritmos, IA y agentes antes de la visualización, se sustituyó porque podía sugerir una dependencia obligatoria de IA y no distinguía operación, analítica y conocimiento. El DWH no reemplaza los sistemas transaccionales ni el repositorio documental; usar RAG o agentes es una decisión por caso. ETL y ELT describen alternativas de transformación según el diseño, no una promesa de compatibilidad o actualización instantánea.
 
 ```mermaid
 flowchart TD
@@ -265,8 +305,8 @@ Páginas PDF, salvo indicación de práctica o sección. Los documentos figuran 
 - **[R2]** `Kimball_Lifecycle.pdf`, pp. 5–8 y 11. Requisitos de negocio, modelado, ETL, aplicaciones BI, despliegue y mantenimiento. ID: `7afab5d8-cf26-4d86-a276-495ac67c6e58`.
 - **[R3]** `Kimball_DWH.pdf` (*Dimensional Modeling Techniques*), pp. 13–14 y 24; y `NIST_Secure_Development.pdf`, prácticas PW.1, PW.7, PW.8 y RV.3. Integración mediante dimensiones compartidas, actualización frecuente, diseño y revisión según riesgos y aprendizaje de fallos. IDs: `8bdb1dce-b63b-43c8-b97f-477ec3a69881`, `92374a35-3263-44af-ab74-6bfc9e26aa85`.
 - **[R4]** `aiefs-vol5-agents.pdf`, pp. 765 y 892: verificación independiente de lo declarado por el agente y autorización humana de acciones. ID: `0c1e29a3-b1ee-4ac7-af52-1ff0d241b785`.
-- **[R5]** `01_Cable_One_Annual_Report_2025.pdf`, pp. 15 y 52: aplicaciones de analítica, autoservicio, retención e indicadores comerciales. Referencia sectorial internacional, no evidencia local ni casos propios. ID: `776500c2-1a75-4db3-b54d-85edb3374011`.
-- **[R6]** `03_FitSM-2_Process_Activities_2025.pdf`, pp. 14, 17, 21, 25, 29, 32, 34 y 36: acuerdos de servicio, propósito/audiencia/frecuencia de reportes, capacidad, relaciones con clientes, incidentes, problemas, configuración y cambios. Las pp. 14 y 17 se consultaron específicamente para la gestión de indicadores; no prescriben las fórmulas propuestas en esta guía. ID: `f20cb5e4-e7dc-4a81-8dce-e11a03d17666`.
+- **[R5]** `01_Cable_One_Annual_Report_2025.pdf`, §«Our Strengths» (desde p. PDF 13), y pp. PDF 29, 33 y 52: operación/atención y facturación unificada, competencia/retención/margen, riesgos de seguridad e indicadores comerciales. Referencia sectorial internacional, no evidencia local ni casos propios. ID: `776500c2-1a75-4db3-b54d-85edb3374011`.
+- **[R6]** `03_FitSM-2_Process_Activities_2025.pdf`, pp. 14, 17, 19, 21, 25, 29, 32, 34 y 36: acuerdos de servicio, propósito/audiencia/frecuencia de reportes, disponibilidad/continuidad, capacidad, relaciones con clientes, incidentes, problemas, configuración y cambios. Las pp. 14 y 17 se consultaron específicamente para la gestión de indicadores; no prescriben las fórmulas propuestas en esta guía. ID: `f20cb5e4-e7dc-4a81-8dce-e11a03d17666`.
 - **[R7]** `RAG_Survey.pdf`, introducción p. 1 y §VI pp. 12–14: recuperación de conocimiento externo y evaluación. ID: `6d77009a-5c1d-49f0-8e63-e0affda1c72b`.
 - **[R8]** `GB922_Primer_v21.5.pdf`, pp. 19–24: clientes, órdenes, servicios, recursos, facturas y pagos relacionados. ID: `c1ef6215-675b-4838-924a-0331c1e13c34`.
 - **[R9]** `05_Broadband_Forum_TR-499_Metrics_2024.pdf`, p. 24: indicadores de Internet, disponibilidad y estado de equipos. ID: `1014fba6-b6d6-4820-8068-21ac6ceeac43`.

@@ -18,6 +18,7 @@ interface Props {
   tone?: 'dark' | 'light';
   detailPlaceholder?: string;
   submitLabel?: string;
+  showService?: boolean;
 }
 
 const {
@@ -25,10 +26,11 @@ const {
   originPath = '',
   tone = 'dark',
   detailPlaceholder: customDetailPlaceholder,
-  submitLabel = 'Enviar consulta'
+  submitLabel = 'Enviar consulta',
+  showService = true
 } = Astro.props;
 
-const normalizedService = normalizeContactService(defaultService);
+const normalizedService = normalizeContactService(defaultService) || (showService ? '' : 'otro');
 const normalizedOrigin = normalizeContactOrigin(originPath ?? '');
 const resolvedOriginLabel = getContactContextByPath(normalizedOrigin).originLabel;
 const serviceGuidance = getContactServiceGuidance(normalizedService);
@@ -83,7 +85,7 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
     />
   </div>
 
-  <div>
+  {showService ? <div>
     <label for="contact-service" class={`block text-sm font-medium mb-2 ${labelClass}`}>Motivo de consulta *</label>
     <select
       id="contact-service"
@@ -101,7 +103,7 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
         </option>
       ))}
     </select>
-  </div>
+  </div> : <input type="hidden" id="contact-service" name="interes" value={normalizedService} data-label={getContactServiceLabel(normalizedService)} />}
 
   <div>
     <label for="contact-detail" class={`block text-sm font-medium mb-2 ${labelClass}`}>Contame tu desafío *</label>
@@ -195,8 +197,11 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
       const selectedOption = serviceField instanceof HTMLSelectElement
         ? serviceField.selectedOptions[0] ?? null
         : null;
-      const serviceValue = serviceField instanceof HTMLSelectElement ? serviceField.value : '';
-      const serviceLabel = selectedOption?.textContent?.trim() ?? '';
+      const serviceValue = serviceField instanceof HTMLSelectElement || serviceField instanceof HTMLInputElement
+        ? serviceField.value
+        : '';
+      const serviceLabel = selectedOption?.textContent?.trim()
+        ?? (serviceField instanceof HTMLInputElement ? serviceField.dataset.label ?? '' : '');
       const detail = detailField instanceof HTMLTextAreaElement ? detailField.value.trim() : '';
       const originPathValue = originPathField instanceof HTMLInputElement
         ? originPathField.value.trim()

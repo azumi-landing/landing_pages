@@ -1,0 +1,128 @@
+<div class="architecture-block">
+  <figure class="architecture" aria-labelledby="architecture-title">
+    <figcaption id="architecture-title">
+      <div><span class="architecture-eyebrow">Arquitectura de referencia</span><strong>Tres recorridos.<br />Una operación conectada.</strong></div>
+      <span class="illustrative-label">Esquema ilustrativo</span>
+    </figcaption>
+
+    <div class="operation-context">
+      <div><strong>Tu operación</strong><span>Software existente + nuevo o modernizado</span></div>
+      <ul aria-label="Áreas conectadas"><li>Comercial</li><li>Operativa</li><li>Técnica</li></ul>
+    </div>
+
+    <div class="architecture-lanes">
+      <div class="lane" aria-labelledby="data-lane-title">
+        <div class="lane-label"><span class="lane-index" aria-hidden="true">01</span><h3 id="data-lane-title">Datos</h3><p>Medir y entender</p></div>
+        <ol class="lane-flow">
+          <li><div class="flow-node source-node"><strong>Sistemas del ISP</strong><span>Ventas, cobros, órdenes y monitoreo</span></div></li>
+          <li><span class="edge" aria-hidden="true"></span><div class="flow-node"><strong>ETL / ELT</strong><span>Validar y conciliar, por lotes o en continuo</span></div></li>
+          <li><span class="edge" aria-hidden="true"></span><div class="flow-node core-node"><strong>DWH integrado</strong><span>Historia y definiciones compartidas</span></div></li>
+          <li><span class="edge" aria-hidden="true"></span><div class="flow-outputs"><span class="output-label">Desde el DWH</span><ul><li>KPIs y tableros</li><li>Algoritmos y modelos</li></ul></div></li>
+        </ol>
+      </div>
+
+      <div class="lane" aria-labelledby="knowledge-lane-title">
+        <div class="lane-label"><span class="lane-index" aria-hidden="true">02</span><h3 id="knowledge-lane-title">Conocimiento</h3><p>Consultar con fuentes</p></div>
+        <ol class="lane-flow">
+          <li><div class="flow-node source-node"><strong>Documentos</strong><span>Manuales y procedimientos autorizados</span></div></li>
+          <li><span class="edge" aria-hidden="true"></span><div class="flow-node"><strong>Ingesta e índice</strong><span>Preparar y recuperar contenido con permisos</span></div></li>
+          <li><span class="edge" aria-hidden="true"></span><div class="flow-node core-node"><strong>Asistente RAG</strong><span>Apoyar la respuesta en las fuentes recuperadas</span></div></li>
+          <li><span class="edge" aria-hidden="true"></span><div class="flow-node destination-node"><strong>Soporte y consultas</strong><span>Evaluación y escalamiento humano</span></div></li>
+        </ol>
+      </div>
+
+      <div class="lane" aria-labelledby="action-lane-title">
+        <div class="lane-label"><span class="lane-index" aria-hidden="true">03</span><h3 id="action-lane-title">Acciones</h3><p>Coordinar y ejecutar</p></div>
+        <ol class="lane-flow">
+          <li><div class="flow-node source-node"><strong>Solicitud y contexto</strong><span>De sistemas, datos o conocimiento</span></div></li>
+          <li><span class="edge" aria-hidden="true"></span><div class="flow-node"><strong>Reglas o agentes</strong><span>Consultar herramientas y preparar acciones</span></div></li>
+          <li><span class="edge" aria-hidden="true"></span><div class="flow-node core-node"><strong>Control y aprobación</strong><span>Permisos y revisión según el riesgo</span></div></li>
+          <li><span class="edge" aria-hidden="true"></span><div class="flow-node destination-node"><strong>Sistemas del ISP</strong><span>Ejecutar lo autorizado y registrar el resultado</span></div></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="return-path">
+      <svg viewBox="0 0 1000 28" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M995 1v10q0 10-10 10H6m0 0 8-7m-8 7 8 6" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
+      <p>Volver a la operación, medir el resultado y priorizar la siguiente mejora.</p>
+    </div>
+    <div class="architecture-controls"><strong>En todos los recorridos</strong><ul><li>Calidad</li><li>Permisos</li><li>Trazabilidad</li><li>Seguimiento de fallos y costos</li></ul></div>
+  </figure>
+
+  <div id="architecture-notes" class="architecture-notes">
+    <div><h3>La medición se diseña primero</h3><p>Acordamos objetivo, fórmula, fuentes, período, responsable, línea base, meta y acción ante desviaciones. La integración usa APIs, eventos o extracciones autorizadas según las interfaces disponibles.</p></div>
+    <div><h3>Cada componente tiene su función</h3><p>El DWH integra las áreas sin reemplazar los sistemas transaccionales. Los documentos mantienen su repositorio e índice. Los KPIs no necesitan pasar por IA y los modelos se evalúan antes de usarlos.</p></div>
+    <div><h3>La autonomía tiene límites</h3><p>Los agentes consultan herramientas autorizadas; una regla basta cuando no hace falta un agente. Las acciones vuelven a los sistemas del ISP y sus eventos alimentan la medición, con permisos por responsabilidad.</p></div>
+  </div>
+</div>
+
+<style>
+  .architecture-block { margin-block: 3rem; }
+  .architecture { background: white; color: #0f172a; border: 1px solid #cbd5e1; border-radius: var(--radius-card); padding: clamp(1.25rem, 3vw, 2rem); }
+  figcaption { display: flex; align-items: start; justify-content: space-between; flex-wrap: wrap; gap: 1rem 2rem; margin-block-end: 2rem; }
+  .architecture-eyebrow { display: block; color: #1d4ed8; font-size: .75rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; margin-block-end: .8rem; }
+  figcaption strong { display: block; font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1.2; font-weight: 700; letter-spacing: -.025em; }
+  .illustrative-label { color: #475569; font-size: .75rem; padding-block: .25rem; }
+  h3 { font-weight: 700; letter-spacing: -.02em; text-wrap: balance; }
+  p { text-wrap: pretty; }
+  .operation-context { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem 2rem; padding-block: 1.25rem; border-block: 1px solid #cbd5e1; }
+  .operation-context > div { display: flex; align-items: baseline; flex-wrap: wrap; gap: .3rem 1rem; }
+  .operation-context strong { font-size: .9rem; }
+  .operation-context span { color: #475569; font-size: .8rem; line-height: 1.6; }
+  .operation-context ul { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; list-style: none; }
+  .operation-context li { color: #1d4ed8; font-size: .8rem; font-weight: 650; }
+  .architecture-lanes { margin-block-start: .5rem; }
+  .lane { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1.75rem; align-items: center; padding-block: 1.75rem; }
+  .lane + .lane { border-block-start: 1px solid #e2e8f0; }
+  .lane-index { display: block; color: #1d4ed8; font-size: .7rem; font-weight: 700; margin-block-end: .4rem; }
+  .lane-label h3 { font-size: 1rem; line-height: 1.4; margin-block-end: .3rem; }
+  .lane-label p { color: #475569; font-size: .75rem; line-height: 1.5; }
+  .lane-flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; list-style: none; }
+  .lane-flow > li { position: relative; display: flex; min-inline-size: 0; }
+  .flow-node { display: flex; flex-direction: column; justify-content: center; inline-size: 100%; min-block-size: 7rem; border: 1px solid #cbd5e1; border-radius: .65rem; padding: .9rem; }
+  .flow-node strong { font-size: .9rem; font-weight: 650; line-height: 1.45; }
+  .flow-node > span { color: #475569; font-size: .8rem; line-height: 1.6; margin-block-start: .4rem; }
+  .source-node { background: #f8fafc; }
+  .core-node { border-color: #1d4ed8; background: #eff6ff; }
+  .core-node strong { color: #1d4ed8; }
+  .destination-node { border-color: #0891b2; background: #ecfeff; }
+  .edge { position: absolute; inline-size: 1.5rem; block-size: 1px; background: #64748b; inset-inline-start: -1.5rem; inset-block-start: 50%; }
+  .edge::after { content: ''; position: absolute; inset-inline-end: 1px; inset-block-start: -3px; inline-size: 7px; block-size: 7px; border-block-start: 1px solid #64748b; border-inline-end: 1px solid #64748b; transform: rotate(45deg); }
+  .flow-outputs { display: flex; flex-direction: column; justify-content: center; padding-inline-start: .75rem; inline-size: 100%; }
+  .output-label { color: #475569; font-size: .7rem; margin-block-end: .5rem; }
+  .flow-outputs ul { display: grid; gap: .5rem; list-style: none; border-inline-start: 1px solid #0891b2; }
+  .flow-outputs li { position: relative; padding-inline-start: .75rem; color: #0e7490; font-size: .85rem; line-height: 1.5; font-weight: 650; }
+  .flow-outputs li::before { content: ''; position: absolute; inline-size: .5rem; block-size: 1px; background: #0891b2; inset-inline-start: 0; inset-block-start: .7em; }
+  .return-path { color: #1d4ed8; padding-inline-start: 10.75rem; }
+  .return-path svg { display: block; inline-size: 100%; block-size: 1.5rem; }
+  .return-path p { color: #475569; font-size: .8rem; line-height: 1.7; margin-block: .5rem 1.5rem; }
+  .architecture-controls { display: flex; flex-wrap: wrap; align-items: baseline; gap: .7rem 2rem; padding-block-start: 1.25rem; border-block-start: 1px solid #cbd5e1; }
+  .architecture-controls > strong { font-size: .8rem; font-weight: 650; }
+  .architecture-controls ul { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; list-style: none; }
+  .architecture-controls li { color: #475569; font-size: .8rem; line-height: 1.6; }
+  .architecture-notes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin-block-start: 1.5rem; }
+  .architecture-notes h3 { font-size: .9rem; line-height: 1.5; margin-block-end: .5rem; }
+  .architecture-notes p { color: #475569; font-size: .85rem; line-height: 1.75; }
+  @media (max-width: 1100px) {
+    .lane { grid-template-columns: 8rem minmax(0, 1fr); gap: 1rem; }
+    .lane-flow { gap: 1rem; }
+    .edge { inline-size: 1rem; inset-inline-start: -1rem; }
+    .flow-node { padding: .75rem; }
+    .return-path { padding-inline-start: 9rem; }
+  }
+  @media (max-width: 800px) {
+    .lane { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+    .lane-label { display: grid; grid-template-columns: 1.5rem minmax(0, 1fr); gap: 0 .5rem; align-items: baseline; }
+    .lane-index { grid-row: span 2; margin-block-end: 0; }
+    .lane-label h3 { font-size: 1.05rem; }
+    .lane-label p { font-size: .8rem; }
+    .lane-flow { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; padding-inline-start: 2rem; }
+    .flow-node { min-block-size: 0; padding: .8rem 1rem; }
+    .flow-node > span { margin-block-start: .2rem; }
+    .edge { inline-size: 1px; block-size: 1.25rem; inset-inline-start: 1.25rem; inset-block-start: -1.25rem; }
+    .edge::after { inset-inline-end: -3px; inset-block-start: auto; inset-block-end: 2px; transform: rotate(135deg); }
+    .flow-outputs { padding-inline-start: 1rem; }
+    .return-path { padding-inline-start: 2rem; }
+    .architecture-notes { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  }
+</style>
