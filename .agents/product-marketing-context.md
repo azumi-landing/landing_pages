@@ -17,6 +17,10 @@ HGuerra es la marca personal de Héctor Guerra, consultor independiente en madur
 
 La proporción describe el peso narrativo, no una distribución contractual de horas o presupuesto. Automatización y operaciones de campo son experiencia y capacidades previas, no ofertas principales. Campo conserva su código pero está excluido de publicación.
 
+**Complemento de implementación (decisión del propietario, 2026-11-15):** desarrollo de software a medida cuando una prioridad necesita una aplicación, módulo o integración que los sistemas actuales no cubren. No redefine el sitio como agencia de desarrollo ni desplaza la consultoría, la madurez, los datos o la IA. Mantener eslogan, encabezados principales, navegación y posicionamiento; sin nueva página comercial. Se presenta después de datos e IA dentro del pilar de ingeniería, con detalle en `/soluciones#software`, método dentro de la implementación y capacidades en `/tecnologia#ingenieria`. Inicio lo recibe mediante `ServicePillars`; Contacto lo incorpora a partir de `businessServices`.
+
+El uso de agentes de IA para asistir el desarrollo, bajo dirección y revisión técnica de Héctor, es distinto de incorporar IA al software entregado. Comunicar necesidades y criterios acordados, entregas pequeñas, reutilización y validaciones según el riesgo para buscar calidad verificable, costos contenidos y puesta en producción ágil. Elegir o combinar prácticas según el caso sin publicar los nombres de las metodologías internas. No prometer ahorros, plazos ni mantenimiento universales.
+
 ## Audiencia y necesidades
 
 Responsables de empresas, áreas de negocio y tecnología que necesitan priorizar iniciativas, mejorar sus datos o llevar soluciones a uso real. No limitar el encaje a equipos de campo, necesidades offline o una industria particular.
@@ -46,6 +50,16 @@ Conversar sobre el desafío mediante `/contacto`: correo, motivo y mensaje. Emai
 Seis páginas principales: Inicio, Metodología, Soluciones, Tecnología, Sobre mí y Contacto. Privacidad y Términos son auxiliares legales. La identidad visual se conserva según el Brand Center: HG, slate/azul/cian, tipografía del sistema y recursos existentes.
 
 Soluciones explica los desafíos y el trabajo posible; `/tecnologia` profundiza en las capacidades para construir y sostener las soluciones. Tecnología mantiene tres bloques con detalles opcionales: `#datos`, `#ia` y `#ingenieria`. Los enlaces desde otras páginas son secundarios a los CTA comerciales. No añadir bibliografía, proveedores como argumento de compra ni atribuir experiencia personal por disponer de documentos en el RAG. En Contacto basta el acceso global; no distraer dentro del formulario.
+
+## Campaña para ISPs de Honduras — 2026-11-15
+
+El propietario autorizó una landing segmentada en `/isp-honduras`, sin cambiar la navegación ni el posicionamiento general. Es una excepción específica de campaña, no una página genérica que reoriente HGuerra a desarrollo. La oferta conecta desarrollo/modernización con ETL por lotes o continuo, DWH, algoritmos, IA, agentes, visualización y mejora continua. El software desarrollado debe alimentar el ciclo de datos desde el diseño, mediante interfaces autorizadas.
+
+Mensaje de venta: menos sistemas aislados y más control comercial, operativo y técnico. Beneficios primero; profundidad técnica opcional. CTA a consulta dentro de la landing mediante el formulario existente, con origen de campaña identificado y WhatsApp alternativo cuando esté configurado. No publicar referencias del RAG en la landing; el material de estudio queda en `docs/servicios-isp-honduras.md`, con diagramas y fuentes. Los ejemplos son posibilidades, no productos listos, casos propios o resultados garantizados.
+
+Revisión comercial y Lean UI/UX: preservar la promesa y leer por capas: problema → KPIs → integración y alcance técnico opcional → forma de trabajo → dudas → consulta. Unificar el CTA «Conversemos sobre tu ISP» y mostrarlo completo en la primera pantalla móvil. En Contacto, el formulario precede a la biografía y las expectativas, con motivo inicial «No estoy seguro / Otra necesidad», ayuda contextual y botón «Enviar mi consulta». No interpretar estas mejoras de claridad y usabilidad como un aumento demostrado de conversión.
+
+**Precisión del propietario:** los KPIs son un pilar fundamental de las soluciones, no solo contenido de visualización. Partir de objetivos y decisiones, acordar fórmula, fuentes, período, responsable, línea base, meta y acción ante desviaciones. Instrumentar su medición desde el software y sostener su trazabilidad mediante ETL y DWH; revisarlos durante la mejora continua. La landing los destaca en la propuesta inicial y en una sección propia con ejemplos comerciales, operativos y técnicos. No publicar valores ficticios ni presentar metas universales o fórmulas propuestas como exigencias normativas.
 
 ## Pendientes que no deben presentarse como hechos
 

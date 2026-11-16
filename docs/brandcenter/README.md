@@ -33,6 +33,12 @@ En cambio, los archivos de `assets/marca-personal/` sí tienen letras convertida
 
 ## Fuentes y transición
 
+### Complemento de implementación — 2026-11-15
+
+El desarrollo de software a medida complementa la oferta de consultoría, madurez, datos e IA; no redefine el posicionamiento ni introduce otra página o elemento de navegación. Se incorpora dentro de ingeniería cuando una necesidad requiere una herramienta propia. Los agentes asisten el desarrollo bajo dirección técnica de Héctor; el producto no necesita incluir IA. Comunicar calidad, costos contenidos y rapidez mediante entregas pequeñas, reutilización y validaciones según el riesgo, sin garantizar cifras ni plazos universales.
+
+Esta incorporación está aplicada al código local mediante `businessServices` en `src/data/commercial.ts`, con contenido complementario en Soluciones, Metodología y Tecnología. La publicación no queda acreditada por esta nota. Las referencias históricas de transición del manual no son evidencia del estado desplegado.
+
 | Contenido | Fuente o estado |
 | --- | --- |
 | Superficies, radios, sombras, contenedores y tipografía | `src/styles/global.css` |

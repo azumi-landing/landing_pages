@@ -5,7 +5,8 @@ interface Props { detailed?: boolean }
 const { detailed = false } = Astro.props;
 const technologyLinks: Partial<Record<string, { href: string; label: string }>> = {
   datos: { href: '/tecnologia#datos', label: 'Explorar capacidades de datos' },
-  ia: { href: '/tecnologia#ia', label: 'Explorar capacidades de inteligencia artificial' }
+  ia: { href: '/tecnologia#ia', label: 'Explorar capacidades de inteligencia artificial' },
+  software: { href: '/tecnologia#ingenieria', label: 'Explorar capacidades de desarrollo e integración' }
 };
 const groups = [
   { id: 'consultoria', label: 'Consultoría y acompañamiento', title: 'Claridad para orientar.', description: 'Entender el punto de partida, alinear al equipo y decidir qué cambio vale la pena.' },

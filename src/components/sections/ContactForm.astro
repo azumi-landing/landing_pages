@@ -16,19 +16,23 @@ interface Props {
   originPath?: string | null;
   originLabel?: string | null;
   tone?: 'dark' | 'light';
+  detailPlaceholder?: string;
+  submitLabel?: string;
 }
 
 const {
   defaultService = '',
   originPath = '',
-  tone = 'dark'
+  tone = 'dark',
+  detailPlaceholder: customDetailPlaceholder,
+  submitLabel = 'Enviar consulta'
 } = Astro.props;
 
 const normalizedService = normalizeContactService(defaultService);
 const normalizedOrigin = normalizeContactOrigin(originPath ?? '');
 const resolvedOriginLabel = getContactContextByPath(normalizedOrigin).originLabel;
 const serviceGuidance = getContactServiceGuidance(normalizedService);
-const genericDetailPlaceholder = '¿Qué querés mejorar? ¿Qué está frenando el avance? Contame el contexto, el equipo involucrado y el cambio que esperás conseguir.';
+const genericDetailPlaceholder = customDetailPlaceholder ?? '¿Qué querés mejorar? ¿Qué está frenando el avance? Contame el contexto, el equipo involucrado y el cambio que esperás conseguir.';
 const detailPlaceholder = serviceGuidance?.detailPlaceholder ?? genericDetailPlaceholder;
 const guidance = Object.fromEntries(contactServices.map(({ value }) => [value, getContactServiceGuidance(value)?.detailPlaceholder ?? genericDetailPlaceholder]));
 const isLight = tone === 'light';
@@ -115,7 +119,7 @@ const legalLinkClass = isLight ? 'text-slate-950 hover:text-slate-700' : 'text-b
   </div>
 
   <Button type="submit" variant="primary" size="lg" class="w-full justify-center" disabled>
-    Enviar consulta
+    {submitLabel}
   </Button>
 
   <div data-form-feedback role="status" aria-live="polite" aria-atomic="true" class="text-center text-sm"></div>

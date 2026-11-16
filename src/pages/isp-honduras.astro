@@ -1,0 +1,282 @@
+---
+import '../styles/global.css';
+import SeoHead from '../components/SeoHead.astro';
+import AnalyticsConsent from '../components/AnalyticsConsent.astro';
+import ContactForm from '../components/sections/ContactForm.astro';
+import { ispAreas, ispServices, ispFaqs } from '../data/ispCampaign';
+import { getWhatsAppHref } from '../data/contact';
+import { buildFAQSchema, buildServiceSchema } from '../data/site';
+
+const title = 'Software, datos e IA para ISPs en Honduras | HGuerra';
+const description = 'Software, ETL, DWH e IA conectados con KPIs para dirigir tu ISP en Honduras. Medí ventas, operación y calidad del servicio con datos confiables.';
+const ctaLabel = 'Conversemos sobre tu ISP';
+const whatsappHref = getWhatsAppHref('Hola Héctor, dirijo o trabajo en un ISP de Honduras. Quiero conversar sobre una necesidad de software, integración de datos o IA para nuestra operación.');
+const stages = [
+  { label: '01 / Construir y conectar', title: 'Tu software', text: 'Integro lo que ya funciona. Desarrollo o modernizo lo que falta.' },
+  { label: '02 / Integrar y ordenar', title: 'ETL + DWH', text: 'Datos por lotes o en tiempo real. Una base histórica confiable.' },
+  { label: '03 / Medir, entender y actuar', title: 'KPIs · Algoritmos · IA · Agentes', text: 'Visualización y acciones autorizadas para decidir y evaluar mejoras.' }
+];
+---
+
+<!doctype html>
+<html lang="es" class="isp-campaign">
+  <head>
+    <SeoHead title={title} description={description} path="/isp-honduras"
+      schemas={[buildFAQSchema(ispFaqs), buildServiceSchema({ name: 'Software, integración de datos e IA para ISPs', description, path: '/isp-honduras', areaServed: 'Honduras' })]} />
+  </head>
+  <body class="page-body-light">
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="campaign-header">
+      <div class="wrap header-inner">
+        <a href="/" class="brand" aria-label="HGuerra — ir al sitio principal">
+          <img src="/hg-favicon.svg" alt="" width="44" height="44" />
+          <span><strong>HGuerra</strong><small>Inteligencia aplicada a desafíos reales.</small></span>
+        </a>
+        <a href="#conversemos" class="header-cta"><span>{ctaLabel}</span><span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+
+    <main id="contenido" tabindex="-1">
+      <section class="hero section-deep" aria-labelledby="isp-title">
+        <div class="wrap hero-grid">
+          <div>
+            <p class="eyebrow">Para proveedores de Internet en Honduras</p>
+            <h1 id="isp-title">Menos sistemas aislados.<br /><span>Más control de tu ISP.</span></h1>
+            <p class="hero-copy">Integro tus sistemas y desarrollo o modernizo el software que falta. Conecto sus datos para que comercial, operación y técnica trabajen con la misma información.</p>
+            <p class="hero-support">KPIs claros para decidir qué mejorar y medir el avance.</p>
+            <a href="#conversemos" class="campaign-cta">{ctaLabel} <span aria-hidden="true">↗</span></a>
+            <p class="hero-note">Atención directa con Héctor Guerra · Honduras.</p>
+          </div>
+          <figure class="flow-panel">
+            <figcaption><span class="signal" aria-hidden="true"></span> Una operación conectada</figcaption>
+            <ol class="flow-stages">
+              {stages.map((stage) => <li><small>{stage.label}</small><strong>{stage.title}</strong><p>{stage.text}</p></li>)}
+            </ol>
+            <p class="flow-return"><span aria-hidden="true">↳</span> Operar, aprender y mejorar. El ciclo continúa.</p>
+          </figure>
+        </div>
+        <div class="wrap hero-strip"><span>Comercial</span><span>Operación</span><span>Técnica</span><p>Una misma visión del negocio. No otra aplicación desconectada.</p></div>
+      </section>
+
+      <section class="campaign-section" aria-labelledby="areas-title">
+        <div class="wrap">
+          <div class="intro"><p class="eyebrow blue">¿Dónde se está frenando tu ISP?</p><h2 id="areas-title">Conectá el trabajo.<br />No solo los sistemas.</h2><p>De la venta a la instalación. Del reclamo a la solución. Te ayudo a conectar procesos que hoy dependen de traspasos manuales.</p></div>
+          <div class="area-grid">
+            {ispAreas.map((area) => <article class="area">
+              <p class="area-label"><span>{area.number}</span> / {area.name}</p>
+              <h3>{area.title}</h3>
+              <p>{area.solution}</p>
+              <ul>{area.examples.map((example) => <li>{example}</li>)}</ul>
+            </article>)}
+          </div>
+          <p class="disclaimer">Aplicaciones posibles, no casos de clientes ni resultados garantizados. Elegimos lo que tenga sentido para tus sistemas, datos y prioridades.</p>
+        </div>
+      </section>
+
+      <section class="campaign-section kpi-section" aria-labelledby="kpis-title">
+        <div class="wrap">
+          <div class="intro"><p class="eyebrow blue">KPIs / Indicadores clave de desempeño</p><h2 id="kpis-title">Sabé dónde actuar.<br />Y cómo medir la mejora.</h2><p>Definimos con vos los indicadores que importan: fórmula, fuente, meta y responsable. No solo un tablero: criterios para decidir qué hacer ante una desviación.</p></div>
+          <div class="area-grid">
+            {ispAreas.map((area) => <article class="kpi-area">
+              <h3>{area.name}</h3>
+              <ul>{area.kpis.map((kpi) => <li>{kpi}</li>)}</ul>
+              <p>{area.kpiDecision}</p>
+            </article>)}
+          </div>
+          <p class="kpi-principle">Desde el registro en el software hasta el ETL, el DWH y el tablero: la misma definición del indicador, con datos trazables y seguimiento para mejorar.</p>
+          <p class="disclaimer">Ejemplos de indicadores, no resultados ni metas garantizadas. Acordamos fórmulas, períodos, línea base y objetivos según tu ISP.</p>
+          <a href="#conversemos" class="action-link kpi-cta">{ctaLabel} <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="campaign-section integration" aria-labelledby="integration-title">
+        <div class="wrap">
+          <div class="integration-grid">
+            <div><p class="eyebrow blue">Software + ciclo completo de datos</p><h2 id="integration-title">Aprovechá lo que funciona.<br />Construyamos lo que falta.</h2><p class="lead">No hace falta reemplazar todo. Integro tu facturación, atención y monitoreo, y desarrollo o modernizo las herramientas que necesités.</p>
+              <p>El software registra los eventos que necesitan tus KPIs. Sus datos alimentan el ETL y el DWH, y llegan a los algoritmos, la IA y la visualización.</p>
+            </div>
+            <div class="delivery-note"><p class="eyebrow blue">Dirección técnica, no una caja negra</p><h3>Desarrollo asistido por agentes.<br />Responsabilidad a mi cargo.</h3><p>Combino prácticas especializadas, revisión técnica y validaciones según el riesgo. Entrego por etapas para buscar calidad, contener costos y llevar una primera versión útil a producción.</p><p class="distinction">Los agentes que me ayudan a desarrollar no son lo mismo que los agentes que podemos incorporar a tus procesos.</p></div>
+          </div>
+          <details class="technical-scope">
+            <summary>Explorar el alcance técnico <span class="scope-hint">Software, datos, IA y evolución</span></summary>
+            <div class="technical-grid">
+              {ispServices.map((service) => <article id={`servicio-${service.id}`}><h3>{service.title}</h3><p>{service.description}</p><p class="delivery"><strong>Qué te queda:</strong> {service.delivery}</p></article>)}
+            </div>
+            <p class="scope-note">No necesitás contratar todos los servicios. Las integraciones dependen de los accesos y las interfaces disponibles.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="campaign-section section-deep" aria-labelledby="start-title">
+        <div class="wrap">
+          <div class="intro"><p class="eyebrow">Podés empezar por una sola prioridad</p><h2 id="start-title">Una primera entrega útil.<br />Una ruta para evolucionar.</h2></div>
+          <ol class="start-grid">
+            <li><span>01</span><h3>Entender la necesidad.</h3><p>Revisamos el proceso y los sistemas. Definimos qué mejorar y con qué KPIs evaluar el avance.</p></li>
+            <li><span>02</span><h3>Acordar el alcance.</h3><p>Definimos entregables, inversión, dependencias y plazos antes de iniciar.</p></li>
+            <li><span>03</span><h3>Implementar y acompañar.</h3><p>Construyo e integro lo acordado. Transferimos el conocimiento y priorizamos mejoras a partir de los KPIs.</p></li>
+          </ol>
+          <p class="start-note">Trabajás directamente conmigo, Héctor Guerra. Consultoría y capacidad de implementación en una misma relación.</p>
+        </div>
+      </section>
+
+      <section class="campaign-section" aria-labelledby="faq-title">
+        <div class="wrap faq-grid"><div class="intro"><p class="eyebrow blue">Antes de avanzar</p><h2 id="faq-title">Preguntas que vale<br />la pena resolver.</h2></div>
+          <div class="service-list">{ispFaqs.map((faq) => <details><summary>{faq.question}</summary><div class="detail-copy"><p>{faq.answer}</p></div></details>)}</div>
+        </div>
+      </section>
+
+      <section id="conversemos" class="campaign-section contact-section" aria-labelledby="contact-title" tabindex="-1">
+        <div class="wrap contact-grid">
+          <div class="contact-heading">
+            <p class="eyebrow blue">El siguiente paso</p><h2 id="contact-title">¿Dónde se está<br />frenando tu ISP?</h2>
+            <p class="lead">Contame qué necesitás mejorar. No necesitás elegir una tecnología para empezar a conversar.</p>
+          </div>
+          <div class="contact-panel"><h3>Contame tu prioridad</h3><p class="form-intro">El motivo inicial puede cambiar al conversar.</p><ContactForm originPath="/isp-honduras" tone="light" defaultService="otro" detailPlaceholder="¿Qué ISP representás, qué proceso o KPI necesitás mejorar y qué herramientas usás hoy?" submitLabel="Enviar mi consulta" /></div>
+          <aside class="contact-context" aria-labelledby="expectations-title">
+            <h3 id="expectations-title">Qué pasa después</h3>
+            <ol class="expectations"><li>Reviso tu consulta y el contexto que compartís.</li><li>Conversamos para evaluar si puedo ayudarte.</li><li>Si avanzamos, acordamos alcance, entregables e inversión antes de iniciar.</li></ol>
+            <div class="person"><img src="/mi_foto_pro.jpeg" alt="Héctor Guerra" width="72" height="72" loading="lazy" decoding="async" /><div><strong>Héctor Guerra</strong><span>Consultor independiente · Honduras</span><a href="/sobre-mi">Conocé mi experiencia <span aria-hidden="true">↗</span></a></div></div>
+            {whatsappHref !== '/contacto' && <a href={whatsappHref} class="whatsapp-link">¿Preferís WhatsApp? Escribime por aquí <span aria-hidden="true">↗</span></a>}
+            <p class="contact-note">Podemos partir de una necesidad definida. No hace falta contratar todo el ciclo ni reemplazar tus sistemas por defecto.</p>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <footer class="campaign-footer"><div class="wrap footer-inner"><p><strong>HGuerra</strong> · Inteligencia aplicada a desafíos reales.</p><div><a href="/privacidad">Privacidad</a><a href="/terminos">Términos</a><a href="/">Sitio principal <span aria-hidden="true">↗</span></a></div></div></footer>
+    <AnalyticsConsent enabled={true} />
+  </body>
+</html>
+
+<style>
+  :global(html.isp-campaign) { scroll-padding-top: 1.5rem; }
+  body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  .wrap { width: min(calc(100% - 3rem), 76rem); margin-inline: auto; }
+  .campaign-header { background: #020617; color: white; border-bottom: 1px solid #1e293b; }
+  .campaign-header :focus-visible { outline-color: #67e8f9; }
+  .header-inner, .brand, .footer-inner { display: flex; align-items: center; }
+  .header-inner { justify-content: space-between; gap: 1rem; padding-block: 1rem; }
+  .brand { gap: .75rem; text-decoration: none; }
+  .brand strong { display: block; font-size: 1.15rem; }
+  .brand small { display: block; color: #94a3b8; font-size: .75rem; }
+  .header-cta { display: inline-flex; align-items: center; gap: .7rem; min-height: 48px; max-width: 13rem; font-size: .9rem; font-weight: 650; text-align: right; }
+  .header-cta:hover, .whatsapp-link:hover { text-decoration: underline; text-underline-offset: 5px; }
+  .hero { padding-top: clamp(2.5rem, 5vw, 4.5rem); }
+  .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: 4.5rem; padding-bottom: 4rem; }
+  .eyebrow { color: #67e8f9; font-size: .75rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 1.25rem; }
+  .blue { color: #1d4ed8; }
+  h1 { font-size: clamp(2.35rem, 4.3vw, 4.1rem); line-height: 1.08; letter-spacing: -.04em; font-weight: 750; margin-bottom: 1.5rem; }
+  h1, h2, h3 { text-wrap: balance; }
+  p, li { text-wrap: pretty; }
+  h1 span { color: #67e8f9; }
+  .hero-copy { max-width: 39rem; color: #cbd5e1; font-size: 1.12rem; line-height: 1.7; }
+  .hero-support { color: #94a3b8; line-height: 1.65; margin-top: 1rem; max-width: 34rem; }
+  .campaign-cta { display: inline-flex; justify-content: center; align-items: center; gap: 1rem; background: #67e8f9; color: #020617; padding: 1rem 1.6rem; border-radius: 9999px; font-weight: 750; margin-top: 1.5rem; min-height: 52px; }
+  .campaign-cta:hover { background: #a5f3fc; }
+  .hero-note { color: #94a3b8; font-size: .8rem; margin-top: 1rem; }
+  .flow-panel { border: 1px solid #334155; border-radius: var(--radius-panel); background: #0f172a; padding: 1.7rem; }
+  .flow-panel figcaption { display: flex; align-items: center; gap: .65rem; color: #cbd5e1; font-size: .8rem; padding-bottom: 1.4rem; border-bottom: 1px solid #334155; }
+  .signal { width: .5rem; height: .5rem; background: #67e8f9; border-radius: 50%; }
+  .flow-stages { margin-top: 1.5rem; list-style: none; }
+  .flow-stages li { position: relative; padding: 0 0 1.7rem 1.5rem; border-left: 1px solid #475569; }
+  .flow-stages li::before { content: ''; position: absolute; left: -.25rem; top: .25rem; width: .45rem; height: .45rem; border-radius: 50%; background: #67e8f9; }
+  .flow-stages small { display: block; color: #67e8f9; font-size: .7rem; text-transform: uppercase; letter-spacing: .09em; margin-bottom: .35rem; }
+  .flow-stages strong { display: block; font-size: 1.35rem; letter-spacing: -.025em; }
+  .flow-stages p { color: #94a3b8; font-size: .9rem; line-height: 1.6; margin-top: .4rem; }
+  .flow-return { border-top: 1px solid #334155; padding-top: 1.2rem; color: #cbd5e1; font-size: .85rem; }
+  .flow-return span { color: #67e8f9; margin-right: .4rem; }
+  .hero-strip { display: flex; gap: 1.5rem; flex-wrap: wrap; padding-block: 1.4rem; border-top: 1px solid #334155; color: #cbd5e1; font-size: .85rem; }
+  .hero-strip span { font-weight: 700; }
+  .hero-strip p { color: #94a3b8; margin-left: auto; }
+  .campaign-section { padding-block: clamp(4rem, 7vw, 6.5rem); }
+  h2 { font-size: clamp(2.1rem, 3.6vw, 3.1rem); font-weight: 730; line-height: 1.1; letter-spacing: -.035em; margin-bottom: 1.4rem; }
+  h3 { font-size: 1.4rem; line-height: 1.25; font-weight: 700; letter-spacing: -.025em; }
+  .intro { max-width: 42rem; margin-bottom: 3rem; }
+  .intro > p:not(.eyebrow), .lead { color: #475569; font-size: 1.1rem; line-height: 1.75; }
+  .area-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
+  .area { border-top: 2px solid #0f172a; padding-top: 1.4rem; }
+  .area-label { font-size: .8rem; font-weight: 700; color: #475569; margin-bottom: 1.4rem; }
+  .area-label span { color: #1d4ed8; margin-right: .5rem; }
+  .area h3 { margin-bottom: 1rem; }
+  .area > p:not(.area-label) { color: #475569; line-height: 1.7; margin-top: 1rem; }
+  .area ul { margin-block: 1.4rem; display: grid; gap: .65rem; }
+  .area li { font-size: .9rem; color: #334155; padding-left: 1.1rem; position: relative; }
+  .area li::before { content: '→'; position: absolute; left: 0; color: #1d4ed8; }
+  .disclaimer { color: #64748b; font-size: .8rem; line-height: 1.65; margin-top: 2.5rem; }
+  .integration, .contact-section { background: #edf3f7; }
+  .kpi-section { background: #f8fafc; }
+  .kpi-area { border-left: 2px solid #1d4ed8; padding-left: 1.4rem; }
+  .kpi-area ul { list-style: disc; padding-left: 1.1rem; display: grid; gap: .7rem; color: #334155; line-height: 1.6; margin-block: 1.3rem; }
+  .kpi-area p { color: #475569; line-height: 1.7; font-size: .95rem; }
+  .kpi-principle { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #cbd5e1; color: #334155; line-height: 1.75; max-width: 60rem; }
+  .kpi-section .disclaimer { margin-top: .8rem; }
+  .kpi-cta { margin-top: 1.5rem; }
+  .integration-grid, .faq-grid, .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem 5rem; align-items: start; }
+  .integration-grid > div > p:not(.eyebrow), .delivery-note > p:not(.eyebrow), .contact-grid > div > p:not(.eyebrow) { color: #475569; line-height: 1.75; margin-bottom: 1.3rem; }
+  .delivery-note { border-left: 2px solid #1d4ed8; padding-left: 2rem; }
+  .delivery-note h3 { margin-bottom: 1.5rem; }
+  .distinction { border-top: 1px solid #cbd5e1; padding-top: 1rem; font-size: .9rem; }
+  .service-list { border-top: 1px solid #cbd5e1; min-width: 0; }
+  details { border-bottom: 1px solid #cbd5e1; }
+  summary { padding: 1.3rem .35rem; cursor: pointer; font-weight: 650; line-height: 1.5; }
+  summary::marker { color: #1d4ed8; }
+  details[open] summary { color: #1d4ed8; }
+  .detail-copy { color: #475569; line-height: 1.75; padding: 0 .35rem 1.5rem; }
+  .delivery { margin-top: 1rem; }
+  .technical-scope { margin-top: 2.5rem; border: 1px solid #cbd5e1; border-radius: var(--radius-card); background: white; }
+  .technical-scope > summary { padding: 1.5rem; }
+  .scope-hint { display: block; margin: .4rem 0 0 1.1rem; color: #475569; font-size: .85rem; font-weight: 400; }
+  .technical-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; padding: 0 1.5rem 1.5rem; }
+  .technical-grid article { border-top: 1px solid #e2e8f0; padding-top: 1.3rem; }
+  .technical-grid h3 { font-size: 1.1rem; margin-bottom: .8rem; }
+  .technical-grid p, .scope-note { color: #475569; line-height: 1.75; font-size: .95rem; }
+  .scope-note { padding: 0 1.5rem 1.5rem; }
+  .start-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3rem; list-style: none; }
+  .start-grid li { border-top: 1px solid #475569; padding-top: 1.2rem; }
+  .start-grid span { color: #67e8f9; font-size: .85rem; }
+  .start-grid h3 { margin-block: 1.2rem 1rem; }
+  .start-grid p { color: #cbd5e1; line-height: 1.75; }
+  .start-note { color: #94a3b8; font-size: .9rem; margin-top: 2.5rem; }
+  .expectations { list-style: decimal; padding-left: 1.2rem; color: #475569; line-height: 1.7; display: grid; gap: .7rem; margin-block: 1.7rem 2.2rem; }
+  .contact-heading { grid-column: 1 / -1; max-width: 44rem; }
+  .contact-heading h2 { margin-bottom: 1rem; }
+  .contact-context { padding-top: 1.5rem; }
+  .contact-note { margin-top: 1.5rem; color: #475569; font-size: .9rem; line-height: 1.7; }
+  .person { display: flex; align-items: center; gap: 1rem; }
+  .person img { border-radius: 50%; object-fit: cover; }
+  .person strong, .person span { display: block; }
+  .person span { color: #475569; font-size: .85rem; margin-block: .2rem; }
+  .person a, .whatsapp-link { display: inline-flex; align-items: center; min-height: 44px; color: #1d4ed8; font-size: .9rem; font-weight: 650; }
+  .whatsapp-link { display: inline-flex; align-items: center; min-height: 48px; margin-top: 1.5rem; }
+  .contact-panel { border: 1px solid #cbd5e1; background: white; border-radius: var(--radius-panel); padding: clamp(1.3rem, 3vw, 2.4rem); min-width: 0; }
+  .contact-panel :global(:is(input, select, textarea)) { min-height: 48px; border-color: #64748b; font-size: 1rem; }
+  .contact-panel :global(:is(input, textarea)::placeholder) { color: #64748b; }
+  .contact-panel :global(:is(input, select, textarea, button):focus-visible) { outline: 3px solid #1d4ed8; outline-offset: 3px; }
+  .form-intro { color: #475569; line-height: 1.65; margin-block: .75rem 1.7rem; font-size: .9rem; }
+  .campaign-footer { padding-block: 1.8rem; background: #020617; color: #94a3b8; font-size: .8rem; }
+  .footer-inner { justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+  .footer-inner > div { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .footer-inner a { display: inline-flex; align-items: center; min-height: 44px; }
+  @media (max-width: 1000px) {
+    .hero-grid { gap: 2.5rem; }
+    .integration-grid, .faq-grid, .contact-grid { gap: 2.5rem; }
+    .area-grid { gap: 1.5rem; }
+    .hero-strip p { margin-left: 0; flex-basis: 100%; }
+  }
+  @media (max-width: 760px) {
+    .wrap { width: min(calc(100% - 2rem), 76rem); }
+    .hero-grid, .area-grid, .integration-grid, .faq-grid, .contact-grid, .start-grid, .technical-grid { grid-template-columns: 1fr; }
+    .brand small { display: none; }
+    .brand { gap: .5rem; }
+    .brand img { width: 36px; height: 36px; }
+    .brand strong { font-size: 1rem; }
+    .header-cta { font-size: .8rem; }
+    .hero-grid { padding-bottom: 2.5rem; }
+    .hero-strip { gap: .7rem 1.5rem; }
+    .intro { margin-bottom: 2rem; }
+    .faq-grid .intro { margin-bottom: 0; }
+    .area-grid { gap: 2.5rem; }
+    .delivery-note { padding-left: 1.2rem; }
+    .start-grid { gap: 2rem; }
+    .campaign-cta { width: 100%; }
+  }
+</style>

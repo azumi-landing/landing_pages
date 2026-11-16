@@ -181,5 +181,12 @@ export const businessServices = [
     work: 'Construyo soluciones para consultar conocimiento, procesar documentos y asistir procesos. Integro los sistemas existentes y defino evaluación, límites y revisión humana.',
     deliverables: ['Solución integrada al flujo de trabajo acordado', 'Evaluación, controles, documentación y transferencia'],
     success: 'Medimos utilidad, calidad y riesgos antes de ampliar el alcance; no todo necesita IA.'
+  },
+  {
+    id: 'software', group: 'ingenieria', title: 'Desarrollo de software a medida', icon: 'fa-code',
+    need: 'Cuando una prioridad requiere una herramienta que tus sistemas actuales no cubren, también puedo desarrollar el software necesario.',
+    work: 'Como complemento a la consultoría y las soluciones de datos e IA, desarrollo aplicaciones adaptadas a tus procesos y puntos de dolor. Uso agentes de IA para asistir la construcción, bajo mi dirección y revisión técnica; el software entregado puede incluir IA o no, según lo que necesités resolver.',
+    deliverables: ['Aplicación o módulo con reglas de negocio e integraciones acordadas', 'Primera versión útil en producción, validaciones según el riesgo, documentación y transferencia'],
+    success: 'Buscamos calidad verificable, costos contenidos y una puesta en producción ágil: priorizamos lo necesario, reutilizamos lo que funciona y avanzamos por entregas pequeñas. Alcance, plazos y mantenimiento se acuerdan con vos.'
   }
 ] as const;

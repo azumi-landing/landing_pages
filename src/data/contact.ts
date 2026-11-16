@@ -39,6 +39,7 @@ const contexts: Record<string, { service: ContactServiceValue; originLabel: stri
   '/soluciones': { service: 'otro', originLabel: 'Soluciones' },
   '/tecnologia': { service: 'otro', originLabel: 'Tecnología' },
   '/sobre-mi': { service: 'otro', originLabel: 'Sobre mí' },
+  '/isp-honduras': { service: 'otro', originLabel: 'Soluciones para ISP de Honduras' },
   '/automatizacion-con-ia-agentica': { service: 'ia', originLabel: 'Consulta sobre IA aplicada' },
   '/automatizacion-de-procesos': { service: 'datos', originLabel: 'Consulta sobre datos' }
 };
@@ -56,7 +57,9 @@ export function getContactServiceGuidance(value?: string | null) {
   return {
     originLabel: service.title,
     contextMessage: `Seleccionaste ${service.title.toLowerCase()}. Contame qué querés mejorar y qué está dificultando avanzar. No necesitás tener una solución definida.`,
-    detailPlaceholder: `${service.need} Contame tu situación, el equipo involucrado y el cambio que esperás conseguir.`,
+    detailPlaceholder: service.id === 'software'
+      ? '¿Qué proceso necesitás mejorar? ¿Qué herramientas usás hoy y dónde se quedan cortas? Contame quién usaría la solución y qué resultado esperás conseguir.'
+      : `${service.need} Contame tu situación, el equipo involucrado y el cambio que esperás conseguir.`,
     expectationTitle: 'Primero entendemos tu situación',
     expectationItems: [
       'Reviso el desafío y las capacidades con las que ya contás.',

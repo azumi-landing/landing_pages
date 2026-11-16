@@ -78,12 +78,14 @@ export const technologySections = [
     description:
       'Una solución necesita encajar con los sistemas existentes y poder operarse después de la entrega. La arquitectura, el despliegue y el seguimiento se diseñan según el contexto, no por una herramienta de moda.',
     example:
-      'Integrar una solución mediante APIs, desplegarla en el entorno acordado y seguir su calidad, uso y costo para decidir cómo evolucionarla.',
+      'Complementar los sistemas existentes con una aplicación interna para solicitudes y aprobaciones, conectarla mediante APIs y desplegarla en el entorno acordado.',
     groups: [
       {
         title: 'Software e integración',
         items: [
+          'Software a medida como complemento a las soluciones de datos e IA: aplicaciones internas, portales o módulos con interfaces y reglas de negocio adaptadas a tu empresa.',
           'Desarrollo de APIs y servicios para conectar capacidades con los flujos reales de trabajo.',
+          'Agentes de IA como apoyo al desarrollo, bajo mi dirección y revisión técnica. Su uso no obliga a incorporar IA en la aplicación entregada.',
           'Arquitectura de software con responsabilidades e interfaces claras, documentación y una complejidad que el equipo pueda sostener.',
           'Microservicios cuando la separación de componentes aporte una ventaja concreta, no como requisito de todos los proyectos.'
         ]

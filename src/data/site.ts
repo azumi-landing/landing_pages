@@ -41,6 +41,7 @@ export const publicSiteRoutes = [
   { path: '/metodologia', priority: '0.9', changefreq: 'monthly' },
   { path: '/soluciones', priority: '0.9', changefreq: 'monthly' },
   { path: '/tecnologia', priority: '0.7', changefreq: 'monthly' },
+  { path: '/isp-honduras', priority: '0.7', changefreq: 'monthly' },
   { path: '/contacto', priority: '0.7', changefreq: 'weekly' },
   { path: '/sobre-mi', priority: '0.7', changefreq: 'monthly' },
   { path: '/privacidad', priority: '0.3', changefreq: 'yearly' },

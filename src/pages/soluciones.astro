@@ -8,9 +8,26 @@ import TrustBand from '../components/sections/TrustBand.astro';
 import { agenticAutomationLanding } from '../data/serviceLandings';
 import { businessFaqs } from '../data/methodology';
 import { businessServices } from '../data/commercial';
+import type { BeforeAfterCase } from '../types/serviceLanding';
 import { buildBreadcrumbSchema, buildFAQSchema, buildServiceSchema } from '../data/site';
 // Reuse the existing landing's examples as illustrations, not client results.
-const examples = (agenticAutomationLanding.beforeAfterCases ?? []).filter(({ industry }) => ['Gerencia', 'Reportes internos'].includes(industry));
+const examples: BeforeAfterCase[] = [
+  ...(agenticAutomationLanding.beforeAfterCases ?? []).filter(({ industry }) => ['Gerencia', 'Reportes internos'].includes(industry)),
+  {
+    icon: 'fa-list-check',
+    industry: 'Solicitudes y aprobaciones',
+    title: 'Una herramienta para un proceso que no encaja.',
+    before: 'Las solicitudes pasan entre correos y hojas de cálculo. Las herramientas actuales no reflejan los estados, responsables y aprobaciones que necesita el equipo.',
+    after: 'Una aplicación a medida complementa los sistemas existentes, reúne las solicitudes y aplica las reglas acordadas, con responsables y seguimiento de cada etapa.'
+  },
+  {
+    icon: 'fa-user',
+    industry: 'Atención a clientes',
+    title: 'Seguimiento sin reconstruir cada conversación.',
+    before: 'Para conocer el estado de un servicio, el cliente debe preguntar y alguien tiene que buscar información en varios sistemas.',
+    after: 'Un portal conectado con los sistemas existentes permite consultar el estado autorizado de cada solicitud y aportar la información pendiente.'
+  }
+];
 const controls = [
   { value: 'Con contexto', label: 'Las decisiones técnicas responden a una necesidad de negocio.' },
   { value: 'Con control', label: 'Permisos, revisión humana y límites acordes al riesgo.' },
@@ -22,7 +39,7 @@ const controls = [
     <section class="section-shell-hero section-deep"><div class="page-container"><p class="section-eyebrow text-cyan-300">Soluciones / De la decisión a la implementación</p><h1 class="text-4xl md:text-6xl font-bold max-w-4xl leading-tight mb-7">Consultoría e implementación<br />de datos e IA.</h1><p class="text-xl text-slate-300 leading-relaxed max-w-3xl mb-8">Te ayudo con la evaluación de madurez y el acompañamiento a la adopción, junto con ingeniería de datos e inteligencia artificial aplicada. Tu desafío define el trabajo, no una herramienta: acordamos qué orientar, qué construir y cómo incorporarlo al trabajo de tu equipo.</p><div class="flex flex-wrap gap-4"><a href="/contacto" class="action-primary">Conversemos sobre tu desafío</a><a href="/metodologia" class="action-secondary action-secondary-dark">Conocer la metodología</a></div></div></section>
     <section class="section-shell section-light" aria-labelledby="solutions-title"><div class="page-container"><div class="section-intro"><p class="section-eyebrow text-slate-500">Orientación y ejecución</p><h2 id="solutions-title" class="section-title">Un buen diagnóstico necesita<br />un camino para actuar.</h2><p class="section-copy text-slate-600">Podemos empezar por la evaluación, acompañar una iniciativa existente o implementar una prioridad ya definida. Acordamos el punto de entrada y sus límites.</p></div><ServicePillars detailed /></div></section>
     <TrustBand eyebrow="Criterios de trabajo" title="Construir con criterio. Operar con confianza." description="La elección técnica depende de los datos, los objetivos y las restricciones de tu empresa. No de un proveedor que necesitemos vender." items={controls} tone="muted" />
-    <section class="section-shell section-light" aria-labelledby="examples-title"><div class="page-container"><div class="section-intro"><p class="section-eyebrow text-slate-500">Aplicaciones posibles</p><h2 id="examples-title" class="section-title">Así puede cambiar el trabajo diario.</h2><p class="section-copy text-slate-600">Ejemplos ilustrativos recuperados de las aplicaciones del sitio. No son casos de clientes ni resultados garantizados; cada implementación requiere evaluar contexto y viabilidad.</p></div><BeforeAfterExamples items={examples} /></div></section>
+    <section class="section-shell section-light" aria-labelledby="examples-title"><div class="page-container"><div class="section-intro"><p class="section-eyebrow text-slate-500">Aplicaciones posibles</p><h2 id="examples-title" class="section-title">Así puede cambiar el trabajo diario.</h2><p class="section-copy text-slate-600">Ejemplos ilustrativos de datos, IA y herramientas a medida cuando hacen falta. No son casos de clientes ni resultados garantizados; cada implementación requiere evaluar contexto y viabilidad.</p></div><BeforeAfterExamples items={examples} /></div></section>
     <FaqSection items={businessFaqs} />
     <ContactStrip originPath="/soluciones" />
   </main>
