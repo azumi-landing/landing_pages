@@ -1,0 +1,27 @@
+---
+interface Props {
+  id: string;
+  index: number;
+  total: number;
+  label: string;
+  tone?: 'light' | 'muted' | 'dark';
+  titleId?: string;
+  class?: string;
+}
+const { id, index, total, label, tone = 'light', titleId = `${id}-title`, class: className = '' } = Astro.props;
+---
+
+<section id={id} class={`isp-slide slide-${tone} ${className}`} data-slide-index={index} aria-labelledby={titleId} tabindex="-1">
+  <div class="slide-shell">
+    <header class="slide-meta">
+      <p class="slide-kicker">{index > 0 && <span>{String(index).padStart(2, '0')}</span>}{label}</p>
+      <div class="slide-brand"><img src="/hg-favicon.svg" alt="" width="28" height="28" /><span>HGuerra</span></div>
+    </header>
+    <div class="slide-content"><slot /></div>
+    <footer class="slide-footer">
+      <span class="slide-signature">Inteligencia aplicada a desafíos reales.</span>
+      <slot name="footer" />
+      <span class="slide-counter" aria-label={`Diapositiva ${index + 1} de ${total}`}>{String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}</span>
+    </footer>
+  </div>
+</section>

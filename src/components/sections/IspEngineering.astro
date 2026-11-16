@@ -1,90 +1,76 @@
 ---
-import { ispEngineeringCapabilities } from '../../data/ispCampaign';
+import { ispEngineeringCapabilities, ispActivationSteps, ispIllustrations } from '../../data/ispCampaign';
+import IspSlide from './IspSlide.astro';
 import IspArchitecture from './IspArchitecture.astro';
 
-interface Props { ctaLabel: string }
-const { ctaLabel } = Astro.props;
+interface Props { ctaLabel: string; total: number }
+const { ctaLabel, total } = Astro.props;
+const dataCapabilities = ispEngineeringCapabilities.filter(({ id }) => !['conocimiento', 'agentes'].includes(id));
+const aiCapabilities = ispEngineeringCapabilities.filter(({ id }) => ['conocimiento', 'agentes'].includes(id));
 ---
 
-<section id="ingenieria" class="engineering-section" aria-labelledby="engineering-title">
-  <div class="engineering-wrap">
-    <div class="engineering-intro">
-      <p class="eyebrow">Cómo construyo la solución</p>
-      <h2 id="engineering-title">La ingeniería que<br />lo hace posible.</h2>
-      <p>Elijo con vos las capacidades que requiere tu prioridad: una aplicación, una integración o una solución que conecte procesos y datos. El software registra lo necesario para medir; los indicadores orientan qué mejorar.</p>
+<IspSlide id="ingenieria" index={5} total={total} label="Software y datos" tone="muted" titleId="engineering-title" class="engineering-slide">
+  <div class="split-slide">
+    <div class="slide-copy" id="ciclo-datos">
+      <h2 id="engineering-title">Del registro diario a las herramientas que usa tu equipo.</h2>
+      <p class="slide-lead">Para seguir un alta, una orden, un cobro o una alerta, la información debe poder capturarse, relacionarse y llegar al lugar donde se necesita. Desarrollo aplicaciones e integraciones y preparo los datos para análisis y uso operativo.</p>
+      <ol class="engineering-steps">
+        <li><strong>Capturar y conectar</strong><span>Aplicaciones, formularios, APIs y fuentes autorizadas.</span></li>
+        <li><strong>Preparar y relacionar</strong><span>Validación, ETL/ELT e historia compartida; Data Warehouse cuando se justifique.</span></li>
+        <li><strong>Analizar y usar</strong><span>Algoritmos, visualización, automatización y aplicaciones que devuelven información al proceso.</span></li>
+      </ol>
+      <p class="slide-note">Combinamos estas capacidades según tu necesidad. No todos los proyectos requieren todos los componentes.</p>
+      <p class="engineering-controls">Calidad del dato · Acceso por responsabilidad · Trazabilidad</p>
     </div>
-
-    <IspArchitecture />
-
-    <div class="capability-heading">
-      <p class="eyebrow">Las capacidades detrás de la mejora</p>
-      <h3>Cada componente tiene que resolver algo.</h3>
-      <p>No necesitás comprar una lista de tecnologías. Estas capacidades se combinan según el problema, los datos disponibles y el alcance que acordemos.</p>
-    </div>
-    <div class="capability-grid">
-      {ispEngineeringCapabilities.map((capability, index) => <article id={`capacidad-${capability.id}`} class="capability">
-        <span class="capability-number" aria-hidden="true">0{index + 1}</span>
-        <div><h4>{capability.title}</h4><p>{capability.description}</p>
-          <dl><div><dt>Qué aborda</dt><dd>{capability.problem}</dd></div><div><dt>Entregable</dt><dd>{capability.delivery}</dd></div></dl>
-        </div>
-      </article>)}
-    </div>
-
-    <details class="engineering-limits">
-      <summary>Dependencias y límites que acordamos antes de implementar</summary>
-      <div class="limits-grid">
-        <div><h4>Integración y datos</h4><p>Confirmamos accesos, interfaces, calidad e historia disponible. ETL o ELT, frecuencia y latencia se eligen según el uso y el costo; tiempo real no significa instantaneidad garantizada.</p></div>
-        <div><h4>Modelos y acciones</h4><p>Evaluamos modelos frente a una referencia. Una predicción no es una certeza y recuperar documentos no elimina errores. Cobros, cortes o cambios de red no se ejecutan autónomamente por defecto.</p></div>
-        <div><h4>Sostenibilidad</h4><p>Acordamos documentación, transferencia, mantenimiento y condiciones de acompañamiento. Los agentes de desarrollo asisten mi trabajo; los agentes operativos son una capacidad distinta.</p></div>
-      </div>
-    </details>
-    <div class="engineering-bottom"><p>Software, integración y soporte a decisiones. No se ofrece instalación física de redes, operación NOC 24/7 ni certificación de cumplimiento regulatorio.</p><a href="#conversemos" class="action-link">{ctaLabel} <span aria-hidden="true">↗</span></a></div>
+    <IspArchitecture mode="data" illustration={ispIllustrations.ingenieria} />
   </div>
-</section>
+  <details id="architecture-notes" class="slide-details">
+    <summary>Capacidades, entregables y criterios de medición</summary>
+    <div class="detail-deliveries engineering-deliveries">
+      {dataCapabilities.map((capability) => (
+        <article id={`capacidad-${capability.id}`}>
+          <h3>{capability.title}</h3><p>{capability.description}</p>
+          <p><strong>Entregable:</strong> {capability.delivery}</p>
+        </article>
+      ))}
+      <article><h3>La medición se diseña primero</h3><p>Acordamos objetivo, fórmula, fuentes, período, responsable, línea base, meta y acción ante desviaciones. Los KPIs no requieren IA y un tablero no garantiza mejoras. El DWH no reemplaza sistemas transaccionales o el repositorio documental.</p></article>
+      <article><h3>Integración y modelos con límites</h3><p>Confirmamos accesos e interfaces: APIs, eventos o extracciones autorizadas. ETL o ELT, frecuencia y latencia dependen del uso, fuentes y costo. No se garantiza compatibilidad o instantaneidad. Evaluamos los modelos con historia suficiente y una referencia; una predicción no es una certeza.</p></article>
+      <article><h3>Operación y continuidad acordadas</h3><p>Definimos reglas de calidad, manejo de fallos, documentación y recuperación para los componentes entregados, con responsabilidades explícitas.</p></article>
+      <article class="activation-detail"><h3>Ejemplo ilustrativo: del prospecto al servicio activo</h3><ol>{ispActivationSteps.map((step) => <li><strong>{step.title}</strong><span>{step.description} Registro: {step.record.toLowerCase()}.</span></li>)}</ol></article>
+    </div>
+  </details>
+  <a slot="footer" href="#conversemos" class="slide-text-cta">{ctaLabel} <span aria-hidden="true">↗</span></a>
+</IspSlide>
+
+<IspSlide id="automatizacion" index={6} total={total} label="Automatización e IA" titleId="automatizacion-title" class="engineering-slide">
+  <div class="split-slide">
+    <div class="slide-copy">
+      <h2 id="automatizacion-title">Menos traspasos manuales para concentrarse en la atención.</h2>
+      <p class="slide-lead">Automatizo consultas, avisos y preparación de tareas para que el equipo no tenga que reconstruir el contexto en cada paso. Integro reglas, herramientas y agentes de IA cuando aportan valor a esa necesidad.</p>
+      <ul class="engineering-steps">
+        <li><strong>Consultar conocimiento</strong><span>Encontrar un procedimiento o antecedente con fuentes autorizadas, evaluación y escalamiento humano.</span></li>
+        <li><strong>Preparar o ejecutar una tarea</strong><span>Consultar contexto, aplicar reglas y pasar por autorización cuando corresponda, dejando registro del resultado.</span></li>
+      </ul>
+      <p class="slide-note">Una regla puede bastar sin un agente. Acordamos permisos por tarea, trazabilidad, límites de autonomía y revisión de acciones sensibles.</p>
+    </div>
+    <IspArchitecture mode="intelligence" illustration={ispIllustrations.automatizacion} />
+  </div>
+  <details class="slide-details">
+    <summary>Entregables, evaluación y límites de los agentes</summary>
+    <div class="detail-deliveries engineering-deliveries">
+      {aiCapabilities.map((capability) => <article id={`capacidad-${capability.id}`}><h3>{capability.title}</h3><p>{capability.description}</p><p><strong>Entregable:</strong> {capability.delivery}</p></article>)}
+      <article><h3>Fuentes no significa infalibilidad</h3><p>Recuperar documentos no elimina errores. Evaluamos respuestas, permisos y escalamiento humano. Cobros, cortes o cambios de red no se ejecutan autónomamente por defecto.</p></article>
+      <article><h3>Desarrollo y operación son decisiones distintas</h3><p>Uso agentes para asistir mi desarrollo, bajo mi dirección y revisión técnica. Eso no implica que tu solución incluya IA o agentes operativos. Su incorporación se acuerda según el caso.</p></article>
+    </div>
+  </details>
+  <a slot="footer" href="#conversemos" class="slide-text-cta">{ctaLabel} <span aria-hidden="true">↗</span></a>
+</IspSlide>
 
 <style>
-  .engineering-section { padding-block: clamp(3.5rem, 6vw, 5.5rem); background: #f8fafc; color: #0f172a; }
-  .engineering-wrap { inline-size: min(calc(100% - 3rem), 76rem); margin-inline: auto; }
-  h2, h3, h4 { text-wrap: balance; font-weight: 700; letter-spacing: -.025em; }
-  p, li { text-wrap: pretty; }
-  .eyebrow { color: #1d4ed8; font-size: .75rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; margin-block-end: 1.25rem; }
-  h2 { font-size: clamp(2rem, 3.4vw, 3rem); font-weight: 730; line-height: 1.12; letter-spacing: -.035em; margin-block-end: 1.2rem; }
-  .engineering-intro { max-inline-size: 48rem; margin-block-end: 3rem; }
-  .engineering-intro > p:last-child { color: #475569; font-size: 1.05rem; line-height: 1.75; }
-  .capability-heading h3 { font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1.2; }
-  .capability-heading > p:last-child { color: #475569; font-size: .95rem; line-height: 1.75; }
-  .capability-heading { max-inline-size: 44rem; margin-block-end: 2rem; }
-  .capability-heading > p:last-child { margin-block-start: 1rem; }
-  .capability-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem 3rem; }
-  .capability { display: grid; grid-template-columns: 1.5rem minmax(0, 1fr); gap: 1rem; border-block-start: 1px solid #cbd5e1; padding-block-start: 1.25rem; }
-  .capability-number { color: #1d4ed8; font-size: .75rem; font-weight: 700; padding-block-start: .25rem; }
-  .capability h4 { font-size: 1.15rem; line-height: 1.35; margin-block-end: .75rem; }
-  .capability p { color: #475569; font-size: .95rem; line-height: 1.75; }
-  .capability dl { display: grid; gap: .6rem; margin-block-start: 1rem; font-size: .85rem; line-height: 1.7; }
-  .capability dl > div { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: .75rem; }
-  .capability dt { color: #475569; font-weight: 650; }
-  .capability dd { color: #334155; }
-  .engineering-limits { border-block: 1px solid #cbd5e1; margin-block-start: 2.5rem; }
-  summary { cursor: pointer; padding: 1.25rem .25rem; color: #0f172a; font-size: .95rem; line-height: 1.6; font-weight: 650; }
-  summary::marker { color: #1d4ed8; }
-  details[open] summary { color: #1d4ed8; }
-  .limits-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; padding-block: .25rem 1.5rem; }
-  .limits-grid h4 { font-size: 1rem; margin-block-end: .7rem; }
-  .limits-grid p { color: #475569; font-size: .85rem; line-height: 1.75; }
-  .engineering-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: start; gap: 1rem 2rem; margin-block-start: 1.5rem; }
-  .engineering-bottom p { max-inline-size: 43rem; color: #475569; font-size: .8rem; line-height: 1.75; }
-  .engineering-bottom a { min-block-size: 48px; font-size: .9rem; }
-  @media (max-width: 1000px) {
-    .capability-grid { column-gap: 2rem; }
-  }
+  .engineering-deliveries { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 2rem; }
+  .activation-detail ol { list-style: decimal; padding-inline-start: 1.25rem; margin-block-start: 1rem; display: grid; gap: .75rem; }
+  .activation-detail li > span { display: block; }
   @media (max-width: 800px) {
-    .engineering-wrap { inline-size: min(calc(100% - 2rem), 76rem); }
-    .limits-grid { grid-template-columns: minmax(0, 1fr); }
-    .capability-grid { grid-template-columns: minmax(0, 1fr); }
-    .limits-grid { gap: 1.5rem; }
-  }
-  @media (max-width: 480px) {
-    .capability { column-gap: .6rem; }
-    .capability dl > div { grid-template-columns: minmax(0, 1fr); gap: .15rem; }
+    .engineering-deliveries { grid-template-columns: minmax(0, 1fr); }
   }
 </style>

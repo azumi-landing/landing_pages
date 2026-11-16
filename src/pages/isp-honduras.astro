@@ -1,375 +1,159 @@
 ---
 import '../styles/global.css';
+import '../styles/ispCampaign.css';
 import SeoHead from '../components/SeoHead.astro';
 import AnalyticsConsent from '../components/AnalyticsConsent.astro';
 import ContactForm from '../components/sections/ContactForm.astro';
+import IspSlide from '../components/sections/IspSlide.astro';
+import IspAreaScene from '../components/sections/IspAreaScene.astro';
 import IspEngineering from '../components/sections/IspEngineering.astro';
-import { ispChallenges, ispFoundations, ispScenarioSteps, ispActivationSteps, ispFaqs } from '../data/ispCampaign';
-import { getWhatsAppHref } from '../data/contact';
+import { ispScenarios, ispFaqs, ispCtaLabel, ispIllustrations } from '../data/ispCampaign';
 import { buildFAQSchema, buildServiceSchema } from '../data/site';
 
-const title = 'Software a medida y datos para ISPs en Honduras | HGuerra';
-const description = 'Software a medida y datos para abordar retención, facturación, coordinación, calidad y capacidad de tu ISP. Evaluemos una primera mejora con alcance e inversión acordados.';
-const ctaLabel = 'Evaluar una mejora para mi ISP';
-const whatsappHref = getWhatsAppHref('Hola Héctor, represento a un ISP de Honduras. Quiero conversar sobre una necesidad de nuestra operación y evaluar una primera mejora.');
+const title = 'Software e ingeniería de datos para ISPs en Honduras | HGuerra';
+const description = 'Aplicaciones, integraciones, análisis y automatización para conectar clientes, operación y monitoreo de tu ISP. Conversemos sobre una primera solución con alcance acordado.';
+const total = 10;
+const hero = ispIllustrations.introduccion;
+const method = ispIllustrations['forma-de-trabajo'];
 ---
 
 <!doctype html>
 <html lang="es" class="isp-campaign">
   <head>
     <SeoHead title={title} description={description} path="/isp-honduras"
-      schemas={[buildFAQSchema(ispFaqs), buildServiceSchema({ name: 'Software, integración de datos e IA para ISPs', description, path: '/isp-honduras', areaServed: 'Honduras' })]} />
+      schemas={[buildFAQSchema(ispFaqs), buildServiceSchema({ name: 'Desarrollo de software e ingeniería de datos para ISPs', description, path: '/isp-honduras', areaServed: 'Honduras' })]} />
   </head>
-  <body class="page-body-light">
+  <body class="page-body-light isp-deck">
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
-    <header class="campaign-header">
-      <div class="wrap header-inner">
-        <div class="brand">
-          <img src="/hg-favicon.svg" alt="" width="40" height="40" />
-          <span><strong>HGuerra</strong><small>Inteligencia aplicada a desafíos reales.</small></span>
-        </div>
-        <a href="#conversemos" class="header-cta">{ctaLabel} <span aria-hidden="true">↗</span></a>
-      </div>
-    </header>
-
     <main id="contenido" tabindex="-1">
-      <section class="hero section-deep" aria-labelledby="isp-title">
-        <div class="wrap hero-grid">
-          <div class="hero-message">
-            <p class="eyebrow">Para ISPs de Honduras</p>
-            <h1 id="isp-title">Protegé ingresos.<br /><span>Coordiná mejor.<br />Decidí con evidencia.</span></h1>
-            <p class="hero-copy">Desarrollo o modernizo el software que tu ISP necesita y lo conecto con tus sistemas. Integro sus datos para gestionar clientes, ingresos, atención y calidad del servicio.</p>
-            <a href="#conversemos" class="campaign-cta">{ctaLabel} <span aria-hidden="true">↗</span></a>
-            <p class="hero-note">Contame qué está frenando a tu ISP. Revisamos cómo abordarlo y acordamos el alcance antes de iniciar.</p>
+      <IspSlide id="introduccion" index={0} total={total} label="Para ISPs de Honduras" tone="dark" titleId="isp-title">
+        <div class="split-slide">
+          <div class="slide-copy">
+            <p class="hero-eyebrow">Software e ingeniería de datos para ISPs de Honduras.</p>
+            <h1 id="isp-title">¿Tu ISP pierde seguimiento <span>entre ventas, instalaciones y soporte?</span></h1>
+            <p class="slide-lead">Cuando la información queda repartida, cuesta saber qué está pendiente, quién debe atenderlo y cómo afecta al cliente.</p>
+            <p class="slide-lead">Conecto tus sistemas y desarrollo aplicaciones, análisis y automatizaciones para seguir clientes, coordinar el trabajo y aprovechar los datos de tu red.</p>
+            <p class="hero-scope">Desde la captura y la integración hasta las herramientas que usa tu equipo.</p>
+            <a href="#conversemos" class="campaign-cta">{ispCtaLabel} <span aria-hidden="true">↗</span></a>
+            <p class="hero-note">Contame qué querés mejorar. Si hay encaje, acordamos una primera entrega, su alcance e inversión.</p>
           </div>
-
-          <figure class="overview" aria-labelledby="overview-title">
-            <figcaption id="overview-title"><span class="figure-label">Software y datos al servicio del negocio</span><strong>Clientes, ingresos y servicio.<br />Una misma visión.</strong></figcaption>
-            <ol class="systems">
-              <li>
-                <svg viewBox="0 0 120 94" fill="none" aria-hidden="true">
-                  <rect x="8" y="8" width="104" height="78" rx="8" fill="white" stroke="#cbd5e1" stroke-width="2" />
-                  <path d="M8 28h104" stroke="#cbd5e1" stroke-width="2" />
-                  <circle cx="20" cy="18" r="2" fill="#1d4ed8" /><circle cx="28" cy="18" r="2" fill="#94a3b8" />
-                  <circle cx="37" cy="49" r="9" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2" />
-                  <path d="M22 73c0-15 30-15 30 0M65 44h31M65 55h23M65 68h17" stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round" />
-                </svg>
-                <span>Ventas</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 120 94" fill="none" aria-hidden="true">
-                  <rect x="24" y="13" width="72" height="73" rx="8" fill="white" stroke="#cbd5e1" stroke-width="2" />
-                  <rect x="44" y="7" width="32" height="14" rx="5" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2" />
-                  <path d="m37 38 4 4 7-8m-11 22 4 4 7-8m-11 22 4 4 7-8M59 39h22M59 57h22M59 75h16" stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                <span>Órdenes</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 120 94" fill="none" aria-hidden="true">
-                  <path d="M32 62V43m56 19V43M43 21a26 26 0 0 1 34 0M51 31a14 14 0 0 1 18 0" stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round" />
-                  <circle cx="60" cy="41" r="3" fill="#1d4ed8" />
-                  <rect x="15" y="62" width="90" height="24" rx="7" fill="white" stroke="#cbd5e1" stroke-width="2" />
-                  <path d="M28 74h18" stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round" />
-                  <circle cx="76" cy="74" r="3" fill="#0891b2" /><circle cx="88" cy="74" r="3" fill="#0891b2" />
-                </svg>
-                <span>Servicio</span>
-              </li>
-            </ol>
-            <svg class="connections" viewBox="0 0 480 65" preserveAspectRatio="none" fill="none" aria-hidden="true">
-              <path d="M80 2v23q0 10 10 10h140q10 0 10 10v18M240 2v61M400 2v23q0 10-10 10H250q-10 0-10 10" stroke="#1d4ed8" stroke-width="2" />
-              <circle cx="80" cy="3" r="3" fill="#1d4ed8" /><circle cx="240" cy="3" r="3" fill="#1d4ed8" /><circle cx="400" cy="3" r="3" fill="#1d4ed8" />
-              <path d="m234 55 6 7 6-7" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <div class="shared-view">
-              <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><ellipse cx="20" cy="10" rx="13" ry="5" stroke="currentColor" stroke-width="2" /><path d="M7 10v10c0 3 6 5 13 5s13-2 13-5V10M7 20v10c0 3 6 5 13 5s13-2 13-5V20" stroke="currentColor" stroke-width="2" /></svg>
-              <div><span>Software + datos conectados</span><strong>Qué priorizar y cómo actuar</strong></div>
-            </div>
-            <p class="overview-note">Seguir una oportunidad. Coordinar una atención. Decidir una ampliación.</p>
-            <span class="illustrative-label">Esquema ilustrativo · No es un producto listo</span>
+          <figure class="isp-illustration hero-visual">
+            <img src={hero.src} alt={hero.alt} width={hero.width} height={hero.height} fetchpriority="high" />
+            <figcaption><p class="illustration-label">{hero.caption}</p><p class="example-note">No es un producto listo ni un caso de cliente.</p></figcaption>
           </figure>
         </div>
-        <div class="wrap hero-signature"><span>Héctor Guerra · Consultor independiente</span><span>Consultoría + implementación + acompañamiento</span></div>
-      </section>
+        <span slot="footer">Héctor Guerra · Consultoría + implementación + acompañamiento</span>
+      </IspSlide>
 
-      <section class="campaign-section challenges-section" aria-labelledby="challenges-title">
-        <div class="wrap">
-          <div class="intro"><p class="eyebrow blue">Primero, lo que te está costando</p><h2 id="challenges-title">¿Dónde está el problema<br />que más te frena?</h2><p>Si alguna de estas situaciones te resulta familiar, podemos empezar por ella. No necesitás transformar todo tu ISP de una vez.</p></div>
-          <div class="challenge-list">
-            {ispChallenges.map((challenge, index) => <article class="challenge" aria-labelledby={`challenge-${challenge.id}`}>
-              <header class="challenge-heading"><p class="area-label"><span aria-hidden="true">0{index + 1}</span> {challenge.area}</p><h3 id={`challenge-${challenge.id}`}>{challenge.title}</h3></header>
-              <div class="challenge-content">
-                <ul class="pain-list">{challenge.pains.map((pain) => <li id={`problema-${pain.id}`}><h4>{pain.title}</h4><p>{pain.text}</p></li>)}</ul>
-                <div class="challenge-solution"><p class="content-label">Cómo te ayudo</p><p>{challenge.solution}</p><p class="source-context">{challenge.sources}</p><div class="decision"><strong>Para que podás decidir</strong><p>{challenge.decision}</p></div></div>
+      {ispScenarios.map((scenario, index) => (
+        <IspSlide id={scenario.id} index={index + 1} total={total} label={scenario.area}
+          tone={index === 1 ? 'muted' : 'light'} titleId={`scenario-${scenario.id}`} class="area-slide">
+          <div class="split-slide">
+            <div class="slide-copy scenario-copy">
+              <h2 id={`scenario-${scenario.id}`}>{scenario.title}</h2>
+              <p class="scenario-problem">{scenario.problem} {scenario.consequence}</p>
+              <div class="scenario-solution">
+                <h3>Qué puedo construir para tu ISP</h3>
+                <p>{scenario.solution}</p>
               </div>
-              <div class="challenge-measurement"><div><span class="content-label">Con qué evaluar el avance</span><strong>{challenge.kpis}</strong></div><p>{challenge.measurementNote}</p></div>
-            </article>)}
+              <p class="scenario-delivery"><strong>Tu equipo recibe:</strong> {scenario.deliverable}</p>
+              <p class="scenario-benefit">{scenario.benefit}</p>
+              <ul class="related-solutions" aria-label="Soluciones relacionadas">
+                {scenario.relatedSolutions.map((solution) => <li>{solution}</li>)}
+              </ul>
+              <a href="#conversemos" class="campaign-cta">{ispCtaLabel} <span aria-hidden="true">↗</span></a>
+              <details class="slide-details">
+                <summary>Fuentes y condiciones de esta solución</summary>
+                <div class="detail-deliveries">
+                  <p><strong>Fuentes a relacionar:</strong> {scenario.sources}.</p>
+                  <p>{scenario.measurementNote}</p>
+                  <p>La integración depende de los accesos, interfaces e información disponibles.</p>
+                </div>
+              </details>
+            </div>
+            <IspAreaScene area={scenario.id} illustration={scenario.illustration} />
           </div>
-          <div class="foundations"><h3>Dos bases para sostener la mejora.</h3><div class="foundation-grid">{ispFoundations.map((foundation) => <article id={`problema-${foundation.id}`}><h4>{foundation.title}</h4><p class="foundation-pain">{foundation.pain}</p><p>{foundation.solution}</p></article>)}</div></div>
-          <p class="section-note">Definimos con vos los KPIs —indicadores clave de desempeño—, sus fuentes, línea base y metas. Son ejemplos de medición, no resultados garantizados ni un diagnóstico de tu ISP.</p>
-        </div>
-      </section>
+          <span slot="footer">Una solución posible, no un diagnóstico de tu ISP ni resultados garantizados.</span>
+        </IspSlide>
+      ))}
 
-      <section class="campaign-section example-section" aria-labelledby="example-title">
-        <div class="wrap">
-          <div class="example-heading">
-            <div class="intro"><p class="eyebrow blue">Cómo podría funcionar / Ejemplo ilustrativo</p><h2 id="example-title">Una zona vuelve a reclamar.<br />Conectemos las decisiones.</h2></div>
-            <p class="lead">Un mismo problema exige decisiones de técnica, operación, comercial y gerencia. Conecto los datos para que cada área actúe con contexto.</p>
-          </div>
-          <figure class="activation-example">
-            <figcaption class="figure-label">Del evento técnico a una decisión de negocio</figcaption>
-            <ol class="activation-flow">
-              {ispScenarioSteps.map((step, index) => <li>
-                <span class="step-number" aria-hidden="true">0{index + 1}</span>
-                <h3>{step.title}</h3><p>{step.description}</p>
-                <span class="record"><span>Qué permite decidir</span>{step.decision}</span>
-              </li>)}
+      <IspSlide id="forma-de-trabajo" index={4} total={total} label="Cómo trabajo" tone="dark" titleId="method-title" class="method-slide">
+        <div class="split-slide">
+          <div class="slide-copy">
+            <h2 id="method-title">De una necesidad de tu ISP a una solución que el equipo pueda usar.</h2>
+            <p class="slide-lead">Primero entiendo dónde se traba el proceso. Después acordamos qué mejorar y qué hay que integrar, adaptar o desarrollar.</p>
+            <ol class="method-steps">
+              <li><h3>Definimos la prioridad</h3><p>Revisamos el trabajo, las fuentes y las personas involucradas; elegimos una primera entrega.</p></li>
+              <li><h3>Construyo e integro</h3><p>Aprovecho tus sistemas actuales y desarrollo lo que falta, con criterios de aceptación y registro de la información necesaria.</p></li>
+              <li><h3>Transferimos y acompañamos</h3><p>Dejamos documentación y responsables, y acordamos cómo sostener y revisar la solución.</p></li>
             </ol>
-          </figure>
-          <div class="measurement-brief">
-            <span class="brief-label">La medición se diseña primero</span>
-            <p>Acordamos qué decisión apoyar, cómo medirla y quién actuará. Eso define qué registra el software y cómo sus datos llegan al ETL, al modelo compartido y a los KPIs. Relacionar reclamos y bajas ayuda a investigar; no demuestra por sí solo una causa.</p>
+            <p class="slide-note">No hace falta reemplazar todo ni incorporar IA para empezar.</p>
           </div>
-          <details class="activation-detail"><summary>Otra aplicación posible: del prospecto al servicio activo</summary><ol class="activation-flow">{ispActivationSteps.map((step, index) => <li><span class="step-number" aria-hidden="true">0{index + 1}</span><h3>{step.title}</h3><p>{step.description}</p><span class="record"><span>Dato que queda registrado</span>{step.record}</span></li>)}</ol></details>
-          <div class="example-bottom"><p>No hace falta reemplazar todo. Integro lo que funciona y construyo lo que falta. Las integraciones y la frecuencia de actualización se acuerdan según tus sistemas.</p><a href="#conversemos" class="action-link">{ctaLabel} <span aria-hidden="true">↗</span></a></div>
+          <figure class="isp-illustration">
+            <img src={method.src} alt={method.alt} width={method.width} height={method.height} loading="lazy" decoding="async" />
+            <figcaption><p class="illustration-label">{method.caption}</p></figcaption>
+          </figure>
         </div>
-      </section>
+        <a slot="footer" href="#conversemos" class="slide-text-cta">{ispCtaLabel} <span aria-hidden="true">↗</span></a>
+      </IspSlide>
 
-      <IspEngineering ctaLabel={ctaLabel} />
+      <IspEngineering ctaLabel={ispCtaLabel} total={total} />
 
-      <section class="campaign-section trust-section section-deep" aria-labelledby="trust-title">
-        <div class="wrap">
-          <div class="intro"><p class="eyebrow">Consultoría, implementación y acompañamiento</p><h2 id="trust-title">De la prioridad a la entrega.<br />Trabajás conmigo.</h2></div>
-          <div class="trust-grid">
+      <IspSlide id="primera-entrega" index={7} total={total} label="Primera entrega y confianza" tone="dark" titleId="trust-title">
+        <div class="split-slide">
+          <div class="slide-copy">
+            <h2 id="trust-title">Trabajás conmigo, <span>con una entrega y un alcance acordados.</span></h2>
             <div class="profile">
-              <div class="profile-heading">
-                <img src="/mi_foto_pro.jpeg" alt="Héctor Guerra" width="112" height="112" loading="lazy" decoding="async" />
-                <div><h3>Héctor Guerra</h3><p>Ingeniero Electricista Industrial<br />Tegucigalpa, Honduras</p></div>
-              </div>
-              <p>Mi experiencia conecta ingeniería de datos, software, telemetría e IA aplicada a procesos. Trabajo con vos para traducir la necesidad en una solución que se pueda usar y evaluar.</p>
-              <p class="development-note">Uso agentes para asistir el desarrollo, bajo mi dirección y revisión técnica. Incorporar agentes a la operación de tu ISP es otra decisión, con permisos y controles acordados.</p>
+              <img src="/mi_foto_pro.jpeg" alt="Héctor Guerra" width="96" height="96" loading="lazy" decoding="async" />
+              <div><strong>Héctor Guerra</strong><p>Ingeniero Electricista Industrial<br />Tegucigalpa, Honduras</p></div>
             </div>
-            <ol class="engagement">
-              <li><span aria-hidden="true">01</span><div><h3>Elegir qué vale la pena resolver</h3><p>Revisamos el problema, su impacto y las fuentes disponibles. Definimos la prioridad y cómo evaluar el avance.</p></div></li>
-              <li><span aria-hidden="true">02</span><div><h3>Acordar una entrega concreta</h3><p>Una aplicación, módulo o integración con criterios de aceptación. Alcance, inversión, dependencias y plazos acordados antes de iniciar.</p></div></li>
-              <li><span aria-hidden="true">03</span><div><h3>Llevarla a uso y medir</h3><p>Implemento lo acordado y conecto los datos y KPIs pertinentes al alcance, con documentación y transferencia. La evolución se prioriza con evidencia.</p></div></li>
-            </ol>
+            <p class="slide-lead">Mi experiencia conecta desarrollo de software, ingeniería de datos, telemetría e IA aplicada a procesos. Trabajo con vos desde la definición hasta la implementación.</p>
           </div>
-          <div class="first-delivery"><h3>Qué te queda de una primera intervención</h3><dl><div><dt>Una herramienta útil</dt><dd>La aplicación, módulo o integración del proceso acordado.</dd></div><div><dt>Medición conectada</dt><dd>Registros, flujo de datos e indicadores según el alcance.</dd></div><div><dt>Capacidad de sostenerla</dt><dd>Documentación, transferencia y condiciones de acompañamiento.</dd></div></dl></div>
+          <ol class="delivery-list" aria-label="Qué recibís de una primera intervención">
+            <li><span aria-hidden="true">01</span><div><h3>La entrega acordada</h3><p>Aplicación, integración, automatización o solución de datos utilizable para el proceso priorizado.</p></div></li>
+            <li><span aria-hidden="true">02</span><div><h3>Criterios y medición</h3><p>Fuentes, reglas, responsables, aceptación e indicadores pertinentes.</p></div></li>
+            <li><span aria-hidden="true">03</span><div><h3>Transferencia</h3><p>Documentación, formación o transferencia acordada y condiciones de mantenimiento y acompañamiento.</p></div></li>
+          </ol>
         </div>
-      </section>
+        <div class="service-conditions">
+          <p class="slide-note">Alcance, inversión, dependencias y plazos acordados antes de iniciar. Seguridad de datos, accesos, registro de acciones y recuperación se definen para los componentes entregados y sus responsabilidades.</p>
+          <p class="slide-note">No incluye seguridad integral, invulnerabilidad, certificación regulatoria, instalación física de red o servicio NOC 24/7.</p>
+        </div>
+        <a slot="footer" href="#conversemos" class="slide-text-cta">{ispCtaLabel} <span aria-hidden="true">↗</span></a>
+      </IspSlide>
 
-      <section id="conversemos" class="campaign-section contact-section" aria-labelledby="contact-title" tabindex="-1">
-        <div class="wrap">
-          <div class="intro"><p class="eyebrow blue">De un problema a una primera entrega</p><h2 id="contact-title">¿Qué problema de tu ISP<br />querés resolver primero?</h2><p>Contame qué te cuesta clientes, tiempo o capacidad. Evaluamos cómo abordarlo con software y datos, sin exigir que ya tengas elegida una tecnología.</p></div>
-          <div class="contact-grid">
-            <div class="contact-panel">
-              <h3>Contame tu necesidad</h3>
-              <p class="form-intro">Contame qué ISP representás y qué querés resolver.</p>
-              <ContactForm originPath="/isp-honduras" tone="light" defaultService="otro" showService={false} detailPlaceholder="Represento a [nombre del ISP]. El problema que queremos resolver es… Hoy nos cuesta… Usamos…" submitLabel="Enviar mi consulta" />
-            </div>
-            <aside class="contact-context" aria-labelledby="expectations-title">
-              <h3 id="expectations-title">Qué pasa después de escribir</h3>
-              <ol class="expectations"><li>Reviso el problema y el impacto que compartís.</li><li>Evaluamos si puedo ayudarte y qué primera intervención tiene sentido.</li><li>Si avanzamos, acordamos una entrega, su inversión y las condiciones antes de iniciar.</li></ol>
-              <p class="contact-note">La consulta abre una conversación. No es una contratación ni incluye un diagnóstico completo gratuito.</p>
-              {whatsappHref !== '/contacto' && <a href={whatsappHref} class="whatsapp-link">¿Preferís WhatsApp? Escribime <span aria-hidden="true">↗</span></a>}
-            </aside>
+      <IspSlide id="dudas" index={8} total={total} label="Antes de avanzar" titleId="faq-title">
+        <div class="split-slide">
+          <div class="slide-copy">
+            <h2 id="faq-title">Empezar sin <span>cambiarlo todo.</span></h2>
+            <p class="slide-lead">No necesitás elegir una tecnología ni contratar todo el ciclo. Empecemos por la necesidad que más importa.</p>
+          </div>
+          <div class="faq-list">
+            {ispFaqs.map((faq, index) => <details open={index === 0}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}
           </div>
         </div>
-      </section>
+        <a slot="footer" href="#conversemos" class="slide-text-cta">{ispCtaLabel} <span aria-hidden="true">↗</span></a>
+      </IspSlide>
 
-      <section class="campaign-section faq-section" aria-labelledby="faq-title">
-        <div class="wrap faq-grid">
-          <div><p class="eyebrow blue">Antes de avanzar</p><h2 id="faq-title">Empezar sin<br />cambiarlo todo.</h2></div>
-          <div class="faq-list">{ispFaqs.map((faq) => <details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div>
+      <IspSlide id="conversemos" index={9} total={total} label="Tu siguiente paso" tone="muted" titleId="contact-title">
+        <div class="contact-layout">
+          <div class="contact-copy">
+            <h2 id="contact-title">Conversemos sobre lo que querés mejorar en tu ISP.</h2>
+            <p class="slide-lead">Contame qué ISP representás y qué se está trabando hoy. Revisamos si puedo ayudarte y qué primera entrega tendría sentido.</p>
+          </div>
+          <div class="contact-panel">
+            <h3>Contame tu necesidad</h3>
+            <p class="form-intro">Qué ISP representás y qué querés resolver.</p>
+            <ContactForm originPath="/isp-honduras" tone="light" defaultService="otro" showService={false} detailPlaceholder="Represento a [nombre del ISP]. El problema que queremos resolver es… Hoy nos cuesta… Usamos…" submitLabel="Enviar mi consulta" />
+          </div>
+          <aside class="contact-followup" aria-label="Qué pasa después de escribir">
+            <ol><li>Reviso el contexto.</li><li>Conversamos sobre el encaje.</li><li>Si avanzamos, acordamos una propuesta con entrega, alcance e inversión.</li></ol>
+            <p class="slide-note">La consulta no es una contratación ni incluye un diagnóstico completo gratuito.</p>
+          </aside>
         </div>
-      </section>
+      </IspSlide>
     </main>
-    <footer class="campaign-footer"><div class="wrap footer-inner"><p><strong>HGuerra</strong> · Inteligencia aplicada a desafíos reales.</p><div><a href="/privacidad">Privacidad</a><a href="/terminos">Términos</a></div></div></footer>
+    <footer class="campaign-footer"><div class="legal-inner"><p><strong>HGuerra</strong> · Inteligencia aplicada a desafíos reales.</p><div><a href="/privacidad">Privacidad</a><a href="/terminos">Términos</a></div></div></footer>
     <AnalyticsConsent enabled={true} />
   </body>
 </html>
-
-<style>
-  :global(html.isp-campaign) { scroll-padding-top: 1.5rem; }
-  body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-  .wrap { width: min(calc(100% - 3rem), 76rem); margin-inline: auto; }
-  .campaign-header { background: #020617; color: white; border-bottom: 1px solid #1e293b; }
-  .campaign-header :focus-visible { outline-color: #67e8f9; }
-  .header-inner, .brand, .footer-inner { display: flex; align-items: center; }
-  .header-inner { justify-content: space-between; gap: 1rem; padding-block: .9rem; }
-  .brand { gap: .75rem; }
-  .brand strong { display: block; font-size: 1.15rem; }
-  .brand small { display: block; color: #94a3b8; font-size: .75rem; }
-  .header-cta { display: inline-flex; align-items: center; gap: .7rem; min-height: 48px; max-width: 16rem; font-size: .85rem; font-weight: 650; text-align: right; }
-  .header-cta:hover, .whatsapp-link:hover { text-decoration: underline; text-underline-offset: 5px; }
-  h1, h2, h3, h4 { text-wrap: balance; }
-  p, li { text-wrap: pretty; }
-  .eyebrow { color: #67e8f9; font-size: .75rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 1.25rem; }
-  .blue { color: #1d4ed8; }
-  .hero { padding-top: clamp(2.5rem, 5vw, 4.5rem); }
-  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; padding-bottom: 3.5rem; }
-  h1 { font-size: clamp(2.35rem, 4.2vw, 4rem); line-height: 1.08; letter-spacing: -.045em; font-weight: 750; margin-bottom: 1.5rem; }
-  h1 span { color: #67e8f9; }
-  .hero-copy { max-width: 36rem; color: #cbd5e1; font-size: 1.12rem; line-height: 1.7; }
-  .campaign-cta { display: inline-flex; justify-content: center; align-items: center; gap: .65rem; background: #67e8f9; color: #020617; padding: 1rem 1.4rem; border-radius: 9999px; font-size: .95rem; font-weight: 750; margin-top: 1.7rem; min-height: 52px; }
-  .campaign-cta:hover { background: #a5f3fc; }
-  .hero-note { max-width: 30rem; color: #94a3b8; font-size: .85rem; line-height: 1.65; margin-top: 1rem; }
-  .hero-signature { display: flex; justify-content: space-between; gap: 1rem 2rem; flex-wrap: wrap; padding-block: 1.3rem; border-top: 1px solid #334155; color: #cbd5e1; font-size: .8rem; }
-  .hero-signature span + span { color: #94a3b8; }
-  .overview { color: #0f172a; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: var(--radius-panel); padding: clamp(1.25rem, 2.5vw, 2rem); box-shadow: var(--shadow-deep); }
-  .figure-label { display: block; color: #475569; font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-  .overview figcaption > strong { display: block; font-size: clamp(1.5rem, 2.1vw, 1.9rem); line-height: 1.2; letter-spacing: -.03em; margin-top: .8rem; }
-  .systems { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; margin-top: 2rem; text-align: center; }
-  .systems svg { display: block; width: 100%; height: auto; }
-  .systems span { display: block; font-size: .85rem; font-weight: 650; margin-top: .6rem; }
-  .connections { display: block; width: 100%; height: 3.6rem; margin-top: .6rem; }
-  .shared-view { display: flex; align-items: center; justify-content: center; gap: .8rem; background: #0f172a; color: white; border-radius: 1rem; padding: 1rem .75rem; }
-  .shared-view svg { width: 2.5rem; flex-shrink: 0; color: #67e8f9; }
-  .shared-view span, .shared-view strong { display: block; }
-  .shared-view span { color: #cbd5e1; font-size: .75rem; margin-bottom: .25rem; }
-  .shared-view strong { font-size: 1rem; }
-  .overview-note { color: #475569; font-size: .85rem; text-align: center; line-height: 1.6; margin-top: 1rem; }
-  .illustrative-label { display: block; color: #475569; font-size: .7rem; text-align: center; margin-top: 1rem; padding-top: .8rem; border-top: 1px solid #cbd5e1; }
-  .campaign-section { padding-block: clamp(3.5rem, 6vw, 5.5rem); }
-  h2 { font-size: clamp(2rem, 3.4vw, 3rem); font-weight: 730; line-height: 1.12; letter-spacing: -.035em; margin-bottom: 1.2rem; }
-  h3 { font-size: 1.3rem; line-height: 1.3; font-weight: 700; letter-spacing: -.025em; }
-  .intro { max-width: 45rem; margin-bottom: 2.5rem; }
-  .intro > p:not(.eyebrow), .lead { color: #475569; font-size: 1.05rem; line-height: 1.75; }
-  .challenge { border-top: 1px solid #cbd5e1; padding-block: 2rem; }
-  .challenge-heading { display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: 2rem; align-items: start; margin-bottom: 1.75rem; }
-  .challenge-heading h3 { max-width: 44rem; font-size: clamp(1.5rem, 2.5vw, 2rem); }
-  .area-label { display: flex; align-items: center; gap: .7rem; color: #475569; font-size: .8rem; font-weight: 650; padding-top: .4rem; }
-  .area-label span { color: #1d4ed8; }
-  .challenge-content { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; }
-  .pain-list { list-style: none; display: grid; gap: 1.5rem; }
-  .pain-list h4, .foundation-grid h4 { font-size: 1.1rem; font-weight: 700; line-height: 1.4; letter-spacing: -.02em; margin-bottom: .6rem; }
-  .pain-list p, .challenge-solution > p:not(.content-label):not(.source-context) { color: #475569; line-height: 1.75; font-size: .95rem; }
-  .challenge-solution { border-left: 2px solid #1d4ed8; padding-left: 1.5rem; }
-  .content-label { display: block; color: #1d4ed8; font-size: .7rem; line-height: 1.6; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .75rem; }
-  .source-context { color: #475569; font-size: .8rem; line-height: 1.7; margin-top: 1rem; }
-  .decision { border-top: 1px solid #cbd5e1; padding-top: 1rem; margin-top: 1.25rem; }
-  .decision strong { font-size: .85rem; font-weight: 650; }
-  .decision p { color: #475569; font-size: .9rem; line-height: 1.75; margin-top: .4rem; }
-  .challenge-measurement { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; align-items: center; background: #f1f5f9; border-radius: var(--radius-card); padding: 1.25rem; margin-top: 1.5rem; }
-  .challenge-measurement .content-label { color: #475569; margin-bottom: .4rem; }
-  .challenge-measurement strong { display: block; color: #1d4ed8; font-size: .95rem; font-weight: 650; line-height: 1.7; }
-  .challenge-measurement > p { color: #475569; font-size: .85rem; line-height: 1.75; }
-  .foundations { border-top: 1px solid #cbd5e1; padding-top: 2rem; margin-top: .5rem; }
-  .foundations > h3 { font-size: 1.5rem; margin-bottom: 1.5rem; }
-  .foundation-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; }
-  .foundation-grid article { border-top: 2px solid #0891b2; padding-top: 1.25rem; }
-  .foundation-grid p { color: #475569; font-size: .9rem; line-height: 1.75; }
-  .foundation-grid .foundation-pain { color: #334155; margin-bottom: .75rem; }
-  .section-note { color: #475569; font-size: .85rem; line-height: 1.75; margin-top: 2rem; max-width: 62rem; }
-  .example-section { background: #edf3f7; }
-  .example-heading { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: end; margin-bottom: 2.5rem; }
-  .example-heading .intro { margin-bottom: 0; }
-  .example-heading h2 { margin-bottom: 0; }
-  .activation-example { padding: 2rem; background: white; border: 1px solid #cbd5e1; border-radius: var(--radius-panel); }
-  .activation-flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; list-style: none; margin-top: 1.5rem; }
-  .activation-flow li { position: relative; display: flex; flex-direction: column; align-items: start; min-width: 0; }
-  .activation-flow li:not(:last-child)::after { content: '→'; position: absolute; right: -1.5rem; top: .5rem; color: #1d4ed8; font-size: 1.25rem; }
-  .step-number { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border: 1px solid #93c5fd; border-radius: 50%; color: #1d4ed8; background: #eff6ff; font-size: .8rem; font-weight: 700; margin-bottom: 1rem; }
-  .activation-flow h3 { font-size: 1.1rem; margin-bottom: .75rem; }
-  .activation-flow p { color: #475569; font-size: .95rem; line-height: 1.65; margin-bottom: 1.5rem; }
-  .record { display: block; width: 100%; margin-top: auto; border-top: 1px solid #e2e8f0; padding-top: 1rem; color: #334155; font-size: .85rem; line-height: 1.6; }
-  .record > span { display: block; color: #64748b; font-size: .7rem; margin-bottom: .4rem; }
-  .activation-detail { border-top: 1px solid #cbd5e1; }
-  .activation-detail .activation-flow { margin-block: 1rem 1.5rem; }
-  .measurement-brief { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: start; margin-block: 2rem; }
-  .brief-label { color: #1d4ed8; font-size: .95rem; font-weight: 700; }
-  .measurement-brief p { color: #334155; line-height: 1.75; font-size: .95rem; }
-  .example-bottom { display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 1.5rem 2rem; margin-top: 2rem; }
-  .example-bottom p { color: #475569; max-width: 43rem; font-size: .85rem; line-height: 1.75; }
-  .example-bottom a { font-size: .9rem; min-height: 48px; }
-  .trust-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; }
-  .profile-heading { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; }
-  .profile img { width: 7rem; height: 7rem; object-fit: cover; border-radius: 50%; }
-  .profile h3 { font-size: 1.4rem; margin-bottom: .5rem; }
-  .profile-heading p { color: #cbd5e1; font-size: .85rem; line-height: 1.7; }
-  .profile > p { color: #cbd5e1; line-height: 1.75; font-size: .95rem; }
-  .profile .development-note { color: #94a3b8; font-size: .85rem; border-top: 1px solid #334155; padding-top: 1.25rem; margin-top: 1.5rem; }
-  .engagement { display: grid; gap: 1.5rem; list-style: none; }
-  .engagement li { display: grid; grid-template-columns: 2rem 1fr; gap: 1rem; padding-top: 1.25rem; border-top: 1px solid #475569; }
-  .engagement li > span { color: #67e8f9; font-size: .8rem; padding-top: .3rem; }
-  .engagement h3 { font-size: 1.2rem; margin-bottom: .6rem; }
-  .engagement p { color: #cbd5e1; font-size: .95rem; line-height: 1.75; }
-  .first-delivery { border-top: 1px solid #475569; padding-top: 2rem; margin-top: 2.5rem; }
-  .first-delivery > h3 { font-size: 1.2rem; margin-bottom: 1.5rem; }
-  .first-delivery dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
-  .first-delivery dt { color: #67e8f9; font-size: .9rem; font-weight: 650; margin-bottom: .5rem; }
-  .first-delivery dd { color: #cbd5e1; font-size: .9rem; line-height: 1.75; }
-  .contact-section { background: #f8fafc; }
-  .contact-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: start; }
-  .contact-panel { background: white; border: 1px solid #cbd5e1; border-radius: var(--radius-panel); padding: clamp(1.3rem, 3vw, 2.25rem); min-width: 0; }
-  .contact-panel :global(:is(input, select, textarea)) { min-height: 48px; border-color: #64748b; font-size: 1rem; }
-  .contact-panel :global(:is(input, textarea)::placeholder) { color: #64748b; }
-  .contact-panel :global(:is(input, select, textarea, button):focus-visible) { outline: 3px solid #1d4ed8; outline-offset: 3px; }
-  .form-intro { color: #475569; font-size: .9rem; line-height: 1.65; margin-block: .75rem 1.5rem; }
-  .contact-context { padding-top: 1.5rem; }
-  .expectations { list-style: decimal; padding-left: 1.2rem; display: grid; gap: 1rem; color: #475569; line-height: 1.75; margin-block: 1.5rem; }
-  .expectations li { padding-left: .5rem; }
-  .expectations li::marker { color: #1d4ed8; font-weight: 650; }
-  .contact-note { color: #475569; font-size: .85rem; line-height: 1.75; border-top: 1px solid #cbd5e1; padding-top: 1.25rem; }
-  .whatsapp-link { display: inline-flex; align-items: center; gap: .6rem; min-height: 48px; color: #1d4ed8; font-size: .9rem; font-weight: 650; margin-top: 1rem; }
-  .faq-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; }
-  .faq-list { border-top: 1px solid #cbd5e1; min-width: 0; }
-  details { border-bottom: 1px solid #cbd5e1; }
-  summary { padding: 1.3rem .35rem; cursor: pointer; font-weight: 650; line-height: 1.5; }
-  summary::marker, details[open] summary { color: #1d4ed8; }
-  details > p { padding: 0 .35rem 1.5rem; color: #475569; line-height: 1.75; font-size: .95rem; }
-  .campaign-footer { padding-block: 1.5rem; background: #020617; color: #94a3b8; font-size: .8rem; }
-  .footer-inner { justify-content: space-between; gap: 1rem 2rem; flex-wrap: wrap; }
-  .footer-inner > div { display: flex; gap: 1.5rem; }
-  .footer-inner a { display: inline-flex; align-items: center; min-height: 44px; }
-  @media (max-width: 1000px) {
-    .trust-grid, .contact-grid, .faq-grid { gap: 2.5rem; }
-    .activation-flow { gap: 1.5rem; }
-    .activation-flow li:not(:last-child)::after { right: -1.2rem; }
-  }
-  @media (max-width: 800px) {
-    .wrap { width: min(calc(100% - 2rem), 76rem); }
-    .hero-grid, .challenge-content, .challenge-measurement, .foundation-grid, .example-heading, .trust-grid, .contact-grid, .faq-grid, .first-delivery dl { grid-template-columns: minmax(0, 1fr); }
-    .brand small { display: none; }
-    .brand { gap: .5rem; }
-    .brand img { width: 32px; height: 32px; }
-    .brand strong { font-size: 1rem; }
-    .header-cta { max-width: 12rem; font-size: .75rem; }
-    .hero-grid { gap: 2.5rem; padding-bottom: 2.5rem; }
-    .hero-message { max-width: 35rem; }
-    .hero-signature { gap: .5rem; }
-    .hero-signature > span { flex-basis: 100%; }
-    .challenge-heading { grid-template-columns: minmax(0, 1fr); gap: .75rem; }
-    .challenge-content { gap: 1.5rem; }
-    .challenge-measurement { gap: .75rem; }
-    .foundation-grid { gap: 1.5rem; }
-    .example-heading { gap: 1rem; }
-    .activation-flow { grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .activation-flow li::after { display: none; }
-    .faq-grid { gap: 1rem; }
-  }
-  @media (max-width: 480px) {
-    h1 { font-size: 2.3rem; }
-    .hero-copy { font-size: 1rem; line-height: 1.7; }
-    .campaign-cta { width: 100%; font-size: .88rem; padding-inline: 1rem; }
-    .hero-note { font-size: .8rem; }
-    .overview { padding: 1.25rem; }
-    .overview figcaption > strong { font-size: 1.55rem; }
-    .systems { gap: .4rem; }
-    .systems span { font-size: .8rem; }
-    .shared-view { gap: .6rem; }
-    .shared-view strong { font-size: .9rem; }
-    .activation-example { padding: 1.25rem; }
-    .activation-flow { grid-template-columns: 1fr; gap: 0; }
-    .activation-flow li { padding-left: 2rem; padding-bottom: 1.75rem; border-left: 1px solid #93c5fd; margin-left: 1rem; }
-    .activation-flow li:last-child { padding-bottom: 0; border-color: transparent; }
-    .activation-flow .step-number { position: absolute; left: -1rem; width: 2rem; height: 2rem; font-size: .7rem; }
-    .activation-flow h3 { padding-top: .25rem; }
-    .activation-flow p { margin-bottom: .75rem; }
-    .record { padding-top: .75rem; }
-    .measurement-brief { grid-template-columns: 1fr; gap: .75rem; }
-    .profile-heading { gap: 1rem; }
-    .profile img { width: 5rem; height: 5rem; }
-    .profile-heading p { font-size: .8rem; }
-  }
-</style>

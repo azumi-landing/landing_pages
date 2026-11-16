@@ -1,60 +1,110 @@
-export const ispChallenges = [
+export type IspIllustration = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption: string;
+  credit?: string;
+} & (
+  | { kind: 'svg' }
+  | { kind: 'animated-svg'; posterSrc: string }
+);
+
+export const ispCtaLabel = 'Conversemos sobre tu ISP';
+
+export const ispIllustrations = {
+  introduccion: {
+    kind: 'svg', src: '/images/isp/hero.svg', width: 1000, height: 600,
+    alt: 'Sistemas de gestión, operación y red relacionados alrededor de una solución digital.',
+    caption: 'Esquema ilustrativo · Sistemas y datos conectados'
+  },
+  comercial: {
+    kind: 'animated-svg', src: '/images/isp/comercial.svg', posterSrc: '/images/isp/comercial-estatico.svg',
+    width: 1000, height: 600, alt: 'Clientes, facturas y pagos relacionados para el seguimiento comercial.',
+    caption: 'Ejemplo ilustrativo de seguimiento'
+  },
+  operativa: {
+    kind: 'animated-svg', src: '/images/isp/operativa.svg', posterSrc: '/images/isp/operativa-estatico.svg',
+    width: 1000, height: 600, alt: 'Atención, órdenes de trabajo y antecedentes relacionados.',
+    caption: 'Ejemplo ilustrativo de atención'
+  },
+  tecnica: {
+    kind: 'animated-svg', src: '/images/isp/tecnica.svg', posterSrc: '/images/isp/tecnica-estatico.svg',
+    width: 1000, height: 600, alt: 'Red FTTH y herramientas de monitoreo para revisar el servicio.',
+    caption: 'Ejemplo ilustrativo de priorización'
+  },
+  'forma-de-trabajo': {
+    kind: 'svg', src: '/images/isp/como-trabajo.svg', width: 1000, height: 600,
+    alt: 'Profesionales colaborando en la definición y construcción de una solución.',
+    caption: 'Esquema ilustrativo · Entender, implementar y acompañar'
+  },
+  ingenieria: {
+    kind: 'svg', src: '/images/isp/software-datos.svg', width: 1000, height: 600,
+    alt: 'Aplicaciones, información relacionada y visualización de datos.',
+    caption: 'Esquema ilustrativo · Software y ciclo de datos'
+  },
+  automatizacion: {
+    kind: 'svg', src: '/images/isp/ia-automatizacion.svg', width: 1000, height: 600,
+    alt: 'Documentos, procesamiento de información y revisión humana.',
+    caption: 'Esquema ilustrativo · Conocimiento y acciones autorizadas'
+  }
+} as const satisfies Record<string, IspIllustration>;
+
+export interface IspScenario {
+  id: 'comercial' | 'operativa' | 'tecnica';
+  area: string;
+  title: string;
+  problem: string;
+  consequence: string;
+  solution: string;
+  deliverable: string;
+  benefit: string;
+  relatedSolutions: string[];
+  illustration: Extract<IspIllustration, { kind: 'animated-svg' }>;
+  sources: string;
+  measurementNote: string;
+}
+
+export const ispScenarios: IspScenario[] = [
   {
-    id: 'comercial', area: 'Comercial', title: 'Ganar y conservar clientes sin perder de vista el negocio.',
-    pains: [
-      { id: 'retencion', title: 'Competir no puede ser solo bajar el precio.', text: 'La presión por descontar exige equilibrar captación, retención y valor por cliente.' },
-      { id: 'facturacion', title: 'Planes, tarifas y facturación necesitan coherencia.', text: 'Al cambiar ofertas o crecer, ventas, activación y cobros deben compartir las mismas reglas.' }
-    ],
-    solution: 'Construyo o integro seguimiento comercial, módulos de planes y altas y conciliaciones. Relaciono ingresos y bajas para analizar la retención por plan o segmento.',
+    id: 'comercial', area: 'Comercial',
+    title: 'Más seguimiento comercial, desde el primer contacto hasta el cobro.',
+    problem: 'Cuando ventas, activaciones y pagos quedan separados, pueden quedar oportunidades, altas o diferencias sin atender.',
+    consequence: 'También cuesta reconstruir qué pasó antes de una cancelación.',
+    solution: 'Conectá el recorrido comercial y el historial del cliente. Desarrollo o integro aplicaciones para seguimiento, activaciones, facturación y cobros.',
+    deliverable: 'Estados, pendientes y diferencias relacionados, con responsables y evidencia para darles seguimiento.',
+    benefit: 'Tu equipo puede retomar oportunidades, destrabar altas, revisar cobros y orientar la atención sin reconstruir cada caso.',
+    relatedSolutions: ['Captación y activaciones', 'Facturación y cobros', 'Retención y análisis de cancelaciones'],
+    illustration: ispIllustrations.comercial,
     sources: 'CRM · Facturación · Pagos · Atención',
-    decision: 'Identificar dónde se pierden oportunidades y qué clientes requieren seguimiento.',
-    kpis: 'Conversión a altas · Churn · ARPU · Cartera vencida',
-    measurementNote: 'ARPU no equivale a margen: evaluar rentabilidad requiere relacionar también los costos.'
+    measurementNote: 'Una diferencia no equivale automáticamente a pérdida de ingresos. Analizar cancelaciones ayuda a investigar, no prueba causas ni garantiza retención. Según el alcance, medimos conversión a altas, tiempos de activación, cartera y bajas. Evaluar margen requiere costos; ARPU no lo sustituye.'
   },
   {
-    id: 'operativa', area: 'Operativa', title: 'Que el servicio avance sin perseguir cada traspaso.',
-    pains: [
-      { id: 'coordinacion', title: 'Una instalación no debería depender de perseguir mensajes.', text: 'Citas, técnicos, materiales y responsables necesitan avanzar con el mismo contexto.' },
-      { id: 'recurrencias', title: 'Cerrar el ticket no alcanza si la falla vuelve.', text: 'Relacionar antecedentes, equipos y cambios ayuda a investigar causas, no solo a cerrar casos.' }
-    ],
-    solution: 'Desarrollo apps de órdenes y campo. Integro atención, agenda, inventario e historial de incidentes; automatizo traspasos y facilito la consulta de procedimientos.',
+    id: 'operativa', area: 'Operativa',
+    title: 'Menos tareas dispersas. Más continuidad en la atención.',
+    problem: 'Órdenes, citas y reclamos repartidos entre mensajes, llamadas y sistemas hacen difícil saber qué falta o qué se hizo antes.',
+    consequence: 'Se puede repetir trabajo mientras un caso sigue pendiente.',
+    solution: 'Reuní órdenes, responsables e historial. Construyo aplicaciones para instalaciones y soporte, conecto el trabajo de las cuadrillas y automatizo traspasos que hoy dependen de seguimiento manual.',
+    deliverable: 'Un flujo con pendientes, asignaciones y evidencia de atención, conectado al servicio del cliente.',
+    benefit: 'Tu equipo sabe quién atiende cada caso y cuenta con antecedentes para coordinar la siguiente intervención.',
+    relatedSolutions: ['Órdenes e instalaciones', 'Soporte y reclamos recurrentes', 'Automatización de tareas y avisos'],
+    illustration: ispIllustrations.operativa,
     sources: 'Tickets · Órdenes · Cuadrillas · Inventario',
-    decision: 'Coordinar cada caso y distinguir una resolución efectiva de un cierre administrativo.',
-    kpis: 'Tiempo de instalación · Tiempo de resolución · Visitas repetidas',
-    measurementNote: 'Acordamos fechas de inicio y cierre, pausas, reaperturas y seguimiento de pendientes.'
+    measurementNote: 'Los criterios de recurrencia, evidencia de cierre y responsabilidades se acuerdan con el equipo; no se promete detección automática de causas. Tiempos de instalación o resolución, reaperturas y visitas repetidas permiten evaluar el proceso, con ventanas y definiciones explícitas.'
   },
   {
-    id: 'tecnica', area: 'Técnica', title: 'Entender el impacto antes de decidir dónde intervenir.',
-    pains: [
-      { id: 'continuidad', title: 'La alarma no siempre explica quién está afectado.', text: 'Necesitás relacionar eventos y métricas con servicios, abonados y zonas para orientar la atención.' },
-      { id: 'capacidad', title: 'Ampliar tarde afecta al servicio. Ampliar sin criterio también cuesta.', text: 'La utilización y la demanda deben orientar dónde mantener, ampliar o reasignar capacidad.' }
-    ],
-    solution: 'Conecto monitoreo, inventario, eventos y reclamos. Construyo alertas contextualizadas y análisis de utilización; evalúo modelos de demanda o capacidad si hay historia suficiente.',
+    id: 'tecnica', area: 'Técnica',
+    title: 'Del aviso de red a la prioridad de atención.',
+    problem: 'Las alertas por sí solas no explican qué clientes o servicios están afectados.',
+    consequence: 'Cuesta priorizar incidentes, seguir la calidad y sustentar decisiones de capacidad.',
+    solution: 'Relacioná monitoreo, servicios e historial. Desarrollo o integro herramientas para NOC, alertas contextualizadas y análisis de disponibilidad, calidad y capacidad.',
+    deliverable: 'Información relacionada, criterios de alerta y vistas para revisar el servicio y sus tendencias.',
+    benefit: 'Tu equipo puede enfocar la atención y planificar la revisión de capacidad con contexto, en lugar de decidir por una señal aislada.',
+    relatedSolutions: ['Monitoreo y herramientas NOC', 'Disponibilidad y calidad', 'Alertas y planificación de capacidad'],
+    illustration: ispIllustrations.tecnica,
     sources: 'Monitoreo · Logs · Inventario · Telemetría',
-    decision: 'Priorizar atención, mantenimiento y ampliaciones según el impacto en el servicio.',
-    kpis: 'Disponibilidad · Latencia y pérdida de paquetes · Utilización en hora pico',
-    measurementNote: 'Definimos puntos de medición, ventanas y cómo reportar brechas de monitoreo.'
+    measurementNote: 'Disponibilidad, latencia, pérdidas, throughput, utilización y cobertura se usan cuando corresponden, con puntos y períodos definidos. Una coincidencia no prueba causalidad y no toda degradación exige ampliar. Los modelos de demanda requieren historia y evaluación. Integrar herramientas NOC no incluye operar un NOC 24/7 o ampliar físicamente la red.'
   }
-];
-
-export const ispFoundations = [
-  {
-    id: 'datos', title: 'Que cada área no tenga una versión distinta del negocio.',
-    pain: 'Clientes, servicios, ingresos y calidad deben poder relacionarse sin reconstruir la información a mano.',
-    solution: 'Instrumento el software, integro y valido datos y construyo un modelo compartido con KPIs trazables para las decisiones de tu ISP.'
-  },
-  {
-    id: 'proteccion', title: 'Que una integración no abra accesos innecesarios.',
-    pain: 'Un acceso indebido puede comprometer información de clientes y continuidad operativa.',
-    solution: 'Diseño permisos, registro de acciones y recuperación de los componentes entregados, con responsabilidades acordadas. No es seguridad integral ni una promesa de invulnerabilidad.'
-  }
-];
-
-export const ispScenarioSteps = [
-  { title: 'Técnica entiende el impacto', description: 'Cruza eventos y utilización con servicios, abonados y zonas.', decision: 'Qué servicios requieren atención y qué información falta.' },
-  { title: 'Operación atiende con contexto', description: 'Conecta tickets, antecedentes, cambios y responsables de la intervención.', decision: 'Quién interviene y qué antecedentes debe revisar.' },
-  { title: 'Comercial da seguimiento', description: 'Dispone del contexto del caso y puede contrastar reclamos con bajas.', decision: 'Qué clientes necesitan contacto y seguimiento, sin asumir causas.' },
-  { title: 'Gerencia elige la siguiente acción', description: 'Revisa disponibilidad, recurrencia, resolución y utilización de capacidad.', decision: 'Si priorizar una corrección, un cambio o una ampliación.' }
 ];
 
 export const ispActivationSteps = [
@@ -118,14 +168,14 @@ export const ispEngineeringCapabilities = [
 export const ispFaqs = [
   {
     question: '¿Tengo que reemplazar los sistemas de mi ISP?',
-    answer: 'No por defecto. Revisamos qué funciona y cómo integrarlo. Podemos agregar una herramienta o modernizar una parte; la viabilidad depende de los accesos e interfaces disponibles.'
+    answer: 'No por defecto. Primero revisamos la necesidad, lo que funciona y las interfaces disponibles. Podemos integrar, adaptar o desarrollar solo lo que hace falta; la viabilidad depende de los accesos e interfaces de tus sistemas.'
   },
   {
     question: '¿Puedo empezar por una sola necesidad?',
-    answer: 'Sí. Podemos partir de ventas, cobranza, instalaciones, soporte o una necesidad técnica. Acordamos una primera entrega y los KPIs para evaluarla. No hace falta contratar todo el ciclo ni incorporar IA si no aporta valor.'
+    answer: 'Sí. Una aplicación, integración, automatización o mejora de datos puede ser una primera entrega sin contratar todo el ciclo. Acordamos el alcance y los indicadores pertinentes; no hace falta incorporar IA si no aporta valor.'
   },
   {
-    question: '¿Cómo definimos inversión y plazos?',
+    question: '¿Cómo acordamos inversión y plazos?',
     answer: 'Después de entender la necesidad y sus dependencias, acordamos alcance, entregables, inversión, plazos y acompañamiento antes de iniciar. No hay un precio o una duración universal; la consulta inicial no incluye un diagnóstico completo gratuito.'
   }
 ];
