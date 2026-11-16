@@ -2,7 +2,7 @@
 
 - **Author:** Héctor Guerra
 - **Fecha:** 2026-11-16
-- **Estado:** Diseño aprobado e implementado localmente el 2026-11-16, con revisión dirigida en escritorio/móvil. Sin commit o despliegue.
+- **Estado:** Primera implementación guardada en `94e01f6`; ajuste posterior de viewport y flechas aplicado y revisado localmente. Sin nuevo commit o despliegue.
 - **Entrada de contexto:** `.dev/docs/isp-honduras/concepts_brief.md`, incluidas las adendas comercial, visual y de selección de borradores existentes.
 - **EGM artifact directory:** `.dev/docs/isp-honduras/`
 - **Destino al finalizar:** `docs/designs/isp-honduras.md`
@@ -166,47 +166,63 @@ Como orientación editorial, el cuerpo principal de cada área debe ser breve, p
 
 En escritorio, ilustración y argumento se relacionan en columnas, con espacio suficiente para leer. En móvil se apilan en orden comprensible; la información principal sigue siendo texto HTML. No se fuerza una tabla ancha o un gráfico con texto diminuto. La altura crece con el contenido.
 
-Se conserva la alineación superior estable de `.area-slide`. No se añade snap, carrusel, control de rueda o desplazamiento mediante JavaScript. Las ampliaciones no esconden el valor central ni recentran toda la escena al abrirse.
+Se conserva la alineación superior estable de `.area-slide`. No se añade snap, carrusel o captura de rueda/teclas globales. Por petición posterior del propietario se incorporan flechas laterales que saltan inmediatamente a la escena adyacente; fuera de esa acción explícita, el scroll sigue siendo natural. Las ampliaciones no esconden el valor central ni recentran toda la escena al abrirse.
 
 ### 3. Apertura comercial — texto aprobado
 
 **Antetítulo:** Software e ingeniería de datos para ISPs de Honduras.
 
-**Titular:** ¿Tu ISP pierde seguimiento entre ventas, instalaciones y soporte?
+**Titular:** ¿Qué problemas están frenando el crecimiento de tu ISP?
 
-**Consecuencia:** Cuando la información queda repartida, cuesta saber qué está pendiente, quién debe atenderlo y cómo afecta al cliente.
+**Situaciones reconocibles:** Clientes que cancelan, procesos manuales y sistemas desconectados dificultan el crecimiento y el control de tu negocio.
 
-**Solución y beneficio:** Conecto tus sistemas y desarrollo aplicaciones, análisis y automatizaciones para seguir clientes, coordinar el trabajo y aprovechar los datos de tu red.
+**Énfasis:** **Cada ISP tiene desafíos diferentes. La solución comienza por entenderlos.**
 
-**Alcance breve:** Desde la captura y la integración hasta las herramientas que usa tu equipo.
+**Solución y alcance:** En HGuerra.com diseño e implemento soluciones a medida con **software personalizado, ingeniería de datos y agentes de inteligencia artificial**.
 
-**CTA:** Conversemos sobre tu ISP.
+**CTA:** [Conversemos sobre tu ISP](/isp-honduras#conversemos).
 
-**Microcopy:** Contame qué querés mejorar. Si hay encaje, acordamos una primera entrega, su alcance e inversión.
+**Microcopy:** Cuéntame qué necesitas mejorar y evaluemos una primera solución.
+
+**Revisión posterior del propietario:** este texto fue proporcionado completo después del ajuste de viewport/flechas y sustituye la apertura sobre pérdida de seguimiento entre ventas, instalaciones y soporte. Se respeta el tuteo y las negritas entregadas sin reescribir el resto de la landing; ilustración, antetítulo, navegación y formulario se conservan.
+
+La actualización siguiente del propietario acorta situaciones, propuesta y microcopy a la versión reproducida arriba. Conserva título, frase de énfasis y CTA; no modifica las condiciones de contratación del resto de la página.
 
 **Dirección visual:** SVG de un ISP con sistemas y datos interconectados, según la propuesta del propietario. Relaciona clientes, operación y red sin convertir la apertura en un mapa de arquitectura. No una pantalla llena de código, un collage de logos tecnológicos o una infraestructura sin relación con el problema.
+
+**Ajustes posteriores del propietario:** retirar el recuadro blanco y las dos leyendas de la ilustración del hero («Esquema ilustrativo · Sistemas y datos conectados» y «No es un producto listo ni un caso de cliente»). `.hero-visual` queda sin fondo, borde, radio o relleno de tarjeta y sin `figcaption`, integrada sobre el fondo oscuro. Se conserva el texto alternativo accesible de la imagen. No se modifica el SVG ni los contenedores o leyendas de otras escenas.
 
 Se retira el titular «¿Qué necesitás conciliar, resolver o decidir en tu ISP?» y la composición de tres preguntas abstractas como visual principal.
 
 ### 4. 01 Comercial — continuidad del cliente
 
+**Ajuste visual posterior del propietario:** la ilustración Comercial se muestra sin tarjeta, borde o leyendas visibles y arranca animada automáticamente al inicializar JavaScript. Se elimina el botón grande de reproducción; solo queda un icono discreto de pausa/reanudación accesible. Movimiento reducido, ausencia de JavaScript o fallo de carga mantienen la copia fija. Esta excepción sustituye el inicio manual y las leyendas previstos originalmente para Comercial; Operativa y Técnica no cambian. El argumento comercial de la columna de texto permanece intacto.
+
 **Problema principal:** se pierde continuidad entre el interés del cliente, la activación, el cobro y la relación posterior.
 
 #### Contenido principal aprobado
 
-**Titular:** Más seguimiento comercial, desde el primer contacto hasta el cobro.
+**Marco editorial vigente:** PAS — Problema, Agitación y Solución, solicitado específicamente para 01 Comercial. Problema y agitación se leen en párrafos separados, seguidos de solución, entrega, utilidad y el mismo CTA. No modifica el hero ni las demás áreas.
 
-**Problema y consecuencia:** Cuando ventas, activaciones y pagos quedan separados, pueden quedar oportunidades, altas o diferencias sin atender. También cuesta reconstruir qué pasó antes de una cancelación.
+**Revisión posterior:** el propietario suministró primero un texto PAS completo y después pidió resumirlo para formato slide y quitar «Fuentes y condiciones». La versión breve siguiente sustituye la literal anterior; conserva énfasis, entrega, utilidad y CTA.
 
-**Solución:** Conectá el recorrido comercial y el historial del cliente. Desarrollo o integro aplicaciones para seguimiento, activaciones, facturación y cobros.
+**Titular:** ¿Se pierden oportunidades entre ventas, activaciones y cobros?
 
-**Qué recibe tu equipo:** Estados, pendientes y diferencias relacionados, con responsables y evidencia para darles seguimiento.
+**Problema:** Ventas, activaciones y cobros desconectados dificultan el seguimiento del cliente.
 
-**Beneficio:** Tu equipo puede retomar oportunidades, destrabar altas, revisar cobros y orientar la atención sin reconstruir cada caso.
+**Agitación:** Una oportunidad puede enfriarse, una activación retrasarse o un cobro quedar sin revisar.
 
-**Soluciones relacionadas:** Captación y activaciones · Facturación y cobros · Retención y análisis de cancelaciones.
+**Subtítulo:** Cómo puedo ayudarte
 
-**CTA:** Conversemos sobre tu ISP.
+Entiendo tu proceso y **desarrollo software a medida, integro y analizo tus datos y automatizo procesos**, con agentes de IA cuando aportan valor.
+
+**Qué recibe tu equipo:** aplicaciones con historial del cliente, pendientes, responsables y alertas.
+
+**Para qué le sirve:** retomar oportunidades, agilizar activaciones y revisar cobros con contexto.
+
+**Captación y activaciones · Facturación y cobros · Retención y análisis de cancelaciones**
+
+**CTA:** [Conversemos sobre tu ISP](/isp-honduras#conversemos).
 
 #### Ilustración y ejemplo
 
@@ -219,29 +235,43 @@ La conciliación permanece como ejemplo concreto, no como toda la oferta Comerci
 
 #### Condiciones y medición complementarias
 
-La aplicación al sistema existente depende de accesos e interfaces. Una diferencia no equivale automáticamente a pérdida de ingresos. Historial y análisis de cancelaciones ayudan a investigar, no prueban causas ni garantizan retención.
+Por petición posterior del propietario, Comercial ya no muestra el desplegable ni su contenido. Se conserva aquí como referencia interna, no como copy público de la slide. Operativa y Técnica mantienen sus detalles.
 
-Conversión a altas, tiempos de activación, cartera y bajas pueden medir el proceso según el alcance. El margen necesita costos; ARPU no lo sustituye. Estos indicadores no son el beneficio ni otra lista dominante en la escena.
+**Fuentes:** CRM · Facturación · Pagos · Atención al cliente.
+
+**Indicadores:** conversión a altas, tiempos de activación, cartera y cancelaciones, según el alcance.
+
+**Consideraciones:** una diferencia de facturación no implica automáticamente pérdida de ingresos. El análisis de cancelaciones ayuda a investigar posibles causas, pero no garantiza retención. Evaluar rentabilidad requiere considerar costos; el ARPU no equivale al margen.
+
+Las soluciones dependen de los sistemas, accesos y calidad de los datos disponibles.
 
 ### 5. 02 Operativa — trabajo coordinado e historial
 
-**Problema principal:** órdenes, personas y antecedentes no tienen un mismo seguimiento, por lo que la atención depende de reconstruir el contexto y de tareas manuales.
+**Composición posterior solicitada:** en 02 la ilustración precede al copy en el HTML: izquierda/derecha en escritorio y arriba/abajo en móvil con la cuadrícula existente. No se invierte solo con CSS, para mantener orden visual y de lectura coherentes. No cambia el copy, la animación o las demás slides.
+
+**Revisión posterior solicitada:** aplicar a 02 el criterio de 01: PAS breve para slide, entrega y utilidad explícitas, sin bloque público de fuentes/condiciones. Ilustración sin tarjeta ni leyendas, animación automática y pequeño control accesible de pausa/reanudación; mantiene `alt`, copia fija sin JS y movimiento reducido. Técnica no cambia.
+
+**Problema principal:** órdenes de servicio, personas y antecedentes no tienen un mismo seguimiento, por lo que la atención depende de reconstruir el contexto y de tareas manuales. El propietario precisó usar «órdenes de servicio» y eliminar «citas» del copy de 02.
 
 #### Contenido principal aprobado
 
-**Titular:** Menos tareas dispersas. Más continuidad en la atención.
+**Titular:** ¿Se repiten reclamos y se acumulan órdenes de servicio pendientes?
 
-**Problema y consecuencia:** Órdenes, citas y reclamos repartidos entre mensajes, llamadas y sistemas hacen difícil saber qué falta o qué se hizo antes. Se puede repetir trabajo mientras un caso sigue pendiente.
+**Problema:** Órdenes de servicio y reclamos dispersos dificultan coordinar instalaciones y soporte.
 
-**Solución:** Reuní órdenes, responsables e historial. Construyo aplicaciones para instalaciones y soporte, conecto el trabajo de las cuadrillas y automatizo traspasos que hoy dependen de seguimiento manual.
+**Agitación:** Una visita puede repetirse, una instalación retrasarse o un reclamo quedar sin resolver.
 
-**Qué recibe tu equipo:** Un flujo con pendientes, asignaciones y evidencia de atención, conectado al servicio del cliente.
+**Subtítulo:** Cómo puedo ayudarte
 
-**Beneficio:** Tu equipo sabe quién atiende cada caso y cuenta con antecedentes para coordinar la siguiente intervención.
+Entiendo tu operación y **desarrollo software a medida, conecto tus órdenes de servicio e historial y automatizo tareas y avisos**.
 
-**Soluciones relacionadas:** Órdenes e instalaciones · Soporte y reclamos recurrentes · Automatización de tareas y avisos.
+**Qué recibe tu equipo:** aplicaciones con órdenes de servicio, responsables, agenda e historial de atención.
 
-**CTA:** Conversemos sobre tu ISP.
+**Para qué le sirve:** coordinar cuadrillas, agilizar instalaciones y atender reclamos con antecedentes.
+
+**Órdenes de servicio e instalaciones · Soporte y reclamos recurrentes · Automatización de tareas y avisos**
+
+**CTA:** [Conversemos sobre tu ISP](/isp-honduras#conversemos).
 
 #### Ilustración y ejemplo
 
@@ -250,9 +280,11 @@ Conversión a altas, tiempos de activación, cartera y bajas pueden medir el pro
 - **Siguiente acción mostrada:** consultar antecedentes, responsable y evidencia antes de tratar el reclamo como un caso aislado.
 - **Rótulo:** Ejemplo ilustrativo de atención.
 
-Se conserva el ejemplo del ticket cerrado cuyo problema vuelve. La secuencia de cuatro filas de investigación deja de ser el visual dominante.
+Se conserva el SVG del ticket cerrado cuyo problema vuelve. Las leyendas y el ejemplo narrado previstos arriba se retiraron del HTML en esta revisión; el sentido se comunica en el copy breve y el `alt`, sin tarjeta o textos bajo la imagen.
 
 #### Condiciones y medición complementarias
+
+Referencia interna: Operativa ya no muestra el desplegable ni este contenido, siguiendo la limpieza de 01.
 
 Los criterios de recurrencia, evidencia de cierre y responsabilidades se acuerdan con el equipo. No se promete detección automática de causas.
 
@@ -260,23 +292,29 @@ Tiempos de instalación o resolución, reaperturas y visitas repetidas permiten 
 
 ### 6. 03 Técnica — monitoreo con contexto del servicio
 
+**Revisión posterior solicitada:** replica el formato breve PAS de 01/02, con negritas, entrega y utilidad explícitas, mismo CTA y sin desplegable de fuentes/condiciones. Ilustración sin tarjeta ni leyendas, automática con pausa discreta, `alt` y copia fija ante movimiento reducido, falta de JS o fallo. Conserva el texto a la izquierda y la imagen a la derecha; solo 02 invierte las columnas.
+
 **Problema principal:** las alertas y métricas de red no siempre muestran qué servicio requiere atención ni qué información justifica una intervención.
 
 #### Contenido principal aprobado
 
-**Titular:** Del aviso de red a la prioridad de atención.
+**Titular:** ¿Cuesta saber qué falla en la red y qué atender primero?
 
-**Problema y consecuencia:** Las alertas por sí solas no explican qué clientes o servicios están afectados. Cuesta priorizar incidentes, seguir la calidad y sustentar decisiones de capacidad.
+**Problema:** Alertas y métricas aisladas dificultan identificar qué servicios o clientes están afectados.
 
-**Solución:** Relacioná monitoreo, servicios e historial. Desarrollo o integro herramientas para NOC, alertas contextualizadas y análisis de disponibilidad, calidad y capacidad.
+**Agitación:** Un incidente puede tardar en priorizarse y una decisión de capacidad tomarse sin suficiente contexto.
 
-**Qué recibe tu equipo:** Información relacionada, criterios de alerta y vistas para revisar el servicio y sus tendencias.
+**Subtítulo:** Cómo puedo ayudarte
 
-**Beneficio:** Tu equipo puede enfocar la atención y planificar la revisión de capacidad con contexto, en lugar de decidir por una señal aislada.
+Entiendo tu monitoreo y **desarrollo herramientas a medida, integro y analizo datos de red y automatizo alertas**.
 
-**Soluciones relacionadas:** Monitoreo y herramientas NOC · Disponibilidad y calidad · Alertas y planificación de capacidad.
+**Qué recibe tu equipo:** aplicaciones con alertas contextualizadas, servicios relacionados e indicadores de calidad y capacidad.
 
-**CTA:** Conversemos sobre tu ISP.
+**Para qué le sirve:** priorizar incidentes, revisar la calidad del servicio y planificar capacidad con evidencia.
+
+**Monitoreo y herramientas NOC · Disponibilidad y calidad · Alertas y planificación de capacidad**
+
+**CTA:** [Conversemos sobre tu ISP](/isp-honduras#conversemos).
 
 #### Ilustración y ejemplo
 
@@ -285,9 +323,11 @@ Tiempos de instalación o resolución, reaperturas y visitas repetidas permiten 
 - **Detalle breve:** contrastar calidad, utilización y período antes de decidir la siguiente acción.
 - **Rótulo:** Ejemplo ilustrativo de priorización.
 
-La planificación de capacidad sigue presente, pero deja de representar por sí sola toda el área Técnica. Se retira la matriz extensa de evidencias del contenido principal.
+La planificación de capacidad sigue presente, pero deja de representar por sí sola toda el área Técnica. Se retira la matriz extensa de evidencias del contenido principal. Los rótulos y ejemplos narrados previstos arriba quedan como referencia interna: ya no se renderizan bajo la ilustración.
 
 #### Condiciones y medición complementarias
+
+Referencia interna: Técnica ya no muestra el desplegable ni este contenido, siguiendo a 01/02.
 
 Desarrollar e integrar herramientas para el NOC no significa operar un NOC 24/7. Tampoco implica realizar mantenimiento o ampliación física de red.
 
@@ -295,82 +335,101 @@ Disponibilidad, latencia, pérdidas, throughput, utilización y cobertura del mo
 
 ### 7. Cómo trabajo — conectar la necesidad con una entrega
 
-**Titular:** De una necesidad de tu ISP a una solución que el equipo pueda usar.
+**Revisión 04–07 aprobada e implementada localmente:** sustituye el copy extenso por formato slide y limpia los visuales. Conserva columnas, SVG estáticos, fotografía real y anclas; CTA principal dentro de cada bloque de texto, sin duplicarlo en el pie. El detalle técnico pasa a respaldo interno, no a desplegables comerciales.
 
-**Apoyo:** Primero entiendo dónde se traba el proceso. Después acordamos qué mejorar y qué hay que integrar, adaptar o desarrollar.
+**Titular:** ¿Tenés mejoras pendientes y no sabés por dónde empezar?
 
-1. **Definimos la prioridad.** Revisamos el trabajo, las fuentes y las personas involucradas; elegimos una primera entrega.
-2. **Construyo e integro.** Aprovecho tus sistemas actuales y desarrollo lo que falta, con criterios de aceptación y registro de la información necesaria.
-3. **Transferimos y acompañamos.** Dejamos documentación y responsables, y acordamos cómo sostener y revisar la solución.
+**Apoyo:** Sin una prioridad clara, las mejoras pueden quedarse en ideas o cambios que no resuelven el problema.
 
-**Nota breve:** No hace falta reemplazar todo ni incorporar IA para empezar.
+1. **Entender.** Revisamos tu proceso y elegimos qué mejorar primero.
+2. **Construir e integrar.** Aprovecho lo que funciona y desarrollo lo que falta.
+3. **Acompañar.** Transfiero el uso y acordamos cómo sostener la solución.
 
-**CTA:** Conversemos sobre tu ISP.
+**Qué recibe tu equipo:** una primera solución utilizable, con alcance y criterios acordados.
+
+**Para qué le sirve:** avanzar por etapas sin cambiarlo todo.
+
+**CTA:** [Conversemos sobre tu ISP](/isp-honduras#conversemos).
 
 El enfoque consultivo sirve a la implementación; no se presenta como un diagnóstico genérico que el visitante debe comprar antes de comprender la oferta.
 
-**Dirección visual:** `05_como_trabajo.svg`, de colaboración profesional. El recorrido «Entender → Implementar → Acompañar» permanece en HTML, sin exigir que esas etiquetas formen parte del archivo.
+**Dirección visual:** `05_como_trabajo.svg`, de colaboración profesional, sin tarjeta ni leyenda. Conserva `alt`, proporción y carga diferida; no se añade animación.
 
 ### 8. Ingeniería — software y ciclo completo de datos
 
-**Titular:** Del registro diario a las herramientas que usa tu equipo.
+**Titular:** ¿Tus sistemas acumulan datos, pero cuesta usarlos para decidir?
 
-**Beneficio y solución:** Para seguir un alta, una orden, un cobro o una alerta, la información debe poder capturarse, relacionarse y llegar al lugar donde se necesita. Desarrollo aplicaciones e integraciones y preparo los datos para análisis y uso operativo.
+**Problema:** La información desconectada obliga a cruzar registros y preparar reportes a mano.
 
-**Dirección visual:** `06_software_datos.svg`, de sistemas, datos y visualización, sin etiquetas internas. El ciclo «Aplicaciones → ETL → DWH → Analítica» se explica en HTML como combinación posible, no como arquitectura obligatoria, en tres grupos comprensibles:
+**Agitación:** Las decisiones pueden demorarse o apoyarse en datos incompletos.
 
-1. **Capturar y conectar:** aplicaciones, formularios, APIs e integración con sistemas y fuentes autorizadas.
-2. **Preparar y relacionar:** validación, ETL/ELT e historia compartida; Data Warehouse cuando la necesidad lo justifique.
-3. **Analizar y usar:** algoritmos, visualización, automatización y aplicaciones que devuelven información al proceso.
+**Cómo puedo ayudarte:** Parto de tus objetivos y **desarrollo aplicaciones, integro tus sistemas y analizo tus datos**.
 
-**Mensaje obligatorio:** Combinamos estas capacidades según tu necesidad. No todos los proyectos requieren todos los componentes.
+**Qué recibe tu equipo:** aplicaciones, información relacionada y vistas con indicadores acordados.
 
-El SVG se acompaña del mensaje anterior; ni la secuencia ilustrada ni el DWH se presentan como requisitos de todos los proyectos. Las aplicaciones pueden capturar información y también utilizar los datos preparados; no se presentan únicamente como último paso. No se añade junto al SVG un segundo diagrama con el mismo contenido.
+**Para qué le sirve:** dar seguimiento al negocio y decidir sin reconstruir cada reporte.
 
-Los KPIs se definen desde objetivos, fuentes, período y responsables. Sirven para evaluar el proceso; no son una promesa de mejora por instalar un tablero y no requieren pasar por IA.
+**Objetivos y KPIs · Integración y calidad · Visualización y mejora**
 
-**Controles visibles y breves:** Calidad del dato · Acceso por responsabilidad · Trazabilidad.
+**Nota breve:** Definimos objetivo, fórmula, fuentes y responsables de cada KPI. Un Data Warehouse solo se incorpora si la necesidad lo justifica.
 
-**Profundidad disponible:** conservar aplicaciones, APIs, ETL/ELT, Data Warehouse, algoritmos y visualización, con sus entregables, anclas y condiciones. Frecuencia, fallos, historia, fórmulas, documentación y recuperación pactada quedan en ampliaciones legibles. El modelo analítico no sustituye el sistema que factura, cobra o activa servicios.
+**CTA:** [Conversemos sobre tu ISP](/isp-honduras#conversemos).
+
+**Dirección visual:** `06_software_datos.svg`, estático, sin tarjeta, leyendas o mensajes auxiliares bajo el SVG. Las precisiones sobre KPI/DWH permanecen en el copy.
+
+**Respaldo interno:** aplicaciones, APIs, ETL/ELT, DWH, algoritmos, visualización, entregables, calidad, acceso y trazabilidad permanecen documentados en la guía y los datos internos de capacidades. Se retiran de la página el desplegable extenso y el ejemplo de alta. Las ocho anclas `capacidad-*`, `#ciclo-datos` y `#architecture-notes` se conservan sobre frases visibles relacionadas. Los KPIs no requieren IA ni un tablero garantiza mejoras; el modelo analítico no sustituye sistemas transaccionales.
 
 ### 9. Ingeniería — automatización y agentes de IA
 
-**Titular:** Menos traspasos manuales para concentrarse en la atención.
+**Titular:** ¿Tu equipo sigue repitiendo tareas que podrían automatizarse?
 
-**Beneficio y solución:** Automatizo consultas, avisos y preparación de tareas para que el equipo no tenga que reconstruir el contexto en cada paso. Integro reglas, herramientas y agentes de IA cuando aportan valor a esa necesidad.
+**Problema:** Buscar procedimientos, copiar datos y coordinar avisos consume tiempo de atención.
 
-Se distinguen dos usos mediante ejemplos pequeños:
+**Agitación:** Una solicitud puede quedar pendiente mientras el equipo reconstruye el contexto.
 
-- **Consultar conocimiento:** encontrar un procedimiento o antecedente con fuentes autorizadas, evaluación y escalamiento humano.
-- **Preparar o ejecutar una tarea:** consultar contexto, aplicar reglas y pasar por autorización cuando corresponda, dejando registro del resultado.
+**Cómo puedo ayudarte:** Reviso tu proceso y **automatizo consultas, tareas y avisos**, incorporando agentes de IA cuando aportan valor.
 
-**Dirección visual:** SVG de RAG, agentes de IA, herramientas y acciones autorizadas. Distingue consultar conocimiento de preparar o ejecutar una tarea. El apoyo HTML conserva la secuencia **Solicitud → Contexto y reglas → Aprobación cuando aplica → Registro**, sin añadir otro diagrama técnico de varios carriles lleno de texto.
+**Qué recibe tu equipo:** asistentes para consultar conocimiento autorizado y flujos conectados con sus herramientas.
 
-**Controles:** permisos por tarea, trazabilidad, límites de autonomía y revisión de acciones sensibles. No se ofrecen cobros, cortes o cambios de red autónomos por defecto.
+**Para qué le sirve:** atender solicitudes con contexto y reducir traspasos manuales.
 
-Se conservan RAG y agentes con sus mecanismos y entregables en las ampliaciones. Recuperar documentos no elimina errores. Una regla puede bastar sin un agente, y los agentes que asisten el desarrollo no son agentes operativos incluidos automáticamente en el producto.
+**Conocimiento consultable · Tareas y avisos · Agentes de IA**
+
+**Nota breve:** Una regla puede bastar sin IA. Acordamos permisos, trazabilidad y revisión humana de acciones sensibles.
+
+**CTA:** [Conversemos sobre tu ISP](/isp-honduras#conversemos).
+
+**Dirección visual:** SVG estático de IA y automatización, sin tarjeta ni leyendas. No se añade animación.
+
+**Respaldo interno:** se retira el desplegable de agentes. Recuperar fuentes no elimina errores; no se ofrecen cobros, cortes o cambios de red autónomos por defecto. Los agentes de desarrollo no están incluidos automáticamente en el producto. Evaluación, permisos y límites siguen en la guía.
 
 ### 10. Primera entrega, credibilidad y condiciones
 
-**Titular:** Trabajás conmigo, con una entrega y un alcance acordados.
+**Titular:** ¿Qué vas a recibir y quién te va a acompañar?
 
 Se conserva la fotografía profesional real y la identidad ya publicadas:
 
 > Héctor Guerra · Ingeniero Electricista Industrial · Tegucigalpa, Honduras.
 >
-> Mi experiencia conecta desarrollo de software, ingeniería de datos, telemetría e IA aplicada a procesos. Trabajo con vos desde la definición hasta la implementación.
+> Trabajo directamente con vos, desde entender la necesidad hasta implementar y transferir la solución.
 
 Esta experiencia no se transforma en afirmaciones de proyectos, clientes o resultados con ISP.
 
 **Qué recibe el cliente:**
 
-- **La entrega acordada:** aplicación, integración, automatización o solución de datos utilizable para el proceso priorizado.
-- **Criterios y medición:** fuentes, reglas, responsables, aceptación e indicadores pertinentes.
-- **Transferencia:** documentación, formación o transferencia acordada y condiciones de mantenimiento y acompañamiento.
+- **Una solución utilizable:** Software, integración, automatización o datos para la necesidad priorizada.
+- **Criterios de aceptación:** Cómo validar la entrega y medir lo acordado.
+- **Transferencia y continuidad:** Documentación, formación y acompañamiento según el alcance.
 
-**Condiciones del servicio:** alcance, inversión, dependencias y plazos acordados antes de iniciar. Seguridad de datos, accesos, registro de acciones y recuperación se definen para los componentes entregados y sus responsabilidades.
+**Antes de iniciar:** acordamos entrega, alcance, inversión, dependencias y plazos.
 
-No se ofrece seguridad integral, invulnerabilidad, certificación regulatoria, instalación física de red o servicio NOC 24/7. Estos límites se explican una vez en el respaldo/condiciones, no como párrafos defensivos repetidos en cada titular comercial.
+**Para qué le sirve a tu equipo:** saber qué recibirá, cómo se evaluará y cómo usarlo.
+
+**Nota breve:** Accesos, trazabilidad y recuperación se acuerdan para los componentes entregados; no es seguridad integral ni operación de red 24/7.
+
+**CTA:** [Conversemos sobre tu ISP](/isp-honduras#conversemos).
+
+07 conserva la fotografía, nombre, profesión y ubicación, sin inventar una ilustración o experiencia ISP. Se resumen la lista de entregas y las condiciones; no se ofrece invulnerabilidad, certificación regulatoria o instalación física de red.
 
 ### 11. Conversión, dudas y formulario
 
@@ -475,7 +534,7 @@ Las ocho capacidades y sus anclas `capacidad-*` siguen disponibles. Las condicio
 
 Se preservan `#introduccion`, `#comercial`, `#operativa`, `#tecnica`, `#ingenieria`, `#automatizacion`, `#primera-entrega`, `#dudas`, `#conversemos` y `#contenido`. `#ciclo-datos` sigue siendo un destino dentro de ingeniería, sin IDs duplicados.
 
-La implementación mantiene HTML renderizado por Astro, sin nuevas bibliotecas, backend, almacenamiento, APIs públicas del sitio o controles de presentación/scroll. La única interacción nueva es el control local SVG fijo/animado con JavaScript mínimo; el contenido y la conversión no dependen de él. Las APIs ofrecidas al ISP son una capacidad comercial, no endpoints que deban construirse en esta landing.
+La implementación mantiene HTML renderizado por Astro, sin nuevas bibliotecas, backend, almacenamiento o APIs públicas. Las interacciones locales son el control SVG fijo/animado y las flechas anterior/siguiente solicitadas después. Sin JavaScript, el contenido, las imágenes fijas y el scroll siguen disponibles. Las APIs ofrecidas al ISP son una capacidad comercial, no endpoints que deban construirse en esta landing.
 
 **Título SEO propuesto:** Software e ingeniería de datos para ISPs en Honduras | HGuerra.
 
@@ -618,7 +677,7 @@ Este plan registra el trabajo aprobado. Después de cerrar el diseño y elegir l
    - Añadir `total` numérico obligatorio y utilizarlo tanto en el contador visible como en su nombre accesible.
    - Mantener `id`, `index`, `label`, `tone`, `titleId` y `class`, así como el encabezado, slots y pie.
    - El índice del argumento conserva 01 Comercial, 02 Operativa y 03 Técnica. El ordinal de la presentación cuenta la apertura como primera de diez escenas.
-   - No añadir detección de scroll, estado de cliente o navegación de diapositivas.
+   - Mantener el componente de estructura sin estado de cliente. La navegación lateral añadida posteriormente se integra una sola vez en la página, no en cada instancia.
 
 4. **Modificar `src/components/sections/IspAreaScene.astro` para SVG animado y ejemplo breve.**
    - Restringir `area` a los tres IDs y recibir su `illustration` de tipo `animated-svg`, sin extraer un componente nuevo.
@@ -647,7 +706,7 @@ Este plan registra el trabajo aprobado. Después de cerrar el diseño y elegir l
 
 7. **Modificar `src/pages/isp-honduras.astro` como composición comercial.**
    - Utilizar el copy aprobado de este documento y `ispScenarios`, no volver a resumirlo con el hero abstracto o con indicadores como beneficios.
-   - Declarar un único total de diez escenas y pasarlo a todos los `IspSlide` y a `IspEngineering`. Mantener orden e índices del inventario; no crear un motor genérico de slides.
+   - Declarar un único total de diez escenas y pasarlo a todos los `IspSlide` y a `IspEngineering`. Mantener orden e índices del inventario; no crear un motor genérico de slides. El ajuste posterior añade la navegación lateral con los IDs ya existentes.
    - Apertura: oferta explícita, problema reconocible, SVG `hero.svg`, apoyo y CTA al formulario; no diferir la imagen de apertura.
    - Áreas: renderizar problema/consecuencia, solución, entrega y beneficio en una escena amplia por área; mostrar las tres agrupaciones relacionadas y su ilustración/ejemplo mediante `IspAreaScene`. El CTA de área reutiliza el mismo texto y destino.
    - Método: incorporar `como-trabajo.svg` con la explicación HTML de los tres pasos, sin un componente adicional de un uso.
@@ -729,8 +788,22 @@ Evidencia temporal: `/tmp/opencode/isp-implementation.FiqFZw/` (`review.json`, `
 
 - Revisión del propietario sobre la landing local; las mejoras gráficas previstas serán una iteración posterior, sin exigir activos nuevos para esta primera versión.
 - No adquirir las fotografías o generar GIF del plan sustituido.
-- Publicación, commit y despliegue requieren autorización separada; no se realizaron.
+- El checkpoint `94e01f6` fue creado posteriormente por solicitud expresa. El ajuste de viewport/flechas aún no tiene otro commit; no se hizo push o despliegue.
 - Contrastar el mensaje con anuncios si se aporta una campaña; no hay evidencia actual de alineación o efecto sobre consultas y ventas.
+
+## Ajuste posterior — viewport y navegación lateral
+
+**Solicitud del propietario, 2026-11-16:** adaptar cada slide al tamaño de pantalla y añadir una flecha arriba y otra abajo en el lateral derecho para cambiar rápidamente. Esta decisión sustituye la exclusión inicial de navegación de presentación, no el requisito de conservar contenido y scroll natural.
+
+- `src/styles/ispCampaign.css`: mínimo `100dvh`, escala de títulos/espacios según ancho y alto, imágenes con proporción completa y límite de alto, y reglas compactas para escritorio de hasta 800 px de altura. No hay alto máximo, recorte de texto, scroll anidado o escalado por `transform`.
+- `src/components/sections/IspEngineering.astro`: nota de capacidades combinables y controles se distribuyen junto a la ilustración de datos, conservando todos los textos y anclas.
+- `src/pages/isp-honduras.astro`: navegación fija de dos botones nativos, contador y `aria-disabled` en los extremos. Los botones saltan con `scrollIntoView({ behavior: 'instant' })`, mantienen su foco para uso repetido y no interceptan teclas o rueda. Un `IntersectionObserver` con franja de un píxel al 25 % del alto actualiza la posición al hacer scroll; se reconstruye al redimensionar. La navegación solo aparece al inicializar JavaScript.
+- Una franja lateral y el área segura de pantalla evitan superponer flechas sobre contenido, imágenes o formulario. Sin JavaScript no se reserva esa franja y los controles permanecen ocultos.
+- En pantallas pequeñas, zoom o detalles abiertos, prima la legibilidad: la escena crece y se recorre con scroll. No se promete encajar todo el contenido móvil en una sola pantalla.
+
+**Aumento tipográfico posterior solicitado por el propietario:** toda la tipografía de la landing ISP se incrementa un 10 % mediante `--deck-type-scale: 1.1` en `src/styles/ispCampaign.css`. Incluye títulos, párrafos, botones, leyendas de otras escenas, pies, contador y textos/campos del formulario solo en esta página. Se mantienen `rem`, rangos fluidos e interlineados relativos, sin zoom o escalado visual de la página. La descripción del hero pasa de 16–17,6 px a 17,6–19,36 px con raíz de 16 px. Esta revisión es de CSS en fuente; el encaje de diez escenas en 900/720 px documentado abajo corresponde a la tipografía anterior y no debe extrapolarse al texto ampliado. Se permite crecimiento antes que recortar contenido.
+
+**Evidencia dirigida:** Chrome local a 1440×900, 1280×720 y 375×667, con solicitudes externas bloqueadas y sin envíos. Las diez escenas cerradas miden 900 px y 720 px respectivamente en los dos escritorios; en móvil crecen con su contenido. Sin desbordamiento horizontal en los tres tamaños; la franja de contenido queda a la izquierda de las flechas. Avance repetido, retroceso con Enter, sincronización tras scroll manual, límites primero/último, detalle Comercial estable y navegación oculta sin JS observados. Capturas focales inspeccionadas. Evidencia temporal en `/tmp/opencode/isp-navigation.Fmxhjw/` (`review.json`, `layout.json`, `layout-short.json` y capturas); no son pruebas nuevas en el repositorio ni una revisión de formulario/transportes, producción o impacto comercial.
 
 ## Recursos de contexto y límites de evidencia
 

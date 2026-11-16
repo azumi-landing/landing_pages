@@ -30,16 +30,15 @@ const method = ispIllustrations['forma-de-trabajo'];
         <div class="split-slide">
           <div class="slide-copy">
             <p class="hero-eyebrow">Software e ingeniería de datos para ISPs de Honduras.</p>
-            <h1 id="isp-title">¿Tu ISP pierde seguimiento <span>entre ventas, instalaciones y soporte?</span></h1>
-            <p class="slide-lead">Cuando la información queda repartida, cuesta saber qué está pendiente, quién debe atenderlo y cómo afecta al cliente.</p>
-            <p class="slide-lead">Conecto tus sistemas y desarrollo aplicaciones, análisis y automatizaciones para seguir clientes, coordinar el trabajo y aprovechar los datos de tu red.</p>
-            <p class="hero-scope">Desde la captura y la integración hasta las herramientas que usa tu equipo.</p>
-            <a href="#conversemos" class="campaign-cta">{ispCtaLabel} <span aria-hidden="true">↗</span></a>
-            <p class="hero-note">Contame qué querés mejorar. Si hay encaje, acordamos una primera entrega, su alcance e inversión.</p>
+            <h1 id="isp-title">¿Qué problemas están frenando <span>el crecimiento de tu ISP?</span></h1>
+            <p class="slide-lead">Clientes que cancelan, procesos manuales y sistemas desconectados dificultan el crecimiento y el control de tu negocio.</p>
+            <p class="slide-lead"><strong>Cada ISP tiene desafíos diferentes. La solución comienza por entenderlos.</strong></p>
+            <p class="slide-lead">En HGuerra.com diseño e implemento soluciones a medida con <strong>software personalizado, ingeniería de datos y agentes de inteligencia artificial</strong>.</p>
+            <a href="/isp-honduras#conversemos" class="campaign-cta">{ispCtaLabel} <span aria-hidden="true">↗</span></a>
+            <p class="hero-note">Cuéntame qué necesitas mejorar y evaluemos una primera solución.</p>
           </div>
           <figure class="isp-illustration hero-visual">
             <img src={hero.src} alt={hero.alt} width={hero.width} height={hero.height} fetchpriority="high" />
-            <figcaption><p class="illustration-label">{hero.caption}</p><p class="example-note">No es un producto listo ni un caso de cliente.</p></figcaption>
           </figure>
         </div>
         <span slot="footer">Héctor Guerra · Consultoría + implementación + acompañamiento</span>
@@ -49,29 +48,21 @@ const method = ispIllustrations['forma-de-trabajo'];
         <IspSlide id={scenario.id} index={index + 1} total={total} label={scenario.area}
           tone={index === 1 ? 'muted' : 'light'} titleId={`scenario-${scenario.id}`} class="area-slide">
           <div class="split-slide">
+            {scenario.id === 'operativa' && <IspAreaScene area={scenario.id} illustration={scenario.illustration} />}
             <div class="slide-copy scenario-copy">
               <h2 id={`scenario-${scenario.id}`}>{scenario.title}</h2>
-              <p class="scenario-problem">{scenario.problem} {scenario.consequence}</p>
+              <p class="scenario-problem">{scenario.problem}</p>
+              <p class="scenario-problem">{scenario.consequence}</p>
               <div class="scenario-solution">
-                <h3>Qué puedo construir para tu ISP</h3>
-                <p>{scenario.solution}</p>
+                <h3>Cómo puedo ayudarte</h3>
+                <p>{typeof scenario.solution === 'string' ? scenario.solution : <>{scenario.solution.before}<strong>{scenario.solution.emphasis}</strong>{scenario.solution.after}</>}</p>
               </div>
-              <p class="scenario-delivery"><strong>Tu equipo recibe:</strong> {scenario.deliverable}</p>
-              <p class="scenario-benefit">{scenario.benefit}</p>
-              <ul class="related-solutions" aria-label="Soluciones relacionadas">
-                {scenario.relatedSolutions.map((solution) => <li>{solution}</li>)}
-              </ul>
-              <a href="#conversemos" class="campaign-cta">{ispCtaLabel} <span aria-hidden="true">↗</span></a>
-              <details class="slide-details">
-                <summary>Fuentes y condiciones de esta solución</summary>
-                <div class="detail-deliveries">
-                  <p><strong>Fuentes a relacionar:</strong> {scenario.sources}.</p>
-                  <p>{scenario.measurementNote}</p>
-                  <p>La integración depende de los accesos, interfaces e información disponibles.</p>
-                </div>
-              </details>
+              <p class="scenario-delivery"><strong>Qué recibe tu equipo:</strong> {scenario.deliverable}</p>
+              <p class="scenario-benefit"><strong>Para qué le sirve:</strong> {scenario.benefit}</p>
+              <p class="related-solutions"><strong>{scenario.relatedSolutions.join(' · ')}</strong></p>
+              <a href="/isp-honduras#conversemos" class="campaign-cta">{ispCtaLabel} <span aria-hidden="true">↗</span></a>
             </div>
-            <IspAreaScene area={scenario.id} illustration={scenario.illustration} />
+            {scenario.id !== 'operativa' && <IspAreaScene area={scenario.id} illustration={scenario.illustration} />}
           </div>
           <span slot="footer">Una solución posible, no un diagnóstico de tu ISP ni resultados garantizados.</span>
         </IspSlide>
@@ -79,47 +70,46 @@ const method = ispIllustrations['forma-de-trabajo'];
 
       <IspSlide id="forma-de-trabajo" index={4} total={total} label="Cómo trabajo" tone="dark" titleId="method-title" class="method-slide">
         <div class="split-slide">
-          <div class="slide-copy">
-            <h2 id="method-title">De una necesidad de tu ISP a una solución que el equipo pueda usar.</h2>
-            <p class="slide-lead">Primero entiendo dónde se traba el proceso. Después acordamos qué mejorar y qué hay que integrar, adaptar o desarrollar.</p>
+          <div class="slide-copy scenario-copy">
+            <h2 id="method-title">¿Tenés mejoras pendientes y no sabés por dónde empezar?</h2>
+            <p class="scenario-problem">Sin una prioridad clara, las mejoras pueden quedarse en ideas o cambios que no resuelven el problema.</p>
             <ol class="method-steps">
-              <li><h3>Definimos la prioridad</h3><p>Revisamos el trabajo, las fuentes y las personas involucradas; elegimos una primera entrega.</p></li>
-              <li><h3>Construyo e integro</h3><p>Aprovecho tus sistemas actuales y desarrollo lo que falta, con criterios de aceptación y registro de la información necesaria.</p></li>
-              <li><h3>Transferimos y acompañamos</h3><p>Dejamos documentación y responsables, y acordamos cómo sostener y revisar la solución.</p></li>
+              <li><h3>Entender</h3><p>Revisamos tu proceso y elegimos qué mejorar primero.</p></li>
+              <li><h3>Construir e integrar</h3><p>Aprovecho lo que funciona y desarrollo lo que falta.</p></li>
+              <li><h3>Acompañar</h3><p>Transfiero el uso y acordamos cómo sostener la solución.</p></li>
             </ol>
-            <p class="slide-note">No hace falta reemplazar todo ni incorporar IA para empezar.</p>
+            <p class="scenario-delivery"><strong>Qué recibe tu equipo:</strong> una primera solución utilizable, con alcance y criterios acordados.</p>
+            <p class="scenario-benefit"><strong>Para qué le sirve:</strong> avanzar por etapas sin cambiarlo todo.</p>
+            <a href="/isp-honduras#conversemos" class="campaign-cta">{ispCtaLabel} <span aria-hidden="true">↗</span></a>
           </div>
-          <figure class="isp-illustration">
+          <figure class="isp-illustration illustration-unframed">
             <img src={method.src} alt={method.alt} width={method.width} height={method.height} loading="lazy" decoding="async" />
-            <figcaption><p class="illustration-label">{method.caption}</p></figcaption>
           </figure>
         </div>
-        <a slot="footer" href="#conversemos" class="slide-text-cta">{ispCtaLabel} <span aria-hidden="true">↗</span></a>
       </IspSlide>
 
       <IspEngineering ctaLabel={ispCtaLabel} total={total} />
 
       <IspSlide id="primera-entrega" index={7} total={total} label="Primera entrega y confianza" tone="dark" titleId="trust-title">
         <div class="split-slide">
-          <div class="slide-copy">
-            <h2 id="trust-title">Trabajás conmigo, <span>con una entrega y un alcance acordados.</span></h2>
+          <div class="slide-copy scenario-copy">
+            <h2 id="trust-title">¿Qué vas a recibir y quién te va a acompañar?</h2>
             <div class="profile">
               <img src="/mi_foto_pro.jpeg" alt="Héctor Guerra" width="96" height="96" loading="lazy" decoding="async" />
               <div><strong>Héctor Guerra</strong><p>Ingeniero Electricista Industrial<br />Tegucigalpa, Honduras</p></div>
             </div>
-            <p class="slide-lead">Mi experiencia conecta desarrollo de software, ingeniería de datos, telemetría e IA aplicada a procesos. Trabajo con vos desde la definición hasta la implementación.</p>
+            <p class="scenario-problem">Trabajo directamente con vos, desde entender la necesidad hasta implementar y transferir la solución.</p>
+            <p class="scenario-delivery"><strong>Antes de iniciar:</strong> acordamos entrega, alcance, inversión, dependencias y plazos.</p>
+            <p class="scenario-benefit"><strong>Para qué le sirve a tu equipo:</strong> saber qué recibirá, cómo se evaluará y cómo usarlo.</p>
+            <a href="/isp-honduras#conversemos" class="campaign-cta">{ispCtaLabel} <span aria-hidden="true">↗</span></a>
           </div>
           <ol class="delivery-list" aria-label="Qué recibís de una primera intervención">
-            <li><span aria-hidden="true">01</span><div><h3>La entrega acordada</h3><p>Aplicación, integración, automatización o solución de datos utilizable para el proceso priorizado.</p></div></li>
-            <li><span aria-hidden="true">02</span><div><h3>Criterios y medición</h3><p>Fuentes, reglas, responsables, aceptación e indicadores pertinentes.</p></div></li>
-            <li><span aria-hidden="true">03</span><div><h3>Transferencia</h3><p>Documentación, formación o transferencia acordada y condiciones de mantenimiento y acompañamiento.</p></div></li>
+            <li><span aria-hidden="true">01</span><div><h3>Una solución utilizable</h3><p>Software, integración, automatización o datos para la necesidad priorizada.</p></div></li>
+            <li><span aria-hidden="true">02</span><div><h3>Criterios de aceptación</h3><p>Cómo validar la entrega y medir lo acordado.</p></div></li>
+            <li><span aria-hidden="true">03</span><div><h3>Transferencia y continuidad</h3><p>Documentación, formación y acompañamiento según el alcance.</p></div></li>
           </ol>
         </div>
-        <div class="service-conditions">
-          <p class="slide-note">Alcance, inversión, dependencias y plazos acordados antes de iniciar. Seguridad de datos, accesos, registro de acciones y recuperación se definen para los componentes entregados y sus responsabilidades.</p>
-          <p class="slide-note">No incluye seguridad integral, invulnerabilidad, certificación regulatoria, instalación física de red o servicio NOC 24/7.</p>
-        </div>
-        <a slot="footer" href="#conversemos" class="slide-text-cta">{ispCtaLabel} <span aria-hidden="true">↗</span></a>
+        <p class="slide-note">Accesos, trazabilidad y recuperación se acuerdan para los componentes entregados; no es seguridad integral ni operación de red 24/7.</p>
       </IspSlide>
 
       <IspSlide id="dudas" index={8} total={total} label="Antes de avanzar" titleId="faq-title">
@@ -153,7 +143,66 @@ const method = ispIllustrations['forma-de-trabajo'];
         </div>
       </IspSlide>
     </main>
+    <nav class="slide-navigation" aria-label="Navegación entre diapositivas" hidden>
+      <button type="button" data-slide-direction="-1" aria-label="Diapositiva anterior" aria-disabled="true">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </button>
+      <span class="navigation-position" aria-label="Diapositiva actual">01 / {total}</span>
+      <button type="button" data-slide-direction="1" aria-label="Diapositiva siguiente">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14m-6-6 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </button>
+    </nav>
     <footer class="campaign-footer"><div class="legal-inner"><p><strong>HGuerra</strong> · Inteligencia aplicada a desafíos reales.</p><div><a href="/privacidad">Privacidad</a><a href="/terminos">Términos</a></div></div></footer>
     <AnalyticsConsent enabled={true} />
+    <script>
+      const navigation = document.querySelector<HTMLElement>('.slide-navigation')!;
+      const slides = [...document.querySelectorAll<HTMLElement>('.isp-slide')];
+      const previous = navigation.querySelector<HTMLButtonElement>('[data-slide-direction="-1"]')!;
+      const next = navigation.querySelector<HTMLButtonElement>('[data-slide-direction="1"]')!;
+      const position = navigation.querySelector<HTMLElement>('.navigation-position')!;
+      let current = 0;
+      let observer: IntersectionObserver;
+
+      function updateNavigation() {
+        const marker = window.innerHeight * .25;
+        current = 0;
+        for (let index = 1; index < slides.length; index++) {
+          if (slides[index].getBoundingClientRect().top > marker) break;
+          current = index;
+        }
+        previous.setAttribute('aria-disabled', String(current === 0));
+        next.setAttribute('aria-disabled', String(current === slides.length - 1));
+        previous.setAttribute('aria-controls', slides[Math.max(0, current - 1)].id);
+        next.setAttribute('aria-controls', slides[Math.min(slides.length - 1, current + 1)].id);
+        position.textContent = `${String(current + 1).padStart(2, '0')} / ${slides.length}`;
+      }
+
+      function observeSlides() {
+        observer?.disconnect();
+        // A one-pixel band tracks the section being read, including tall slides.
+        const marker = Math.round(window.innerHeight * .25);
+        observer = new IntersectionObserver(updateNavigation, {
+          rootMargin: `-${marker}px 0px -${window.innerHeight - marker - 1}px 0px`,
+          threshold: 0
+        });
+        slides.forEach((slide) => observer.observe(slide));
+        updateNavigation();
+      }
+
+      navigation.addEventListener('click', (event) => {
+        const button = (event.target as Element).closest<HTMLButtonElement>('button[data-slide-direction]');
+        if (!button) return;
+        updateNavigation();
+        const destination = current + Number(button.dataset.slideDirection);
+        if (destination < 0 || destination >= slides.length) return;
+        // Jump immediately so repeated presses never wait for a scroll animation.
+        slides[destination].scrollIntoView({ behavior: 'instant', block: 'start' });
+        updateNavigation();
+      });
+      window.addEventListener('resize', observeSlides);
+      document.body.classList.add('has-slide-navigation');
+      navigation.hidden = false;
+      observeSlides();
+    </script>
   </body>
 </html>

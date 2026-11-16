@@ -8,14 +8,7 @@ interface Props {
 const { mode, illustration } = Astro.props;
 ---
 
-<figure class={`isp-illustration architecture-${mode}`}>
+<figure class={`isp-illustration illustration-unframed architecture-${mode}`}>
   <img src={illustration.src} alt={illustration.alt} width={illustration.width}
     height={illustration.height} loading="lazy" decoding="async" />
-  <figcaption>
-    <p class="illustration-label">{illustration.caption}</p>
-    <p class="example-note">{mode === 'data'
-      ? 'Aplicaciones → ETL/ELT → DWH → Analítica. Una combinación posible, no una arquitectura obligatoria.'
-      : 'Solicitud → Contexto y reglas → Aprobación cuando aplica → Registro.'}</p>
-    {illustration.credit && <p class="example-note">{illustration.credit}</p>}
-  </figcaption>
 </figure>

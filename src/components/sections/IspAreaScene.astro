@@ -6,40 +6,20 @@ interface Props {
   illustration: Extract<IspIllustration, { kind: 'animated-svg' }>;
 }
 const { area, illustration } = Astro.props;
-const examples = {
-  comercial: {
-    label: 'Comercial',
-    flow: 'Activación registrada → Factura por relacionar → Revisión asignada',
-    note: 'Confirmar fecha, ciclo y vínculo entre registros antes de considerar la diferencia un error.'
-  },
-  operativa: {
-    label: 'Operativa',
-    flow: 'Intervención registrada → Ticket cerrado → Reclamo relacionado',
-    note: 'Consultar antecedentes, responsable y evidencia antes de tratarlo como un caso aislado.'
-  },
-  tecnica: {
-    label: 'Técnica',
-    flow: 'Alerta de red → Servicio relacionado → Revisión prioritaria',
-    note: 'Contrastar calidad, utilización y período antes de decidir la siguiente acción.'
-  }
-};
-const example = examples[area];
+const areaLabel = { comercial: 'Comercial', operativa: 'Operativa', tecnica: 'Técnica' }[area];
 ---
 
-<figure class="isp-illustration area-scene" data-isp-animation>
+<figure class="isp-illustration area-scene area-scene-unframed" data-isp-animation>
   <img id={`scene-image-${area}`} src={illustration.posterSrc} alt={illustration.alt}
     width={illustration.width} height={illustration.height} loading="lazy" decoding="async"
     data-animated-src={illustration.src} data-poster-src={illustration.posterSrc} />
   <div class="scene-controls">
     <button type="button" class="animation-toggle" hidden aria-controls={`scene-image-${area}`}
-      aria-label={`Reproducir animación: ${example.label}`} data-area-label={example.label}>Reproducir animación</button>
+      aria-label={`Pausar animación: ${areaLabel}`} data-area-label={areaLabel}>
+      <svg data-animation-icon="pause" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+      <svg data-animation-icon="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m8 5 11 7-11 7V5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" /></svg>
+    </button>
   </div>
-  <figcaption>
-    <p class="illustration-label">{illustration.caption}</p>
-    <p class="example-flow">{example.flow}</p>
-    <p class="example-note">{example.note}</p>
-    {illustration.credit && <p class="example-note">{illustration.credit}</p>}
-  </figcaption>
 </figure>
 
 <script>
@@ -48,15 +28,15 @@ const example = examples[area];
   document.querySelectorAll<HTMLElement>('[data-isp-animation]').forEach((scene) => {
     const image = scene.querySelector<HTMLImageElement>('img')!;
     const button = scene.querySelector<HTMLButtonElement>('button')!;
-    let playing = false;
+    let playing = true;
     let failed = false;
 
     function update() {
       if (reducedMotion.matches || failed) playing = false;
       const source = playing ? image.dataset.animatedSrc! : image.dataset.posterSrc!;
       if (image.getAttribute('src') !== source) image.src = source;
-      const label = playing ? 'Detener animación' : 'Reproducir animación';
-      button.textContent = label;
+      const label = playing ? 'Pausar animación' : 'Reanudar animación';
+      button.dataset.playing = String(playing);
       button.setAttribute('aria-label', `${label}: ${button.dataset.areaLabel}`);
       // Keep a focused control in place when motion preferences change.
       button.hidden = (failed || reducedMotion.matches) && document.activeElement !== button;
