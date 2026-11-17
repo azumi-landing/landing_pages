@@ -1,0 +1,215 @@
+{
+  "project": "HGuerra — ISP Honduras",
+  "purpose": "Reutilización de las composiciones del video aprobado en la propia landing de HGuerra; no biblioteca de ilustraciones para redistribuir",
+  "illustration_count": 9,
+  "svg_count": 9,
+  "png_count": 9,
+  "source_video_sha256": "329be4ec9f49372994431af109487cae07250fa85e97e68980b1e79591d3defd",
+  "compositions": [
+    {
+      "id": "01-seguimiento-clientes",
+      "title": "Seguimiento a clientes",
+      "source_video_time_seconds": 2.5,
+      "sources": [
+        "Negative Review",
+        "Payments"
+      ],
+      "svg": "svg/01-seguimiento-clientes.svg",
+      "svg_sha256": "eaea029d2f7ef8b7030ede62dfa887aba280403e947bceafa913c1cc7e403cf3",
+      "png": "png/01-seguimiento-clientes.png",
+      "png_sha256": "a965cb87a4da951dad42e851b378104727b8e5a773e6a95c8e56c659404e14ed",
+      "png_width": 1600,
+      "png_height": 1594,
+      "transparent": true,
+      "viewBox": [
+        46,
+        577,
+        988,
+        984
+      ],
+      "no_video_titles_subtitles_or_brand": true
+    },
+    {
+      "id": "02-coordinacion-instalaciones",
+      "title": "Coordinación de instalaciones",
+      "source_video_time_seconds": 3.9,
+      "sources": [
+        "Order Delivered",
+        "Payments"
+      ],
+      "svg": "svg/02-coordinacion-instalaciones.svg",
+      "svg_sha256": "a7f06e0143f880eb7fb926010bfb484a4913b3dcefda4b1e7343ee6c78c96dee",
+      "png": "png/02-coordinacion-instalaciones.png",
+      "png_sha256": "b31417e2817cde5337e2a90412601cfdfdfbcb42eae22bcd1632b73cd223f315",
+      "png_width": 1600,
+      "png_height": 1382,
+      "transparent": true,
+      "viewBox": [
+        46,
+        700,
+        997,
+        861
+      ],
+      "no_video_titles_subtitles_or_brand": true
+    },
+    {
+      "id": "03-priorizacion-fallas",
+      "title": "Priorización de fallas de red",
+      "source_video_time_seconds": 5.0,
+      "sources": [
+        "Maintenance"
+      ],
+      "svg": "svg/03-priorizacion-fallas.svg",
+      "svg_sha256": "96fe48ba60a169e65f61e579ea1b3055180cd75079e7c63cfb7361026b4b40bb",
+      "png": "png/03-priorizacion-fallas.png",
+      "png_sha256": "4b4f50400e01de6c0f2b52558f464da597b753d1753f8f9a44bacf72fdb6d17a",
+      "png_width": 1600,
+      "png_height": 1302,
+      "transparent": true,
+      "viewBox": [
+        46,
+        757,
+        988,
+        804
+      ],
+      "no_video_titles_subtitles_or_brand": true
+    },
+    {
+      "id": "04-cancelacion-devolucion-router",
+      "title": "Cancelación y devolución de router",
+      "source_video_time_seconds": 7.1,
+      "sources": [
+        "Order Delivered",
+        "Negative Review"
+      ],
+      "svg": "svg/04-cancelacion-devolucion-router.svg",
+      "svg_sha256": "cb6891aa56f1a6d36b450362fc6e69bbf846a1adb862216110ee286dc77546f4",
+      "png": "png/04-cancelacion-devolucion-router.png",
+      "png_sha256": "8f282be47511e53b016474a894bc172f84eb36d896ad351c4e3ab3684f6aec2a",
+      "png_width": 1600,
+      "png_height": 1365,
+      "transparent": true,
+      "viewBox": [
+        46,
+        718,
+        988,
+        843
+      ],
+      "no_video_titles_subtitles_or_brand": true
+    },
+    {
+      "id": "05-cobros-pendientes",
+      "title": "Cobros pendientes",
+      "source_video_time_seconds": 8.4,
+      "sources": [
+        "Payments",
+        "Negative Review"
+      ],
+      "svg": "svg/05-cobros-pendientes.svg",
+      "svg_sha256": "d775cce00af863b7235036346d69ead84bc8832c3e84c6351bc213f5c3c02c74",
+      "png": "png/05-cobros-pendientes.png",
+      "png_sha256": "feff0cbaf7608675538949d3d864b7be3747755396d412eb2f1aa5a503691818",
+      "png_width": 1600,
+      "png_height": 1594,
+      "transparent": true,
+      "viewBox": [
+        46,
+        577,
+        988,
+        984
+      ],
+      "no_video_titles_subtitles_or_brand": true
+    },
+    {
+      "id": "06-reclamos-acumulados",
+      "title": "Acumulación de reclamos",
+      "source_video_time_seconds": 9.9,
+      "sources": [
+        "Payments",
+        "Negative Review"
+      ],
+      "svg": "svg/06-reclamos-acumulados.svg",
+      "svg_sha256": "0ba77daeca8f4318b5c6f4c6ec44f13769b254f6371336201cc14f44e6a96ca4",
+      "png": "png/06-reclamos-acumulados.png",
+      "png_sha256": "dca0edd71aa6b1e801bb279ffd6bd69751d86b41dcd9c37ce48d8c9d17b1df5d",
+      "png_width": 1600,
+      "png_height": 1104,
+      "transparent": true,
+      "viewBox": [
+        40,
+        875,
+        994,
+        686
+      ],
+      "no_video_titles_subtitles_or_brand": true
+    },
+    {
+      "id": "07-integracion-automatizacion",
+      "title": "Integración y automatización",
+      "source_video_time_seconds": 13.9,
+      "sources": [
+        "Maintenance",
+        "Pair programming"
+      ],
+      "svg": "svg/07-integracion-automatizacion.svg",
+      "svg_sha256": "135f75cbc85faa98f55648db50abcd86c694427f74374a63fda75afd40eef062",
+      "png": "png/07-integracion-automatizacion.png",
+      "png_sha256": "1c9422d9999121c6a3ba73aef49bdce0781d77379c35d4d80e64650c22f908e0",
+      "png_width": 1600,
+      "png_height": 1053,
+      "transparent": true,
+      "viewBox": [
+        -88,
+        787,
+        1176,
+        774
+      ],
+      "no_video_titles_subtitles_or_brand": true
+    },
+    {
+      "id": "08-desarrollo-a-medida",
+      "title": "Desarrollo de soluciones a medida",
+      "source_video_time_seconds": 16.4,
+      "sources": [
+        "Maintenance",
+        "Pair programming"
+      ],
+      "svg": "svg/08-desarrollo-a-medida.svg",
+      "svg_sha256": "16f9133464234adc16caf6f932219f1596bb14c6ad19d6599ba3def9e16547a5",
+      "png": "png/08-desarrollo-a-medida.png",
+      "png_sha256": "f49612a705c1de3015ca1185d3653ca3907e28af0d98eff8266a86b8a3f7cf1a",
+      "png_width": 1600,
+      "png_height": 1053,
+      "transparent": true,
+      "viewBox": [
+        -88,
+        787,
+        1176,
+        774
+      ],
+      "no_video_titles_subtitles_or_brand": true
+    },
+    {
+      "id": "09-reunion-consultoria",
+      "title": "Reunión de consultoría",
+      "source_video_time_seconds": 20.4,
+      "sources": [
+        "Meeting"
+      ],
+      "svg": "svg/09-reunion-consultoria.svg",
+      "svg_sha256": "3303a20724042c58bfb7ed68335a23512c443544336bd5a4fb1bb2661070ef00",
+      "png": "png/09-reunion-consultoria.png",
+      "png_sha256": "e7e50d8d29eeae5c6e674922e42a802ec7f81700d40c81f344d1d27a5723f6d8",
+      "png_width": 1600,
+      "png_height": 1140,
+      "transparent": true,
+      "viewBox": [
+        46,
+        857,
+        988,
+        704
+      ],
+      "no_video_titles_subtitles_or_brand": true
+    }
+  ]
+}

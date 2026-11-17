@@ -51,7 +51,22 @@ Seis páginas principales: Inicio, Metodología, Soluciones, Tecnología, Sobre 
 
 Soluciones explica los desafíos y el trabajo posible; `/tecnologia` profundiza en las capacidades para construir y sostener las soluciones. Tecnología mantiene tres bloques con detalles opcionales: `#datos`, `#ia` y `#ingenieria`. Los enlaces desde otras páginas son secundarios a los CTA comerciales. No añadir bibliografía, proveedores como argumento de compra ni atribuir experiencia personal por disponer de documentos en el RAG. En Contacto basta el acceso global; no distraer dentro del formulario.
 
-## Campaña para ISPs de Honduras — 2026-11-16
+## Campaña para ISPs de Honduras — vigente desde 2026-11-17
+
+El propietario rechazó la complejidad de diez escenas y aprobó simplificar la landing siguiendo su video PAS `https://youtube.com/shorts/LNKeNj_uYgU`. Implementado localmente en `develop`, posterior a `29f2e76`, sin nuevo commit o despliegue.
+
+- **Cinco slides:** Hero con video vertical → problemas → consecuencias → solución → conversación. Las nueve ilustraciones aportadas se distribuyen 01–03 en problemas, 04–06 en consecuencias, 07–08 en solución y 09 en conversación; no se duplican en el hero.
+- **Hero:** «¿En tu ISP cuesta dar seguimiento a clientes, coordinar instalaciones o priorizar fallas?». Oferta: integrar datos y automatizar procesos aprovechando sistemas actuales o desarrollando soluciones a medida. CTA «Conversemos sobre tu ISP», al formulario.
+- **Complemento comercial-técnico:** seguimiento de clientes, órdenes/agenda y contexto de fallas; consecuencias posibles, no diagnóstico; integración mediante interfaces disponibles, avisos/tareas, aplicaciones con historial/responsables y vistas con indicadores. Se acuerdan objetivo, fórmula, fuentes y responsables de KPIs. IA opcional, sin reemplazo de sistemas por defecto ni operación de red 24/7.
+- **Conversión:** «Agendemos una reunión breve» se concreta mediante el formulario existente de correo/necesidad, con botón «Coordinar una reunión breve» y texto que explica el contacto posterior para coordinar. No hay reserva automática, contratación implícita ni diagnóstico completo gratuito. Se mantienen foto y trabajo directo de Héctor, alcance/inversión/plazos acordados, origen ISP y motivo `otro`.
+- **Visuales:** SVG estáticos sin tarjetas, fondo azul oscuro y colores originales. Paquete original con fuentes/licencia en `documentos/isp/HGuerra-ilustraciones-landing/`; SVG web y miniatura local en `public/images/isp/`.
+- **Video:** iframe de `youtube-nocookie.com` solo después de activar el botón; aviso previo y `/privacidad#videos`. Sin JS abre YouTube. Independiente del consentimiento de analítica; no se presenta como reproducción anónima.
+- **Implementación:** `src/pages/isp-honduras.astro`, `src/data/ispCampaign.ts`, `src/styles/ispCampaign.css` e `IspSlide.astro`. Se retiran los tres componentes exclusivos del diseño anterior. Flechas, contador, scroll natural y anclas de áreas/contacto conservados; FAQ público y su schema retirados. El detalle de capacidades permanece en la guía interna, no en el módulo de datos público.
+- **Evidencia:** ruta generada por Astro local; cinco secciones/nueve SVG presentes, sin iframe inicial. Sin revisión visual, reproducción del embed, envío real o despliegue verificados. El sitio general y el formulario compartido no se rediseñan.
+
+### Historial de campaña — diseño del 2026-11-16 sustituido
+
+Los párrafos siguientes se conservan como antecedente. Sus menciones a «vigente», diez escenas, siete SVG, componentes/anclas técnicas o FAQ quedaron sustituidas por la dirección del 2026-11-17.
 
 El propietario autorizó una landing segmentada en `/isp-honduras`, sin cambiar la navegación ni el posicionamiento general. Es una excepción específica de campaña, no una página genérica que reoriente HGuerra a desarrollo. La oferta combina desarrollo/modernización, integración, ETL/ELT, DWH, algoritmos, IA, agentes, visualización y mejora continua según la necesidad. Cuando el alcance incluye un ciclo de datos, el software registra la información necesaria mediante interfaces autorizadas; no se impone ETL, DWH o IA para toda aplicación.
 

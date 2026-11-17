@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="997" height="861" viewBox="46 700 997 861" role="img" aria-labelledby="illustration-title illustration-description">
+ <title id="illustration-title">Coordinación de instalaciones</title>
+ <desc id="illustration-description">Coordinación de instalaciones. Composición de HGuerra para su landing, adaptada de ilustraciones de unDraw.</desc>
+ <defs>
+ </defs>
+ <g id="instalacion__contexto" transform="translate(0 0.00000)" opacity="1.00000">
+  <ellipse cx="540" cy="1495" rx="466" ry="38" fill="#102d42" />
+  <path d="M 80 1495 Q 540 1520 1000 1495" stroke="#2b4d63" stroke-width="2" fill="none" />
+  <g id="instalacion__furgoneta">
+   <path d="M 78 1160 V 1023 Q 78 1000 105 1000 H 340 L 450 1100 V 1295 H 78 Z" fill="#d8e4ec" />
+   <path d="M 310 1024 H 335 L 420 1100 H 310 Z" fill="#30566e" />
+   <path d="M 88 1172 H 440" stroke="#7695a9" stroke-width="5" />
+   <circle cx="145" cy="1293" r="49" fill="#455769" />
+   <circle cx="380" cy="1293" r="49" fill="#455769" />
+   <circle cx="145" cy="1293" r="22" fill="#b7cbd6" />
+   <circle cx="380" cy="1293" r="22" fill="#b7cbd6" />
+   <image id="van_isp" x="125" y="1097" width="78" height="62" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAAA+CAYAAACFiC3cAAAFJklEQVR4nO2aa4iWRRSAn9VsK7sJhjeilMgFy9KsJgkqXNT6kT8Ki6ygCaKwfmzQYBcq0ihmkyLDsmKsJOwClmW4a2GBpVPaxY0uImpEZuZaJqx3d/sx75LIN/O97/fOt0rMA++fd845c77DN3PmnHkbOAIhVQ+V2WCNbvKMVURI1R+YBEwGJgDnAYOARmAP0AlsBCzQZo1eU9C+z9cQ+4HdwC9AB9AGfGSN3lvUUENOZ3IHTkh1EjATuB8YXsCXn4HZwGJrdNWg1Bi4SnQCc4G51uiDeZX6RZocACHVOOA74BmKBQ2gCXgTWCGkGhLTryoMBp4C1gmpzs2rFC1wQqpJwCpgdElTzcDnQqoR5b0qxFhgTd7gRQmckKoJWAIMjGEPtx++J6QaEMleXoYCS/PMe0KkCV8FTg+MbwXagS1AF255TMAlj/4enUuBe4FnC/qyHZhT4f0g3PYxBRgZ0B8LtAA6NEnp5CCkagY+9ugdwiWJ+dbowxV0RwILgas8+luBczy6NScyIdU04BXgLI/I9mze/T4bMZbqLYGxFmv0vEo/HMAavQWYCqz36I/A/fOiYo1eittL93lEhuBWg5cYgbvC834vsKCasjV6H/BEQGRcLU7lmLcDeDEgEgxcjD3ubM/7nQXORZ8BX3vGDhT2KD9v4/azSowJKcYInC8DDRdSDbFGb69mwBr9Fy5Z9DUbA2ODQ4oxlurOgO2XhVQnRpijXoRKrcaQYozA+TZ2gOuB1UKqZiFVQ0DuWBE6ZO8OKcZYqh/iMqOPS3DHlW1CqiXAMmCVNborwtxlCfm9OaQYI3ALgYepXpsOwxX/M4GDQqq1wCe4DsWX1ujuCL7kRkh1CnBfQGRdSL/0Us1aMrcBuTsLuIQyEXgUWA38KqSaLaQaWtafPAipBgJvAOd7RHqAD0I2opRc1uiVQqrpwCLg1BpMjAAeAVqEVK3Ak9boQzF860VIdSZuVVwL3I2rh30syw7nXmLVqlij3xdSXYY7VPpKqGoMBB4HJgupbrBG/1GDjdEle3UHgAerCUXtx1mjf7JGXw1chyvqa923JgLtQqozYvlWgBZr9A/VhKIGrhdr9HJr9FRcQrgTeBfYUdDMWGBebN8CdAPKGj0/j3BdAteLNfpPa7SxRk/HFc4X4UqcNvwF9pHcKqQaX08fMzYBU6zRrXkVou1x1cjuETqy57lss74deAgX1Eo0ADOAb+rg0gHgC+A14C1rdKGauM8CdzTW6F3A80KqRcBy4HKPaHMN5iudz3r475ZrM/CjNXpPDbaBkoETUo3hqGZoxi5r9G95bFij/xZSzcAV3JVsFb302WCNfqGgTmHK7nFrge8rPO8UMWKN3gT87hk+Fpm1KmUD58uUF2d7WC6yBoBP/p+CPvUJZQPX4Xl/MqAK2JmG/4ZsQyGP+oiygWsPjM0SUt1VzYCQ6kLgpYDIysJe9QFls+pi3C14pfq0AVggpLoZF5hPrdE7AIRUjcB4YDpwD/6m4WHg9ZI+1oVSgbNG7xRSzQGeDohdkz0IqQ7iDr6n5ZxiQZY4jjtiVA6tuOZkHgaQP2gdwAM1edQHxOjHdQM3UvAIUoWvgEllDqj1Jkqtao3eb42+CZDAthKmunB3rFdaoztj+FYvYreVFgKjgDuAFYRvkXrpBr4FZgGjrNGPFflO7VhR15un7KufC3Dd1mG47NsPF9BO3Ec4663Rx+UhN5FIJBKJRCKRSCQSiUQikUgkEolEIpFIJBKJROJ/zr/ypX9oji7llgAAAABJRU5ErkJggg==" />
+  </g>
+  <g id="instalacion__domicilio">
+   <path d="M 712 1490 V 856 H 991 V 1490 Z" fill="#12344b" />
+   <path d="M 690 856 L 852 728 L 1015 856" fill="#264b63" />
+   <path d="M 796 1000 H 952 V 1490 H 796 Z" fill="#36576b" />
+   <circle cx="928" cy="1248" r="7" fill="#a4becd" />
+  </g>
+ </g>
+ <g id="instalacion__personas" transform="translate(0 0.00000)" opacity="1.00000">
+  <g id="instalacion__tecnica_equipo" transform="translate(905 790) scale(-.85 .85)" opacity="1.00000">
+   <g transform="translate(-890.751 -350.595)" data-source-path="0" id="installation_back__original_0">
+    <g transform="translate(1006.047 350.595)" data-source-path="0/11" id="installation_back__original_0_11">
+     <path d="M34.477,160.286l-4.691-25.338-7.573,23.58C-19.732,149.062,7.1,110.01,26.531,69.564c8.71-18.122,19.453-27.949,29.011-33.251A24.126,24.126,0,0,1,76.359,0a25.208,25.208,0,0,1,2.532.141A24.124,24.124,0,0,0,59.566,34.3c.186-.082.368-.164.554-.244a24.12,24.12,0,1,1,46.71,4.146,58.3,58.3,0,0,1,23.28,21.945c16.227,27.414,6.806,63.321,8.636,84.747,1.372,16.118-41.4,14.244-86.321,15.694q-3.09.115-6.181.117Q40.359,160.708,34.477,160.286Z" transform="translate(223.047 17.738)" fill="#3f3d56" data-source-path="0/11/15" id="installation_back__original_0_11_15" />
+     <path d="M31.96,117.672c7.852-14.83,3.129-31.759-1.9-42.917A37.776,37.776,0,1,1,65.5,63.417C69.061,82.2,94.431,98.786,94.431,98.786L62.469,168.52S18.887,142.374,31.96,117.672Z" transform="translate(269.192 69.072)" fill="#ed9da0" data-source-path="0/11/16" id="installation_back__original_0_11_16" />
+     <path d="M871.469,711.373l10.169,53.751,21.791,5.811-5.811-63.92Z" transform="translate(-535.452 -19.08)" fill="#ed9da0" data-source-path="0/11/17" id="installation_back__original_0_11_17" />
+     <path d="M1022.469,673.637l39.223,53.751,15.98,7.263,13.074-21.791-39.224-50.846Z" transform="translate(-467.09 -39.454)" fill="#ed9da0" data-source-path="0/11/18" id="installation_back__original_0_11_18" />
+     <path d="M937.011,450.367l-24.233-31.9s-46.951,8.657-51.309,13.016,11.622,84.258,11.622,84.258,2.906,21.791,15.98,33.413l13.075,8.716,107.5-21.791,4.042-47.832a125.529,125.529,0,0,0-33.1-95.988h0l-18.705,2.557Z" transform="translate(-609.71 -236.024)" fill="#e6e6e6" data-source-path="0/11/19" id="installation_back__original_0_11_19" />
+     <path d="M873.69,398.837l-7.264-2.906-23.567,11.1s-60.611,18.871-32.2,54.689c33.413,42.129,39.791,24.284,71.752,15.568Z" transform="translate(-616.122 -200.475)" fill="#e6e6e6" data-source-path="0/11/20" id="installation_back__original_0_11_20" />
+     <path d="M890.228,505.785v20.339s-13.074,24.7-8.716,47.94,5.811,34.866,5.811,34.866a198.345,198.345,0,0,0,10.169,58.109c10.169,29.055-23.244,219.362,18.885,222.268s65.373,5.811,78.448-8.716-21.791-264.4-21.791-264.4,119.124,248.417,143.82,238.248,87.164-33.413,79.9-46.487-190.307-303.621-190.307-303.621l-5.811-13.075Z" transform="translate(-600.699 -191.204)" fill="#3f3d56" data-source-path="0/11/21" id="installation_back__original_0_11_21" />
+     <path d="M946.6,791.294s-23.244-1.452-23.244,5.811-11.622,31.96-11.622,31.96-8.716,29.055,14.527,26.149,37.771-29.055,37.771-29.055l-5.811-27.6Z" transform="translate(-587.337 -55.419)" fill="#3f3d56" data-source-path="0/11/22" id="installation_back__original_0_11_22" />
+     <path d="M1108.143,760.807s-20.339-13.075-18.886-4.358,2.906,31.96,13.075,33.413,40.676,10.169,42.129,13.075,36.318,14.527,36.318-4.358-21.791-33.413-21.791-33.413l-24.7-18.886s-15.98-1.453-18.885,8.716S1108.143,760.807,1108.143,760.807Z" transform="translate(-506.275 -75.779)" fill="#3f3d56" data-source-path="0/11/23" id="installation_back__original_0_11_23" />
+     <path d="M905.525,290.571l-32.957-17.264-45.514,7.063-9.417,41.589,23.442-.9,6.549-15.278v15.027l10.815-.416,6.277-24.326,3.924,25.895,38.451-.784Z" transform="translate(-559.822 -215.434)" fill="#3f3d56" data-source-path="0/11/24" id="installation_back__original_0_11_24" />
+     <g transform="translate(0 188.871)" data-source-path="0/11/25" id="installation_back__original_0_11_25">
+      <path d="M637.94,283.376a22.368,22.368,0,0,1,.508,3.48L729.6,339.442l22.156-12.755,23.619,30.921L738.346,384a16.975,16.975,0,0,1-20.366-.5l-93.993-74.152a22.274,22.274,0,1,1,13.953-25.975Z" transform="translate(-457.667 -250.808)" fill="#ffb6b6" data-source-path="0/11/25/0" id="installation_back__original_0_11_25_0" />
+     </g>
+    </g>
+   </g>
+   <g id="cancel__router_devuelto">
+    <path d="M 319 238 V 166 M 431 238 V 174" stroke="#d8e4ec" stroke-width="11" stroke-linecap="round" />
+    <path d="M 289 231 L 423 217 L 455 239 L 320 257 Z" fill="#f3f7fb" />
+    <path d="M 289 231 L 320 257 V 324 L 289 298 Z" fill="#8ea8b9" />
+    <path d="M 320 257 L 455 239 V 309 L 320 324 Z" fill="#bed0dc" />
+    <path d="M 339 276 L 420 265 M 339 285 L 397 277" stroke="#607d90" stroke-width="4" />
+    <circle cx="432" cy="290" r="4" fill="#22d3ee" />
+   </g>
+   <g transform="translate(-890.751 -350.595)" data-source-path="0" id="installation_front__original_0">
+    <g transform="translate(1006.047 350.595)" data-source-path="0/11" id="installation_front__original_0_11">
+     <g transform="translate(251.867 153.649)" data-source-path="0/11/26" id="installation_front__original_0_11_26">
+      <path d="M953.171,511.72l-50.827,1.374s-43.37,8.439-40.936-9.066,44.743-11.383,44.743-11.383l46.313-7.065Z" transform="translate(-861.309 -347.42)" fill="#ed9da0" data-source-path="0/11/26/0" id="installation_front__original_0_11_26_0" />
+      <path d="M969.039,390.6A10.847,10.847,0,0,1,981,398.05c9.95,31.356,40.6,136.286,10.148,150.682-35.873,16.956-62.052,16.21-62.052,16.21l-14.012-34.5,12.756-11.971,13.619-87.564,6.525-37.118Z" transform="translate(-836.96 -390.478)" fill="#e6e6e6" data-source-path="0/11/26/1" id="installation_front__original_0_11_26_1" />
+      <path d="M899.846,379.515l-5.811,58.109-28.106,13.984,33.917-5.268Z" transform="translate(-777.197 -320.996)" opacity="0.4" data-source-path="0/11/26/2" id="installation_front__original_0_11_26_2" />
+     </g>
+    </g>
+   </g>
+  </g>
+  <g id="instalacion__cliente_esperando" transform="translate(820 1105) scale(0.92) translate(-526 0)" opacity="1.00000">
+   <polygon points="578.904 406.55 566.645 406.549 560.812 359.261 578.906 359.262 578.904 406.55" fill="#ffb8b8" data-source-path="9" id="instalacion__cliente_esperando__original_9" />
+   <path d="M795.04105,658.89183l-39.53052-.00147v-.5A15.38605,15.38605,0,0,1,770.897,643.00413h.001l24.1438.001Z" transform="translate(-213.01027 -240.45786)" fill="#2f2e41" data-source-path="10" id="instalacion__cliente_esperando__original_10" />
+   <polygon points="614.904 406.55 602.645 406.549 596.812 359.261 614.906 359.262 614.904 406.55" fill="#ffb8b8" data-source-path="11" id="instalacion__cliente_esperando__original_11" />
+   <path d="M831.04105,658.89183l-39.53052-.00147v-.5A15.38605,15.38605,0,0,1,806.897,643.00413h.001l24.1438.001Z" transform="translate(-213.01027 -240.45786)" fill="#2f2e41" data-source-path="12" id="instalacion__cliente_esperando__original_12" />
+   <path d="M836.1423,455.9l-2.92743,173.69392a4,4,0,0,1-4.36157,3.91617l-14.34623-1.3042a4,4,0,0,1-3.6259-3.67443l-8.39885-108.34524a1,1,0,0,0-1.9963.03944l-4.19794,110.82575A4,4,0,0,1,792.29095,634.9H776.90532a4,4,0,0,1-3.99255-3.756L762.1423,454.9l64-16Z" transform="translate(-213.01027 -240.45786)" fill="#2f2e41" data-source-path="13" id="instalacion__cliente_esperando__original_13" />
+   <circle cx="576.71077" cy="27.78466" r="24.56103" fill="#ffb8b8" data-source-path="14" id="instalacion__cliente_esperando__original_14" />
+   <path d="M759.95089,461.067a4.46926,4.46926,0,0,1-1.3645-3.165l-1.65674-118.44238a28.50084,28.50084,0,0,1,19.282-27.44141c2.301-10.43945,14.54785-11.74707,21.68725-11.59082a11.08482,11.08482,0,0,1,8.97754,4.92285l5.11792,7.67676,11.28027,6.61231a28.528,28.528,0,0,1,13.47022,30.8164l-1.73657,7.89942a181.54005,181.54005,0,0,0,1.69775,84.66015l3.49463,13.32422a4.49944,4.49944,0,0,1-4.698,5.62793l-4.05859-.3125a4.49384,4.49384,0,0,1-4.13257-4.03808l-.67163-6.7168a.50005.50005,0,0,0-.99512,0l-.65015,6.50293a4.49951,4.49951,0,0,1-4.40844,4.05176l-57.43091.88379c-.02393,0-.04761.001-.07153.001A4.47133,4.47133,0,0,1,759.95089,461.067Z" transform="translate(-213.01027 -240.45786)" fill="#3f3d56" data-source-path="15" id="instalacion__cliente_esperando__original_15" />
+   <path d="M791.6423,282.4c.1007,3.472,2.51116,5.48065,5.47052,7.29924s6.41877,2.60712,9.80795,3.36775a2.99863,2.99863,0,0,0,4.40516-2.62457l3.1084-11.82324a74.84087,74.84087,0,0,0,2.39306-11.537c.74861-7.50914-1.031-15.58706-6.27223-21.01634s-14.33083-7.35795-20.61159-3.17478c-7.45361-9.51978-41.52344,11.513-33.11914,18.13281,1.49512,1.17767,3.78063-.31249,5.67841-.45693s4.02454.18937,5.23,1.66219c1.57495,1.9242.889,4.79052,1.538,7.19089a6.71433,6.71433,0,0,0,8.4837,4.34834,23.08966,23.08966,0,0,0,4.39987-2.8286c1.45566-.96958,3.29506-1.686,4.93368-1.0745,2.15991.80607,2.92722,3.45041,3.12242,5.74755A53.2333,53.2333,0,0,0,791.6423,282.4Z" transform="translate(-213.01027 -240.45786)" fill="#2f2e41" data-source-path="16" id="instalacion__cliente_esperando__original_16" />
+   <polygon points="572.896 107.768 568.896 156.768 547.896 207.768 578.896 157.768 572.896 107.768" opacity="0.2" data-source-path="17" id="instalacion__cliente_esperando__original_17" />
+   <path d="M755.9958,467.2182a10.05576,10.05576,0,0,0,.31761-15.41606l13.37856-33.136-18.20228,3.67571-9.9139,30.903a10.11028,10.11028,0,0,0,14.42,13.97337Z" transform="translate(-213.01027 -240.45786)" fill="#ffb8b8" data-source-path="18" id="instalacion__cliente_esperando__original_18" />
+   <path d="M755.02167,452.60406l-10.30361-3.71344A4.52376,4.52376,0,0,1,741.903,443.471l16.99724-62.21933,2.59146-56.2325a12.81885,12.81885,0,1,1,25.588,1.55127l-4.62839,61.57336L760.79374,449.862a4.509,4.509,0,0,1-4.57608,2.99941A4.52235,4.52235,0,0,1,755.02167,452.60406Z" transform="translate(-213.01027 -240.45786)" fill="#3f3d56" data-source-path="19" id="instalacion__cliente_esperando__original_19" />
+   <path d="M861.20705,470.46813a10.05578,10.05578,0,0,0-5.64645-14.34828l-.421-35.73237-15.38084,10.405,2.75785,32.33687a10.11027,10.11027,0,0,0,18.69046,7.33881Z" transform="translate(-213.01027 -240.45786)" fill="#ffb8b8" data-source-path="20" id="instalacion__cliente_esperando__original_20" />
+   <path d="M854.67755,457.35754l-10.93889.54305a4.52374,4.52374,0,0,1-4.68581-3.91661l-8.287-63.96466-19.274-52.88971a12.81886,12.81886,0,1,1,24.21028-8.42712l19.4521,58.603,3.79337,65.29778a4.509,4.509,0,0,1-3.06718,4.53093A4.52179,4.52179,0,0,1,854.67755,457.35754Z" transform="translate(-213.01027 -240.45786)" fill="#3f3d56" data-source-path="21" id="instalacion__cliente_esperando__original_21" />
+  </g>
+ </g>
+ <g id="instalacion__agenda_sin_asignar" transform="translate(0 0.00000)" opacity="1.00000">
+  <g id="instalacion__agenda_papel" transform="translate(130 1152)" opacity="1.00000">
+   <path d="M 0 0 H 112 V 115 H 0 Z" fill="#edece8" />
+   <path d="M 0 0 H 112 V 24 H 0 Z" fill="#5b7a90" />
+   <path d="M 20 -7 V 10 M 90 -7 V 10" stroke="#a4b3bf" stroke-width="6" />
+   <path d="M 14 47 H 98 M 14 70 H 98 M 14 93 H 98 M 38 34 V 105 M 75 34 V 105" stroke="#b6c0c8" stroke-width="2" />
+  </g>
+  <g id="instalacion__sin_turno" transform="translate(270 1205) scale(0.65)" opacity="1.00000">
+   <path d="M 0 -30 L 31 25 H -31 Z" fill="#fb923c" />
+   <path d="M 0 -11 V 6" stroke="#4a291c" stroke-width="5" stroke-linecap="round" />
+   <circle cy="15" r="3" fill="#4a291c" />
+  </g>
+ </g>
+</svg>

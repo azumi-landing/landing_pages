@@ -5,141 +5,118 @@ import SeoHead from '../components/SeoHead.astro';
 import AnalyticsConsent from '../components/AnalyticsConsent.astro';
 import ContactForm from '../components/sections/ContactForm.astro';
 import IspSlide from '../components/sections/IspSlide.astro';
-import IspAreaScene from '../components/sections/IspAreaScene.astro';
-import IspEngineering from '../components/sections/IspEngineering.astro';
-import { ispScenarios, ispFaqs, ispCtaLabel, ispIllustrations } from '../data/ispCampaign';
-import { buildFAQSchema, buildServiceSchema } from '../data/site';
+import { ispProblems, ispConsequences, ispSolutions, ispMeeting, ispCtaLabel } from '../data/ispCampaign';
+import { buildServiceSchema } from '../data/site';
 
 const title = 'Software e ingeniería de datos para ISPs en Honduras | HGuerra';
-const description = 'Aplicaciones, integraciones, análisis y automatización para conectar clientes, operación y monitoreo de tu ISP. Conversemos sobre una primera solución con alcance acordado.';
-const total = 10;
-const hero = ispIllustrations.introduccion;
-const method = ispIllustrations['forma-de-trabajo'];
+const description = 'Integro datos y automatizo procesos para dar seguimiento a clientes, coordinar instalaciones y priorizar fallas de tu ISP. Sistemas actuales y soluciones a medida.';
+const total = 5;
+const videoUrl = 'https://www.youtube.com/shorts/LNKeNj_uYgU';
 ---
 
 <!doctype html>
 <html lang="es" class="isp-campaign">
   <head>
     <SeoHead title={title} description={description} path="/isp-honduras"
-      schemas={[buildFAQSchema(ispFaqs), buildServiceSchema({ name: 'Desarrollo de software e ingeniería de datos para ISPs', description, path: '/isp-honduras', areaServed: 'Honduras' })]} />
+      schemas={[buildServiceSchema({ name: 'Desarrollo de software e ingeniería de datos para ISPs', description, path: '/isp-honduras', areaServed: 'Honduras' })]} />
   </head>
   <body class="page-body-light isp-deck">
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
     <main id="contenido" tabindex="-1">
-      <IspSlide id="introduccion" index={0} total={total} label="Para ISPs de Honduras" tone="dark" titleId="isp-title">
-        <div class="split-slide">
+      <IspSlide id="introduccion" index={0} total={total} label="Para ISPs de Honduras" tone="dark" titleId="isp-title" class="hero-slide">
+        <div class="hero-layout">
           <div class="slide-copy">
-            <p class="hero-eyebrow">Software e ingeniería de datos para ISPs de Honduras.</p>
-            <h1 id="isp-title">¿Qué problemas están frenando <span>el crecimiento de tu ISP?</span></h1>
-            <p class="slide-lead">Clientes que cancelan, procesos manuales y sistemas desconectados dificultan el crecimiento y el control de tu negocio.</p>
-            <p class="slide-lead"><strong>Cada ISP tiene desafíos diferentes. La solución comienza por entenderlos.</strong></p>
-            <p class="slide-lead">En HGuerra.com diseño e implemento soluciones a medida con <strong>software personalizado, ingeniería de datos y agentes de inteligencia artificial</strong>.</p>
+            <p class="hero-eyebrow">Software a medida · Datos · Automatización</p>
+            <h1 id="isp-title">¿En tu ISP cuesta dar seguimiento a clientes, coordinar instalaciones o <span>priorizar fallas?</span></h1>
+            <p class="slide-lead">Integro datos y automatizo procesos, aprovechando tus sistemas actuales o desarrollando <strong>soluciones a medida</strong>.</p>
             <a href="/isp-honduras#conversemos" class="campaign-cta">{ispCtaLabel} <span aria-hidden="true">↗</span></a>
-            <p class="hero-note">Cuéntame qué necesitas mejorar y evaluemos una primera solución.</p>
+            <p class="hero-note">Agendemos una reunión breve para conocer qué necesitás mejorar.</p>
           </div>
-          <figure class="isp-illustration hero-visual">
-            <img src={hero.src} alt={hero.alt} width={hero.width} height={hero.height} fetchpriority="high" />
-          </figure>
+          <div class="hero-video">
+            <div class="video-frame" id="isp-video">
+              <a class="video-poster" href={videoUrl} target="_blank" rel="noopener noreferrer" data-load-isp-video aria-label="Ver video: software a medida y automatización para tu ISP" aria-describedby="video-privacy">
+                <img src="/images/isp/video-poster.jpg" alt="" width="1280" height="720" fetchpriority="high" />
+                <span class="video-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m9 5 11 7-11 7V5Z" /></svg></span>
+                <span class="video-caption">Ver video</span>
+              </a>
+            </div>
+            <p class="video-privacy" id="video-privacy">Al activar el video, se carga YouTube y se comparten datos técnicos con Google. <a href="/privacidad#videos">Privacidad</a>.</p>
+            <a class="video-external" href={videoUrl} target="_blank" rel="noopener noreferrer">Ver directamente en YouTube <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
         <span slot="footer">Héctor Guerra · Consultoría + implementación + acompañamiento</span>
       </IspSlide>
 
-      {ispScenarios.map((scenario, index) => (
-        <IspSlide id={scenario.id} index={index + 1} total={total} label={scenario.area}
-          tone={index === 1 ? 'muted' : 'light'} titleId={`scenario-${scenario.id}`} class="area-slide">
-          <div class="split-slide">
-            {scenario.id === 'operativa' && <IspAreaScene area={scenario.id} illustration={scenario.illustration} />}
-            <div class="slide-copy scenario-copy">
-              <h2 id={`scenario-${scenario.id}`}>{scenario.title}</h2>
-              <p class="scenario-problem">{scenario.problem}</p>
-              <p class="scenario-problem">{scenario.consequence}</p>
-              <div class="scenario-solution">
-                <h3>Cómo puedo ayudarte</h3>
-                <p>{typeof scenario.solution === 'string' ? scenario.solution : <>{scenario.solution.before}<strong>{scenario.solution.emphasis}</strong>{scenario.solution.after}</>}</p>
+      <IspSlide id="problemas" index={1} total={total} label="El problema" tone="dark" titleId="problems-title">
+        <div class="scene-intro">
+          <h2 id="problems-title">Cuando la información está dispersa, <span>dar seguimiento cuesta más.</span></h2>
+          <p class="slide-lead">Clientes, instalaciones y fallas necesitan contexto, responsables y un siguiente paso claro.</p>
+        </div>
+        <div class="illustrated-grid">
+          {ispProblems.map((problem) => (
+            <article class="illustrated-item" id={problem.id}>
+              <img src={problem.image.src} alt={problem.image.alt} width={problem.image.width} height={problem.image.height} loading="lazy" decoding="async" />
+              <div class="item-copy"><h3>{problem.title}</h3><p>{problem.description}</p></div>
+            </article>
+          ))}
+        </div>
+        <span slot="footer">¿Reconocés alguna de estas situaciones en tu equipo?</span>
+      </IspSlide>
+
+      <IspSlide id="consecuencias" index={2} total={total} label="Lo que está en juego" tone="dark" titleId="consequences-title">
+        <div class="scene-intro">
+          <h2 id="consequences-title">Lo pendiente puede convertirse en <span>cancelaciones, cobros sin resolver y más reclamos.</span></h2>
+          <p class="slide-lead">Cuando el seguimiento se interrumpe, el equipo dedica tiempo a reconstruir casos y el cliente sigue esperando.</p>
+        </div>
+        <div class="illustrated-grid">
+          {ispConsequences.map((item) => (
+            <article class="illustrated-item">
+              <img src={item.image.src} alt={item.image.alt} width={item.image.width} height={item.image.height} loading="lazy" decoding="async" />
+              <div class="item-copy"><h3>{item.title}</h3><p>{item.description}</p></div>
+            </article>
+          ))}
+        </div>
+        <a slot="footer" href="#solucion" class="slide-text-cta">Cómo puedo ayudarte <span aria-hidden="true">↓</span></a>
+      </IspSlide>
+
+      <IspSlide id="solucion" index={3} total={total} label="Cómo puedo ayudarte" tone="dark" titleId="solution-title">
+        <div class="scene-intro">
+          <h2 id="solution-title">Conecto lo que ya tenés y <span>desarrollo lo que hace falta.</span></h2>
+          <p class="slide-lead">Partimos del proceso que necesitás mejorar para construir una solución que tu equipo pueda usar.</p>
+        </div>
+        <div class="solution-grid">
+          {ispSolutions.map((solution) => (
+            <article class="solution-item">
+              <img src={solution.image.src} alt={solution.image.alt} width={solution.image.width} height={solution.image.height} loading="lazy" decoding="async" />
+              <div class="item-copy">
+                <h3>{solution.title}</h3>
+                <ul>{solution.details.map((detail) => <li>{detail}</li>)}</ul>
               </div>
-              <p class="scenario-delivery"><strong>Qué recibe tu equipo:</strong> {scenario.deliverable}</p>
-              <p class="scenario-benefit"><strong>Para qué le sirve:</strong> {scenario.benefit}</p>
-              <p class="related-solutions"><strong>{scenario.relatedSolutions.join(' · ')}</strong></p>
-              <a href="/isp-honduras#conversemos" class="campaign-cta">{ispCtaLabel} <span aria-hidden="true">↗</span></a>
-            </div>
-            {scenario.id !== 'operativa' && <IspAreaScene area={scenario.id} illustration={scenario.illustration} />}
-          </div>
-          <span slot="footer">Una solución posible, no un diagnóstico de tu ISP ni resultados garantizados.</span>
-        </IspSlide>
-      ))}
-
-      <IspSlide id="forma-de-trabajo" index={4} total={total} label="Cómo trabajo" tone="dark" titleId="method-title" class="method-slide">
-        <div class="split-slide">
-          <div class="slide-copy scenario-copy">
-            <h2 id="method-title">¿Tenés mejoras pendientes y no sabés por dónde empezar?</h2>
-            <p class="scenario-problem">Sin una prioridad clara, las mejoras pueden quedarse en ideas o cambios que no resuelven el problema.</p>
-            <ol class="method-steps">
-              <li><h3>Entender</h3><p>Revisamos tu proceso y elegimos qué mejorar primero.</p></li>
-              <li><h3>Construir e integrar</h3><p>Aprovecho lo que funciona y desarrollo lo que falta.</p></li>
-              <li><h3>Acompañar</h3><p>Transfiero el uso y acordamos cómo sostener la solución.</p></li>
-            </ol>
-            <p class="scenario-delivery"><strong>Qué recibe tu equipo:</strong> una primera solución utilizable, con alcance y criterios acordados.</p>
-            <p class="scenario-benefit"><strong>Para qué le sirve:</strong> avanzar por etapas sin cambiarlo todo.</p>
-            <a href="/isp-honduras#conversemos" class="campaign-cta">{ispCtaLabel} <span aria-hidden="true">↗</span></a>
-          </div>
-          <figure class="isp-illustration illustration-unframed">
-            <img src={method.src} alt={method.alt} width={method.width} height={method.height} loading="lazy" decoding="async" />
-          </figure>
+            </article>
+          ))}
         </div>
-      </IspSlide>
-
-      <IspEngineering ctaLabel={ispCtaLabel} total={total} />
-
-      <IspSlide id="primera-entrega" index={7} total={total} label="Primera entrega y confianza" tone="dark" titleId="trust-title">
-        <div class="split-slide">
-          <div class="slide-copy scenario-copy">
-            <h2 id="trust-title">¿Qué vas a recibir y quién te va a acompañar?</h2>
-            <div class="profile">
-              <img src="/mi_foto_pro.jpeg" alt="Héctor Guerra" width="96" height="96" loading="lazy" decoding="async" />
-              <div><strong>Héctor Guerra</strong><p>Ingeniero Electricista Industrial<br />Tegucigalpa, Honduras</p></div>
-            </div>
-            <p class="scenario-problem">Trabajo directamente con vos, desde entender la necesidad hasta implementar y transferir la solución.</p>
-            <p class="scenario-delivery"><strong>Antes de iniciar:</strong> acordamos entrega, alcance, inversión, dependencias y plazos.</p>
-            <p class="scenario-benefit"><strong>Para qué le sirve a tu equipo:</strong> saber qué recibirá, cómo se evaluará y cómo usarlo.</p>
-            <a href="/isp-honduras#conversemos" class="campaign-cta">{ispCtaLabel} <span aria-hidden="true">↗</span></a>
-          </div>
-          <ol class="delivery-list" aria-label="Qué recibís de una primera intervención">
-            <li><span aria-hidden="true">01</span><div><h3>Una solución utilizable</h3><p>Software, integración, automatización o datos para la necesidad priorizada.</p></div></li>
-            <li><span aria-hidden="true">02</span><div><h3>Criterios de aceptación</h3><p>Cómo validar la entrega y medir lo acordado.</p></div></li>
-            <li><span aria-hidden="true">03</span><div><h3>Transferencia y continuidad</h3><p>Documentación, formación y acompañamiento según el alcance.</p></div></li>
-          </ol>
-        </div>
-        <p class="slide-note">Accesos, trazabilidad y recuperación se acuerdan para los componentes entregados; no es seguridad integral ni operación de red 24/7.</p>
-      </IspSlide>
-
-      <IspSlide id="dudas" index={8} total={total} label="Antes de avanzar" titleId="faq-title">
-        <div class="split-slide">
-          <div class="slide-copy">
-            <h2 id="faq-title">Empezar sin <span>cambiarlo todo.</span></h2>
-            <p class="slide-lead">No necesitás elegir una tecnología ni contratar todo el ciclo. Empecemos por la necesidad que más importa.</p>
-          </div>
-          <div class="faq-list">
-            {ispFaqs.map((faq, index) => <details open={index === 0}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}
-          </div>
-        </div>
+        <p class="solution-principle">Empezamos por una necesidad concreta. <strong>No hace falta reemplazar todos tus sistemas ni incorporar IA si no aporta valor.</strong></p>
+        <p class="slide-note">La viabilidad depende de los accesos e interfaces disponibles. Acordamos permisos y trazabilidad; las herramientas de monitoreo no incluyen operar tu red 24/7.</p>
         <a slot="footer" href="#conversemos" class="slide-text-cta">{ispCtaLabel} <span aria-hidden="true">↗</span></a>
       </IspSlide>
 
-      <IspSlide id="conversemos" index={9} total={total} label="Tu siguiente paso" tone="muted" titleId="contact-title">
+      <IspSlide id="conversemos" index={4} total={total} label="Una primera conversación" tone="dark" titleId="contact-title">
         <div class="contact-layout">
           <div class="contact-copy">
-            <h2 id="contact-title">Conversemos sobre lo que querés mejorar en tu ISP.</h2>
-            <p class="slide-lead">Contame qué ISP representás y qué se está trabando hoy. Revisamos si puedo ayudarte y qué primera entrega tendría sentido.</p>
+            <h2 id="contact-title">Conversemos sobre tu ISP. <span>Agendemos una reunión breve.</span></h2>
+            <p class="slide-lead">Contame qué está costando resolver. Revisamos tus sistemas actuales y evaluamos una primera solución con alcance claro.</p>
+            <img class="meeting-illustration" src={ispMeeting.src} alt={ispMeeting.alt} width={ispMeeting.width} height={ispMeeting.height} loading="lazy" decoding="async" />
+            <div class="profile">
+              <img src="/mi_foto_pro.jpeg" alt="Héctor Guerra" width="72" height="72" loading="lazy" decoding="async" />
+              <div><strong>Héctor Guerra</strong><p>Ingeniero Electricista Industrial · Tegucigalpa, Honduras.<br />Trabajo directamente con vos, desde entender la necesidad hasta implementar y transferir la solución.</p></div>
+            </div>
           </div>
           <div class="contact-panel">
-            <h3>Contame tu necesidad</h3>
-            <p class="form-intro">Qué ISP representás y qué querés resolver.</p>
-            <ContactForm originPath="/isp-honduras" tone="light" defaultService="otro" showService={false} detailPlaceholder="Represento a [nombre del ISP]. El problema que queremos resolver es… Hoy nos cuesta… Usamos…" submitLabel="Enviar mi consulta" />
+            <h3>Coordinemos la reunión</h3>
+            <p class="form-intro">Dejame tu correo y contame qué necesitás mejorar. Te contacto para coordinar.</p>
+            <ContactForm originPath="/isp-honduras" tone="light" defaultService="otro" showService={false} detailPlaceholder="Represento a [nombre del ISP]. Queremos mejorar… Hoy usamos… Podemos conversar…" submitLabel="Coordinar una reunión breve" />
+            <p class="contact-terms">Si avanzamos, acordamos entrega, alcance, inversión y plazos antes de iniciar. La consulta no es una contratación ni incluye un diagnóstico completo gratuito.</p>
           </div>
-          <aside class="contact-followup" aria-label="Qué pasa después de escribir">
-            <ol><li>Reviso el contexto.</li><li>Conversamos sobre el encaje.</li><li>Si avanzamos, acordamos una propuesta con entrega, alcance e inversión.</li></ol>
-            <p class="slide-note">La consulta no es una contratación ni incluye un diagnóstico completo gratuito.</p>
-          </aside>
         </div>
       </IspSlide>
     </main>
@@ -154,6 +131,31 @@ const method = ispIllustrations['forma-de-trabajo'];
     </nav>
     <footer class="campaign-footer"><div class="legal-inner"><p><strong>HGuerra</strong> · Inteligencia aplicada a desafíos reales.</p><div><a href="/privacidad">Privacidad</a><a href="/terminos">Términos</a></div></div></footer>
     <AnalyticsConsent enabled={true} />
+    <script>
+      const videoFrame = document.querySelector<HTMLElement>('#isp-video')!;
+      const videoTrigger = videoFrame.querySelector<HTMLAnchorElement>('[data-load-isp-video]')!;
+      const videoButton = document.createElement('button');
+      videoButton.type = 'button';
+      videoButton.className = videoTrigger.className;
+      videoButton.setAttribute('aria-label', 'Reproducir video: software a medida y automatización para tu ISP');
+      videoButton.setAttribute('aria-describedby', 'video-privacy');
+      videoButton.append(...videoTrigger.childNodes);
+      videoTrigger.replaceWith(videoButton);
+
+      videoButton.addEventListener('click', () => {
+        // No iframe, remote thumbnail or YouTube SDK is loaded before this gesture.
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/LNKeNj_uYgU?autoplay=1&playsinline=1&rel=0&hl=es';
+        iframe.title = 'Software a medida y automatización para ISP en Honduras — HGuerra';
+        iframe.width = '360';
+        iframe.height = '640';
+        iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        iframe.allowFullscreen = true;
+        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+        videoFrame.replaceChildren(iframe);
+        iframe.focus();
+      }, { once: true });
+    </script>
     <script>
       const navigation = document.querySelector<HTMLElement>('.slide-navigation')!;
       const slides = [...document.querySelectorAll<HTMLElement>('.isp-slide')];

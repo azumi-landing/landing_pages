@@ -1,0 +1,145 @@
+{
+  "recorded_at_utc": "2026-11-17T20:59:44.697329+00:00",
+  "used_sources": [
+    {
+      "title": "Negative Review",
+      "source_page": "https://undraw.co/search/customer",
+      "file": "undraw_negative-review_6l58.svg",
+      "sha256": "5c8128457436047c940d4431d2036175d25e1d4dfecb70aaa7d31f440b7c6756",
+      "license": "https://undraw.co/license",
+      "download_method": "official Download SVG button",
+      "used_in": "S1/S2",
+      "derivatives": [
+        {
+          "file": "assets/layers/agent.svg",
+          "sha256": "e46670d8799c82670f2374d43f3e1a2e3cae0c30ec7fcfeee5120304601461a2"
+        }
+      ],
+      "source_creator": "Katerina Limpitsouni / unDraw",
+      "source_type": "official SVG, original human geometry preserved",
+      "inherited_from": "r9-undraw-20261117",
+      "download_timestamp": "not recorded in inherited manifest"
+    },
+    {
+      "title": "Payments",
+      "source_page": "https://undraw.co/search/payment",
+      "file": "undraw_payments_nbqu.svg",
+      "sha256": "bc1170d3dfef4b1ec1e5c6c095bae2beecaf1ffd0a2b58ab8bd214ee99f77988",
+      "license": "https://undraw.co/license",
+      "download_method": "official Download SVG button",
+      "used_in": "S1/S2",
+      "derivatives": [
+        {
+          "file": "assets/layers/customer.svg",
+          "sha256": "1c2c10780b943819d3379e598d72625ab16e5a07dce002297d049ea53d9d6a85"
+        }
+      ],
+      "source_creator": "Katerina Limpitsouni / unDraw",
+      "source_type": "official SVG, original human geometry preserved",
+      "inherited_from": "r9-undraw-20261117",
+      "download_timestamp": "not recorded in inherited manifest"
+    },
+    {
+      "title": "Order Delivered",
+      "source_page": "https://undraw.co/search/delivery",
+      "file": "undraw_order-delivered_gy61.svg",
+      "sha256": "a1708d7ccf522912180e8f92b3e70ec55687f8666b3fec6cd93a70a3f7ac9a89",
+      "license": "https://undraw.co/license",
+      "download_method": "official Download SVG button",
+      "used_in": "S1/S2",
+      "derivatives": [
+        {
+          "file": "assets/layers/return-back.svg",
+          "sha256": "1f21652d2ddfb7d87a2316ee3863968f31178d4a0e9e95271a645791e85285d3"
+        },
+        {
+          "file": "assets/layers/return-front.svg",
+          "sha256": "9b702ab8c666f49161b0f9d173488f0549d34ecaf14ba8aa2291e1e9090ce0af"
+        }
+      ],
+      "source_creator": "Katerina Limpitsouni / unDraw",
+      "source_type": "official SVG, original human geometry preserved",
+      "inherited_from": "r9-undraw-20261117",
+      "download_timestamp": "not recorded in inherited manifest"
+    },
+    {
+      "title": "Maintenance",
+      "file": "undraw_maintenance_4unj.svg",
+      "source_page": "https://undraw.co/search/server",
+      "sha256": "61465d523840e986c35b389594e0ded41e3f7b672ed4ba08a42d090c82fe541d",
+      "download_date_utc": "2026-11-17",
+      "recorded_at_utc": "2026-11-17T20:52:51.544490+00:00",
+      "license": "https://undraw.co/license",
+      "download_method": "normal search, title card, official Download SVG for your projects button",
+      "used_in": "S1/S3",
+      "derivatives": [
+        {
+          "file": "assets/layers/maintenance-context.svg",
+          "sha256": "da658f1de0dd828c433ba1e87a235fe73f02d8f263d21f29082125903b110a5d"
+        },
+        {
+          "file": "assets/layers/maintenance-person.svg",
+          "sha256": "391b162a12c3efe13c09fa7a435bb13d3b91bb91ff23fb06e7e368a72b0e50cd"
+        }
+      ],
+      "source_creator": "Katerina Limpitsouni / unDraw",
+      "source_type": "official SVG, original human geometry preserved"
+    },
+    {
+      "title": "Pair programming",
+      "file": "undraw_pair-programming_9jyg.svg",
+      "source_page": "https://undraw.co/search/server",
+      "sha256": "3c785b94134dcdae4d200af4d41cf6a30afbde5e0946d4dc95c6efdaa23be93d",
+      "download_date_utc": "2026-11-17",
+      "recorded_at_utc": "2026-11-17T20:52:51.544530+00:00",
+      "license": "https://undraw.co/license",
+      "download_method": "normal search, title card, official Download SVG for your projects button",
+      "used_in": "S3",
+      "derivatives": [
+        {
+          "file": "assets/layers/development-workstation.svg",
+          "sha256": "9ec7cfb720549cc9409d7cd680dd2bdd4a7b2b12815ab33ff9b7be0cb1ea1daf"
+        },
+        {
+          "file": "assets/layers/development-people.svg",
+          "sha256": "6f6e4c1571fd4087368d40d4fe67f3c0c1396a55dd9edfdf9bbd58153b7c2585"
+        },
+        {
+          "file": "assets/layers/development-code.svg",
+          "sha256": "6088456c521490e2b866de679580a1a371cc751b53c40f441b6d5807efcb1d1e"
+        }
+      ],
+      "source_creator": "Katerina Limpitsouni / unDraw",
+      "source_type": "official SVG, original human geometry preserved"
+    },
+    {
+      "title": "Meeting",
+      "file": "undraw_meeting_dunc.svg",
+      "source_page": "https://undraw.co/search/meeting",
+      "sha256": "db817bd77c00e76fff305d332fa10382475d9a6bb12db619f96d5af8c435acb3",
+      "download_date_utc": "2026-11-17",
+      "recorded_at_utc": "2026-11-17T20:52:51.544555+00:00",
+      "license": "https://undraw.co/license",
+      "download_method": "normal search, title card, official Download SVG for your projects button",
+      "used_in": "S4",
+      "derivatives": [
+        {
+          "file": "assets/layers/meeting-left.svg",
+          "sha256": "856e1af41f2581d12f0648c7b0e5ef1e212bf42fa548e276585b3eb4328a4065"
+        },
+        {
+          "file": "assets/layers/meeting-right.svg",
+          "sha256": "57d313cc68b0bd3f67362d111718f2481fe846d3c5c2f6d84f3983374957fb3b"
+        }
+      ],
+      "source_creator": "Katerina Limpitsouni / unDraw",
+      "source_type": "official SVG, original human geometry preserved"
+    }
+  ],
+  "font": "Inter Bold / Regular, assets/fonts/OFL.txt",
+  "not_used_in_video": [
+    "Live Support",
+    "Printing invoices",
+    "Transfer Money"
+  ]
+}

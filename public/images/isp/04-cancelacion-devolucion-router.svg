@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="988" height="843" viewBox="46 718 988 843" role="img" aria-labelledby="illustration-title illustration-description">
+ <title id="illustration-title">Cancelación y devolución de router</title>
+ <desc id="illustration-description">Cancelación y devolución de router. Composición de HGuerra para su landing, adaptada de ilustraciones de unDraw.</desc>
+ <defs>
+ </defs>
+ <g id="cancel__contexto" transform="translate(0 0.00000)" opacity="1.00000">
+  <ellipse cx="540" cy="1495" rx="466" ry="38" fill="#102d42" />
+  <path d="M 80 1495 Q 540 1520 1000 1495" stroke="#2b4d63" stroke-width="2" fill="none" />
+ </g>
+ <g id="cancel__counter_layer" transform="translate(0 0.00000)" opacity="1.00000">
+  <g id="cancel__mostrador" transform="" opacity="1.00000">
+   <path d="M 630 1122 L 955 1122 L 941 1490 L 644 1490 Z" fill="#20455f" />
+   <path d="M 625 1112 L 960 1112 L 975 1136 L 610 1136 Z" fill="#b7cbd6" />
+   <path d="M 610 1136 H 975 V 1151 H 610 Z" fill="#6f91a6" />
+   <image id="cancel__mostrador_isp" x="748.5" y="1238" width="82" height="64" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFIAAABACAYAAACJMiALAAAFU0lEQVR4nO2aa4iWRRSAn69c81KhWWlkunSRFBOjSGmbxW6WbQkxsVCWkUQRRCQF/tCpYPpR4Y+QhITsj2Blji5eI1ulJkoLSdoNrASN0uiiGeFWam4/5hWWz33nvc2nW8wD74/9zpwzZ8/7zsyZM1OjD9rYXtKZqKTY7ZGfgjZ2PNAGtAITgbHAeUAvcAT4HtgNWGCDkmJfEfs5fE7jZP+HgG+Az4H1SopPS9gCoFbAqdyB1MZOB14AbgfOyulLL7AFeF5JsT2nTtlApvFl0n9HUcVBAZ1AGzsceBV4tIR6DZgJzNTGLgPmKyn+DOheHqYAa7Wxq4BHlBQ9eRXzfi2ZaGNHAR9SLoj1PA5s0caeH8BWGdqBrcmHkYsggdTGDgbWAdeFsJfQAqzUxtYyWzaGacCKvI1DDe3ngBsz2hwGdgK/JP2OB6YCTR6dNmAesLykXx3A73W/NQFjgAm4xc/HvdrYdiXFqqyOKi822tgxwF5gSIrePmA+blX8p053VCJbQPpL/QFortet4nOiVwME8DIw3WNjNzBJSeFd1EJ8kQ+RHsT9QIuS4kB/QiXFQWCRNnYX8G6KjbHADKCzmpun9N0LfKSNbQVWAvelNL066X+bz16IOXKmR/ZSWhD7oqRYDRhPk5sKe5UTJcUx4DHgZ0+z2Vl2QgRyskeWOx8E3vHIxhWwUxglxW/A254m12fZCDG0L/DIRhSwswW4J0WW+VUHoBN4KkV2VZZyiEAeBQanyOYAH+QxoqQ4DGwI4E9Z9ntkI7KUQwztnzyyh7WxC7WxwRL/BnK2R5aZy4b4B33zYA14EdipjZ2njfVNA2eaSz2y+lz0FEIM7TW4IexjKi6pXqaN3Qq8j0sndikpTgTwIQS+7GNPlnKIQK7FVU2m5Gg7iKQwkfx9WBvbCWwG1iopDgXwpzDa2Itw++s0dmbZqDy0k8T2QeCPEuojAAm8AezXxq7Qxk6s6lMRtLHnAG/izz7WZ9kJsggoKbpw++JfK5gZgnshXdrYpdrYYSF8S0MbW0t2NRa429N0Dzkyj6CFXW1sM/A6cEdWxznoBmYrKfZm9OnzeQdur9yXJmA0rmhxWQ4/5igpVmY1ClrYTY4K7tTGtgHP4vaoZZmMq0m2KCl8KZaPaclTlo48QYSAhd2+KCk2Kiluxr31Bbjhc6yEqSsoX0KrynbcVJOLhibKSopvlRSvKClagZHALGAxsAt3RpOHNm3srQ1yMY23gFuUFEfyKgQd2j4Sp95LHrSxl+DyzyeAyzPU5xK4jJbCF7jDr8xVup7TFsh6lBQ/Aou1sUtwFfaFnuZ3Be7+BNADHAS+xi1KG5UUO8oaPGOBPImS4iiuuDsMVy3vjwu1scOLDLWEwmfxZakUSG3sZvo/c/lLSeHLzfpjCemBBLgYd6QxIKn6Rd5Ayo5AG9tc8OZEVjL/dwFbp52qq7bvC8kqZNRzjUd2jGq7poZTNZCfeWTPaGOvzGMkOdFb5GnSncylA5aqgVztkY0EOrWxLT4D2thzcUm3b2VeU8K300rVOXIbLve6NkU+Dvg4WZTWAV24CwJDcYXUGbgccbSnjx7O3O4mN5UCqaTo1cY+ibvz47M1K3nKoJOcc0AToh75CfB0dVf6pQN3E2LAE6oeuRR3Cy1kirICaM+6KjJQCFa0UFIsx91Gq7on/g64X0kxN7kF8Z8gaPVHSfGVkuI2XKL+Gu4CVR6OAJuAB4AJSgrfrYcBScPvHiZVnklAMy4lGgocxwXvAK6U362kON5oXyKRSCQSiUQikUgkEolEIpFIJBKJRCKRSCQSiUQikf8R/wIkvIbhDkozMwAAAABJRU5ErkJggg==" />
+  </g>
+ </g>
+ <g id="cancel__agente_layer" transform="translate(0 0.00000)" opacity="1.00000">
+  <g id="cancel__agente" transform="translate(640 774.5) scale(0.65) translate(-451.896 -132.822)" opacity="1.00000">
+   <g transform="translate(-365.939 -203.519)" data-source-path="0" id="cancel__agente__original_0">
+    <g transform="translate(817.835 336.341)" data-source-path="0/0" id="cancel__agente__original_0_0">
+     <path d="M368.179,642.379a9.672,9.672,0,0,1-3.318-.587L292.79,615.6a9.727,9.727,0,0,1,1.454-18.688l199.048-38.968a9.749,9.749,0,0,1,4.838.282l55.615,17.821a9.729,9.729,0,0,1-.527,18.682L370.624,642.068a9.7,9.7,0,0,1-2.444.312Z" transform="translate(-286.384 -164.528)" fill="#3f3d56" data-source-path="0/0/0" id="cancel__agente__original_0_0_0" />
+     <path d="M489.872,517.49,594.4,530.052,575.346,566.8l-92.161-13.377c-7.588,5.382-18.135,7.778-29.1,5.739-19.184-3.572-32.342-19.333-29.387-35.213s20.9-25.851,40.087-22.279C475.749,503.708,484.727,509.739,489.872,517.49Z" transform="translate(-262.307 -131.262)" fill="#ed9da0" data-source-path="0/0/1" id="cancel__agente__original_0_0_1" />
+     <path d="M651.517,103.562a83.194,83.194,0,1,0-83.659,104.851l43.258,98.414,61.32-87.352s-22.985-17.158-38.792-39.237a83.1,83.1,0,0,0,17.872-76.676Z" transform="translate(-278.806 -12.284)" fill="#ed9da0" data-source-path="0/0/2" id="cancel__agente__original_0_0_2" />
+     <path d="M763.928,340.877a73.878,73.878,0,0,0-67.86-46.1c-37.668-.363-85.616,9.487-87.592,61.546-3.273,86.2,0,51.5,0,51.5s-26,64.75,0,95.98,48.678,92.79,48.678,92.79H815.171S787.892,524.5,792.58,475.312c3.18-33.388-11.987-93.215-28.651-134.432Z" transform="translate(-307.067 -77.801)" fill="#e6e6e6" data-source-path="0/0/3" id="cancel__agente__original_0_0_3" />
+     <path d="M819.082,252.2c-4.329,7.8-16.83,7.362-23,.912s-7.2-16.284-6.231-25.155,3.582-17.6,3.4-26.518c-.344-17.026,21.863,10.8,10.457-1.846s-24.45-24.259-32.245-39.4l-.941-.965c3.33-11-4.746-22.233-13.837-29.258s-19.989-12.391-26.2-22.064c-5.281-8.226-6.348-18.343-8.659-27.846C712.879,43.254,681.924,12.726,645,4.282s-78.071,5.6-102.13,34.852l.579-1.213a43.541,43.541,0,0,0-32.825,31.307c-1.129,4.479-1.5,9.294,0,13.663s5.163,8.183,9.726,8.906c4.893.772,9.788-2.1,12.8-6.035s4.518-8.785,5.965-13.521a58.53,58.53,0,0,0,42.65,40.838,15.259,15.259,0,0,0,21.748,15.712l1.159-1.1,17.088.772a57.263,57.263,0,0,0,14.646,81.682c10.319,6.8,22.505,10.073,34.479,13.13s15.511,24.5,31.26,43.116c-.834,21.158,14.868,41.8,35.485,46.641l-5.659,19c11.466-4.078,24.02-.364,36.126.869s26.786-1.7,31.438-12.948c4.947-11.957-4.5-24.634-13.284-34.133,17.888,1.784,35.036-15.777,32.83-33.615Z" transform="translate(-317.015 -1.854)" fill="#3f3d56" data-source-path="0/0/4" id="cancel__agente__original_0_0_4" />
+     <path d="M440.2,595.172l101.792,26.888-23.954,33.765-89.428-25.989c-8.259,4.282-19.036,5.2-29.614,1.662-18.507-6.187-29.359-23.62-24.238-38.937s24.276-22.714,42.786-16.526c10.577,3.536,18.633,10.751,22.659,19.139Z" transform="translate(-249.136 -150.164)" fill="#ed9da0" data-source-path="0/0/5" id="cancel__agente__original_0_0_5" />
+     <path d="M682.213,438.8s-4.441,195.278-68.124,188.766-84.757-14.71-84.757-14.71-12.883-49.183,9.365-50.357,51.289-6.649,51.289-6.649V414.217" transform="translate(-288.582 -108.773)" fill="#e6e6e6" data-source-path="0/0/6" id="cancel__agente__original_0_0_6" />
+    </g>
+   </g>
+  </g>
+ </g>
+ <g id="cancel__cliente" transform="translate(850.5 730) scale(-.95 .95)" opacity="1.00000">
+  <g id="cancel__cliente_back_layer" transform="translate(0 0.00000)" opacity="1.00000">
+   <g transform="translate(-890.751 -350.595)" data-source-path="0" id="return_back__original_0">
+    <g transform="translate(1006.047 350.595)" data-source-path="0/11" id="return_back__original_0_11">
+     <path d="M34.477,160.286l-4.691-25.338-7.573,23.58C-19.732,149.062,7.1,110.01,26.531,69.564c8.71-18.122,19.453-27.949,29.011-33.251A24.126,24.126,0,0,1,76.359,0a25.208,25.208,0,0,1,2.532.141A24.124,24.124,0,0,0,59.566,34.3c.186-.082.368-.164.554-.244a24.12,24.12,0,1,1,46.71,4.146,58.3,58.3,0,0,1,23.28,21.945c16.227,27.414,6.806,63.321,8.636,84.747,1.372,16.118-41.4,14.244-86.321,15.694q-3.09.115-6.181.117Q40.359,160.708,34.477,160.286Z" transform="translate(223.047 17.738)" fill="#3f3d56" data-source-path="0/11/15" id="return_back__original_0_11_15" />
+     <path d="M31.96,117.672c7.852-14.83,3.129-31.759-1.9-42.917A37.776,37.776,0,1,1,65.5,63.417C69.061,82.2,94.431,98.786,94.431,98.786L62.469,168.52S18.887,142.374,31.96,117.672Z" transform="translate(269.192 69.072)" fill="#ed9da0" data-source-path="0/11/16" id="return_back__original_0_11_16" />
+     <path d="M871.469,711.373l10.169,53.751,21.791,5.811-5.811-63.92Z" transform="translate(-535.452 -19.08)" fill="#ed9da0" data-source-path="0/11/17" id="return_back__original_0_11_17" />
+     <path d="M1022.469,673.637l39.223,53.751,15.98,7.263,13.074-21.791-39.224-50.846Z" transform="translate(-467.09 -39.454)" fill="#ed9da0" data-source-path="0/11/18" id="return_back__original_0_11_18" />
+     <path d="M937.011,450.367l-24.233-31.9s-46.951,8.657-51.309,13.016,11.622,84.258,11.622,84.258,2.906,21.791,15.98,33.413l13.075,8.716,107.5-21.791,4.042-47.832a125.529,125.529,0,0,0-33.1-95.988h0l-18.705,2.557Z" transform="translate(-609.71 -236.024)" fill="#e6e6e6" data-source-path="0/11/19" id="return_back__original_0_11_19" />
+     <path d="M873.69,398.837l-7.264-2.906-23.567,11.1s-60.611,18.871-32.2,54.689c33.413,42.129,39.791,24.284,71.752,15.568Z" transform="translate(-616.122 -200.475)" fill="#e6e6e6" data-source-path="0/11/20" id="return_back__original_0_11_20" />
+     <path d="M890.228,505.785v20.339s-13.074,24.7-8.716,47.94,5.811,34.866,5.811,34.866a198.345,198.345,0,0,0,10.169,58.109c10.169,29.055-23.244,219.362,18.885,222.268s65.373,5.811,78.448-8.716-21.791-264.4-21.791-264.4,119.124,248.417,143.82,238.248,87.164-33.413,79.9-46.487-190.307-303.621-190.307-303.621l-5.811-13.075Z" transform="translate(-600.699 -191.204)" fill="#3f3d56" data-source-path="0/11/21" id="return_back__original_0_11_21" />
+     <path d="M946.6,791.294s-23.244-1.452-23.244,5.811-11.622,31.96-11.622,31.96-8.716,29.055,14.527,26.149,37.771-29.055,37.771-29.055l-5.811-27.6Z" transform="translate(-587.337 -55.419)" fill="#3f3d56" data-source-path="0/11/22" id="return_back__original_0_11_22" />
+     <path d="M1108.143,760.807s-20.339-13.075-18.886-4.358,2.906,31.96,13.075,33.413,40.676,10.169,42.129,13.075,36.318,14.527,36.318-4.358-21.791-33.413-21.791-33.413l-24.7-18.886s-15.98-1.453-18.885,8.716S1108.143,760.807,1108.143,760.807Z" transform="translate(-506.275 -75.779)" fill="#3f3d56" data-source-path="0/11/23" id="return_back__original_0_11_23" />
+     <path d="M905.525,290.571l-32.957-17.264-45.514,7.063-9.417,41.589,23.442-.9,6.549-15.278v15.027l10.815-.416,6.277-24.326,3.924,25.895,38.451-.784Z" transform="translate(-559.822 -215.434)" fill="#3f3d56" data-source-path="0/11/24" id="return_back__original_0_11_24" />
+     <g transform="translate(0 188.871)" data-source-path="0/11/25" id="return_back__original_0_11_25">
+      <path d="M637.94,283.376a22.368,22.368,0,0,1,.508,3.48L729.6,339.442l22.156-12.755,23.619,30.921L738.346,384a16.975,16.975,0,0,1-20.366-.5l-93.993-74.152a22.274,22.274,0,1,1,13.953-25.975Z" transform="translate(-457.667 -250.808)" fill="#ffb6b6" data-source-path="0/11/25/0" id="return_back__original_0_11_25_0" />
+     </g>
+    </g>
+   </g>
+  </g>
+  <g id="cancel__router_layer" transform="translate(0 0.00000)" opacity="1.00000">
+   <g id="cancel__router_devuelto">
+    <path d="M 319 238 V 166 M 431 238 V 174" stroke="#d8e4ec" stroke-width="11" stroke-linecap="round" />
+    <path d="M 289 231 L 423 217 L 455 239 L 320 257 Z" fill="#f3f7fb" />
+    <path d="M 289 231 L 320 257 V 324 L 289 298 Z" fill="#8ea8b9" />
+    <path d="M 320 257 L 455 239 V 309 L 320 324 Z" fill="#bed0dc" />
+    <path d="M 339 276 L 420 265 M 339 285 L 397 277" stroke="#607d90" stroke-width="4" />
+    <circle cx="432" cy="290" r="4" fill="#22d3ee" />
+   </g>
+  </g>
+  <g id="cancel__cliente_front_layer" transform="translate(0 0.00000)" opacity="1.00000">
+   <g transform="translate(-890.751 -350.595)" data-source-path="0" id="return_front__original_0">
+    <g transform="translate(1006.047 350.595)" data-source-path="0/11" id="return_front__original_0_11">
+     <g transform="translate(251.867 153.649)" data-source-path="0/11/26" id="return_front__original_0_11_26">
+      <path d="M953.171,511.72l-50.827,1.374s-43.37,8.439-40.936-9.066,44.743-11.383,44.743-11.383l46.313-7.065Z" transform="translate(-861.309 -347.42)" fill="#ed9da0" data-source-path="0/11/26/0" id="return_front__original_0_11_26_0" />
+      <path d="M969.039,390.6A10.847,10.847,0,0,1,981,398.05c9.95,31.356,40.6,136.286,10.148,150.682-35.873,16.956-62.052,16.21-62.052,16.21l-14.012-34.5,12.756-11.971,13.619-87.564,6.525-37.118Z" transform="translate(-836.96 -390.478)" fill="#e6e6e6" data-source-path="0/11/26/1" id="return_front__original_0_11_26_1" />
+      <path d="M899.846,379.515l-5.811,58.109-28.106,13.984,33.917-5.268Z" transform="translate(-777.197 -320.996)" opacity="0.4" data-source-path="0/11/26/2" id="return_front__original_0_11_26_2" />
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

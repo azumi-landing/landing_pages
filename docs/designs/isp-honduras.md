@@ -1,14 +1,42 @@
 # Landing ISP Honduras — desarrollo de software e ingeniería de datos
 
 - **Author:** Héctor Guerra
-- **Fecha:** 2026-11-16
-- **Estado:** Primera implementación guardada en `94e01f6`; ajuste posterior de viewport y flechas aplicado y revisado localmente. Sin nuevo commit o despliegue.
+- **Fecha:** 2026-11-17
+- **Estado:** Simplificación PAS implementada localmente en `develop`, posterior a `29f2e76`. Sin nuevo commit, push o despliegue.
 - **Entrada de contexto:** `.dev/docs/isp-honduras/concepts_brief.md`, incluidas las adendas comercial, visual y de selección de borradores existentes.
 - **EGM artifact directory:** `.dev/docs/isp-honduras/`
 - **Destino al finalizar:** `docs/designs/isp-honduras.md`
 - **Alcance vigente:** implementación local autorizada por el propietario después del cierre del diseño. No realizar commits, desplegar ni modificar hosting, analítica o formulario compartido.
 
-## Revisión que sustituye la propuesta anterior
+## Versión vigente — cinco slides siguiendo el video
+
+El propietario consideró complicada la estructura de diez escenas y aprobó reemplazarla por cinco, siguiendo el diálogo PAS de su video: dificultad para seguir clientes, coordinar instalaciones y priorizar fallas → posibles cancelaciones, cobros pendientes y reclamos → integración, automatización y soluciones a medida → reunión breve. El contenido comercial-técnico amplía ese argumento, no crea otro catálogo de tecnologías.
+
+| Slide | Contenido | Recurso |
+| --- | --- | --- |
+| Hero | Pregunta del video, oferta y CTA «Conversemos sobre tu ISP» | Short `https://youtube.com/shorts/LNKeNj_uYgU`, formato 9:16 |
+| Problemas | Seguimiento a clientes, coordinación de instalaciones, priorización de fallas | Ilustraciones 01–03 |
+| Consecuencias | Cancelaciones, cobros pendientes y reclamos acumulados, sin diagnosticar al visitante | Ilustraciones 04–06 |
+| Solución | Integración/automatización y desarrollo a medida; entregas e indicadores acordados | Ilustraciones 07–08 |
+| Conversación | Reunión breve, identidad y trabajo directo de Héctor, formulario y condiciones | Ilustración 09 y fotografía real |
+
+**Implementación:** `src/pages/isp-honduras.astro`, datos `ispProblems`, `ispConsequences`, `ispSolutions` e `ispMeeting` en `src/data/ispCampaign.ts`, composición compartida `IspSlide.astro` y estilos limitados a `.isp-deck` en `src/styles/ispCampaign.css`. Se retiran del código los componentes de la versión sustituida (`IspAreaScene`, `IspArchitecture`, `IspEngineering`), sin consumidores restantes. Los SVG anteriores permanecen conservados.
+
+**Recursos:** el paquete aportado se movió desde la raíz a `documentos/isp/HGuerra-ilustraciones-landing/`, conservando SVG/PNG, vista previa, índices, fuentes y licencia unDraw. Los nueve SVG de uso web se copian a `public/images/isp/`. Se conservan colores y proporciones, sobre fondos azul oscuro y sin tarjetas de ilustración. No se añaden animaciones ni librerías.
+
+**Video y privacidad:** miniatura oficial de YouTube guardada localmente como `public/images/isp/video-poster.jpg`. El enlace inicial funciona sin JavaScript; con JS se convierte en botón que inserta un iframe de `youtube-nocookie.com` solo al pulsarlo. Ese gesto solicita la reproducción; no hay iframe, miniatura remota ni SDK de YouTube en la carga inicial. El reproductor conserva controles de YouTube, pantalla completa, título y foco, con enlace externo siempre disponible. Aviso junto al video y explicación en `/privacidad#videos`; activar el video no concede consentimiento de analítica.
+
+**Contacto y navegación:** se mantienen `#conversemos`, correo/necesidad, EmailJS, motivo interno `otro`, origen ISP y analítica existente. Botón de envío «Coordinar una reunión breve»: envía una consulta para coordinar, no reserva automáticamente ni ofrece diagnóstico completo gratuito. Alcance/inversión/plazos antes de iniciar. Cinco slides, flechas y contador actualizados, scroll natural y crecimiento en móvil/zoom; sin capturar rueda o teclado. Se conservan las anclas de área `#comercial`, `#operativa` y `#tecnica` sobre sus bloques de problemas. Se retira el FAQ y su JSON-LD, pues ya no hay FAQ visible; el schema de servicio permanece.
+
+**Ajuste móvil solicitado después:** las flechas laterales y su espacio reservado se ocultan hasta 800 px inclusive mediante el breakpoint existente de `src/styles/ispCampaign.css`. En escritorio se mantienen; en móvil se usa scroll natural con todo el ancho disponible. Revisión focal de la cascada CSS, sin pruebas/builds ni nueva revisión visual.
+
+**Evidencia y límites:** la ruta se generó con el servidor Astro local y contiene las cinco secciones y nueve SVG esperados. El HTML inicial no incluye iframe ni subrecursos de YouTube; existe el CDN de iconos heredado de `SeoHead`, ajeno a este cambio. No se ejecutaron build o suites generales, ni envío del formulario. No acredita revisión visual en navegador, reproducción efectiva del embed, entrega externa, aceptación del propietario o despliegue.
+
+## Historial — diseño de diez escenas sustituido el 2026-11-17
+
+Lo que sigue conserva la evolución anterior; sus referencias a «vigente», diez slides, siete ilustraciones, FAQ, anclas técnicas y componentes retirados no describen la versión actual.
+
+### Revisión que sustituyó la propuesta anterior
 
 Las observaciones del propietario amplían la audiencia y cambian el énfasis del borrador. La landing debe vender desarrollo de software e ingeniería de datos mediante una narrativa publicitaria, no presentar un ejercicio de conciliación o una guía técnica como oferta principal.
 

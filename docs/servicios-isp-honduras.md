@@ -1,10 +1,20 @@
 # Guía de servicios para ISPs de Honduras
 
-**Actualizado:** 2026-11-16. Documento interno de estudio y preparación comercial.
+**Actualizado:** 2026-11-17. Documento interno de estudio y preparación comercial.
 
 **Landing:** `/isp-honduras` (`src/pages/isp-honduras.astro`).
 
 **Contenido comercial:** `src/data/ispCampaign.ts`.
+
+## Landing vigente — PAS y video
+
+El propietario aprobó sustituir las diez escenas por cinco siguiendo su video `https://youtube.com/shorts/LNKeNj_uYgU`: Hero con video vertical → problemas → consecuencias → solución → conversación. Ilustraciones del video 01–03, 04–06, 07–08 y 09 respectivamente en las cuatro escenas posteriores al hero. La página complementa el diálogo con situaciones y entregas concretas: seguimiento de clientes, órdenes/agenda, priorización de fallas, integración por interfaces disponibles, avisos/tareas, aplicaciones e indicadores acordados. No se obliga a reemplazar sistemas o incorporar IA.
+
+La reunión breve se coordina mediante correo/necesidad, no un calendario automático. CTA de navegación «Conversemos sobre tu ISP», botón de formulario «Coordinar una reunión breve»; se explica que se contactará para coordinar. Alcance, inversión y plazos antes de iniciar; no incluye diagnóstico completo gratuito.
+
+Implementación en `src/pages/isp-honduras.astro`, `ispProblems`/`ispConsequences`/`ispSolutions`/`ispMeeting` de `src/data/ispCampaign.ts`, `IspSlide.astro` y `src/styles/ispCampaign.css`. Paquete original y licencia en `documentos/isp/HGuerra-ilustraciones-landing/`, SVG y miniatura local en `public/images/isp/`. El iframe se carga al activar el video; explicación en `/privacidad#videos`. Se retiran FAQ público/schema y los tres componentes exclusivos de la composición anterior; capacidades y fuentes permanecen en esta guía, no como requisitos de arquitectura.
+
+El resto de esta guía conserva el respaldo comercial-técnico y el historial de las versiones previas. Las descripciones antiguas del layout, anclas de ingeniería, siete SVG, animación automática y diez escenas no son el estado vigente; consultar la revisión actual al inicio de `docs/designs/isp-honduras.md`.
 
 ## 1. Qué vendemos
 
