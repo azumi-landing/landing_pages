@@ -55,8 +55,9 @@ const videoUrl = 'https://www.youtube.com/shorts/LNKeNj_uYgU';
         <div class="illustrated-grid">
           {ispProblems.map((problem) => (
             <article class="illustrated-item" id={problem.id}>
+              <h3 class="item-heading">{problem.title}</h3>
               <img src={problem.image.src} alt={problem.image.alt} width={problem.image.width} height={problem.image.height} loading="lazy" decoding="async" />
-              <div class="item-copy"><h3>{problem.title}</h3><p>{problem.description}</p></div>
+              <div class="item-copy"><p>{problem.description}</p></div>
             </article>
           ))}
         </div>
@@ -71,8 +72,9 @@ const videoUrl = 'https://www.youtube.com/shorts/LNKeNj_uYgU';
         <div class="illustrated-grid">
           {ispConsequences.map((item) => (
             <article class="illustrated-item">
+              <h3 class="item-heading">{item.title}</h3>
               <img src={item.image.src} alt={item.image.alt} width={item.image.width} height={item.image.height} loading="lazy" decoding="async" />
-              <div class="item-copy"><h3>{item.title}</h3><p>{item.description}</p></div>
+              <div class="item-copy"><p>{item.description}</p></div>
             </article>
           ))}
         </div>
@@ -87,9 +89,9 @@ const videoUrl = 'https://www.youtube.com/shorts/LNKeNj_uYgU';
         <div class="solution-grid">
           {ispSolutions.map((solution) => (
             <article class="solution-item">
+              <h3 class="item-heading">{solution.title}</h3>
               <img src={solution.image.src} alt={solution.image.alt} width={solution.image.width} height={solution.image.height} loading="lazy" decoding="async" />
               <div class="item-copy">
-                <h3>{solution.title}</h3>
                 <ul>{solution.details.map((detail) => <li>{detail}</li>)}</ul>
               </div>
             </article>

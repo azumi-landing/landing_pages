@@ -66,13 +66,15 @@ html.isp-campaign { scroll-padding-top: 0; }
 .isp-deck .scene-intro { display: grid; gap: 1rem; max-inline-size: 66rem; }
 .isp-deck .scene-intro h2 { font-size: clamp(1.95rem, 1.35rem + 1.6vw, 3rem); }
 .isp-deck .illustrated-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 3.5rem); }
-.isp-deck .illustrated-item { display: grid; grid-template-rows: auto 1fr; gap: 1.25rem; min-inline-size: 0; scroll-margin-block-start: 2rem; }
+.isp-deck .illustrated-item { display: grid; grid-template-areas: "image" "title" "copy"; grid-template-rows: auto auto 1fr; min-inline-size: 0; scroll-margin-block-start: 2rem; }
 .isp-deck .illustrated-item > img { inline-size: 100%; block-size: clamp(10rem, 26dvh, 17rem); object-fit: contain; }
-.isp-deck .item-copy { border-block-start: 1px solid var(--deck-rule); padding-block-start: 1rem; }
-.isp-deck .item-copy h3 { font-size: clamp(1.2rem, 1.05rem + .4vw, 1.5rem); line-height: 1.3; margin-block-end: .7rem; }
+.isp-deck :is(.illustrated-item, .solution-item) > img { grid-area: image; }
+.isp-deck .item-heading { grid-area: title; border-block-start: 1px solid var(--deck-rule); padding-block-start: 1rem; margin-block-start: 1.25rem; margin-block-end: .7rem; font-size: clamp(1.2rem, 1.05rem + .4vw, 1.5rem); line-height: 1.3; }
+.isp-deck .item-copy { grid-area: copy; }
 .isp-deck .item-copy p, .isp-deck .item-copy li { color: var(--deck-muted); font-size: 1.1rem; line-height: 1.65; }
 .isp-deck .solution-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(2rem, 5vw, 5rem); }
-.isp-deck .solution-item { min-inline-size: 0; display: grid; grid-template-rows: auto 1fr; gap: 1rem; }
+.isp-deck .solution-item { min-inline-size: 0; display: grid; grid-template-areas: "image" "title" "copy"; grid-template-rows: auto auto 1fr; }
+.isp-deck .solution-item > .item-heading { margin-block-start: 1rem; }
 .isp-deck .solution-item > img { inline-size: 100%; block-size: clamp(10rem, 23dvh, 15rem); object-fit: contain; }
 .isp-deck .solution-item ul { display: grid; gap: .7rem; list-style: disc; padding-inline-start: 1.2rem; }
 .isp-deck .solution-item li::marker { color: var(--deck-accent); }
@@ -125,7 +127,8 @@ html.isp-campaign { scroll-padding-top: 0; }
   .isp-deck .hero-video { inline-size: min(100%, 21rem); }
   .isp-deck .illustrated-item > img { block-size: 13rem; }
   .isp-deck .solution-item > img { block-size: 14rem; }
-  .isp-deck .illustrated-item, .isp-deck .solution-item { max-inline-size: 34rem; inline-size: 100%; margin-inline: auto; }
+  .isp-deck .illustrated-item, .isp-deck .solution-item { max-inline-size: 34rem; inline-size: 100%; margin-inline: auto; grid-template-areas: "title" "image" "copy"; gap: 1rem; border-block-start: 1px solid var(--deck-rule); padding-block-start: 1.5rem; }
+  .isp-deck :is(.illustrated-item, .solution-item) > .item-heading { border-block-start: 0; padding-block-start: 0; margin-block: 0; }
   .isp-deck .meeting-illustration { max-block-size: none; max-inline-size: 21rem; }
   .isp-deck .slide-signature { max-inline-size: 12rem; line-height: 1.6; }
 }
